@@ -83,14 +83,14 @@ living:
   rent_period: 2026-09
   rent_source: 中指研究院 50 城住宅租赁价格指数（元/㎡/月）
   rent_source_url: https://m.cih-index.com/news/2026-10-16/55166711.html
-  consumption_per_capita: null
-  income_per_capita: null
-  stats_year: null
-  stats_source_url: null
+  consumption_per_capita: 49506
+  income_per_capita: 86320
+  stats_year: 2025
+  stats_source_url: https://tjj.nanjing.gov.cn/bmfw/njsj/202604/P020260403596571125416.docx
   verified_at: 2026-11-09
-  needs_human: true
-  needs_human_reason: 南京市统计局网站被拦截（HTTP 403）。搜索摘要显示 2025 年城镇居民人均可支配收入 86320 元（https://tjj.nanjing.gov.cn/tjxx/202602/t20260204_5786807.html），消费支出未找到；需人工核对。
-  access_blocked: true
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
 
 flexible_employment:
   pension_base_min: null
@@ -138,3 +138,13 @@ changelog:
     old: null
     new: 首次采集（官网被拦截，多数待人工）
     basis: 苏人社发〔2026〕30号（苏州市政府转载）、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: living.income_per_capita
+    old: null
+    new: 86320
+    basis: 《南京市2025年国民经济和社会发展统计公报》（南京市统计局、国家统计局南京调查队）原文「城镇居民人均可支配收入86320元，增长3.9%」
+  - date: 2026-11-09
+    field: living.consumption_per_capita
+    old: null
+    new: 49506
+    basis: 同上公报原文「城镇居民人均消费支出49506元，增长3.3%」；南京市统计局局长信箱 2026-04-27 答复亦确认此数
