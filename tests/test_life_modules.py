@@ -19,6 +19,20 @@ class NavigationTests(unittest.TestCase):
             self.assertEqual({x['id'] for x in cards[city]}, {'water','power','gas','heating','climate','healthcare'})
             self.assertTrue(all(not x['calculator_enabled'] and not x['usable'] for x in cards[city]))
 
+    def test_guangzhou_navigation_preserves_scope_and_effective_date(self):
+        cards = {r['id']: r for r in build_modules(['guangzhou'], on=dt.date(2026, 11, 9))['guangzhou']}
+        self.assertEqual(cards['water']['effective_from'], '2025-06-01')
+        self.assertIsNone(cards['water']['effective_to'])
+        self.assertIn('五年', cards['water']['reference_period'])
+        self.assertIn('次月', cards['water']['summary'])
+        self.assertEqual(len(cards['water']['links']), 2)
+        self.assertIn('广州东部发展燃气', cards['gas']['coverage'])
+        self.assertEqual(len(cards['gas']['links']), 2)
+        for card in (cards['water'], cards['gas']):
+            self.assertFalse(card['usable'])
+            self.assertFalse(card['calculator_enabled'])
+            self.assertEqual(card['status'], 'link_only')
+
     def test_review_window_and_future_verification(self):
         rows = build_modules(['beijing'], on=dt.date(2027, 2, 10))['beijing']
         self.assertEqual(next(x for x in rows if x['id']=='water')['status'], 'pending_review')

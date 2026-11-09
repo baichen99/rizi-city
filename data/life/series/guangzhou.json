@@ -303,7 +303,7 @@
           "geographic_scope": "广州市",
           "source_id": "gz-health-2025",
           "review_status": "restricted",
-          "missing_reason": "已找到官方资料；再分发许可未确认，暂仅提供官方入口。",
+          "missing_reason": "官方报告已有居民预期寿命披露，但人口范围、出生时口径与计算方法尚未确认，来源使用条件亦未完成复核，暂不纳入可比较数列。",
           "verified_at": "2026-11-09",
           "comparability_key": "guangzhou|life_expectancy|岁|居民（常住/户籍定义待确认）|广州市|{'statistic': 'life_expectancy_at_birth', 'sex': 'all', 'age': 0}",
           "statistic": "life_expectancy_at_birth",
