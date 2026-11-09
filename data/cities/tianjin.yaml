@@ -56,6 +56,51 @@ living:
   income_per_capita: 60099
   stats_year: 2025
   stats_source_url: http://tjzd.stats.gov.cn/system/2026/01/20/030241179.shtml
+  statistical_metadata:
+    income_per_capita:
+      source_value: 60099
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 天津市全市行政范围内的城镇地区，非仅市内六区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+      methodology_note: 天津总队按统一住户调查制度发布。天津市政府2026-01-22经济运行第六节同列60099元并明确按常住地分；NBS方法说明各调查总队按统一方案组织、按常住地而非户籍、样本加权汇总，该指标为人均平均数，非工资/中位数。
+      cross_city_comparability_key: resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: http://tjzd.stats.gov.cn/system/2026/01/20/030241179.shtml
+      source_date: '2026-01-20'
+      publisher: 国家统计局天津调查总队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第一节居民收入情况首段：2025全年城镇居民人均可支配收入60099元；当地常住佐证 https://www.tj.gov.cn/sq/zfsj/sjfb/202601/t20260122_7229572.html 第六节
+      data_status: not_specified
+    consumption_per_capita:
+      source_value: 39693
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 天津市全市行政范围内的城镇地区，非仅市内六区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+      methodology_note: 与收入同一总队住户调查及城镇人口分组，常住范围由NBS统一调查制度佐证；未声称已读天津年鉴方法PDF。原文附注年度数据包含自产自用部分，季度不含，本记录为全年；使用提醒：不是单身现金生活预算。
+      cross_city_comparability_key: resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: http://tjzd.stats.gov.cn/system/2026/01/20/030241179.shtml
+      source_date: '2026-01-20'
+      publisher: 国家统计局天津调查总队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第二节居民消费支出情况首段：2025全年城镇居民人均消费支出39693元；年度含自产自用部分见原文附注
+      data_status: not_specified
   verified_at: 2026-11-09
   needs_human: false
   needs_human_reason: null
@@ -153,3 +198,55 @@ changelog:
     old: null
     new: 天津事业单位2026/2027统一招聘公告及其应届口径未核实，不将公务员口径用于事业单位。
     basis: 考公考编专项巡检；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html
+  - date: '2026-11-09'
+    field: living.statistical_metadata.income_per_capita
+    old: null
+    new:
+      source_value: 60099
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 天津市全市行政范围内的城镇地区，非仅市内六区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+      methodology_note: 天津总队按统一住户调查制度发布。天津市政府2026-01-22经济运行第六节同列60099元并明确按常住地分；NBS方法说明各调查总队按统一方案组织、按常住地而非户籍、样本加权汇总，该指标为人均平均数，非工资/中位数。
+      cross_city_comparability_key: resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: http://tjzd.stats.gov.cn/system/2026/01/20/030241179.shtml
+      source_date: '2026-01-20'
+      publisher: 国家统计局天津调查总队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第一节居民收入情况首段：2025全年城镇居民人均可支配收入60099元；当地常住佐证 https://www.tj.gov.cn/sq/zfsj/sjfb/202601/t20260122_7229572.html 第六节
+      data_status: not_specified
+    basis: http://tjzd.stats.gov.cn/system/2026/01/20/030241179.shtml；第一节居民收入情况首段：2025全年城镇居民人均可支配收入60099元；当地常住佐证 https://www.tj.gov.cn/sq/zfsj/sjfb/202601/t20260122_7229572.html 第六节；方法 https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+  - date: '2026-11-09'
+    field: living.statistical_metadata.consumption_per_capita
+    old: null
+    new:
+      source_value: 39693
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 天津市全市行政范围内的城镇地区，非仅市内六区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+      methodology_note: 与收入同一总队住户调查及城镇人口分组，常住范围由NBS统一调查制度佐证；未声称已读天津年鉴方法PDF。原文附注年度数据包含自产自用部分，季度不含，本记录为全年；使用提醒：不是单身现金生活预算。
+      cross_city_comparability_key: resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: http://tjzd.stats.gov.cn/system/2026/01/20/030241179.shtml
+      source_date: '2026-01-20'
+      publisher: 国家统计局天津调查总队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第二节居民消费支出情况首段：2025全年城镇居民人均消费支出39693元；年度含自产自用部分见原文附注
+      data_status: not_specified
+    basis: http://tjzd.stats.gov.cn/system/2026/01/20/030241179.shtml；第二节居民消费支出情况首段：2025全年城镇居民人均消费支出39693元；年度含自产自用部分见原文附注；方法 https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
