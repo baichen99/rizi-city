@@ -1,6 +1,6 @@
 {
  "latest_verified": "2026-11-09",
- "city_count": 15,
+ "city_count": 16,
  "disclaimer": "仅供参考，申请前以官方页面为准。",
  "cities": [
   {
@@ -1457,6 +1457,265 @@
    },
    "latest_verified": "2026-11-09",
    "needs_human_count": 4
+  },
+  {
+   "city": "济南",
+   "province": "山东",
+   "maintainers": [],
+   "last_patrol": "2026-11-09",
+   "hukou": {
+    "summary": "全日制普通中专及国家承认的大专以上学历人员，凭身份证、学历证明、户口簿和拟落户地证件即可落户，不要求先就业",
+    "education_min": "全日制普通中专（含技工、职业院校）",
+    "age_limit": "原文未设",
+    "requires_job_or_social_security": false,
+    "eligible_by_degree": {
+     "associate": true,
+     "bachelor": true,
+     "master": true,
+     "phd": true
+    },
+    "tier_by_degree": {
+     "associate": "direct",
+     "bachelor": "direct",
+     "master": "direct",
+     "phd": "direct"
+    },
+    "age_max_by_degree": {
+     "associate": 0,
+     "bachelor": 0,
+     "master": 0,
+     "phd": 0
+    },
+    "conditions": [
+     "驻济院校在校生也可凭录取通知书或学生证等落户"
+    ],
+    "apply_window": "常态办理",
+    "policy_name": "济南市支持高校毕业生就业创业政策40条（2024版）第 32 条，济南市人民政府办公厅 2024-05-21 印发",
+    "source_url": "https://jnhrss.jinan.gov.cn/col65769/art/2025/art_65769_4805813.html",
+    "source_date": "2024-05-21",
+    "valid_until": null,
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false,
+    "lead": null,
+    "lead_url": null
+   },
+   "subsidies": [
+    {
+     "name": "本科、专科租赁住房补贴",
+     "type": "rent",
+     "amount": "符合条件的全日制本科、专科毕业生每月 700 元、500 元，最长 3 年",
+     "amount_by_degree": {
+      "associate": 500,
+      "bachelor": 700,
+      "master": null,
+      "phd": null
+     },
+     "period": "month",
+     "periods_max": 36,
+     "payout": "按月",
+     "target": "在济就业的全日制本科、专科毕业生（\"符合条件\"的具体要求见住建局新市民青年人租赁补贴通知）",
+     "conditions": [
+      "住建局 2024-11 通知另列：毕业不超过 5 年、在相关区稳定就业、有户籍或居住证等"
+     ],
+     "deadline_rule": null,
+     "policy_name": "济南市支持高校毕业生就业创业政策40条（2024版）第 30 条",
+     "source_url": "https://jnhrss.jinan.gov.cn/col65769/art/2025/art_65769_4805813.html",
+     "source_date": "2024-05-21",
+     "valid_until": null,
+     "verified_at": "2026-11-09",
+     "needs_human": false,
+     "needs_human_reason": null,
+     "access_blocked": false,
+     "lead": null,
+     "lead_url": null
+    },
+    {
+     "name": "E 类人才硕博生活补贴",
+     "type": "living",
+     "amount": "E 类人才中符合条件的全日制博士、硕士每月 1500 元、1000 元，最长 3 年",
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": null,
+      "master": 1000,
+      "phd": 1500
+     },
+     "period": "month",
+     "periods_max": 36,
+     "payout": "按月",
+     "target": "被认定为 E 类人才且符合条件的全日制博士、硕士",
+     "conditions": [
+      "须符合 E 类人才认定及相关条件"
+     ],
+     "deadline_rule": null,
+     "policy_name": "同上第 30 条",
+     "source_url": "https://jnhrss.jinan.gov.cn/col65769/art/2025/art_65769_4805813.html",
+     "source_date": "2024-05-21",
+     "valid_until": null,
+     "verified_at": "2026-11-09",
+     "needs_human": false,
+     "needs_human_reason": null,
+     "access_blocked": false,
+     "lead": null,
+     "lead_url": null
+    }
+   ],
+   "social_security": {
+    "base_min": 4504,
+    "base_max": 22518,
+    "year": "2025（2025-01-01 至 2025-12-31；2026 年度山东标准截至 2026-11-09 未见公布）",
+    "scope": "山东全省（养老、医疗、工伤、失业）",
+    "source_url": "http://hrss.shandong.gov.cn/articles/ch07931/202512/3ad6c431-8dbf-4ec8-b576-19e35c6ba8d3.shtml",
+    "source_type": "gov",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "living": {
+    "rent_avg_per_sqm": 23.36,
+    "rent_period": "2026-09",
+    "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
+    "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
+    "consumption_per_capita": null,
+    "income_per_capita": 68128,
+    "stats_year": 2025,
+    "stats_source_url": "https://jntj.jinan.gov.cn/col/col18254/art/2026/art_7dc3135bb2209f961b3c65baa8ab3d2d.html",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "2025 年公报正文未列城镇居民人均消费支出（疑在图表中），需人工补。",
+    "access_blocked": false
+   },
+   "flexible_employment": {
+    "pension_base_min": null,
+    "pension_rate": null,
+    "pension_year": null,
+    "medical_monthly_min": null,
+    "medical_note": null,
+    "monthly_total_min": null,
+    "calc": null,
+    "hukou_restriction": null,
+    "nonlocal_allowed": null,
+    "apply_channel": null,
+    "source_url": null,
+    "medical_source_url": null,
+    "hukou_source_url": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "山东 2026 年度基数未公布；济南灵活就业医保月缴额未查。",
+    "access_blocked": false
+   },
+   "civil_service": {
+    "fresh_grad_rule": null,
+    "exam_schedule": null,
+    "announcement_url": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "commute": {
+    "avg_commute_minutes": null,
+    "year": null,
+    "report": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "待确定通勤数据口径"
+   },
+   "pitfalls": [],
+   "changelog": [
+    {
+     "date": "2026-11-09",
+     "field": "全部",
+     "old": null,
+     "new": "首次采集",
+     "basis": "济南支持高校毕业生就业创业政策40条（2024版）、山东 2025 年度社保基数通知、济南 2025 统计公报、中指研究院 2026 年 9 月租金"
+    }
+   ],
+   "id": "jinan",
+   "status": {
+    "hukou": "verified",
+    "living_subsidy": "verified",
+    "rent_subsidy": "verified",
+    "rent": "lead",
+    "social_security": "verified",
+    "cost": "lead"
+   },
+   "by_degree": {
+    "associate": {
+     "hukou_eligible": true,
+     "hukou_age_max": 0,
+     "total": 18000,
+     "rent_subsidy_per_year": null,
+     "counted": [
+      {
+       "index": 0,
+       "name": "本科、专科租赁住房补贴",
+       "type": "rent",
+       "per": 500,
+       "period": "month",
+       "total": 18000
+      }
+     ],
+     "excluded": []
+    },
+    "bachelor": {
+     "hukou_eligible": true,
+     "hukou_age_max": 0,
+     "total": 25200,
+     "rent_subsidy_per_year": null,
+     "counted": [
+      {
+       "index": 0,
+       "name": "本科、专科租赁住房补贴",
+       "type": "rent",
+       "per": 700,
+       "period": "month",
+       "total": 25200
+      }
+     ],
+     "excluded": []
+    },
+    "master": {
+     "hukou_eligible": true,
+     "hukou_age_max": 0,
+     "total": 36000,
+     "rent_subsidy_per_year": null,
+     "counted": [
+      {
+       "index": 1,
+       "name": "E 类人才硕博生活补贴",
+       "type": "living",
+       "per": 1000,
+       "period": "month",
+       "total": 36000
+      }
+     ],
+     "excluded": []
+    },
+    "phd": {
+     "hukou_eligible": true,
+     "hukou_age_max": 0,
+     "total": 54000,
+     "rent_subsidy_per_year": null,
+     "counted": [
+      {
+       "index": 1,
+       "name": "E 类人才硕博生活补贴",
+       "type": "living",
+       "per": 1500,
+       "period": "month",
+       "total": 54000
+      }
+     ],
+     "excluded": []
+    }
+   },
+   "latest_verified": "2026-11-09",
+   "needs_human_count": 1
   },
   {
    "city": "南京",
