@@ -1,0 +1,146 @@
+city: 苏州
+province: 江苏
+maintainers: []
+last_patrol: 2026-11-09
+
+hukou:
+  summary: 本科 45 周岁以下、硕士 50 周岁以下、博士 55 周岁以下（含本数）可申请人才落户，不要求先就业；大专 35 周岁以下需在苏就业并缴社保
+  education_min: 大专
+  age_limit: 博士 55、硕士 50、本科 45 周岁以下（含本数）；大专 35 周岁以下（35—45 周岁需连续缴社保满 6 个月）
+  requires_job_or_social_security: null   # 分学历不同，见 tier_by_degree
+  eligible_by_degree: {associate: true, bachelor: true, master: true, phd: true}
+  tier_by_degree: {associate: job, bachelor: direct, master: direct, phd: direct}
+  age_max_by_degree: {associate: 35, bachelor: 45, master: 50, phd: 55}
+  conditions:
+    - 国（境）外学位需经教育部认证
+    - 大专超过 35 周岁不超过 45 周岁，需在苏连续缴纳（不含补缴）职工社保不少于 6 个月
+  apply_window: 常态办理；合作院校应届生有集中申请窗口（2025 年为 6 月 15 日—9 月 1 日）
+  policy_name: 苏州市人才落户管理办法，苏府规字〔2023〕15号（2024-01-01 起施行，有效期至 2026-12-31）
+  source_url: https://www.suzhou.gov.cn/szsrmzf/zfwj/202312/aaf6004790c946b5bc01eb04f77cedaf.shtml
+  source_date: 2023-11-28
+  valid_until: 2026-12-31
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+  lead: null
+  lead_url: null
+
+subsidies:
+  - name: 应届高校毕业生租房补贴
+    type: rent
+    amount: 新引进全日制应届博士、硕士、本科生分别每月不低于 1500 元、1000 元、800 元，补贴期限一般 2 年
+    amount_by_degree: {associate: null, bachelor: 800, master: 1000, phd: 1500}
+    period: month
+    periods_max: 24
+    payout: 按月，期限"一般 2 年"
+    target: 新引进的全日制应届本科及以上毕业生
+    conditions:
+      - 原文为"不低于"，各县级市（区）可能更高
+    deadline_rule: null
+    policy_name: 苏州市支持青年人才就业创业若干措施（2025-03 发布）；苏州人才政策申报月历（2026 版）
+    source_url: https://www.suzhou.gov.cn/szsrmzf/szyw/202503/9515eb15f910427f9871e5cd7ac9803d.shtml
+    source_date: 2025-03
+    valid_until: null
+    verified_at: 2026-11-09
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
+  - name: 人工智能等急需紧缺专业一次性生活补贴
+    type: other
+    amount: 新引进的人工智能等领域急需紧缺专业全日制应届博士、硕士、本科生分别 10 万元、3 万元、1 万元（限目录内专业，不计入合计）
+    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+    period: once
+    periods_max: 1
+    payout: 一次性
+    target: 急需紧缺专业（人工智能等）全日制应届毕业生
+    conditions:
+      - 专业须在急需紧缺目录内
+    deadline_rule: null
+    policy_name: 同上
+    source_url: https://www.suzhou.gov.cn/szsrmzf/szyw/202503/9515eb15f910427f9871e5cd7ac9803d.shtml
+    source_date: 2025-03
+    valid_until: null
+    verified_at: 2026-11-09
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
+
+social_security:
+  base_min: 5025
+  base_max: 25127
+  year: 2026（2026-01-01 至 2026-12-31）
+  scope: 江苏全省（养老、医疗、失业、工伤、生育）
+  source_url: http://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml
+  source_type: gov
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+living:
+  rent_avg_per_sqm: 34.1
+  rent_period: 2026-09
+  rent_source: 中指研究院 50 城住宅租赁价格指数（元/㎡/月）
+  rent_source_url: https://m.cih-index.com/news/2026-10-16/55166711.html
+  consumption_per_capita: 54897
+  income_per_capita: 90125
+  stats_year: 2025
+  stats_source_url: https://tjj.suzhou.gov.cn/sztjj/tjgb/202604/3dc4b574cabd4e86b36ec5d3280e927c.shtml
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+flexible_employment:
+  pension_base_min: 5025
+  pension_rate: 20
+  pension_year: 2026
+  medical_monthly_min: 407
+  medical_note: 苏州灵活就业人员基本医疗保险缴费基数 5025 元，月缴费 407 元（含 5 元大额医疗费用社会共济基金）
+  monthly_total_min: 1412
+  calc: 养老 5025 × 20% = 1005；医保 407；合计 1412 元/月
+  hukou_restriction: null
+  nonlocal_allowed: null
+  apply_channel: 「江苏税务社保缴纳」小程序、「苏周到」APP、电子税务局 APP、税银经办银行网点
+  source_url: http://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml
+  medical_source_url: http://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml
+  hukou_source_url: null
+  verified_at: 2026-11-09
+  needs_human: true
+  needs_human_reason: 苏州官方页面的养老各档次缴费额是图片，未能读出；缴费比例 20% 取自中国政府网全国通行说明（https://www.gov.cn/yaowen/liebiao/202305/content_6855917.htm）。外地户籍能否以灵活就业身份参保，未找到苏州官方表述。
+  access_blocked: false
+
+civil_service:
+  fresh_grad_rule: null
+  exam_schedule: null
+  announcement_url: null
+  source_url: null
+  verified_at: null
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+commute:
+  avg_commute_minutes: null
+  year: null
+  report: null
+  source_url: null
+  verified_at: null
+  needs_human: true
+  needs_human_reason: 待确定通勤数据口径
+
+pitfalls:
+  - text: 苏州现行人才落户办法有效期到 2026-12-31，2027 届毕业生落户时大概率要按新办法执行，条件可能变化。
+    source_url: https://www.suzhou.gov.cn/szsrmzf/zfwj/202312/aaf6004790c946b5bc01eb04f77cedaf.shtml
+
+changelog:
+  - date: 2026-11-09
+    field: 全部
+    old: null
+    new: 首次采集
+    basis: 苏府规字〔2023〕15号、苏州青年人才若干措施（2025-03）、苏州 2026 人才政策申报月历、苏人社发〔2026〕30号（苏州市政府转载）、苏州统计局 2025 公报、中指研究院 2026 年 9 月租金

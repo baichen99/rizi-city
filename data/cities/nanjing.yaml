@@ -1,0 +1,140 @@
+city: 南京
+province: 江苏
+maintainers: []
+last_patrol: 2026-11-09
+
+hukou:
+  summary: null
+  education_min: null
+  age_limit: null
+  requires_job_or_social_security: null
+  eligible_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+  tier_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+  age_max_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+  conditions: []
+  apply_window: null
+  policy_name: null
+  source_url: null
+  source_date: null
+  valid_until: null
+  verified_at: null
+  needs_human: true
+  needs_human_reason: 南京市政府网站（www.nanjing.gov.cn、rsj.nanjing.gov.cn、tjj.nanjing.gov.cn）均返回知道创宇云防御拦截页（HTTP 403），未绕过；本次检索也未找到高校毕业生落户口径的原文，需人工查询。
+  access_blocked: true
+  lead: null
+  lead_url: null
+
+subsidies:
+  - name: 高校毕业生一次性生活补贴
+    type: living
+    amount: null
+    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+    period: null
+    periods_max: null
+    payout: null
+    target: null
+    conditions: []
+    deadline_rule: null
+    policy_name: null
+    source_url: null
+    source_date: null
+    valid_until: null
+    verified_at: null
+    needs_human: true
+    needs_human_reason: 官网被拦截（HTTP 403），无法打开原文。需人工打开 lead_url 核对金额、条件、发文文号和有效期。
+    access_blocked: true
+    lead: 搜索摘要称南京 2026 年初人才新政对在宁就业的高校毕业生发放一次性生活补贴：学士 1 万元、硕士 3 万元、博士 10 万元
+    lead_url: https://www.nanjing.gov.cn/zzb/ywdt/njxx/202601/t20260106_5757786.html
+  - name: 高校毕业生住房租赁补贴
+    type: rent
+    amount: null
+    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+    period: null
+    periods_max: null
+    payout: null
+    target: null
+    conditions: []
+    deadline_rule: null
+    policy_name: null
+    source_url: null
+    source_date: null
+    valid_until: null
+    verified_at: null
+    needs_human: true
+    needs_human_reason: 官网被拦截（HTTP 403），无法打开原文。需人工核对宁人社规〔2025〕2号与 2026-03 十部门通知（宁人社规〔2026〕6号？）的现行标准和有效期。
+    access_blocked: true
+    lead: 搜索摘要：宁人社规〔2025〕2号（2025-10-01 起）标准为博士每月 2000 元、硕士 800 元、学士（含高级工）600 元，累计不超过 36 个月，首次申请须在毕业 2 年半内；2026-03 十部门通知对重点领域企业另有上浮，有效期至 2028-12-31
+    lead_url: https://rsj.nanjing.gov.cn/njsrlzyhshbzj/202603/t20260304_5799867.html
+
+social_security:
+  base_min: 5025
+  base_max: 25127
+  year: 2026（2026-01-01 至 2026-12-31）
+  scope: 江苏全省（养老、医疗、失业、工伤、生育）
+  source_url: http://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml
+  source_type: gov
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+living:
+  rent_avg_per_sqm: 35.68
+  rent_period: 2026-09
+  rent_source: 中指研究院 50 城住宅租赁价格指数（元/㎡/月）
+  rent_source_url: https://m.cih-index.com/news/2026-10-16/55166711.html
+  consumption_per_capita: null
+  income_per_capita: null
+  stats_year: null
+  stats_source_url: null
+  verified_at: 2026-11-09
+  needs_human: true
+  needs_human_reason: 南京市统计局网站被拦截（HTTP 403）。搜索摘要显示 2025 年城镇居民人均可支配收入 86320 元（https://tjj.nanjing.gov.cn/tjxx/202602/t20260204_5786807.html），消费支出未找到；需人工核对。
+  access_blocked: true
+
+flexible_employment:
+  pension_base_min: null
+  pension_rate: null
+  pension_year: null
+  medical_monthly_min: null
+  medical_note: null
+  monthly_total_min: null
+  calc: null
+  hukou_restriction: null
+  nonlocal_allowed: null
+  apply_channel: null
+  source_url: null
+  medical_source_url: null
+  hukou_source_url: null
+  verified_at: null
+  needs_human: true
+  needs_human_reason: 南京医保局、人社局网站被拦截，灵活就业医保月缴额与户籍限制无法核实（江苏养老基数下限 5025 见 social_security）。
+  access_blocked: true
+
+civil_service:
+  fresh_grad_rule: null
+  exam_schedule: null
+  announcement_url: null
+  source_url: null
+  verified_at: null
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+commute:
+  avg_commute_minutes: null
+  year: null
+  report: null
+  source_url: null
+  verified_at: null
+  needs_human: true
+  needs_human_reason: 待确定通勤数据口径
+
+pitfalls: []
+
+changelog:
+  - date: 2026-11-09
+    field: 全部
+    old: null
+    new: 首次采集（官网被拦截，多数待人工）
+    basis: 苏人社发〔2026〕30号（苏州市政府转载）、中指研究院 2026 年 9 月租金
