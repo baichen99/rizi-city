@@ -27,6 +27,7 @@
 | [上海](data/cities/shanghai.yaml) | — | — | — | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
 | [深圳](data/cities/shenzhen.yaml) | — ⚠️ | — ⚠️ | 10 万 ⚠️ | ✅ | ✅ | ⚠️ | ✅ | ❌ | ✅ |
 | [武汉](data/cities/wuhan.yaml) | — | — | — | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
+| [厦门](data/cities/xiamen.yaml) | — | — | — | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |
 | [西安](data/cities/xian.yaml) | — | — | — | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
 | [郑州](data/cities/zhengzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ❌ | ✅ | ✅ | ✅ |
 
