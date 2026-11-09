@@ -1,0 +1,22 @@
+name: 申请新增城市
+description: 希望收录一座新城市
+title: "新增城市：<城市>"
+labels: ["new-city"]
+body:
+  - type: input
+    id: city
+    attributes: {label: 城市}
+    validations: {required: true}
+  - type: textarea
+    id: why
+    attributes: {label: 为什么值得收录（补贴力度、应届生关注度等）}
+    validations: {required: true}
+  - type: textarea
+    id: links
+    attributes: {label: 你知道的官方政策链接（*.gov.cn，可选）}
+  - type: checkboxes
+    id: claim
+    attributes:
+      label: 认领
+      options:
+        - label: 我愿意认领这座城市，负责首次采集或巡检

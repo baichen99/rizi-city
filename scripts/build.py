@@ -126,8 +126,8 @@ def build():
 def fmt_money(n):
     if n is None:
         return "—"
-    if n >= 10000 and n % 1000 == 0:
-        return f"{n / 10000:g} 万"
+    if n >= 10000:
+        return f"{n / 10000:.2f}".rstrip("0").rstrip(".") + " 万"
     return f"{n:,}"
 
 
@@ -149,7 +149,7 @@ def table(cities) -> str:
                     f"{cell(c, 'master')} | {cell(c, 'phd')} | {icons} |")
     rows.append("")
     rows.append("「能领」只合计有官方原文、已核验、未过期的现金补贴（按原文上限）；⚠️ 表示还有未计入的待核实项。"
-                "✅ 已核实 · ⚠️ 仅有线索/待核实 · ❌ 未找到 · 🔒 无法访问")
+                "✅ 已核实 · ✅无 已核实没有市级现金补贴 · ⚠️ 仅有线索/待核实 · ❌ 未找到 · 🔒 无法访问")
     return "\n".join(rows)
 
 

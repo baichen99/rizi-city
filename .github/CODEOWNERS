@@ -1,0 +1,6 @@
+# 所有改动都需要维护者审核（<OWNER> 为占位符，请替换为最终审核人的 GitHub 用户名）
+*               @<OWNER>
+/MAINTAINING.md @<OWNER>
+/agent/         @<OWNER>
+/.github/       @<OWNER>
+/scripts/       @<OWNER>

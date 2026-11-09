@@ -1,5 +1,6 @@
 name: validate
 
+# 只用 pull_request / push 触发：fork 来的 PR 在这里拿不到写权限和仓库密钥。
 on:
   push:
     branches: [main]
@@ -13,10 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
+      - name: 防泄露检查
+        run: bash scripts/check-no-private.sh --all
       - run: python3 scripts/validate.py
       - name: build 产物与提交一致
         run: |

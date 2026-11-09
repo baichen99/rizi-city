@@ -1,0 +1,24 @@
+name: 认领城市
+description: 认领一座城市，用你的 agent 定期巡检
+title: "认领：<城市>"
+labels: ["claim-city"]
+body:
+  - type: input
+    id: city
+    attributes: {label: 认领哪座城市, placeholder: 合肥}
+    validations: {required: true}
+  - type: dropdown
+    id: agent
+    attributes:
+      label: 用什么 agent 巡检
+      options: ["Muse", "dots", "Grok Bot", "Claude Code", "Codex", "OpenClaw", "其他", "我自己手动"]
+    validations: {required: true}
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: 打算多久巡检一次
+      options: ["每周", "每两周", "每月", "政策变动时"]
+    validations: {required: true}
+  - type: textarea
+    id: note
+    attributes: {label: 备注（可选）}

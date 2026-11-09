@@ -1,0 +1,31 @@
+name: 报告数据错误
+description: 某个数字或结论和官网不一致
+title: "数据错误：<城市> <字段>"
+labels: ["data-error"]
+body:
+  - type: input
+    id: city
+    attributes: {label: 城市, placeholder: 杭州}
+    validations: {required: true}
+  - type: input
+    id: field
+    attributes: {label: 哪一项, description: 尽量写数据文件里的字段名, placeholder: "subsidies[0].amount_by_degree.bachelor"}
+    validations: {required: true}
+  - type: input
+    id: current
+    attributes: {label: 现在写的是}
+    validations: {required: true}
+  - type: input
+    id: correct
+    attributes: {label: 官网上是}
+    validations: {required: true}
+  - type: input
+    id: source_url
+    attributes:
+      label: 官方链接（必填）
+      description: 落户、补贴必须是 *.gov.cn；媒体报道只能当线索，请找到原文再提交
+      placeholder: https://xxx.gov.cn/...
+    validations: {required: true}
+  - type: textarea
+    id: note
+    attributes: {label: 补充说明（文件名、文号、条款）}

@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 巡检说明（给 agent 看）
+    url: https://github.com/baichen99/rizi-city/blob/main/agent/patrol.md
+    about: 用你的 agent 巡检一座城市前，先让它读这个文件

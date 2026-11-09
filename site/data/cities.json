@@ -181,8 +181,8 @@
    "id": "beijing",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "verified",
-    "rent_subsidy": "verified",
+    "living_subsidy": "none",
+    "rent_subsidy": "none",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"
@@ -397,7 +397,7 @@
    "status": {
     "hukou": "verified",
     "living_subsidy": "verified",
-    "rent_subsidy": "verified",
+    "rent_subsidy": "none",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"
@@ -635,8 +635,8 @@
    "id": "chengdu",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "verified",
-    "rent_subsidy": "verified",
+    "living_subsidy": "none",
+    "rent_subsidy": "none",
     "rent": "verified",
     "social_security": "verified",
     "cost": "missing"
@@ -886,8 +886,8 @@
    "id": "chongqing",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "verified",
-    "rent_subsidy": "verified",
+    "living_subsidy": "none",
+    "rent_subsidy": "none",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"
@@ -1101,7 +1101,7 @@
    "status": {
     "hukou": "verified",
     "living_subsidy": "lead",
-    "rent_subsidy": "verified",
+    "rent_subsidy": "none",
     "rent": "verified",
     "social_security": "missing",
     "cost": "verified"
@@ -2730,7 +2730,7 @@
    "id": "qingdao",
    "status": {
     "hukou": "lead",
-    "living_subsidy": "verified",
+    "living_subsidy": "none",
     "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
@@ -2978,8 +2978,8 @@
    "id": "shanghai",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "verified",
-    "rent_subsidy": "verified",
+    "living_subsidy": "none",
+    "rent_subsidy": "none",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"
@@ -3769,7 +3769,7 @@
    "id": "suzhou",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "verified",
+    "living_subsidy": "none",
     "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
@@ -3975,8 +3975,8 @@
    "id": "tianjin",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "verified",
-    "rent_subsidy": "verified",
+    "living_subsidy": "none",
+    "rent_subsidy": "none",
     "rent": "verified",
     "social_security": "verified",
     "cost": "lead"
@@ -4222,8 +4222,8 @@
    "id": "wuhan",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "verified",
-    "rent_subsidy": "verified",
+    "living_subsidy": "none",
+    "rent_subsidy": "none",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"
@@ -4464,7 +4464,7 @@
    "id": "xiamen",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "verified",
+    "living_subsidy": "none",
     "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
@@ -4684,8 +4684,8 @@
    "id": "xian",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "verified",
-    "rent_subsidy": "verified",
+    "living_subsidy": "none",
+    "rent_subsidy": "none",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"
@@ -4953,7 +4953,7 @@
    "status": {
     "hukou": "verified",
     "living_subsidy": "lead",
-    "rent_subsidy": "verified",
+    "rent_subsidy": "none",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"

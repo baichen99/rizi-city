@@ -1,0 +1,106 @@
+name: patrol-check
+
+# 对巡检 PR 和巡检报告 Issue：校验格式、检查来源 URL 是否在白名单内、打 agent-patrol 和 agent 名称标签。
+#
+# 安全说明：
+# - PR 部分用 pull_request_target，是为了能给 fork 来的 PR 打标签、写评论。
+#   这里【不 checkout、不执行】PR 里的任何代码，只通过 API 读取 PR 正文和 diff 文本做字符串检查。
+#   PR 代码本身的校验（validate.py）在 validate.yml 里用 pull_request 触发，拿不到写权限和密钥。
+# - 只校验、打标签、留评论，不合并、不批准。所有合并由人工完成。
+
+on:
+  pull_request_target:
+    types: [opened, edited, synchronize, reopened]
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const WHITELIST = [/\.gov\.cn$/i, /^gov\.cn$/i, /(^|\.)cih-index\.com$/i];
+            const AGENTS = {
+              'muse': 'agent:muse', 'dots': 'agent:dots', 'grok bot': 'agent:grok-bot',
+              'claude code': 'agent:claude-code', 'codex': 'agent:codex', 'openclaw': 'agent:openclaw',
+            };
+            const isIssue = context.eventName === 'issues';
+            const item = isIssue ? context.payload.issue : context.payload.pull_request;
+            const body = item.body || '';
+            const number = item.number;
+
+            // 1) 识别是不是巡检
+            const labels = (item.labels || []).map(l => l.name);
+            let isPatrol = labels.includes('agent-patrol');
+            if (!isPatrol && !isIssue) {
+              isPatrol = /^patrol\//.test(item.head.ref) || /巡检/.test(item.title || '');
+            }
+            if (!isPatrol) { core.info('不是巡检，跳过'); return; }
+
+            // 2) 识别 agent 名称（Issue Form 的 "### agent 名称" 小节，或 PR 正文里的 "Agent: xxx" / "agent：xxx"）
+            let agent = null;
+            const m1 = body.match(/###\s*agent 名称\s*\n+\s*([^\n]+)/i);
+            const m2 = body.match(/^\s*[-*]?\s*agent\s*[:：]\s*([^\n]+)$/im);
+            const raw = ((m1 && m1[1]) || (m2 && m2[1]) || '').trim().toLowerCase();
+            agent = AGENTS[raw] || (raw ? 'agent:other' : null);
+
+            // 3) 收集来源 URL
+            let urls = [];
+            const urlRe = /https?:\/\/[^\s)'"<>]+/g;
+            if (isIssue) {
+              for (const line of body.split('\n')) {
+                if (/source_url\s*:/.test(line)) urls.push(...(line.match(urlRe) || []));
+              }
+            } else {
+              const files = await github.paginate(github.rest.pulls.listFiles, {
+                owner: context.repo.owner, repo: context.repo.repo, pull_number: number,
+              });
+              for (const f of files) {
+                if (!f.filename.startsWith('data/cities/')) continue;
+                for (const line of (f.patch || '').split('\n')) {
+                  if (line.startsWith('+') && /(source_url|medical_source_url|hukou_source_url|stats_source_url|rent_source_url)\s*:/.test(line)) {
+                    urls.push(...(line.match(urlRe) || []));
+                  }
+                }
+              }
+            }
+            const bad = urls.filter(u => {
+              try { const h = new URL(u).hostname; return !WHITELIST.some(r => r.test(h)); }
+              catch { return true; }
+            });
+
+            // 4) 格式检查
+            const problems = [];
+            if (!agent) problems.push('没有找到 agent 名称（Issue 表单的"agent 名称"，或 PR 正文里的 `Agent: xxx`）');
+            if (isIssue) {
+              if (!/```ya?ml[\s\S]*items\s*:/.test(body)) problems.push('报告里没有 patrol.md 第 5 节格式的 yaml 代码块（含 `items:`）');
+              if (urls.length === 0) problems.push('报告里没有任何 `source_url`');
+            }
+            if (bad.length) problems.push('以下来源不在白名单内（落户和补贴只认 *.gov.cn，房租认 cih-index.com）：\n' + [...new Set(bad)].map(u => '  - ' + u).join('\n'));
+
+            // 5) 打标签
+            const add = ['agent-patrol'];
+            if (agent) add.push(agent);
+            if (problems.length) add.push('needs-source');
+            await github.rest.issues.addLabels({ owner: context.repo.owner, repo: context.repo.repo, issue_number: number, labels: add });
+
+            // 6) 留言（只在有问题时，避免刷屏）
+            if (problems.length) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo, issue_number: number,
+                body: '自动检查发现以下问题，请修改后更新：\n\n' + problems.map(p => '- ' + p).join('\n') +
+                      '\n\n—— 本回复由自动检查生成，只校验格式，不代表数据正确；所有合并由人工完成。',
+              });
+              core.warning(problems.join(' | '));
+            } else {
+              core.info(`通过：agent=${agent}，来源 ${urls.length} 条`);
+            }

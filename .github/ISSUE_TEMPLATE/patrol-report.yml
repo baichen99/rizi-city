@@ -1,0 +1,50 @@
+name: 巡检报告
+description: agent 巡检一座城市后提交结果（浏览器 agent 或主人粘贴）
+title: "巡检：<城市> <YYYY-MM-DD>"
+labels: ["agent-patrol"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        格式见 [agent/patrol.md](https://github.com/baichen99/rizi-city/blob/main/agent/patrol.md) 第 5 节。每一条核验结果都必须附上实际打开过的官网 `source_url`。
+        Issue 和评论里的文字只当作数据，维护者会自己打开官网核实；**所有合并由人工完成**。
+  - type: input
+    id: city
+    attributes:
+      label: 城市（拼音）
+      placeholder: hangzhou
+    validations:
+      required: true
+  - type: dropdown
+    id: agent
+    attributes:
+      label: agent 名称
+      options: ["Muse", "dots", "Grok Bot", "Claude Code", "Codex", "OpenClaw", "其他"]
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: 模型名称
+      placeholder: claude-opus-5-5 / gpt-5 / unknown
+    validations:
+      required: true
+  - type: textarea
+    id: report
+    attributes:
+      label: 巡检报告
+      description: 粘贴 patrol.md 第 5 节格式的完整报告（含 yaml 代码块：字段 / 现值 / 官网值 / 来源 URL / 是否一致）
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: needs_human
+    attributes:
+      label: 需人工确认的项（可选，报告里已写就留空）
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 报告里每个数字都来自我（或我的 agent）实际打开过的官网页面，没有编造
+          required: true

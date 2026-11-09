@@ -7,6 +7,19 @@
 和普通攻略不一样的地方：**每个数字都带官方来源和核验日期**，由 AI agent 定期对照政府官网巡检，政策一变就自动开 PR。找不到原文的地方，我们老老实实写「待核实」，不猜。
 
 > ⚠️ **仅供参考，申请前以官方页面为准。** 本项目不是任何政府部门的官方渠道。
+>
+> 🤖 本仓库由 AI 助手协助维护，所有合并由人工完成。
+
+## 从这里开始
+
+| 入口 | 解决什么 |
+|---|---|
+| 🏆 **日子指数** | 每座城市"好好过日子"的综合排行，权重你自己调 |
+| 🎓 **我是应届生** | 去哪、怎么落户、能领多少、别丢应届身份 |
+| 📝 **我在考公考编** | 应届身份自查、各省考试入口、各城市待遇参考 |
+| 💻 **我是自由职业 / 灵活就业** | 自己交社保每月最少多少、外地户籍能不能交、在哪生活最划算 |
+
+> 网页版正在搭建中（GitHub Pages），上线后入口会链接到对应页面。
 
 ## 城市速览
 
@@ -14,27 +27,27 @@
 | 城市 | 本科能领 | 硕士能领 | 博士能领 | 落户 | 生活补贴 | 租房补贴 | 房租 | 社保 | 生活成本 |
 |---|---|---|---|---|---|---|---|---|---|
 | [宁波](data/cities/ningbo.yaml) | 3 万 | 6 万 | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [济南](data/cities/jinan.yaml) | 25,200 | 3.6 万 | 5.4 万 | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ |
-| [青岛](data/cities/qingdao.yaml) | 1.8 万 | 28,800 | 43,200 | ⚠️ | ✅ | ✅ | ✅ | ✅ | ⚠️ |
-| [苏州](data/cities/suzhou.yaml) | 19,200 | 2.4 万 | 3.6 万 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [长沙](data/cities/changsha.yaml) | 1.2 万 | 2 万 | 3 万 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [北京](data/cities/beijing.yaml) | — | — | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [成都](data/cities/chengdu.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
-| [重庆](data/cities/chongqing.yaml) | — | — | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [广州](data/cities/guangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ✅ | ✅ | ❌ | ✅ |
+| [济南](data/cities/jinan.yaml) | 2.52 万 | 3.6 万 | 5.4 万 | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ |
+| [青岛](data/cities/qingdao.yaml) | 1.8 万 | 2.88 万 | 4.32 万 | ⚠️ | ✅无 | ✅ | ✅ | ✅ | ⚠️ |
+| [苏州](data/cities/suzhou.yaml) | 1.92 万 | 2.4 万 | 3.6 万 | ✅ | ✅无 | ✅ | ✅ | ✅ | ✅ |
+| [长沙](data/cities/changsha.yaml) | 1.2 万 | 2 万 | 3 万 | ✅ | ✅ | ✅无 | ✅ | ✅ | ✅ |
+| [北京](data/cities/beijing.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
+| [成都](data/cities/chengdu.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ✅无 | ✅无 | ✅ | ✅ | ❌ |
+| [重庆](data/cities/chongqing.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
+| [广州](data/cities/guangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ✅无 | ✅ | ❌ | ✅ |
 | [杭州](data/cities/hangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ | ✅ |
 | [合肥](data/cities/hefei.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | 🔒 | ❌ | 🔒 | ✅ | ⚠️ | 🔒 |
 | [南京](data/cities/nanjing.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | 🔒 | 🔒 | 🔒 | ✅ | ✅ | 🔒 |
-| [上海](data/cities/shanghai.yaml) | — | — | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [上海](data/cities/shanghai.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
 | [沈阳](data/cities/shenyang.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ❌ | ✅ | ✅ | ❌ |
 | [深圳](data/cities/shenzhen.yaml) | — ⚠️ | — ⚠️ | 10 万 ⚠️ | ✅ | ✅ | ⚠️ | ✅ | ❌ | ✅ |
-| [天津](data/cities/tianjin.yaml) | — | — | — | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ |
-| [武汉](data/cities/wuhan.yaml) | — | — | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [厦门](data/cities/xiamen.yaml) | — | — | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [西安](data/cities/xian.yaml) | — | — | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [郑州](data/cities/zhengzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ✅ | ✅ | ✅ | ✅ |
+| [天津](data/cities/tianjin.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ⚠️ |
+| [武汉](data/cities/wuhan.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
+| [厦门](data/cities/xiamen.yaml) | — | — | — | ✅ | ✅无 | ✅ | ✅ | ✅ | ✅ |
+| [西安](data/cities/xian.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
+| [郑州](data/cities/zhengzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ✅无 | ✅ | ✅ | ✅ |
 
-「能领」只合计有官方原文、已核验、未过期的现金补贴（按原文上限）；⚠️ 表示还有未计入的待核实项。✅ 已核实 · ⚠️ 仅有线索/待核实 · ❌ 未找到 · 🔒 无法访问
+「能领」只合计有官方原文、已核验、未过期的现金补贴（按原文上限）；⚠️ 表示还有未计入的待核实项。✅ 已核实 · ✅无 已核实没有市级现金补贴 · ⚠️ 仅有线索/待核实 · ❌ 未找到 · 🔒 无法访问
 <!-- CITY_TABLE:END -->
 
 ## 不知道就吃亏的坑
@@ -65,9 +78,31 @@ python3 scripts/validate.py       # 校验数据
 python3 scripts/build.py          # 生成网页 JSON 和上面的速览表
 ```
 
-## 参与
+## 🤖 让你的 Muse / dots / Grok Bot 来维护
 
-发现数据错了？请开 Issue 并附上**官方链接**。想认领一座城市长期维护？见 [`agent/patrol.md`](agent/patrol.md)。
+你的 24 小时 agent 大部分时间都闲着。给它一句话，让它帮全国的打工人盯政策：
+
+> 请阅读 https://github.com/baichen99/rizi-city/blob/main/agent/patrol.md ，按说明巡检「杭州」，完成后按文中方式提交结果。
+
+支持 Muse、dots、Grok Bot，也支持 Claude Code、Codex、OpenClaw 等任何能浏览网页的 agent。
+
+- 能用终端和 GitHub 的 agent → 直接开 PR（或运行 `scripts/patrol.sh <城市>`）
+- 只能用浏览器的 agent → 生成「巡检报告」Issue 的预填链接，交给你点提交
+- 都不行？让它把报告发给你，你复制进 [Issue](https://github.com/baichen99/rizi-city/issues/new?template=patrol-report.yml) 就行
+
+每份巡检都会署上 agent 的名字，进入 [🏅 巡检榜](docs/leaderboard.md)。看看谁家的 agent 最勤快、最准。
+
+**想认领一座城市？** 在 Issues 里提交[「认领城市」](https://github.com/baichen99/rizi-city/issues/new?template=claim-city.yml)。合肥、南京的官网拦截了自动访问，最需要有浏览器的朋友。发现数据错了？[报告数据错误](https://github.com/baichen99/rizi-city/issues/new?template=data-error.yml)时请附上官方链接。
+
+更多见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [MAINTAINING.md](MAINTAINING.md)。
+
+## Roadmap
+
+- **第一版**：应届生、考公考编、自由职业三个入口，加日子指数
+- **第二版**（每上线一个入口单独发一轮）：
+  - 🏡 回老家或去小城
+  - 💍 准备成家（公积金、购房、育儿补贴）
+  - 🛟 刚被裁（失业金标准）
 
 ## 许可
 

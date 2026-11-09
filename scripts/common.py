@@ -23,7 +23,7 @@ DIMENSION_LABEL = {
     "social_security": "社保",
     "cost": "生活成本",
 }
-STATUS_ICON = {"verified": "✅", "lead": "⚠️", "missing": "❌", "blocked": "🔒"}
+STATUS_ICON = {"verified": "✅", "none": "✅无", "lead": "⚠️", "missing": "❌", "blocked": "🔒"}
 
 
 class _DateAsStrLoader(yaml.SafeLoader):
@@ -118,7 +118,7 @@ def _status(section: dict | None, facts) -> str:
 
 
 def _best(statuses: list[str]) -> str:
-    for s in ("verified", "lead", "blocked", "missing"):
+    for s in ("verified", "none", "lead", "blocked", "missing"):
         if s in statuses:
             return s
     return "missing"
@@ -136,7 +136,7 @@ def dimension_status(city: dict) -> dict[str, str]:
         if group:
             return _best([_status(s, SUBSIDY_FACTS) for s in group])
         if scan.get(f"{kind}_none") and scan.get("source_url") and scan.get("verified_at"):
-            return "verified"
+            return "none"   # 已核实：无市级现金补贴
         return "missing"
 
     def living_part(value_keys, url_key, honor_flag=True):
