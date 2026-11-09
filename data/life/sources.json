@@ -36,6 +36,23 @@
       "review_due": "2027-02-09"
     },
     {
+      "id": "nbs-house-202608",
+      "title": "2026年8月份70城商品住宅销售价格变动情况（国家统计局英文原表）",
+      "url": "https://www.stats.gov.cn/english/PressRelease/202609/t20260915_1965314.html",
+      "publisher": "国家统计局网站（www.stats.gov.cn）",
+      "published_at": "2026-09-15",
+      "retrieved_at": "2026-11-09",
+      "verified_at": "2026-11-09",
+      "review_status": "verified",
+      "access_method": "manual_primary_page",
+      "redistribution": "fact_extract",
+      "bulk_redistribution": false,
+      "license_url": "https://www.stats.gov.cn/wzgl/202302/t20230217_1912857.html",
+      "publication_basis": "重新核读NBS服务条款：公共免费资料性合理引用需署名，不擅自再授权；仅摘录试点城市同比指数，不复制整表。中文原表 https://www.stats.gov.cn/sj/zxfb/202609/t20260915_1965304.html 与英文原表已逐行核对。",
+      "attribution": "引自国家统计局网站（www.stats.gov.cn）",
+      "review_due": "2027-02-09"
+    },
+    {
       "id": "nbs-house-202609",
       "title": "2026年9月份70个大中城市商品住宅销售价格变动情况",
       "url": "https://www.stats.gov.cn/sj/zxfb/202610/t20261019_1965609.html",

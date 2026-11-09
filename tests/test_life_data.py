@@ -69,6 +69,9 @@ class LifeDataTests(unittest.TestCase):
 
     def test_missing_period_requires_explicit_gap(self):
         points = self.cities[0]['series'][0]['points']
+        # Keep this a missing-data fixture even after real observations are filled.
+        points[2].update(value=None, source_id=None, review_status='missing',
+                         missing_reason='虚构测试缺口', evidence_locator=None)
         self.assertIsNone(points[2]['value'])
         points.pop(2)
         self.assertTrue(any('unmarked gaps' in e for e in self.errors()))
