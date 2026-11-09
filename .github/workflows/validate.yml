@@ -1,0 +1,21 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python3 scripts/validate.py
+      - name: build 产物与提交一致
+        run: |
+          python3 scripts/build.py
+          git diff --exit-code -- site/data README.md || (echo "请在本地运行 python3 scripts/build.py 后提交" && exit 1)

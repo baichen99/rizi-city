@@ -1,0 +1,109 @@
+# 日子人城市指南 · 城市数据模板
+# 复制本文件为 data/cities/<拼音>.yaml（小写、无空格，如 hangzhou.yaml）后填写。
+#
+# 硬规则（validate.py 会检查）：
+#   1. 不编数字。找不到 / 有歧义 / 互相矛盾 → 字段留 null，needs_human: true，并在 needs_human_reason 写明卡在哪。
+#   2. 落户、补贴：source_url 必须是政府官网（*.gov.cn）。媒体报道只能写进 lead / lead_url。
+#   3. 有有效期就写 valid_until；已过期的必须 needs_human: true，并去查接替文件。
+#   4. 金额、条件、时限照原文口径，用自己的话概括，不大段粘贴。
+#   5. 遇到验证码 / 登录墙 / 禁止抓取：不要绕过，access_blocked: true，URL 写进 needs_human_reason。
+#   6. 社保基数、统计数据写清年份。
+#
+# 日期格式：verified_at / valid_until / last_patrol 用 YYYY-MM-DD；source_date 可用 YYYY-MM-DD 或 YYYY-MM。
+# 学历键：associate = 专科，bachelor = 本科，master = 硕士，phd = 博士。
+
+city: 示例市
+province: 示例省
+maintainers: []            # GitHub 用户名，如 [someone]
+last_patrol: null          # 最近一次完整巡检日期
+
+hukou:                     # 应届生落户
+  summary: null            # 一句话概括，如"全日制本科 45 周岁以下可直接落户，不要求先就业"
+  education_min: null      # 原文最低学历，如"全日制普通高校本科"
+  age_limit: null          # 原文年龄条件，如"45 周岁以下；硕士、博士不限"
+  requires_job_or_social_security: null   # true / false：是否要求先就业或缴社保
+  eligible_by_degree:      # 便于网页判断：true 能落户 / false 不能 / null 不确定
+    associate: null
+    bachelor: null
+    master: null
+    phd: null
+  age_max_by_degree:       # 年龄上限（周岁，含义照原文）；不限写 0；不确定留 null
+    associate: null
+    bachelor: null
+    master: null
+    phd: null
+  conditions: []           # 其他条件，每条一句
+  apply_window: null       # 申请时间窗口
+  policy_name: null        # 文件名和文号
+  source_url: null
+  source_date: null        # 文件印发日期
+  valid_until: null
+  verified_at: null        # 最近一次打开原文核对的日期
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+  lead: null               # 媒体线索，不作为正式数据
+  lead_url: null
+
+subsidies:                 # 可有多条；没有就写 []
+  - name: null
+    type: null             # living（生活补贴）| rent（租房补贴）| housing_purchase（购房补贴）| other
+    amount: null           # 原文口径，如"本科 1 万元、硕士 3 万元、博士 10 万元，分两期发放"
+    amount_by_degree:      # 单位：元。每期（或一次性）金额，照原文；不确定就留空
+      associate: null
+      bachelor: null
+      master: null
+      phd: null
+    period: null           # once（一次性）| month（按月）| year（按年）
+    periods_max: null      # 最多发放期数，原文写明才填（一次性=1，"每年发、最长 3 年"=3）
+    payout: null           # 原文发放方式，如"按年发放，最长 3 年"
+    target: null           # 发放对象
+    conditions: []
+    deadline_rule: null    # 申请时限，如"毕业后 2 年内、在杭缴社保满 3 个月后申请"
+    policy_name: null
+    source_url: null
+    source_date: null
+    valid_until: null
+    verified_at: null
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
+
+social_security:           # 职工社保缴费基数（元/月）
+  base_min: null
+  base_max: null
+  year: null               # 适用年度，如"2026 年 7 月—2027 年 6 月"或 2026
+  scope: null              # 适用范围，如"全省统一"/"市区"
+  source_url: null
+  source_type: null        # gov（政府官网）| gov_account（政府官方公众号/微博）| media
+  verified_at: null
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+living:
+  rent_avg_per_sqm: null   # 元/㎡/月
+  rent_period: null        # 统计月份/季度，如"2026 年 9 月"
+  rent_source: null        # 机构与口径，如"中指研究院 50 城住宅租金监测"
+  rent_source_url: null
+  consumption_per_capita: null   # 城镇常住居民人均消费支出（元/年）
+  income_per_capita: null        # 城镇常住居民人均可支配收入（元/年）
+  stats_year: null
+  stats_source_url: null
+  verified_at: null
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+pitfalls:                  # 不知道就吃亏的坑，每条附来源
+  - text: null
+    source_url: null
+
+changelog: []
+# - date: 2026-11-09
+#   field: subsidies[0].amount_by_degree.bachelor
+#   old: null
+#   new: 10000
+#   basis: 杭政办函〔2023〕45号 第 X 条
