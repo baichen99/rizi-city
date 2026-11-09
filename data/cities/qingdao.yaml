@@ -73,6 +73,13 @@ subsidies:
     lead: null
     lead_url: null
 
+subsidy_scan:
+  living_none: true
+  rent_none: false
+  basis: 青人社发〔2024〕6号为按月住房补贴；未见面向普通应届生的市级现金生活补贴
+  source_url: http://www.qingdao.gov.cn/zwgk/xxgk/rlshbz/gkml/gwfg/202404/t20240411_7996962.shtml
+  verified_at: 2026-11-09
+
 social_security:
   base_min: 4504
   base_max: 22518
@@ -147,3 +154,8 @@ changelog:
     old: null
     new: 首次采集
     basis: 青人社发〔2024〕6号、青人社发〔2026〕3号、青岛市公安局 2025-06-20 问答、山东 2025 年度社保基数通知、青岛统计局 2025 经济运行情况、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: subsidy_scan
+    old: null
+    new: living_none=true, rent_none=false
+    basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）

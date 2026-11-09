@@ -129,9 +129,15 @@ def dimension_status(city: dict) -> dict[str, str]:
     living = city.get("living") or {}
     ss = city.get("social_security") or {}
 
+    scan = city.get("subsidy_scan") or {}
+
     def subs_status(kind):
         group = [s for s in subs if s.get("type") == kind]
-        return _best([_status(s, SUBSIDY_FACTS) for s in group]) if group else "missing"
+        if group:
+            return _best([_status(s, SUBSIDY_FACTS) for s in group])
+        if scan.get(f"{kind}_none") and scan.get("source_url") and scan.get("verified_at"):
+            return "verified"
+        return "missing"
 
     def living_part(value_keys, url_key, honor_flag=True):
         # 房租与统计共用 living 段；房租数字有来源和核验日期即视为已核实，

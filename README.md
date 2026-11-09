@@ -15,24 +15,24 @@
 |---|---|---|---|---|---|---|---|---|---|
 | [宁波](data/cities/ningbo.yaml) | 3 万 | 6 万 | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [济南](data/cities/jinan.yaml) | 25,200 | 3.6 万 | 5.4 万 | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ |
-| [青岛](data/cities/qingdao.yaml) | 1.8 万 | 28,800 | 43,200 | ⚠️ | ❌ | ✅ | ✅ | ✅ | ⚠️ |
-| [苏州](data/cities/suzhou.yaml) | 19,200 | 2.4 万 | 3.6 万 | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |
-| [长沙](data/cities/changsha.yaml) | 1.2 万 | 2 万 | 3 万 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ |
-| [北京](data/cities/beijing.yaml) | — | — | — | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
-| [成都](data/cities/chengdu.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ |
-| [重庆](data/cities/chongqing.yaml) | — | — | — | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
-| [广州](data/cities/guangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ❌ | ✅ | ❌ | ✅ |
+| [青岛](data/cities/qingdao.yaml) | 1.8 万 | 28,800 | 43,200 | ⚠️ | ✅ | ✅ | ✅ | ✅ | ⚠️ |
+| [苏州](data/cities/suzhou.yaml) | 19,200 | 2.4 万 | 3.6 万 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [长沙](data/cities/changsha.yaml) | 1.2 万 | 2 万 | 3 万 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [北京](data/cities/beijing.yaml) | — | — | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [成都](data/cities/chengdu.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| [重庆](data/cities/chongqing.yaml) | — | — | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [广州](data/cities/guangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ✅ | ✅ | ❌ | ✅ |
 | [杭州](data/cities/hangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ | ✅ |
 | [合肥](data/cities/hefei.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | 🔒 | ❌ | 🔒 | ✅ | ⚠️ | 🔒 |
 | [南京](data/cities/nanjing.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | 🔒 | 🔒 | 🔒 | ✅ | ✅ | 🔒 |
-| [上海](data/cities/shanghai.yaml) | — | — | — | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
+| [上海](data/cities/shanghai.yaml) | — | — | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [沈阳](data/cities/shenyang.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ❌ | ✅ | ✅ | ❌ |
 | [深圳](data/cities/shenzhen.yaml) | — ⚠️ | — ⚠️ | 10 万 ⚠️ | ✅ | ✅ | ⚠️ | ✅ | ❌ | ✅ |
-| [天津](data/cities/tianjin.yaml) | — | — | — | ✅ | ❌ | ❌ | ✅ | ✅ | ⚠️ |
-| [武汉](data/cities/wuhan.yaml) | — | — | — | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
-| [厦门](data/cities/xiamen.yaml) | — | — | — | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |
-| [西安](data/cities/xian.yaml) | — | — | — | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
-| [郑州](data/cities/zhengzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ❌ | ✅ | ✅ | ✅ |
+| [天津](data/cities/tianjin.yaml) | — | — | — | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ |
+| [武汉](data/cities/wuhan.yaml) | — | — | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [厦门](data/cities/xiamen.yaml) | — | — | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [西安](data/cities/xian.yaml) | — | — | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [郑州](data/cities/zhengzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ✅ | ✅ | ✅ | ✅ |
 
 「能领」只合计有官方原文、已核验、未过期的现金补贴（按原文上限）；⚠️ 表示还有未计入的待核实项。✅ 已核实 · ⚠️ 仅有线索/待核实 · ❌ 未找到 · 🔒 无法访问
 <!-- CITY_TABLE:END -->

@@ -50,6 +50,13 @@ subsidies:
     lead: 湖南省政府"政企通"页面（2025-10）列明年龄、毕业年限条件和文号
     lead_url: https://www.hunan.gov.cn/zqt/hqzc/202510/t20251013_33824206.html
 
+subsidy_scan:
+  living_none: false
+  rent_none: true
+  basis: 长沙"青年人才租房和生活补贴"为合并发放的一项（已记为生活补贴），无另设的租房补贴
+  source_url: https://www.hunan.gov.cn/zqt/hqzc/202510/t20251013_33824206.html
+  verified_at: 2026-11-09
+
 social_security:
   base_min: 4106
   base_max: 20529
@@ -124,3 +131,8 @@ changelog:
     old: null
     new: 首次采集
     basis: 长办发〔2021〕7号、湖南省人社厅 2026-05 引才政策文章、湖南 2026 社保基准值通知解读、湖南医保局 2026 基准值说明、湘政 2026 社保意见、长沙 2025 统计公报（湖南省统计局转载）、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: subsidy_scan
+    old: null
+    new: living_none=false, rent_none=true
+    basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）

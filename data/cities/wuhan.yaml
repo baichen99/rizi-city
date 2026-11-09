@@ -70,6 +70,13 @@ subsidies:
     lead: null
     lead_url: null
 
+subsidy_scan:
+  living_none: true
+  rent_none: true
+  basis: 武汉市政府办公厅 2022-06-07 通知对毕业生住房的支持为人才租赁房租金减免（非现金），未设市级现金生活/租房补贴
+  source_url: https://www.wuhan.gov.cn/ztzl/ztfw/gxbysycxcybt/zcwj_87510/202310/t20231020_2283321.shtml
+  verified_at: 2026-11-09
+
 social_security:
   base_min: 4552
   base_max: 22761
@@ -146,3 +153,8 @@ changelog:
     old: null
     new: 首次采集
     basis: 武汉市政府办公厅 2022-06-07 通知、市人社局落户政策清单、鄂人社发〔2026〕29号、武汉灵活就业社保专题页、武汉统计局 2025 公报、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: subsidy_scan
+    old: null
+    new: living_none=true, rent_none=true
+    basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）

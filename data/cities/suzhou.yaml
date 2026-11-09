@@ -70,6 +70,13 @@ subsidies:
     lead: null
     lead_url: null
 
+subsidy_scan:
+  living_none: true
+  rent_none: false
+  basis: 苏州青年人才若干措施中的一次性生活补贴仅限人工智能等急需紧缺专业，未设面向普通应届生的现金生活补贴
+  source_url: https://www.suzhou.gov.cn/szsrmzf/szyw/202503/9515eb15f910427f9871e5cd7ac9803d.shtml
+  verified_at: 2026-11-09
+
 social_security:
   base_min: 5025
   base_max: 25127
@@ -144,3 +151,8 @@ changelog:
     old: null
     new: 首次采集
     basis: 苏府规字〔2023〕15号、苏州青年人才若干措施（2025-03）、苏州 2026 人才政策申报月历、苏人社发〔2026〕30号（苏州市政府转载）、苏州统计局 2025 公报、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: subsidy_scan
+    old: null
+    new: living_none=true, rent_none=false
+    basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）

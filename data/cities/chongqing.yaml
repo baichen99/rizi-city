@@ -47,6 +47,13 @@ subsidies:
     lead: 同一条款鼓励各区县向引进的青年人才按月发放安家补贴（最长 3 年），标准由区县定；另有 12 个县本科每月 1000 元、最长 3 年的大学生就业补贴（重庆市政府网 2026-08-11 报道）
     lead_url: https://www.cq.gov.cn/ywdt/jrcq/202608/t20260811_15916612.html
 
+subsidy_scan:
+  living_none: true
+  rent_none: true
+  basis: 渝府办发〔2024〕35号仅"鼓励各区县"发放安家补贴（区县标准），市级未设面向普通应届生的现金生活/租房补贴
+  source_url: https://www.cq.gov.cn/zwgk/zfxxgkml/szfwj/qtgw/202404/t20240416_13134415.html
+  verified_at: 2026-11-09
+
 social_security:
   base_min: 4553
   base_max: 22765
@@ -121,3 +128,8 @@ changelog:
     old: null
     new: 首次采集
     basis: 渝府办发〔2024〕35号、重庆 2026 年度社保基数解读、重庆 2026 灵活就业医保缴费指南、重庆 2025 统计公报、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: subsidy_scan
+    old: null
+    new: living_none=true, rent_none=true
+    basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）

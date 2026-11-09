@@ -70,6 +70,13 @@ subsidies:
     lead: null
     lead_url: null
 
+subsidy_scan:
+  living_none: true
+  rent_none: false
+  basis: 《关于支持青年人才来厦发展的若干措施》未设面向普通应届生的现金生活补贴（仅博士后等专项）
+  source_url: http://hrss.xm.gov.cn/xxgk/zfxxgkzl/zfxxgkml/zcfg/qtwj/202608/t20260818_3013157.htm
+  verified_at: 2026-11-09
+
 social_security:
   base_min: 4579
   base_max: 22893
@@ -144,3 +151,8 @@ changelog:
     old: null
     new: 首次采集
     basis: 厦住建规〔2026〕2号、厦门支持青年人才来厦发展若干措施、闽人社文〔2026〕13号、闽医保函〔2026〕65号、厦门 2025 统计公报、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: subsidy_scan
+    old: null
+    new: living_none=true, rent_none=false
+    basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）

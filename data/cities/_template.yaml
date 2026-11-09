@@ -76,6 +76,13 @@ subsidies:                 # 可有多条；没有就写 []
     lead: null
     lead_url: null
 
+subsidy_scan:              # 查过后确认"没有面向普通应届生的市级现金补贴"时填写（区级、限行业、限专业的不算）
+  living_none: false       # true：已核实无市级现金生活补贴
+  rent_none: false         # true：已核实无市级现金租房补贴（只有租金折扣/实物配租的也算 none）
+  basis: null              # 查过哪些官方渠道、依据哪份汇总文件
+  source_url: null         # 最能说明现状的官方页面（如该市高校毕业生政策汇总）
+  verified_at: null
+
 social_security:           # 职工社保缴费基数（元/月）
   base_min: null
   base_max: null

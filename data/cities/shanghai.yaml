@@ -52,6 +52,13 @@ subsidies:
     lead: null
     lead_url: null
 
+subsidy_scan:
+  living_none: true
+  rent_none: true
+  basis: 上海对应届生以评分落户和保租房租金优惠为主（新就业青年安居服务为租金抵扣，非现金）；市政府网未见面向普通应届生的市级现金生活/租房补贴
+  source_url: https://www.shanghai.gov.cn/nw17239/20260807/298edd6be1494e7d91cb27a7490dc44d.html
+  verified_at: 2026-11-09
+
 social_security:
   base_min: 7546
   base_max: 37731
@@ -128,3 +135,8 @@ changelog:
     old: null
     new: 首次采集
     basis: 沪教委学〔2026〕13号、沪人社规〔2023〕5号、上海 2026 社保基数（宝山区转载）、徐汇新就业青年安居服务、上海统计局 2025 公报、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: subsidy_scan
+    old: null
+    new: living_none=true, rent_none=true
+    basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）

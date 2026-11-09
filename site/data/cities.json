@@ -81,6 +81,13 @@
      "lead_url": null
     }
    ],
+   "subsidy_scan": {
+    "living_none": true,
+    "rent_none": true,
+    "basis": "查阅北京市人社局引进毕业生管理办法及市级高校毕业生政策，未见面向普通应届生的市级现金生活/租房补贴；海淀\"海青安居\"为区级且限重点产业",
+    "source_url": "https://rsj.beijing.gov.cn/xxgk/2024zcwj/202406/t20240617_3717192.html",
+    "verified_at": "2026-11-09"
+   },
    "social_security": {
     "base_min": 7270,
     "base_max": 36348,
@@ -162,13 +169,20 @@
      "old": null,
      "new": "首次采集",
      "basis": "京人社毕发〔2021〕22号、海淀\"海青安居\"若干措施及 2026 申请通知、京人社发〔2026〕7号通告、北京 2025 统计公报、北京市政务服务网灵活就业一件事、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidy_scan",
+     "old": null,
+     "new": "living_none=true, rent_none=true",
+     "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
     }
    ],
    "id": "beijing",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "missing",
-    "rent_subsidy": "missing",
+    "living_subsidy": "verified",
+    "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"
@@ -286,6 +300,13 @@
      "lead_url": "https://www.hunan.gov.cn/zqt/hqzc/202510/t20251013_33824206.html"
     }
    ],
+   "subsidy_scan": {
+    "living_none": false,
+    "rent_none": true,
+    "basis": "长沙\"青年人才租房和生活补贴\"为合并发放的一项（已记为生活补贴），无另设的租房补贴",
+    "source_url": "https://www.hunan.gov.cn/zqt/hqzc/202510/t20251013_33824206.html",
+    "verified_at": "2026-11-09"
+   },
    "social_security": {
     "base_min": 4106,
     "base_max": 20529,
@@ -363,13 +384,20 @@
      "old": null,
      "new": "首次采集",
      "basis": "长办发〔2021〕7号、湖南省人社厅 2026-05 引才政策文章、湖南 2026 社保基准值通知解读、湖南医保局 2026 基准值说明、湘政 2026 社保意见、长沙 2025 统计公报（湖南省统计局转载）、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidy_scan",
+     "old": null,
+     "new": "living_none=false, rent_none=true",
+     "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
     }
    ],
    "id": "changsha",
    "status": {
     "hukou": "verified",
     "living_subsidy": "verified",
-    "rent_subsidy": "missing",
+    "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"
@@ -511,6 +539,13 @@
      "lead_url": "https://www.chengdu.gov.cn/gkml/uploadfiles/1607625235320909825/14638450314450042881.pdf"
     }
    ],
+   "subsidy_scan": {
+    "living_none": true,
+    "rent_none": true,
+    "basis": "成办规〔2026〕1号仅支持保租房用作青年人才驿站、鼓励区县制定租金优惠；市级未见面向普通应届生的现金生活/租房补贴",
+    "source_url": "https://www.chengdu.gov.cn/gkml/uploadfiles/1607625235320909825/14638450314450042881.pdf",
+    "verified_at": "2026-11-09"
+   },
    "social_security": {
     "base_min": 4699,
     "base_max": 23493,
@@ -588,13 +623,20 @@
      "old": null,
      "new": "首次采集",
      "basis": "成办规〔2024〕3号原文、川人社办发〔2026〕50号、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidy_scan",
+     "old": null,
+     "new": "living_none=true, rent_none=true",
+     "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
     }
    ],
    "id": "chengdu",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "missing",
-    "rent_subsidy": "missing",
+    "living_subsidy": "verified",
+    "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
     "cost": "missing"
@@ -748,6 +790,13 @@
      "lead_url": "https://www.cq.gov.cn/ywdt/jrcq/202608/t20260811_15916612.html"
     }
    ],
+   "subsidy_scan": {
+    "living_none": true,
+    "rent_none": true,
+    "basis": "渝府办发〔2024〕35号仅\"鼓励各区县\"发放安家补贴（区县标准），市级未设面向普通应届生的现金生活/租房补贴",
+    "source_url": "https://www.cq.gov.cn/zwgk/zfxxgkml/szfwj/qtgw/202404/t20240416_13134415.html",
+    "verified_at": "2026-11-09"
+   },
    "social_security": {
     "base_min": 4553,
     "base_max": 22765,
@@ -825,13 +874,20 @@
      "old": null,
      "new": "首次采集",
      "basis": "渝府办发〔2024〕35号、重庆 2026 年度社保基数解读、重庆 2026 灵活就业医保缴费指南、重庆 2025 统计公报、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidy_scan",
+     "old": null,
+     "new": "living_none=true, rent_none=true",
+     "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
     }
    ],
    "id": "chongqing",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "missing",
-    "rent_subsidy": "missing",
+    "living_subsidy": "verified",
+    "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"
@@ -948,6 +1004,13 @@
      "lead_url": "https://www.gz.gov.cn/zt/ljgaqngcwqwl/wlxd/content/post_10873248.html"
     }
    ],
+   "subsidy_scan": {
+    "living_none": false,
+    "rent_none": true,
+    "basis": "广州人社局青年人才\"五来\"礼遇：住房方面为保障性住房和人才住房，未设市级现金租房补贴",
+    "source_url": "https://rsj.gz.gov.cn/ywzt/jycy/gzdt/content/post_10734650.html",
+    "verified_at": "2026-11-09"
+   },
    "social_security": {
     "base_min": null,
     "base_max": null,
@@ -1025,13 +1088,20 @@
      "old": null,
      "new": "首次采集",
      "basis": "穗府办规〔2025〕9号、广州人社局 2026-03-20 青年人才\"五来\"礼遇、广州 2025 统计公报、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidy_scan",
+     "old": null,
+     "new": "living_none=false, rent_none=true",
+     "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
     }
    ],
    "id": "guangzhou",
    "status": {
     "hukou": "verified",
     "living_subsidy": "lead",
-    "rent_subsidy": "missing",
+    "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "missing",
     "cost": "verified"
@@ -2564,6 +2634,13 @@
      "lead_url": null
     }
    ],
+   "subsidy_scan": {
+    "living_none": true,
+    "rent_none": false,
+    "basis": "青人社发〔2024〕6号为按月住房补贴；未见面向普通应届生的市级现金生活补贴",
+    "source_url": "http://www.qingdao.gov.cn/zwgk/xxgk/rlshbz/gkml/gwfg/202404/t20240411_7996962.shtml",
+    "verified_at": "2026-11-09"
+   },
    "social_security": {
     "base_min": 4504,
     "base_max": 22518,
@@ -2641,12 +2718,19 @@
      "old": null,
      "new": "首次采集",
      "basis": "青人社发〔2024〕6号、青人社发〔2026〕3号、青岛市公安局 2025-06-20 问答、山东 2025 年度社保基数通知、青岛统计局 2025 经济运行情况、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidy_scan",
+     "old": null,
+     "new": "living_none=true, rent_none=false",
+     "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
     }
    ],
    "id": "qingdao",
    "status": {
     "hukou": "lead",
-    "living_subsidy": "missing",
+    "living_subsidy": "verified",
     "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
@@ -2794,6 +2878,13 @@
      "lead_url": null
     }
    ],
+   "subsidy_scan": {
+    "living_none": true,
+    "rent_none": true,
+    "basis": "上海对应届生以评分落户和保租房租金优惠为主（新就业青年安居服务为租金抵扣，非现金）；市政府网未见面向普通应届生的市级现金生活/租房补贴",
+    "source_url": "https://www.shanghai.gov.cn/nw17239/20260807/298edd6be1494e7d91cb27a7490dc44d.html",
+    "verified_at": "2026-11-09"
+   },
    "social_security": {
     "base_min": 7546,
     "base_max": 37731,
@@ -2875,13 +2966,20 @@
      "old": null,
      "new": "首次采集",
      "basis": "沪教委学〔2026〕13号、沪人社规〔2023〕5号、上海 2026 社保基数（宝山区转载）、徐汇新就业青年安居服务、上海统计局 2025 公报、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidy_scan",
+     "old": null,
+     "new": "living_none=true, rent_none=true",
+     "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
     }
    ],
    "id": "shanghai",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "missing",
-    "rent_subsidy": "missing",
+    "living_subsidy": "verified",
+    "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"
@@ -3575,6 +3673,13 @@
      "lead_url": null
     }
    ],
+   "subsidy_scan": {
+    "living_none": true,
+    "rent_none": false,
+    "basis": "苏州青年人才若干措施中的一次性生活补贴仅限人工智能等急需紧缺专业，未设面向普通应届生的现金生活补贴",
+    "source_url": "https://www.suzhou.gov.cn/szsrmzf/szyw/202503/9515eb15f910427f9871e5cd7ac9803d.shtml",
+    "verified_at": "2026-11-09"
+   },
    "social_security": {
     "base_min": 5025,
     "base_max": 25127,
@@ -3652,12 +3757,19 @@
      "old": null,
      "new": "首次采集",
      "basis": "苏府规字〔2023〕15号、苏州青年人才若干措施（2025-03）、苏州 2026 人才政策申报月历、苏人社发〔2026〕30号（苏州市政府转载）、苏州统计局 2025 公报、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidy_scan",
+     "old": null,
+     "new": "living_none=true, rent_none=false",
+     "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
     }
    ],
    "id": "suzhou",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "missing",
+    "living_subsidy": "verified",
     "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
@@ -3772,6 +3884,13 @@
     "lead_url": null
    },
    "subsidies": [],
+   "subsidy_scan": {
+    "living_none": true,
+    "rent_none": true,
+    "basis": "查阅天津市人社局引进人才落户办法及高校毕业生就业创业政策，未见面向普通应届生的市级现金生活/租房补贴",
+    "source_url": "https://hrss.tj.gov.cn/zhengwugongkai/zhengcezhinan/zxwjnew/202301/t20230104_6068698.html",
+    "verified_at": "2026-11-09"
+   },
    "social_security": {
     "base_min": 5180,
     "base_max": 25902,
@@ -3844,13 +3963,20 @@
      "old": null,
      "new": "首次采集",
      "basis": "津人社规字〔2018〕11号、天津 2025 年度职工平均工资及 2026 社保基数公布、市医保局灵活就业医保通知（2026 第 12 期公报）、天津 2025 统计公报、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidy_scan",
+     "old": null,
+     "new": "living_none=true, rent_none=true",
+     "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
     }
    ],
    "id": "tianjin",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "missing",
-    "rent_subsidy": "missing",
+    "living_subsidy": "verified",
+    "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
     "cost": "lead"
@@ -3996,6 +4122,13 @@
      "lead_url": null
     }
    ],
+   "subsidy_scan": {
+    "living_none": true,
+    "rent_none": true,
+    "basis": "武汉市政府办公厅 2022-06-07 通知对毕业生住房的支持为人才租赁房租金减免（非现金），未设市级现金生活/租房补贴",
+    "source_url": "https://www.wuhan.gov.cn/ztzl/ztfw/gxbysycxcybt/zcwj_87510/202310/t20231020_2283321.shtml",
+    "verified_at": "2026-11-09"
+   },
    "social_security": {
     "base_min": 4552,
     "base_max": 22761,
@@ -4077,13 +4210,20 @@
      "old": null,
      "new": "首次采集",
      "basis": "武汉市政府办公厅 2022-06-07 通知、市人社局落户政策清单、鄂人社发〔2026〕29号、武汉灵活就业社保专题页、武汉统计局 2025 公报、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidy_scan",
+     "old": null,
+     "new": "living_none=true, rent_none=true",
+     "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
     }
    ],
    "id": "wuhan",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "missing",
-    "rent_subsidy": "missing",
+    "living_subsidy": "verified",
+    "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"
@@ -4228,6 +4368,13 @@
      "lead_url": null
     }
    ],
+   "subsidy_scan": {
+    "living_none": true,
+    "rent_none": false,
+    "basis": "《关于支持青年人才来厦发展的若干措施》未设面向普通应届生的现金生活补贴（仅博士后等专项）",
+    "source_url": "http://hrss.xm.gov.cn/xxgk/zfxxgkzl/zfxxgkml/zcfg/qtwj/202608/t20260818_3013157.htm",
+    "verified_at": "2026-11-09"
+   },
    "social_security": {
     "base_min": 4579,
     "base_max": 22893,
@@ -4305,12 +4452,19 @@
      "old": null,
      "new": "首次采集",
      "basis": "厦住建规〔2026〕2号、厦门支持青年人才来厦发展若干措施、闽人社文〔2026〕13号、闽医保函〔2026〕65号、厦门 2025 统计公报、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidy_scan",
+     "old": null,
+     "new": "living_none=true, rent_none=false",
+     "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
     }
    ],
    "id": "xiamen",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "missing",
+    "living_subsidy": "verified",
     "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
@@ -4430,6 +4584,13 @@
      "lead_url": "http://xcaib.xa.gov.cn/zmhd/cjwt/1707292682361581570.html"
     }
    ],
+   "subsidy_scan": {
+    "living_none": true,
+    "rent_none": true,
+    "basis": "西安对大学生的住房支持为保租房 2 年租金减免（非现金）；市级未见面向普通应届生的现金生活/租房补贴，开发区硕博奖补为区级",
+    "source_url": "https://www.xa.gov.cn/gk/zfbz/zffp/2097616406225920001.html",
+    "verified_at": "2026-11-09"
+   },
    "social_security": {
     "base_min": 4737,
     "base_max": 23685,
@@ -4511,13 +4672,20 @@
      "old": null,
      "new": "首次采集",
      "basis": "西安市公安局 2023-10-13 户籍通知、西安保租房大学生项目通告（2026）、西安人社局 2026 灵活养老缴费通知、西安高新区转发 2026 灵活医保缴费指南、西安统计局 2025 公报、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidy_scan",
+     "old": null,
+     "new": "living_none=true, rent_none=true",
+     "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
     }
    ],
    "id": "xian",
    "status": {
     "hukou": "verified",
-    "living_subsidy": "missing",
-    "rent_subsidy": "missing",
+    "living_subsidy": "verified",
+    "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"
@@ -4693,6 +4861,13 @@
      "lead_url": null
     }
    ],
+   "subsidy_scan": {
+    "living_none": false,
+    "rent_none": true,
+    "basis": "郑州对落户毕业生为生活补贴、购房补贴和 7 天免费住宿，未设市级现金租房补贴",
+    "source_url": "https://www.zhengzhou.gov.cn/rdhy/8565294.jhtml",
+    "verified_at": "2026-11-09"
+   },
    "social_security": {
     "base_min": 3912,
     "base_max": 19560,
@@ -4765,13 +4940,20 @@
      "old": null,
      "new": "首次采集",
      "basis": "郑公通〔2023〕253号、郑州市政府网站 2024-07-26 转载稿、豫人社办〔2026〕62号、郑州统计局 2025 公报、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidy_scan",
+     "old": null,
+     "new": "living_none=false, rent_none=true",
+     "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
     }
    ],
    "id": "zhengzhou",
    "status": {
     "hukou": "verified",
     "living_subsidy": "lead",
-    "rent_subsidy": "missing",
+    "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"

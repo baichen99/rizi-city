@@ -52,6 +52,13 @@ subsidies:
     lead: null
     lead_url: null
 
+subsidy_scan:
+  living_none: true
+  rent_none: true
+  basis: 查阅北京市人社局引进毕业生管理办法及市级高校毕业生政策，未见面向普通应届生的市级现金生活/租房补贴；海淀"海青安居"为区级且限重点产业
+  source_url: https://rsj.beijing.gov.cn/xxgk/2024zcwj/202406/t20240617_3717192.html
+  verified_at: 2026-11-09
+
 social_security:
   base_min: 7270
   base_max: 36348
@@ -128,3 +135,8 @@ changelog:
     old: null
     new: 首次采集
     basis: 京人社毕发〔2021〕22号、海淀"海青安居"若干措施及 2026 申请通知、京人社发〔2026〕7号通告、北京 2025 统计公报、北京市政务服务网灵活就业一件事、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: subsidy_scan
+    old: null
+    new: living_none=true, rent_none=true
+    basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）

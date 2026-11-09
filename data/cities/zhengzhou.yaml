@@ -92,6 +92,13 @@ subsidies:
     lead: null
     lead_url: null
 
+subsidy_scan:
+  living_none: false
+  rent_none: true
+  basis: 郑州对落户毕业生为生活补贴、购房补贴和 7 天免费住宿，未设市级现金租房补贴
+  source_url: https://www.zhengzhou.gov.cn/rdhy/8565294.jhtml
+  verified_at: 2026-11-09
+
 social_security:
   base_min: 3912
   base_max: 19560
@@ -164,3 +171,8 @@ changelog:
     old: null
     new: 首次采集
     basis: 郑公通〔2023〕253号、郑州市政府网站 2024-07-26 转载稿、豫人社办〔2026〕62号、郑州统计局 2025 公报、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: subsidy_scan
+    old: null
+    new: living_none=false, rent_none=true
+    basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）

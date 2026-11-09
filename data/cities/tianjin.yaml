@@ -28,6 +28,13 @@ hukou:
 
 subsidies: []
 
+subsidy_scan:
+  living_none: true
+  rent_none: true
+  basis: 查阅天津市人社局引进人才落户办法及高校毕业生就业创业政策，未见面向普通应届生的市级现金生活/租房补贴
+  source_url: https://hrss.tj.gov.cn/zhengwugongkai/zhengcezhinan/zxwjnew/202301/t20230104_6068698.html
+  verified_at: 2026-11-09
+
 social_security:
   base_min: 5180
   base_max: 25902
@@ -100,3 +107,8 @@ changelog:
     old: null
     new: 首次采集
     basis: 津人社规字〔2018〕11号、天津 2025 年度职工平均工资及 2026 社保基数公布、市医保局灵活就业医保通知（2026 第 12 期公报）、天津 2025 统计公报、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: subsidy_scan
+    old: null
+    new: living_none=true, rent_none=true
+    basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）

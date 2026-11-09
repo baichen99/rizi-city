@@ -269,6 +269,25 @@ def check_commute(r, cm):
                 r.err(w, f"有通勤时间但没有 {k}")
 
 
+def check_scan(r, sc, subs):
+    w = "subsidy_scan"
+    if sc is None:
+        return
+    if not isinstance(sc, dict):
+        r.err(w, "应为映射")
+        return
+    check_date(r, f"{w}.verified_at", sc.get("verified_at"))
+    if sc.get("living_none") or sc.get("rent_none"):
+        for k in ("basis", "source_url", "verified_at"):
+            if not sc.get(k):
+                r.err(w, f"标了 none 但没有 {k}")
+        if sc.get("source_url") and not is_gov_url(sc["source_url"]):
+            r.err(w, "source_url 必须是政府官网")
+    for flag, kind in (("living_none", "living"), ("rent_none", "rent")):
+        if sc.get(flag) and any(s and s.get("type") == kind for s in (subs or [])):
+            r.err(w, f"{flag} 为 true，但 subsidies 里还有 type={kind} 的条目")
+
+
 def check_pitfalls(r, pits):
     if pits is None:
         return
@@ -326,6 +345,7 @@ def validate_file(path: Path, is_template=False) -> Report:
     check_subsidies(r, d.get("subsidies"))
     check_social_security(r, d.get("social_security"))
     check_living(r, d.get("living"))
+    check_scan(r, d.get("subsidy_scan"), d.get("subsidies"))
     check_flexible(r, d.get("flexible_employment"))
     check_civil(r, d.get("civil_service"))
     check_commute(r, d.get("commute"))

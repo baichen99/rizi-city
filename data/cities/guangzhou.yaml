@@ -49,6 +49,13 @@ subsidies:
     lead: 南沙区：新落户就业的本科、硕士、博士可连续 30 个月领每月 1000、2000、4000 元生活补贴（区级）
     lead_url: https://www.gz.gov.cn/zt/ljgaqngcwqwl/wlxd/content/post_10873248.html
 
+subsidy_scan:
+  living_none: false
+  rent_none: true
+  basis: 广州人社局青年人才"五来"礼遇：住房方面为保障性住房和人才住房，未设市级现金租房补贴
+  source_url: https://rsj.gz.gov.cn/ywzt/jycy/gzdt/content/post_10734650.html
+  verified_at: 2026-11-09
+
 social_security:
   base_min: null
   base_max: null
@@ -123,3 +130,8 @@ changelog:
     old: null
     new: 首次采集
     basis: 穗府办规〔2025〕9号、广州人社局 2026-03-20 青年人才"五来"礼遇、广州 2025 统计公报、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: subsidy_scan
+    old: null
+    new: living_none=false, rent_none=true
+    basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）

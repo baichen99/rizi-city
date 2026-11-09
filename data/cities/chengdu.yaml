@@ -48,6 +48,13 @@ subsidies:
     lead: 成办规〔2026〕1号支持保租房用作青年人才驿站，并鼓励各区（市）县对人才承租人制定租金补贴、减免政策（区级标准各异）
     lead_url: https://www.chengdu.gov.cn/gkml/uploadfiles/1607625235320909825/14638450314450042881.pdf
 
+subsidy_scan:
+  living_none: true
+  rent_none: true
+  basis: 成办规〔2026〕1号仅支持保租房用作青年人才驿站、鼓励区县制定租金优惠；市级未见面向普通应届生的现金生活/租房补贴
+  source_url: https://www.chengdu.gov.cn/gkml/uploadfiles/1607625235320909825/14638450314450042881.pdf
+  verified_at: 2026-11-09
+
 social_security:
   base_min: 4699
   base_max: 23493
@@ -122,3 +129,8 @@ changelog:
     old: null
     new: 首次采集
     basis: 成办规〔2024〕3号原文、川人社办发〔2026〕50号、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: subsidy_scan
+    old: null
+    new: living_none=true, rent_none=true
+    basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）

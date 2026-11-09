@@ -51,6 +51,13 @@ subsidies:
     lead: 西安航天基地等开发区另有硕博奖补（如博士 1 万、硕士 5000 元一次性奖励），属区级政策且年份较旧，未收录
     lead_url: http://xcaib.xa.gov.cn/zmhd/cjwt/1707292682361581570.html
 
+subsidy_scan:
+  living_none: true
+  rent_none: true
+  basis: 西安对大学生的住房支持为保租房 2 年租金减免（非现金）；市级未见面向普通应届生的现金生活/租房补贴，开发区硕博奖补为区级
+  source_url: https://www.xa.gov.cn/gk/zfbz/zffp/2097616406225920001.html
+  verified_at: 2026-11-09
+
 social_security:
   base_min: 4737
   base_max: 23685
@@ -127,3 +134,8 @@ changelog:
     old: null
     new: 首次采集
     basis: 西安市公安局 2023-10-13 户籍通知、西安保租房大学生项目通告（2026）、西安人社局 2026 灵活养老缴费通知、西安高新区转发 2026 灵活医保缴费指南、西安统计局 2025 公报、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: subsidy_scan
+    old: null
+    new: living_none=true, rent_none=true
+    basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）
