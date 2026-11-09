@@ -204,6 +204,23 @@
       "publication_basis": "已直接打开公报及卫健委法律声明：使用或转载须注明来源，不得曲解修改；只摘录一个全市户籍居民寿命事实，不复制全文、图片或整表，不对来源材料再许可。",
       "attribution": "引自北京市卫生健康委员会（北京市卫生健康大数据与政策研究中心）",
       "review_due": "2027-02-09"
+    },
+    {
+      "id": "nbs-house-202605",
+      "title": "2026年5月份70城商品住宅销售价格变动情况（国家统计局英文原表）",
+      "url": "https://www.stats.gov.cn/english/PressRelease/202606/t20260616_1963956.html",
+      "publisher": "国家统计局网站（www.stats.gov.cn）",
+      "published_at": "2026-06-16",
+      "retrieved_at": "2026-11-09",
+      "verified_at": "2026-11-09",
+      "review_status": "verified",
+      "access_method": "manual_primary_page",
+      "redistribution": "fact_extract",
+      "bulk_redistribution": false,
+      "license_url": "https://www.stats.gov.cn/wzgl/202302/t20230217_1912857.html",
+      "publication_basis": "重新核读国家统计局服务条款：免费资料性合理引用需署名，不得擅自再许可。本批仅逐城摘录北京、上海、广州各一项同比指数，不复制整表；英文原表Table I与附注1、2、5已完整核实，未声称中文超时页面已读。",
+      "attribution": "引自国家统计局网站（www.stats.gov.cn）",
+      "review_due": "2027-02-09"
     }
   ]
 }

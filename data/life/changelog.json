@@ -269,5 +269,14 @@
     "old": null,
     "new": 82.47,
     "basis": "https://wjw.beijing.gov.cn/sjfb/bjstjgb/bjstjgb2021/202306/t20230614_3133800.html；主要健康指标正文第一段；年龄0定义 https://tjj.beijing.gov.cn/zwgkai/tjzd_31386/cgdczd/2020nb2021db_48964/jctjbbzd_48966/qt_48970/202101/P020210108400516156330.pdf 印刷页14；时期定义 https://tjj.beijing.gov.cn/zwgkai/tjzd_31386/cgdczd/2023nb2024db/bmsjgxzd_2023/202402/P020240229355849034522.pdf 印刷页105"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "beijing",
+    "record_id": "beijing-housing_new_yoy_index-2026-05",
+    "field": "life.housing_new_yoy_index.2026-05.value",
+    "old": null,
+    "new": 97.9,
+    "basis": "https://www.stats.gov.cn/english/PressRelease/202606/t20260616_1963956.html；Table I，Beijing行，Y/Y列（the Same Month Last Year=100）；附注1、2、5"
   }
 ]
