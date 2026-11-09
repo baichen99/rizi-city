@@ -68,6 +68,51 @@ living:
   income_per_capita: 58297
   stats_year: 2025
   stats_source_url: https://www.shenyang.gov.cn/zwgk/fdzdgknr/tjxx/tjgb/202605/t20260519_5027959.html
+  statistical_metadata:
+    income_per_capita:
+      source_value: 58297
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（常住属性依据国家统一住户调查方案）
+      population_scope_type: urban_residents
+      geographic_scope: 沈阳市全市行政区域内的城镇地区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+      methodology_note: 2025公报由沈阳市统计局和沈阳调查队联发，资料来源说明城乡居民收入等数据来自沈阳调查队，未逐字单列消费。收入与消费按同段城镇居民分组；常住属性依据国家统一住户调查方案，不声称本地公报原话为常住。未取得本地专项方法附件，不声称当地样本数或误差；日记账与问卷、现金实物及加权人均均值，不是工资、中位数或单身现金预算。 年度均值、名义金额及自产自用口径另见 https://www.stats.gov.cn/sj/zxfbhjd/202601/t20260119_1962321.html 附注。
+      cross_city_comparability_key: resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.shenyang.gov.cn/zwgk/fdzdgknr/tjxx/tjgb/202605/t20260519_5027959.html
+      source_date: '2026-05-19'
+      publisher: 沈阳市统计局、国家统计局沈阳调查队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第十一节人民生活和社会保障首段：全年全市，城镇居民收入58297元；注释1为初步统计数
+      data_status: preliminary
+    consumption_per_capita:
+      source_value: 44505
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（常住属性依据国家统一住户调查方案）
+      population_scope_type: urban_residents
+      geographic_scope: 沈阳市全市行政区域内的城镇地区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+      methodology_note: 2025公报由沈阳市统计局和沈阳调查队联发，资料来源说明城乡居民收入等数据来自沈阳调查队，未逐字单列消费。收入与消费按同段城镇居民分组；常住属性依据国家统一住户调查方案，不声称本地公报原话为常住。未取得本地专项方法附件，不声称当地样本数或误差；日记账与问卷、现金实物及加权人均均值，不是工资、中位数或单身现金预算。 年度均值、名义金额及自产自用口径另见 https://www.stats.gov.cn/sj/zxfbhjd/202601/t20260119_1962321.html 附注。
+      cross_city_comparability_key: resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.shenyang.gov.cn/zwgk/fdzdgknr/tjxx/tjgb/202605/t20260519_5027959.html
+      source_date: '2026-05-19'
+      publisher: 沈阳市统计局、国家统计局沈阳调查队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第十一节首段城镇居民分句：人均生活消费支出44505元，非全体居民值；注释1为初步统计数
+      data_status: preliminary
   verified_at: 2026-11-09
   needs_human: false
   needs_human_reason: null
@@ -166,3 +211,55 @@ changelog:
     old: null
     new: 2026省考报考指南关于择业期、留学和服务基层人员等应届认定未核实，fresh_grad_rule留null；未核实2027正式省考/事业单位统招公告。2026事业单位统招仅核实公告正文，应聘指南附件尚未完整解析。
     basis: 考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html
+  - date: '2026-11-09'
+    field: living.statistical_metadata.income_per_capita
+    old: null
+    new:
+      source_value: 58297
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（常住属性依据国家统一住户调查方案）
+      population_scope_type: urban_residents
+      geographic_scope: 沈阳市全市行政区域内的城镇地区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+      methodology_note: 2025公报由沈阳市统计局和沈阳调查队联发，资料来源说明城乡居民收入等数据来自沈阳调查队，未逐字单列消费。收入与消费按同段城镇居民分组；常住属性依据国家统一住户调查方案，不声称本地公报原话为常住。未取得本地专项方法附件，不声称当地样本数或误差；日记账与问卷、现金实物及加权人均均值，不是工资、中位数或单身现金预算。 年度均值、名义金额及自产自用口径另见 https://www.stats.gov.cn/sj/zxfbhjd/202601/t20260119_1962321.html 附注。
+      cross_city_comparability_key: resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.shenyang.gov.cn/zwgk/fdzdgknr/tjxx/tjgb/202605/t20260519_5027959.html
+      source_date: '2026-05-19'
+      publisher: 沈阳市统计局、国家统计局沈阳调查队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第十一节人民生活和社会保障首段：全年全市，城镇居民收入58297元；注释1为初步统计数
+      data_status: preliminary
+    basis: https://www.shenyang.gov.cn/zwgk/fdzdgknr/tjxx/tjgb/202605/t20260519_5027959.html；第十一节人民生活和社会保障首段：全年全市，城镇居民收入58297元；注释1为初步统计数；方法 https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+  - date: '2026-11-09'
+    field: living.statistical_metadata.consumption_per_capita
+    old: null
+    new:
+      source_value: 44505
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（常住属性依据国家统一住户调查方案）
+      population_scope_type: urban_residents
+      geographic_scope: 沈阳市全市行政区域内的城镇地区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+      methodology_note: 2025公报由沈阳市统计局和沈阳调查队联发，资料来源说明城乡居民收入等数据来自沈阳调查队，未逐字单列消费。收入与消费按同段城镇居民分组；常住属性依据国家统一住户调查方案，不声称本地公报原话为常住。未取得本地专项方法附件，不声称当地样本数或误差；日记账与问卷、现金实物及加权人均均值，不是工资、中位数或单身现金预算。 年度均值、名义金额及自产自用口径另见 https://www.stats.gov.cn/sj/zxfbhjd/202601/t20260119_1962321.html 附注。
+      cross_city_comparability_key: resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.shenyang.gov.cn/zwgk/fdzdgknr/tjxx/tjgb/202605/t20260519_5027959.html
+      source_date: '2026-05-19'
+      publisher: 沈阳市统计局、国家统计局沈阳调查队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第十一节首段城镇居民分句：人均生活消费支出44505元，非全体居民值；注释1为初步统计数
+      data_status: preliminary
+    basis: https://www.shenyang.gov.cn/zwgk/fdzdgknr/tjxx/tjgb/202605/t20260519_5027959.html；第十一节首段城镇居民分句：人均生活消费支出44505元，非全体居民值；注释1为初步统计数；方法 https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
