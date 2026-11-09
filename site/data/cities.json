@@ -1,6 +1,6 @@
 {
  "latest_verified": "2026-11-09",
- "city_count": 11,
+ "city_count": 12,
  "disclaimer": "仅供参考，申请前以官方页面为准。",
  "cities": [
   {
@@ -1769,6 +1769,213 @@
    },
    "latest_verified": "2026-11-09",
    "needs_human_count": 2
+  },
+  {
+   "city": "上海",
+   "province": "上海",
+   "maintainers": [],
+   "last_patrol": "2026-11-09",
+   "hukou": {
+    "summary": "应届生进沪就业落户实行评分制，2026 年标准分 72 分；博士符合基本条件即可落户，在沪高校和\"世界一流\"建设高校（学科）应届硕士符合基本条件即可落户；需有在沪用人单位",
+    "education_min": "普通高校本科（应届）",
+    "age_limit": "原文未单列年龄上限",
+    "requires_job_or_social_security": true,
+    "eligible_by_degree": {
+     "associate": null,
+     "bachelor": true,
+     "master": true,
+     "phd": true
+    },
+    "tier_by_degree": {
+     "associate": null,
+     "bachelor": "quota",
+     "master": "quota",
+     "phd": "job"
+    },
+    "age_max_by_degree": {
+     "associate": null,
+     "bachelor": null,
+     "master": null,
+     "phd": null
+    },
+    "conditions": [
+     "须与在沪用人单位签订一年及以上就业协议；中介机构派遣人员不予受理",
+     "在校期间未与任何用人单位存在劳动或聘用关系、未缴纳社会保险（自主创业等例外）",
+     "硕士：在沪高校、在沪研究所及\"世界一流大学建设高校\"、\"世界一流学科建设高校\"建设学科应届硕士符合基本条件即可落户；其他硕士和本科按评分"
+    ],
+    "apply_window": "2026 年 5 月 11 日至 7 月 3 日（工作日）；部分情形可延长至 12 月 31 日。2027 届文件预计 2027 年春发布",
+    "policy_name": "2026 年非上海生源应届普通高校毕业生进沪就业申请本市户籍办法，沪教委学〔2026〕13号",
+    "source_url": "https://www.shanghai.gov.cn/cmsres/c0/c0be2153e4e04371a7bd856e099f83fc/03cad02918ba513e483ac2037250f613.pdf",
+    "source_date": "2026-04-22",
+    "valid_until": null,
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false,
+    "lead": null,
+    "lead_url": null
+   },
+   "subsidies": [
+    {
+     "name": "新就业青年安居服务（保租房租金补贴）",
+     "type": "other",
+     "amount": "租住保租房按环线分档补贴：外环内不超过备案价 40%、每套每月最高 2500 元；外郊环间不超过 50%、最高 2000 元；郊环外不超过 60%、最高 1500 元；第二年退坡 50%，最长 2 年（各区执行，徐汇区口径）",
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": null,
+      "master": null,
+      "phd": null
+     },
+     "period": "month",
+     "periods_max": 24,
+     "payout": "以优惠价形式抵扣保租房租金，不发现金",
+     "target": "35 周岁以下、2026-01-01 以后在沪新就业缴社保、\"高水平大学\"本科及以上且毕业不满 3 年的青年（徐汇区口径）",
+     "conditions": [
+      "只适用于保租房房源，须通过随申办\"我要租房—新就业青年安居服务\"申请",
+      "本人及配偶、未成年子女在沪无自有住房；社保基数不超过上年度平均工资 2 倍",
+      "各区对学校层次要求不同（如普陀要求\"双一流\"或世界排名前 500）"
+     ],
+     "deadline_rule": "毕业不满 3 年",
+     "policy_name": "徐汇区上线新就业青年住房优惠（上海市政府网 2026-08-07 转载）",
+     "source_url": "https://www.shanghai.gov.cn/nw17239/20260807/298edd6be1494e7d91cb27a7490dc44d.html",
+     "source_date": "2026-08-07",
+     "valid_until": null,
+     "verified_at": "2026-11-09",
+     "needs_human": false,
+     "needs_human_reason": null,
+     "access_blocked": false,
+     "lead": null,
+     "lead_url": null
+    }
+   ],
+   "social_security": {
+    "base_min": 7546,
+    "base_max": 37731,
+    "year": "2026 年度（2026-07-01 起）",
+    "scope": "上海市",
+    "source_url": "https://www.shanghai.gov.cn/nw17239/20260907/5b1efa2a9f004fb0897103bd4f75f559.html",
+    "source_type": "gov",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": "来源为上海市政府网转载宝山区政府说明，人社局通告原文待补链接",
+    "access_blocked": false
+   },
+   "living": {
+    "rent_avg_per_sqm": 84.82,
+    "rent_period": "2026-09",
+    "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
+    "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
+    "consumption_per_capita": 57076,
+    "income_per_capita": 96842,
+    "stats_year": 2025,
+    "stats_source_url": "https://tjj.sh.gov.cn/tjgb/20260330/e0772941e8e041eaaad2df850b44ef98.html",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "flexible_employment": {
+    "pension_base_min": 7546,
+    "pension_rate": 24,
+    "pension_year": "2026 年度（2026-07-01 起）",
+    "medical_monthly_min": 830.06,
+    "medical_note": "上海灵活就业人员职工医保按基数 × 11% 缴纳（沪人社规〔2023〕5号）；按下限 7546 计",
+    "monthly_total_min": 2641.1,
+    "calc": "养老 7546 × 24% = 1811.04；医保 7546 × 11% = 830.06；合计 2641.10 元/月",
+    "hukou_restriction": "沪人社规〔2023〕5号将灵活就业人员定义为\"在本市劳动就业的\"自雇人员、无雇工个体户、非全日制从业人员等，原文未设户籍条件；需办理就业登记和社保登记",
+    "nonlocal_allowed": true,
+    "apply_channel": "网上办理，或社保经办机构、公共就业服务机构、街道（乡镇）社区事务受理服务中心",
+    "source_url": "https://www.shanghai.gov.cn/gwk/search/content/t0035_1415199",
+    "medical_source_url": "https://www.shanghai.gov.cn/gwk/search/content/t0035_1415199",
+    "hukou_source_url": "https://www.shanghai.gov.cn/gwk/search/content/t0035_1415199",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "civil_service": {
+    "fresh_grad_rule": null,
+    "exam_schedule": null,
+    "announcement_url": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "commute": {
+    "avg_commute_minutes": null,
+    "year": null,
+    "report": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "待确定通勤数据口径"
+   },
+   "pitfalls": [
+    {
+     "text": "想走上海应届生落户，在校期间千万别跟单位建立劳动关系或缴社保（实习也要注意），也别通过中介派遣入职，否则直接不受理。",
+     "source_url": "https://www.shanghai.gov.cn/cmsres/c0/c0be2153e4e04371a7bd856e099f83fc/03cad02918ba513e483ac2037250f613.pdf"
+    },
+    {
+     "text": "上海灵活就业社保比例是养老 24%、医保 11%，比多数城市（养老 20%）高；而且只能按月缴，不能事后补缴。",
+     "source_url": "https://www.shanghai.gov.cn/gwk/search/content/t0035_1415199"
+    }
+   ],
+   "changelog": [
+    {
+     "date": "2026-11-09",
+     "field": "全部",
+     "old": null,
+     "new": "首次采集",
+     "basis": "沪教委学〔2026〕13号、沪人社规〔2023〕5号、上海 2026 社保基数（宝山区转载）、徐汇新就业青年安居服务、上海统计局 2025 公报、中指研究院 2026 年 9 月租金"
+    }
+   ],
+   "id": "shanghai",
+   "status": {
+    "hukou": "verified",
+    "living_subsidy": "missing",
+    "rent_subsidy": "missing",
+    "rent": "verified",
+    "social_security": "verified",
+    "cost": "verified"
+   },
+   "by_degree": {
+    "associate": {
+     "hukou_eligible": null,
+     "hukou_age_max": null,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    },
+    "bachelor": {
+     "hukou_eligible": true,
+     "hukou_age_max": null,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    },
+    "master": {
+     "hukou_eligible": true,
+     "hukou_age_max": null,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    },
+    "phd": {
+     "hukou_eligible": true,
+     "hukou_age_max": null,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    }
+   },
+   "latest_verified": "2026-11-09",
+   "needs_human_count": 0
   },
   {
    "city": "苏州",
