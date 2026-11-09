@@ -5967,13 +5967,13 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "fresh_grad_rule": "2026省考历史指南“应届生岗位”面向2026-01-01至12-31毕业、可出具就业协议书的规定普通高校毕业生；已签就业协议者可报，符合条件的非全日制研究生、高职扩招及第二学士学位毕业生视同。另含以当年在校生或应届生身份入伍、2025年内退役并取得毕业证学位证的大学生退役士兵。指南未将普通2024/2025届未就业者概括纳入，不可直接套用国考两年择业期。事业单位独立按招聘方案及岗位表审核。 事业单位依据：https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm",
+    "exam_schedule": "2026省考（历史批次）：报名2026-01-19 09:00至01-23 17:00；行测、申论2026-03-14，公安专业2026-03-15，均已结束。2026省属事业单位招聘方案一（历史批次）：报名2026-03-24 08:00至03-30 16:00；笔试2026-04-25 09:00—11:00，均已结束。本次未查到可核实的2027省考公告，不推测2027日期。 事业单位依据：https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm",
+    "announcement_url": "https://gwykl.fujian.gov.cn/Portal/news/bulletin2026",
+    "source_url": "https://gwykl.fujian.gov.cn/portal/help2026/s2.htm",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "2027省考公告未核实，保留2026历史信息。省属事业单位仅核方案一，不替代厦门市属、区属招聘；应届条件须另核具体岗位表。",
     "access_blocked": false
    },
    "commute": {
@@ -6005,6 +6005,55 @@
      "old": null,
      "new": "living_none=true, rent_none=false",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "2026省考历史指南“应届生岗位”面向2026-01-01至12-31毕业、可出具就业协议书的规定普通高校毕业生；已签就业协议者可报，符合条件的非全日制研究生、高职扩招及第二学士学位毕业生视同。另含以当年在校生或应届生身份入伍、2025年内退役并取得毕业证学位证的大学生退役士兵。指南未将普通2024/2025届未就业者概括纳入，不可直接套用国考两年择业期。事业单位独立按招聘方案及岗位表审核。 事业单位依据：https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm",
+     "basis": "考公考编专项巡检；省考公告 https://gwykl.fujian.gov.cn/Portal/news/bulletin2026；省考指南 https://gwykl.fujian.gov.cn/portal/help2026/s2.htm；事业单位公告 https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2026省考（历史批次）：报名2026-01-19 09:00至01-23 17:00；行测、申论2026-03-14，公安专业2026-03-15，均已结束。2026省属事业单位招聘方案一（历史批次）：报名2026-03-24 08:00至03-30 16:00；笔试2026-04-25 09:00—11:00，均已结束。本次未查到可核实的2027省考公告，不推测2027日期。 事业单位依据：https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm",
+     "basis": "考公考编专项巡检；省考公告 https://gwykl.fujian.gov.cn/Portal/news/bulletin2026；省考指南 https://gwykl.fujian.gov.cn/portal/help2026/s2.htm；事业单位公告 https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://gwykl.fujian.gov.cn/Portal/news/bulletin2026",
+     "basis": "考公考编专项巡检；省考公告 https://gwykl.fujian.gov.cn/Portal/news/bulletin2026；省考指南 https://gwykl.fujian.gov.cn/portal/help2026/s2.htm；事业单位公告 https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://gwykl.fujian.gov.cn/portal/help2026/s2.htm",
+     "basis": "考公考编专项巡检；省考公告 https://gwykl.fujian.gov.cn/Portal/news/bulletin2026；省考指南 https://gwykl.fujian.gov.cn/portal/help2026/s2.htm；事业单位公告 https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；省考公告 https://gwykl.fujian.gov.cn/Portal/news/bulletin2026；省考指南 https://gwykl.fujian.gov.cn/portal/help2026/s2.htm；事业单位公告 https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；省考公告 https://gwykl.fujian.gov.cn/Portal/news/bulletin2026；省考指南 https://gwykl.fujian.gov.cn/portal/help2026/s2.htm；事业单位公告 https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "2027省考公告未核实，保留2026历史信息。省属事业单位仅核方案一，不替代厦门市属、区属招聘；应届条件须另核具体岗位表。",
+     "basis": "考公考编专项巡检；省考公告 https://gwykl.fujian.gov.cn/Portal/news/bulletin2026；省考指南 https://gwykl.fujian.gov.cn/portal/help2026/s2.htm；事业单位公告 https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm"
     }
    ],
    "id": "xiamen",
