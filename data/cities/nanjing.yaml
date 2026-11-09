@@ -27,44 +27,48 @@ hukou:
 subsidies:
   - name: 高校毕业生一次性生活补贴
     type: living
-    amount: null
-    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
-    period: null
-    periods_max: null
-    payout: null
-    target: null
-    conditions: []
-    deadline_rule: null
-    policy_name: null
-    source_url: null
-    source_date: null
-    valid_until: null
-    verified_at: null
-    needs_human: true
-    needs_human_reason: 官网被拦截（HTTP 403），无法打开原文。需人工打开 lead_url 核对金额、条件、发文文号和有效期。
-    access_blocked: true
-    lead: 搜索摘要称南京 2026 年初人才新政对在宁就业的高校毕业生发放一次性生活补贴：学士 1 万元、硕士 3 万元、博士 10 万元
-    lead_url: https://www.nanjing.gov.cn/zzb/ywdt/njxx/202601/t20260106_5757786.html
+    amount: 学士 1 万元、硕士 3 万元、博士 10 万元，同一人只能享受一次（分两笔各发 50%：连续参保满 6 个月后申领第一笔、满 12 个月后申领第二笔）
+    amount_by_degree: {associate: null, bachelor: 10000, master: 30000, phd: 100000}
+    period: once
+    periods_max: 1
+    payout: 分两笔各 50%
+    target: 在南京市各类用人单位就业创业、取得学士及以上学位的全日制普通高校毕业生（含国（境）外），或首次就业创业的非全日制研究生；在宁缴纳企业职工基本养老保险等（条件满足其一，见原文）
+    conditions:
+      - 参保首月须在毕业后 1 年内，第一笔申领须在毕业后一年半内，第二笔申领须在毕业后两年内，逾期不补发
+    deadline_rule: 第二笔申领须在毕业后 2 年内
+    policy_name: 《南京市高校毕业生生活补贴操作办法》（宁人社规〔2026〕5号）
+    source_url: https://rsj.nanjing.gov.cn/njsrlzyhshbzj/202603/t20260304_5799881.html
+    source_date: 2026-02-12
+    valid_until: 2028-12-31
+    verified_at: 2026-11-09
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
   - name: 高校毕业生住房租赁补贴
     type: rent
-    amount: null
-    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
-    period: null
-    periods_max: null
-    payout: null
-    target: null
-    conditions: []
-    deadline_rule: null
-    policy_name: null
-    source_url: null
-    source_date: null
+    amount: 博士每人每月 2000 元、硕士每人每月 800 元、学士（含高级工及以上）每人每月 600 元，补贴发放累计不超过 36 个月
+    amount_by_degree: {associate: null, bachelor: 600, master: 800, phd: 2000}
+    period: month
+    periods_max: 36
+    payout: 按月（每连续参保缴费 6 个月可申领一次）
+    target: 与南京市用人单位签订劳动合同的高校毕业生（无房为必要条件）
+    conditions:
+      - 首次申请应在毕业之日起 2 年半内提交，末次申请应在享受补贴的首月起 5 年内提交
+      - 审核采用「3+1」要素：无房、学历、社保 + 租住状态承诺
+      - 2026 年起另有提标：大专（高级工以上）500 元/月、重点领域规上企业新引进毕业生博士 2400 元/月、硕士 960 元/月等（宁人社规〔2026〕6号），详见原文；本条记全市统一基础标准
+    deadline_rule: 首次申请须在毕业之日起 2 年半内
+    policy_name: 《南京市人力资源和社会保障局等七部门关于优化调整高校毕业生住房租赁补贴政策的通知》（宁人社规〔2025〕2号，2025-10-01 起施行，有效期 5 年）；2026 年调整为宁人社规〔2026〕6号
+    source_url: https://rsj.nanjing.gov.cn/njsrlzyhshbzj/202510/P020251023387958026408.pdf
+    source_date: 2025-09-29
     valid_until: null
-    verified_at: null
-    needs_human: true
-    needs_human_reason: 官网被拦截（HTTP 403），无法打开原文。需人工核对宁人社规〔2025〕2号与 2026-03 十部门通知（宁人社规〔2026〕6号？）的现行标准和有效期。
-    access_blocked: true
-    lead: 搜索摘要：宁人社规〔2025〕2号（2025-10-01 起）标准为博士每月 2000 元、硕士 800 元、学士（含高级工）600 元，累计不超过 36 个月，首次申请须在毕业 2 年半内；2026-03 十部门通知对重点领域企业另有上浮，有效期至 2028-12-31
-    lead_url: https://rsj.nanjing.gov.cn/njsrlzyhshbzj/202603/t20260304_5799867.html
+    verified_at: 2026-11-09
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
 
 social_security:
   base_min: 5025
@@ -148,3 +152,13 @@ changelog:
     old: null
     new: 49506
     basis: 同上公报原文「城镇居民人均消费支出49506元，增长3.3%」；南京市统计局局长信箱 2026-04-27 答复亦确认此数
+  - date: 2026-11-09
+    field: subsidies（高校毕业生一次性生活补贴）
+    old: null（仅有线索）
+    new: 学士 1 万元、硕士 3 万元、博士 10 万元（一次性，分两笔各 50%）
+    basis: 《南京市高校毕业生生活补贴操作办法》（宁人社规〔2026〕5号，南京市人社局官网原文），有效期至 2028-12-31
+  - date: 2026-11-09
+    field: subsidies（高校毕业生住房租赁补贴）
+    old: null（仅有线索）
+    new: 博士 2000 元/月、硕士 800 元/月、学士 600 元/月，最长 36 个月
+    basis: 宁人社规〔2025〕2号（南京市人社局官网原文）；2026 年重点领域提标见宁人社规〔2026〕6号，已记入 conditions
