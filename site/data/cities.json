@@ -1,6 +1,6 @@
 {
  "latest_verified": "2026-11-09",
- "city_count": 4,
+ "city_count": 5,
  "disclaimer": "仅供参考，申请前以官方页面为准。",
  "cities": [
   {
@@ -780,6 +780,236 @@
    },
    "latest_verified": "2026-11-09",
    "needs_human_count": 2
+  },
+  {
+   "city": "合肥",
+   "province": "安徽",
+   "maintainers": [],
+   "last_patrol": "2026-11-09",
+   "hukou": {
+    "summary": null,
+    "education_min": null,
+    "age_limit": null,
+    "requires_job_or_social_security": null,
+    "eligible_by_degree": {
+     "associate": null,
+     "bachelor": null,
+     "master": null,
+     "phd": null
+    },
+    "tier_by_degree": {
+     "associate": null,
+     "bachelor": null,
+     "master": null,
+     "phd": null
+    },
+    "age_max_by_degree": {
+     "associate": null,
+     "bachelor": null,
+     "master": null,
+     "phd": null
+    },
+    "conditions": [],
+    "apply_window": null,
+    "policy_name": null,
+    "source_url": null,
+    "source_date": null,
+    "valid_until": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "合肥市政府网站（www.hefei.gov.cn、zwgk.hefei.gov.cn、rsj.hefei.gov.cn）均返回 HTTP 521 或断开连接（带\"加速乐\"JS 校验），安徽省经信厅页面返回知道创宇拦截页，未绕过。需人工用浏览器在 hefei.gov.cn 查高校毕业生落户口径。",
+    "access_blocked": true,
+    "lead": null,
+    "lead_url": null
+   },
+   "subsidies": [
+    {
+     "name": "新落户人才租房补贴",
+     "type": "rent",
+     "amount": null,
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": null,
+      "master": null,
+      "phd": null
+     },
+     "period": null,
+     "periods_max": null,
+     "payout": null,
+     "target": null,
+     "conditions": [],
+     "deadline_rule": null,
+     "policy_name": null,
+     "source_url": null,
+     "source_date": null,
+     "valid_until": null,
+     "verified_at": null,
+     "needs_human": true,
+     "needs_human_reason": "官方页面无法访问（同上，HTTP 521）。需人工打开 https://zwgk.hefei.gov.cn/public/17501/105005659.html 与 http://rsj.hefei.gov.cn/zxzx/tzgg/14666151.html 核对现行标准与有效期。",
+     "access_blocked": true,
+     "lead": "搜索摘要显示合肥市住房保障和房产管理局文件：新落户、无自有住房的博士每年 2 万、硕士 1.5 万、本科 1 万、大专 0.6 万，按月发放、累计不超过 36 个月；本科、大专要求 35 岁以下且毕业 3 年内；不含党政机关、国有企事业单位人员（未能打开原文核实，年份可能较旧）",
+     "lead_url": "https://zwgk.hefei.gov.cn/public/17501/105005659.html"
+    }
+   ],
+   "social_security": {
+    "base_min": 4354,
+    "base_max": 21772,
+    "year": "2026（2026-01-01 至 2026-12-31）",
+    "scope": "安徽全省（个人缴费基数）",
+    "source_url": "https://m.jiemian.com/article/15059098.html",
+    "source_type": "media",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "只找到界面新闻转载的安徽省人社厅等部门通知，未在 hrss.ah.gov.cn 检索到原文，需人工替换为官网链接。",
+    "access_blocked": false
+   },
+   "living": {
+    "rent_avg_per_sqm": 24.88,
+    "rent_period": "2026-09",
+    "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
+    "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
+    "consumption_per_capita": null,
+    "income_per_capita": null,
+    "stats_year": null,
+    "stats_source_url": null,
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "合肥市统计局（tjj.hefei.gov.cn）返回 HTTP 521（JS 反爬校验），未绕过；需人工取 2025 年统计公报城镇居民人均可支配收入与消费支出。",
+    "access_blocked": true
+   },
+   "flexible_employment": {
+    "pension_base_min": null,
+    "pension_rate": null,
+    "pension_year": null,
+    "medical_monthly_min": null,
+    "medical_note": "媒体转载的安徽 2026 通知称灵活就业人员参加职工医保和生育保险统一以下限 4354 元为基数，费率未知，且未见官网原文",
+    "monthly_total_min": null,
+    "calc": null,
+    "hukou_restriction": null,
+    "nonlocal_allowed": null,
+    "apply_channel": null,
+    "source_url": null,
+    "medical_source_url": null,
+    "hukou_source_url": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "安徽 2026 社保基数官网原文未找到，合肥医保与户籍限制页面无法访问。",
+    "access_blocked": false
+   },
+   "civil_service": {
+    "fresh_grad_rule": null,
+    "exam_schedule": null,
+    "announcement_url": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "commute": {
+    "avg_commute_minutes": null,
+    "year": null,
+    "report": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "待确定通勤数据口径"
+   },
+   "pitfalls": [],
+   "changelog": [
+    {
+     "date": "2026-11-09",
+     "field": "全部",
+     "old": null,
+     "new": "首次采集（大部分官网无法访问）",
+     "basis": "中指研究院 2026 年 9 月租金；其余见各项 needs_human_reason"
+    }
+   ],
+   "id": "hefei",
+   "status": {
+    "hukou": "blocked",
+    "living_subsidy": "missing",
+    "rent_subsidy": "blocked",
+    "rent": "lead",
+    "social_security": "lead",
+    "cost": "blocked"
+   },
+   "by_degree": {
+    "associate": {
+     "hukou_eligible": null,
+     "hukou_age_max": null,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "新落户人才租房补贴",
+       "type": "rent",
+       "per": null,
+       "period": null,
+       "total": null,
+       "reason": "官网无法访问，待人工核实"
+      }
+     ]
+    },
+    "bachelor": {
+     "hukou_eligible": null,
+     "hukou_age_max": null,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "新落户人才租房补贴",
+       "type": "rent",
+       "per": null,
+       "period": null,
+       "total": null,
+       "reason": "官网无法访问，待人工核实"
+      }
+     ]
+    },
+    "master": {
+     "hukou_eligible": null,
+     "hukou_age_max": null,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "新落户人才租房补贴",
+       "type": "rent",
+       "per": null,
+       "period": null,
+       "total": null,
+       "reason": "官网无法访问，待人工核实"
+      }
+     ]
+    },
+    "phd": {
+     "hukou_eligible": null,
+     "hukou_age_max": null,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "新落户人才租房补贴",
+       "type": "rent",
+       "per": null,
+       "period": null,
+       "total": null,
+       "reason": "官网无法访问，待人工核实"
+      }
+     ]
+    }
+   },
+   "latest_verified": "2026-11-09",
+   "needs_human_count": 4
   },
   {
    "city": "武汉",
