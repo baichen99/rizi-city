@@ -164,14 +164,20 @@
     const titleId = `history-title-${index}`;
     let graph = '<p class="small">尚无可绘制的已核实历史数据。</p>';
     if (valid.length) {
-      const periods = valid.map(p => periodNumber(p.period, series.frequency));
+      const timeline = [...series.points].filter(p => Number.isFinite(periodNumber(p.period, series.frequency))).sort((a,b) => periodNumber(a.period, series.frequency) - periodNumber(b.period, series.frequency));
+      const periods = timeline.map(p => periodNumber(p.period, series.frequency));
       const minX = Math.min(...periods), maxX = Math.max(...periods);
       const minY = Math.min(...valid.map(p => p.value)), maxY = Math.max(...valid.map(p => p.value));
-      const x = p => 62 + (periodNumber(p.period, series.frequency) - minX) / (maxX - minX || 1) * 510;
-      const y = p => 152 - (p.value - minY) / (maxY - minY || 1) * 110;
-      graph = `<svg class="history-chart" viewBox="0 0 620 195" role="img" aria-labelledby="${titleId}"><title id="${titleId}">${esc(series.label)}历史观测，${esc(series.unit)}。缺失期间断线，完整数值见下方表格。</title><path d="M62 24V152H582" class="chart-axis"/><text x="4" y="45">${esc(maxY)}</text><text x="4" y="154">${esc(minY)}</text>${segments.map(ps => `${ps.length > 1 ? `<polyline points="${ps.map(p => `${x(p)},${y(p)}`).join(" ")}"/>` : ""}${ps.map(p => `<circle tabindex="0" role="img" aria-label="${esc(p.period)}，${lifeValue(p)} ${esc(series.unit)}；${esc(sourceFor(c,p).title || "来源未提供")}；核验 ${esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}" cx="${x(p)}" cy="${y(p)}" r="4"><title>${esc(p.period)}：${lifeValue(p)} ${esc(series.unit)}；${esc(sourceFor(c,p).title || "来源未提供")}；核验 ${esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}</title></circle>`).join("")}`).join("")}<text x="62" y="182">${esc(valid[0].period)}</text><text x="572" y="182" text-anchor="end">${esc(valid[valid.length - 1].period)}</text></svg>`;
+      // Separate coordinate systems keep labels legible when a chart is only 260px wide.
+      // CSS chooses one SVG, so resizing does not require a state-changing rerender.
+      graph = [[620, "wide"], [300, "narrow"]].map(([width, mode]) => {
+        const x = p => 62 + (periodNumber(p.period, series.frequency) - minX) / (maxX - minX || 1) * (width - 110);
+        const y = p => 152 - (p.value - minY) / (maxY - minY || 1) * 110;
+        const id = `${titleId}-${mode}`;
+        return `<svg class="history-chart history-${mode}" viewBox="0 0 ${width} 195" role="img" aria-labelledby="${id}"><title id="${id}">${esc(series.label)}历史观测，${esc(series.unit)}。缺失期间断线，完整数值见下方表格。</title><path d="M62 24V152H${width - 38}" class="chart-axis"/><text x="4" y="45">${esc(maxY)}</text><text x="4" y="154">${esc(minY)}</text>${segments.map(ps => `${ps.length > 1 ? `<polyline points="${ps.map(p => `${x(p)},${y(p)}`).join(" ")}"/>` : ""}${ps.map(p => `<circle tabindex="0" role="img" aria-label="${esc(p.period)}，${lifeValue(p)} ${esc(series.unit)}；${esc(sourceFor(c,p).title || "来源未提供")}；核验 ${esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}" cx="${x(p)}" cy="${y(p)}" r="4"><title>${esc(p.period)}：${lifeValue(p)} ${esc(series.unit)}；${esc(sourceFor(c,p).title || "来源未提供")}；核验 ${esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}</title></circle>`).join("")}`).join("")}<text x="62" y="182">${esc(timeline[0].period)}</text><text x="${width - 48}" y="182" text-anchor="end">${esc(timeline[timeline.length - 1].period)}</text></svg>`;
+      }).join("");
     }
-    return `<article class="card"><h3>${esc(series.label)}</h3><p class="small">${esc(series.unit)} · ${esc(series.points?.[0]?.population_scope || "对象见明细")}。${esc(series.notes || "")} 只连接相邻且同口径的已核实观测，不补点、不把缺失当 0。纵轴按观测范围缩放，可能不从 0 起。</p>${graph}<details><summary>查看历史数据表与来源（${(series.points || []).length} 条）</summary><div class="table-scroll"><table><caption>${esc(series.label)}历史观测</caption><thead><tr><th scope="col">期间</th><th scope="col">数值（${esc(series.unit)}）</th><th scope="col">状态 / 来源</th></tr></thead><tbody>${(series.points || []).map(p => `<tr><th scope="row">${esc(p.period)}</th><td>${lifeValue(p)}</td><td>${esc(LIFE_STATUS[p.review_status] || "待核实")} ${safeLink(sourceFor(c,p).url || sourceFor(c,p).source_url, sourceFor(c,p).title || "原文") + " · 核验 " + esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}${p.missing_reason ? esc(p.missing_reason) : ""}</td></tr>`).join("")}</tbody></table></div></details></article>`;
+    return `<article class="card"><h3>${esc(series.label)}</h3><p class="small">${esc(series.unit)} · ${esc(series.points?.[0]?.population_scope || "对象见明细")}。${esc(series.notes || "")} 只连接相邻且同口径的已核实观测，不补点、不把缺失当 0。纵轴按观测范围缩放，可能不从 0 起。</p>${graph}<details><summary>查看历史数据表与来源（${(series.points || []).length} 条）</summary><div class="table-scroll history-table"><table role="table"><caption>${esc(series.label)}历史观测</caption><thead role="rowgroup"><tr role="row"><th scope="col">期间</th><th scope="col">数值（${esc(series.unit)}）</th><th scope="col">状态 / 来源</th></tr></thead><tbody role="rowgroup">${(series.points || []).map(p => `<tr><th scope="row">${esc(p.period)}</th><td role="cell">${lifeValue(p)} <span class="history-value-unit">${esc(series.unit)}</span></td><td role="cell">${esc(LIFE_STATUS[p.review_status] || "待核实")} ${safeLink(sourceFor(c,p).url || sourceFor(c,p).source_url, sourceFor(c,p).title || "原文") + " · 核验 " + esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}${p.missing_reason ? esc(p.missing_reason) : ""}</td></tr>`).join("")}</tbody></table></div></details></article>`;
   }
   function policyCards(c) {
     const policies = [
@@ -205,7 +211,7 @@
   function renderCompare() {
     const a = D.cities.find(c=>c.id===state.compareA), b = D.cities.find(c=>c.id===state.compareB);
     const rows = a && b && a !== b ? lifeRecords(a).map(r=>[r, lifeRecords(b).find(s=>s.metric===r.metric)]).filter(([r,s])=>comparable(r,s)) : [];
-    $("#tab-compare").innerHTML = `<h2>我在选城市</h2><p class="sub">先并排看事实，再决定什么对你重要。不合并不同口径，不做全能排名。</p><div class="card compare-pickers"><label>第一座城市<select id="compare-a">${cityOptions(state.compareA)}</select></label><label>第二座城市<select id="compare-b">${cityOptions(state.compareB)}</select></label></div>${a && b ? a===b ? '<p class="note">请选择两座不同的城市。</p>' : `<div class="row"><a class="btn ghost" href="#resident&city=${encodeURIComponent(a.id)}">${esc(a.city)}生活页 →</a><a class="btn ghost" href="#resident&city=${encodeURIComponent(b.id)}">${esc(b.city)}生活页 →</a></div>${rows.length ? `<div class="card table-scroll"><table><caption>同指标、单位、期间和统计对象的资料对照，不作高低排名</caption><thead><tr><th scope="col">指标 / 期间</th><th scope="col">${esc(a.city)}</th><th scope="col">${esc(b.city)}</th></tr></thead><tbody>${rows.map(([r,s])=>`<tr><th scope="row">${esc(r.label)}<br><span class="small">${esc(r.period)} · ${esc(r.unit)}</span></th><td>${lifeValue(r)}<details><summary>口径与来源</summary>${recordDetails(a,r)}</details></td><td>${lifeValue(s)}<details><summary>口径与来源</summary>${recordDetails(b,s)}</details></td></tr>`).join("")}</tbody></table></div>` : '<p class="note">暂未找到两城同期间、同口径且已核实的指标。请分别打开城市页，不将缺失值拿来排名。</p>'}<p class="small">其余指标因缺失、待核实或口径不同，未放入对照表。</p>` : '<p class="note">选择两座候选城市开始比较。数据不足时会明确提示。</p>'}<div class="card"><h3>保留你熟悉的专题工具</h3><p>日子指数使用本科落户、补贴和灵活就业等特定条件，不是适用于所有居民的城市评分。</p><div class="row"><a href="#index">日子指数与权重 →</a><a href="#grad">应届生 →</a><a href="#civil">考公考编 →</a><a href="#free">自由职业 →</a></div><p>${link(METHOD_URL,"了解指数方法")}</p></div>`;
+    $("#tab-compare").innerHTML = `<h2>我在选城市</h2><p class="sub">先并排看事实，再决定什么对你重要。不合并不同口径，不做全能排名。</p><div class="card compare-pickers"><label>第一座城市<select id="compare-a">${cityOptions(state.compareA)}</select></label><label>第二座城市<select id="compare-b">${cityOptions(state.compareB)}</select></label></div>${a && b ? a===b ? '<p class="note">请选择两座不同的城市。</p>' : `<div class="row"><a class="btn ghost" href="#resident&city=${encodeURIComponent(a.id)}">${esc(a.city)}生活页 →</a><a class="btn ghost" href="#resident&city=${encodeURIComponent(b.id)}">${esc(b.city)}生活页 →</a></div>${rows.length ? `<div class="card table-scroll compare-table"><table role="table"><caption>同指标、单位、期间和统计对象的资料对照，不作高低排名</caption><thead role="rowgroup"><tr role="row"><th scope="col">指标 / 期间</th><th scope="col">${esc(a.city)}</th><th scope="col">${esc(b.city)}</th></tr></thead><tbody>${rows.map(([r,s])=>`<tr role="row"><th scope="row" role="rowheader">${esc(r.label)}<br><span class="small">${esc(r.period)} · ${esc(r.unit)}</span></th><td role="cell"><span class="compare-city-label">${esc(a.city)}</span><strong class="compare-value">${lifeValue(r)}</strong><details><summary>口径与来源</summary>${recordDetails(a,r)}</details></td><td role="cell"><span class="compare-city-label">${esc(b.city)}</span><strong class="compare-value">${lifeValue(s)}</strong><details><summary>口径与来源</summary>${recordDetails(b,s)}</details></td></tr>`).join("")}</tbody></table></div>` : '<p class="note">暂未找到两城同期间、同口径且已核实的指标。请分别打开城市页，不将缺失值拿来排名。</p>'}<p class="small">其余指标因缺失、待核实或口径不同，未放入对照表。</p>` : '<p class="note">选择两座候选城市开始比较。数据不足时会明确提示。</p>'}<div class="card"><h3>保留你熟悉的专题工具</h3><p>日子指数使用本科落户、补贴和灵活就业等特定条件，不是适用于所有居民的城市评分。</p><div class="row"><a href="#index">日子指数与权重 →</a><a href="#grad">应届生 →</a><a href="#civil">考公考编 →</a><a href="#free">自由职业 →</a></div><p>${link(METHOD_URL,"了解指数方法")}</p></div>`;
   }
 
   // ---------- 日子指数 ----------
@@ -689,11 +695,13 @@
   // ---------- 渲染与事件 ----------
   const RENDER = { resident: renderResident, compare: renderCompare, index: renderIndex, grad: renderGrad, civil: renderCivil, free: renderFree };
   function show(tab, push = false) {
+    const changed = state.tab !== tab;
     state.tab = tab;
     document.querySelectorAll(".tabs button").forEach((b) => { b.setAttribute("aria-selected", String(b.dataset.tab === tab)); b.tabIndex = b.dataset.tab === tab ? 0 : -1; b.id = "nav-" + b.dataset.tab; b.setAttribute("aria-controls", "tab-" + b.dataset.tab); $("#tab-" + b.dataset.tab).setAttribute("aria-labelledby", b.id); });
     for (const k of Object.keys(RENDER)) $("#tab-" + k).hidden = k !== tab;
     RENDER[tab]();
     writeHash(push);
+    if (push && changed) $("#main-content").scrollIntoView({ block: "start" });
   }
   function rerenderKeepOpen() {
     const panel = $("#tab-" + state.tab);
@@ -705,7 +713,7 @@
   function toast(msg) {
     const t = document.createElement("div");
     t.textContent = msg;
-    t.style.cssText = "position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#2b2620;color:#fff;padding:8px 14px;border-radius:999px;font-size:14px;z-index:30";
+    t.style.cssText = "position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom));max-width:calc(100vw - 32px);width:max-content;overflow-wrap:anywhere;text-align:center;transform:translateX(-50%);background:#2b2620;color:#fff;padding:8px 14px;border-radius:999px;font-size:14px;z-index:30";
     document.body.appendChild(t); setTimeout(() => t.remove(), 1600);
   }
   async function copyLink() {
