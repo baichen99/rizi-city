@@ -254,7 +254,7 @@ button:disabled { opacity: .5; cursor: not-allowed; }
 
 
 /* Small screens: keep navigation visible and evidence readable without sideways scrolling. */
-.nav-short, .compare-city-label { display: none; }
+.nav-short, .compare-city-label, .history-narrow { display: none; }
 .panel, .card, .row > *, .compare-pickers > *, .seg { min-width: 0; }
 .panel { overflow-wrap: anywhere; }
 button, .btn, .corner-btn, summary { touch-action: manipulation; }
@@ -291,6 +291,9 @@ input[type="range"] { min-height: 44px; }
   .city-total { margin-left: auto; }
   .badge { white-space: normal; }
   .life-status { font-size: 12px; }
+  .history-wide { display: none; }
+  .history-narrow { display: block; max-width: 400px; margin: 12px auto; }
+  .history-narrow text { font-size: 14px; }
   .compare-pickers { gap: 12px; }
   .compare-table { overflow: visible; padding: 12px; }
   .compare-table table, .compare-table tbody { display: block; }

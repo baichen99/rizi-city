@@ -57,6 +57,15 @@ def run(base_url, out):
                     page.locator('#life-overview details summary').first.click()
                     check_page(page, 'resident-source')
                     page.screenshot(path=str(out / f'resident-source-{width}.png'))
+                    page.locator('[data-jump="history"]').click()
+                    chart = page.locator('.history-chart:visible').first
+                    chart.wait_for()
+                    if width <= 600:
+                        label_size = chart.evaluate("""el => parseFloat(getComputedStyle(el.querySelector('text')).fontSize)
+                          * el.getBoundingClientRect().width / el.viewBox.baseVal.width""")
+                        assert label_size >= 12, (width, label_size)
+                    chart.locator('..').screenshot(path=str(out / f'resident-history-{width}.png'))
+                    check_page(page, 'resident-history')
                     page.locator('[data-jump="policies"]').click()
                     page.select_option('#policy-topic', 'social')
                     assert page.locator('#policy-topic').input_value() == 'social'
@@ -88,6 +97,8 @@ def run(base_url, out):
                         page.locator('[data-share="top5"]').click()
                         assert page.locator('#sheet').is_visible()
                         check_page(page, 'share')
+                        if action == 'escape':
+                            page.screenshot(path=str(out / f'share-{width}.png'))
                         if action == 'button':
                             page.locator('[data-close]').click()
                         else:
