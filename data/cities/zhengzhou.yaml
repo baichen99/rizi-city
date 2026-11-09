@@ -1,0 +1,166 @@
+city: 郑州
+province: 河南
+maintainers: []
+last_patrol: 2026-11-09
+
+hukou:
+  summary: 应届中专以上学历毕业生、往届高校毕业生可按人才引进入户，并可带配偶、子女、父母；原文未设年龄、社保条件
+  education_min: 中专（应届）；高校毕业生（往届）
+  age_limit: 原文未设
+  requires_job_or_social_security: false
+  eligible_by_degree: {associate: true, bachelor: true, master: true, phd: true}
+  tier_by_degree: {associate: direct, bachelor: direct, master: direct, phd: direct}
+  age_max_by_degree: {associate: 0, bachelor: 0, master: 0, phd: 0}
+  conditions:
+    - 中心城区落户不再受社保缴费年限和居住年限限制
+    - 线上可通过"郑好办"APP 办理，网上仅支持落社区集体户
+  apply_window: 常态办理
+  policy_name: 郑州市公安局关于进一步深化户籍制度改革的实施意见，郑公通〔2023〕253号
+  source_url: https://public.zhengzhou.gov.cn/D0105Y/7838119.jhtml
+  source_date: 2023-09-13
+  valid_until: null
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+  lead: null
+  lead_url: null
+
+subsidies:
+  - name: 青年人才生活补贴
+    type: living
+    amount: 每月博士 1500 元、硕士 1000 元、本科（预备技师、技师）500 元
+    amount_by_degree: {associate: null, bachelor: 500, master: 1000, phd: 1500}
+    period: month
+    periods_max: null
+    payout: 按月发放；最多发放月数未能在现存官方页面核实
+    target: 落户郑州的高校毕业生
+    conditions:
+      - 需落户郑州
+      - 通过"郑好办"APP"人才工作一件事"申请
+    deadline_rule: null
+    policy_name: 郑州市学历人才生活补贴发放实施细则（原文页面已下线）；郑州市政府网站转载郑州日报《档案转在哪 户口如何迁》（2024-07-26）
+    source_url: https://www.zhengzhou.gov.cn/rdhy/8565294.jhtml
+    source_date: 2024-07-26
+    valid_until: null
+    verified_at: 2026-11-09
+    needs_human: true
+    needs_human_reason: 细则原文（https://public.zhengzhou.gov.cn/D0105Y/8240596.jhtml）与解读页已返回"页面不存在"，现存官方页面只有月标准。搜索摘要称"5 年内按养老保险正常缴费情况最多发放 36 个月、需郑州户籍、35 周岁以下（博士不限）"，需人工找到现行细则核实发放月数、年龄条件和是否仍有效。
+    access_blocked: false
+    lead: 细则（已下线）摘要：5 年内最多发放 36 个月，需郑州市户籍，博士不设年龄限制、其他 35 周岁以下
+    lead_url: https://public.zhengzhou.gov.cn/D0105Y/8240596.jhtml
+  - name: 青年人才首次购房补贴
+    type: housing_purchase
+    amount: 博士 10 万元、硕士 5 万元、本科（预备技师、技师）2 万元、专科（高级工）1 万元
+    amount_by_degree: {associate: 10000, bachelor: 20000, master: 50000, phd: 100000}
+    period: once
+    periods_max: 1
+    payout: 一次性
+    target: 落户郑州并首次购房的毕业生
+    conditions:
+      - 需首次在郑购房
+    deadline_rule: null
+    policy_name: 同上（郑州市政府网站转载郑州日报 2024-07-26）
+    source_url: https://www.zhengzhou.gov.cn/rdhy/8565294.jhtml
+    source_date: 2024-07-26
+    valid_until: null
+    verified_at: 2026-11-09
+    needs_human: true
+    needs_human_reason: 购房补贴需买房才能领，是否计入"能领多少钱"待你决定；原文为 2024 年媒体稿转载，现行文件未找到。
+    access_blocked: false
+    lead: null
+    lead_url: null
+  - name: 青年人才驿站免费住宿
+    type: other
+    amount: 累计 7 天免费住宿
+    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+    period: null
+    periods_max: null
+    payout: 实物
+    target: 在郑州主城区无固定住所、来郑求职创业的本科及以上（毕业前 1 年至毕业后 2 年）
+    conditions:
+      - 至少提前 3 个工作日在"郑好办"APP 申请
+    deadline_rule: 毕业后 2 年内
+    policy_name: 同上
+    source_url: https://www.zhengzhou.gov.cn/rdhy/8565294.jhtml
+    source_date: 2024-07-26
+    valid_until: null
+    verified_at: 2026-11-09
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
+
+social_security:
+  base_min: 3912
+  base_max: 19560
+  year: 2026 年度（2026-07-01 起）
+  scope: 河南全省（养老、医疗、工伤、失业、生育）
+  source_url: https://shbx.hrss.henan.gov.cn/hnsi/zhengce/fagui/webinfo/1794202557855397.htm
+  source_type: gov
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+living:
+  rent_avg_per_sqm: 20.22
+  rent_period: 2026-09
+  rent_source: 中指研究院 50 城住宅租赁价格指数（元/㎡/月）
+  rent_source_url: https://m.cih-index.com/news/2026-10-16/55166711.html
+  consumption_per_capita: 35131
+  income_per_capita: 52413
+  stats_year: 2025
+  stats_source_url: https://tjj.zhengzhou.gov.cn/tjgb/10017864.jhtml
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+flexible_employment:
+  pension_base_min: 3912
+  pension_rate: 20
+  pension_year: 2026 年度（2026-07-01 起）
+  medical_monthly_min: null
+  medical_note: 郑州灵活就业职工医保月缴额未找到官方原文
+  monthly_total_min: null
+  calc: null
+  hukou_restriction: null
+  nonlocal_allowed: null
+  apply_channel: 自 2024-04-01 起向税务部门申报缴费基数和缴费
+  source_url: https://shbx.hrss.henan.gov.cn/hnsi/zhengce/fagui/webinfo/1794202557855397.htm
+  medical_source_url: null
+  hukou_source_url: null
+  verified_at: 2026-11-09
+  needs_human: true
+  needs_human_reason: 缴费比例 20% 取自中国政府网全国通行说明（https://www.gov.cn/yaowen/liebiao/202305/content_6855917.htm）；郑州灵活就业医保月缴额与外地户籍参保条件缺官方原文。
+  access_blocked: false
+
+civil_service:
+  fresh_grad_rule: null
+  exam_schedule: null
+  announcement_url: null
+  source_url: null
+  verified_at: null
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+commute:
+  avg_commute_minutes: null
+  year: null
+  report: null
+  source_url: null
+  verified_at: null
+  needs_human: true
+  needs_human_reason: 待确定通勤数据口径
+
+pitfalls: []
+
+changelog:
+  - date: 2026-11-09
+    field: 全部
+    old: null
+    new: 首次采集
+    basis: 郑公通〔2023〕253号、郑州市政府网站 2024-07-26 转载稿、豫人社办〔2026〕62号、郑州统计局 2025 公报、中指研究院 2026 年 9 月租金
