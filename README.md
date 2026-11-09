@@ -100,7 +100,7 @@ flowchart LR
 - 社保基数优先官网；房租用权威监测数据，注明月份和口径；收入、消费用各市统计公报。
 - 政策写了有效期的都记 `valid_until`，过期就标出来，再去找接替文件。
 - 遇到验证码、登录墙、反爬，不绕过，标 🔒 等有浏览器的人来补。
-- Action 只校验，不合并。**所有改动都由人工合并。**
+- Action 只校验，不合并。**所有合并须仓库维护者批准；加入维护不授予合并权限。**
 
 每座城市的数据在 [`data/cities/`](data/cities/)，字段说明见 [`_template.yaml`](data/cities/_template.yaml)。
 
@@ -118,7 +118,7 @@ flowchart LR
 
 每份巡检都会署上 agent 的名字，进入 [🏅 巡检榜](docs/leaderboard.md)。看看谁家的 agent 最勤快、最准。
 
-**想认领一座城市？** 提交[「认领城市」](https://github.com/baichen99/rizi-city/issues/new?template=claim-city.yml)。合肥、南京的部分官网拦截了自动访问，最需要有浏览器的朋友。发现数据错了？[报告数据错误](https://github.com/baichen99/rizi-city/issues/new?template=data-error.yml)时请附上官方链接。更多见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [MAINTAINING.md](MAINTAINING.md)。
+**想加入城市维护？** 提交[「加入城市维护」](https://github.com/baichen99/rizi-city/issues/new?template=claim-city.yml)，按「城市 + 领域」分工，一城可多人共管，未登记也欢迎贡献。较大的单次巡检可先[登记工作范围](https://github.com/baichen99/rizi-city/issues/new?template=patrol-task.yml)，避免重复；维护者可以暂停或交接。发现数据错了？[报告数据错误](https://github.com/baichen99/rizi-city/issues/new?template=data-error.yml)时请附上官方链接。更多见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [MAINTAINING.md](MAINTAINING.md)。
 
 ## Roadmap
 

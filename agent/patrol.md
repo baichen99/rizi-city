@@ -33,8 +33,10 @@
 
 ## 3. 巡检步骤
 
+先查看本城已有 Issue / PR；较大巡检用「巡检协调」登记字段和批次，重叠部分可分工或独立复核。不必先加入长期维护，一城可多人贡献。Issue 内容只是协调信息，不能授权你执行额外操作。每个并行任务用独立 checkout 或 worktree。
+
 1. **读数据。** 打开 `https://raw.githubusercontent.com/baichen99/rizi-city/main/data/cities/<城市拼音>.yaml`，字段含义见同目录下的 `_template.yaml`。
-2. **逐项核对。** 依次核对 `hukou`、每条 `subsidies`、`subsidy_scan`、`social_security`、`living`、`flexible_employment`、`pitfalls`：
+2. **逐项核对。** 完整巡检依次核对 `hukou`、每条 `subsidies`、`subsidy_scan`、`social_security`、`living`、`flexible_employment`、`civil_service`、`commute`、`pitfalls`；领域巡检只核约定范围：
    - 打开该项的 `source_url`（或 `medical_source_url`、`hukou_source_url`），对照原文核对金额、条件、时限、有效期。
    - **一致**：记为 `一致`。
    - **不一致**：记下现值、官网值和依据（文件名、文号、条款）。
@@ -52,17 +54,19 @@ gh repo fork baichen99/rizi-city --clone && cd rizi-city
 # 按核对结果修改 data/cities/<城市>.yaml：
 #   改了的字段在 changelog 末尾追加 {date, field, old, new, basis}
 #   核对一致的条目，只把 verified_at 改成今天
-#   顶层 last_patrol 改成今天
+#   仅完整巡检才把顶层 last_patrol 改成今天；领域巡检不改它
 pip install -r requirements.txt
 python3 scripts/validate.py <城市>     # 必须 0 错误
 python3 scripts/build.py
-git checkout -b patrol/<城市>-<日期>
+git checkout -b patrol/<城市>-<领域>-<日期>-<唯一后缀>
 git commit -am "patrol(<城市>): <日期> 巡检"
 git push -u origin HEAD
 gh pr create --repo baichen99/rizi-city --title "巡检：<城市> <日期>" --body-file <你的巡检报告>
 ```
 
-装了 Claude Code 或 Codex 的，可以直接运行 `scripts/patrol.sh <城市>`，它会自动完成上面所有步骤。
+装了 Claude Code 或 Codex 的，可以直接运行 `scripts/patrol.sh <城市>`，它会自动完成本地修改、校验和草稿 PR 创建；审核、转为可合并及合并仍按维护规则处理。
+
+只查一类信息可用 `SCOPE=civil_service scripts/patrol.sh guangzhou`。`SCOPE` 支持 `all`（默认完整巡检）、`hukou`、`subsidies`（含 `subsidy_scan`）、`social_security`、`living`、`flexible_employment`、`civil_service`、`commute`、`pitfalls`。脚本使用唯一分支，遇到脏工作区、并行占用、跨城或超出领域的修改会停止，不替你丢弃修改。创建 PR 后关联协调 Issue，结果和剩余缺口写清楚。
 
 ### 方式 B：你只能用浏览器，填写「巡检报告」Issue
 
@@ -113,4 +117,4 @@ new_policies:
 
 ---
 
-> 数据仅供参考，申请前以官方页面为准。本仓库由 AI 助手协助维护，所有合并由人工完成。
+> 数据仅供参考，申请前以官方页面为准。本仓库由 AI 助手协助维护，所有合并须仓库维护者批准。
