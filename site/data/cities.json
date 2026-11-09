@@ -2390,14 +2390,14 @@
         "id": "guangzhou-housing_new_yoy_index-2026-08",
         "metric": "housing_new_yoy_index",
         "label": "新建商品住宅销售价格同比指数",
-        "value": null,
+        "value": 98.1,
         "unit": "上年同月=100",
         "period": "2026-08",
         "population_scope": "新建商品住宅网签交易",
         "geographic_scope": "广州市辖区（不含县）",
-        "source_id": null,
-        "review_status": "missing",
-        "missing_reason": "本次读取8月原文超时，尚未核实，不插值。",
+        "source_id": "nbs-house-202608",
+        "review_status": "verified",
+        "missing_reason": null,
         "verified_at": "2026-11-09",
         "comparability_key": "guangzhou|housing_new_yoy_index|上年同月=100|新建商品住宅网签交易|广州市辖区（不含县）|{'statistic': 'index', 'price_basis': 'index', 'market_segment': 'new', 'base_period': '2025', 'comparison': 'year_on_year'}",
         "statistic": "index",
@@ -2407,10 +2407,10 @@
         "comparison": "year_on_year",
         "cross_city_comparability_key": "nbs-new-yoy-2025-city-districts",
         "geographic_scope_type": "city_districts_excluding_counties",
-        "evidence_locator": null,
-        "source_url": null,
-        "source_title": null,
-        "attribution": null
+        "evidence_locator": "Table I，广州/Guangzhou行，Y/Y列（the Same Month Last Year=100）；附注1、2、5",
+        "source_url": "https://www.stats.gov.cn/english/PressRelease/202609/t20260915_1965314.html",
+        "source_title": "2026年8月份70城商品住宅销售价格变动情况（国家统计局英文原表）",
+        "attribution": "引自国家统计局网站（www.stats.gov.cn）"
        },
        {
         "id": "guangzhou-housing_new_yoy_index-2026-09",
@@ -2441,7 +2441,7 @@
       ],
       "coverage_start": "2026-06",
       "coverage_end": "2026-09",
-      "verified_points": 3
+      "verified_points": 4
      },
      {
       "id": "wage_nonprivate_mean",
@@ -2910,6 +2910,23 @@
       "bulk_redistribution": false,
       "license_url": "https://www.stats.gov.cn/wzgl/202302/t20230217_1912857.html",
       "publication_basis": "服务条款允许免费资料性合理引用并要求署名；仅取三城同比指数，禁止视为整表开放许可或再许可。",
+      "attribution": "引自国家统计局网站（www.stats.gov.cn）",
+      "review_due": "2027-02-09"
+     },
+     {
+      "id": "nbs-house-202608",
+      "title": "2026年8月份70城商品住宅销售价格变动情况（国家统计局英文原表）",
+      "url": "https://www.stats.gov.cn/english/PressRelease/202609/t20260915_1965314.html",
+      "publisher": "国家统计局网站（www.stats.gov.cn）",
+      "published_at": "2026-09-15",
+      "retrieved_at": "2026-11-09",
+      "verified_at": "2026-11-09",
+      "review_status": "verified",
+      "access_method": "manual_primary_page",
+      "redistribution": "fact_extract",
+      "bulk_redistribution": false,
+      "license_url": "https://www.stats.gov.cn/wzgl/202302/t20230217_1912857.html",
+      "publication_basis": "重新核读NBS服务条款：公共免费资料性合理引用需署名，不擅自再授权；仅摘录试点城市同比指数，不复制整表。中文原表 https://www.stats.gov.cn/sj/zxfb/202609/t20260915_1965304.html 与英文原表已逐行核对。",
       "attribution": "引自国家统计局网站（www.stats.gov.cn）",
       "review_due": "2027-02-09"
      },
