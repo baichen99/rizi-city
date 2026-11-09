@@ -2160,11 +2160,11 @@
     }
    ],
    "social_security": {
-    "base_min": 4504,
-    "base_max": 22518,
-    "year": "2025（2025-01-01 至 2025-12-31；2026 年度山东标准截至 2026-11-09 未见公布）",
-    "scope": "山东全省（养老、医疗、工伤、失业）",
-    "source_url": "http://hrss.shandong.gov.cn/articles/ch07931/202512/3ad6c431-8dbf-4ec8-b576-19e35c6ba8d3.shtml",
+    "base_min": 4573,
+    "base_max": 22863,
+    "year": "2026（2026 年度，鲁人社字〔2026〕75号）",
+    "scope": "山东全省（养老、医疗、长期护理、工伤、失业）",
+    "source_url": "https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html",
     "source_type": "gov",
     "verified_at": "2026-11-09",
     "needs_human": false,
@@ -2189,22 +2189,22 @@
     "access_blocked": false
    },
    "flexible_employment": {
-    "pension_base_min": null,
-    "pension_rate": null,
-    "pension_year": null,
-    "medical_monthly_min": null,
-    "medical_note": null,
-    "monthly_total_min": null,
-    "calc": null,
+    "pension_base_min": 4573,
+    "pension_rate": 20,
+    "pension_year": 2026,
+    "medical_monthly_min": 330.11,
+    "medical_note": "济南市医保局口径（2026 年度，2026-09-01 起）：缴费基数固定按下限 4573 元，不建立个人账户费率 7% + 职工大额医疗费 10 元 = 330.11 元/月；建立个人账户费率 9% 为 411.57 元/月",
+    "monthly_total_min": 1244.71,
+    "calc": "养老 4573 × 20% = 914.60；医保 330.11（7% 档）；合计 1244.71 元/月",
     "hukou_restriction": null,
     "nonlocal_allowed": null,
     "apply_channel": null,
-    "source_url": null,
-    "medical_source_url": null,
+    "source_url": "https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html",
+    "medical_source_url": "http://ybj.jinan.gov.cn/col/col116777/art/2026/art_d23ae2576b954cefa27abf820b467a04.html",
     "hukou_source_url": null,
-    "verified_at": null,
+    "verified_at": "2026-11-09",
     "needs_human": true,
-    "needs_human_reason": "山东 2026 年度基数未公布；济南灵活就业医保月缴额未查。",
+    "needs_human_reason": "外地户籍能否以灵活就业身份在济南参保（养老、医保）尚未核实；其余字段已按鲁人社字〔2026〕75号与济南市医保局 2026 年口径补齐。",
     "access_blocked": false
    },
    "civil_service": {
@@ -2234,6 +2234,20 @@
      "old": null,
      "new": "首次采集",
      "basis": "济南支持高校毕业生就业创业政策40条（2024版）、山东 2025 年度社保基数通知、济南 2025 统计公报、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "social_security.base_min/base_max",
+     "old": "4504 / 22518（2025 年度）",
+     "new": "4573 / 22863（2026 年度）",
+     "basis": "鲁人社字〔2026〕75号（山东省人社厅、省医保局、省税务局、青岛市税务局 2026-08-14 印发，济南市政府网转载全文）原文「我省2026年度职工基本养老保险、职工基本医疗保险、职工长期护理保险、工伤保险、失业保险个人月缴费基数的上限为22863元，下限为4573元」"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "flexible_employment（养老基数、医保月缴、每月合计）",
+     "old": null,
+     "new": "养老基数下限 4573（2026）、医保月缴最低 330.11、每月合计最低 1244.71",
+     "basis": "养老基数同鲁人社字〔2026〕75号；医保为济南市医保局 2026 年口径（基数 4573，7% 档 330.11 元/月含大额医疗费 10 元）"
     }
    ],
    "id": "jinan",
