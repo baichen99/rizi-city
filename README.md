@@ -12,14 +12,14 @@
 
 ## 从这里开始
 
+网页版：**<https://baichen99.github.io/rizi-city/>**（手机优先；也可以在 [Releases](https://github.com/baichen99/rizi-city/releases) 下载离线单文件，双击就能打开）
+
 | 入口 | 解决什么 |
 |---|---|
-| 🏆 **日子指数** | 每座城市"好好过日子"的综合排行，权重你自己调 |
-| 🎓 **我是应届生** | 去哪、怎么落户、能领多少、别丢应届身份 |
-| 📝 **我在考公考编** | 应届身份自查、各省考试入口、各城市待遇参考 |
-| 💻 **我是自由职业 / 灵活就业** | 自己交社保每月最少多少、外地户籍能不能交、在哪生活最划算 |
-
-> 网页版正在搭建中（GitHub Pages），上线后入口会链接到对应页面。
+| 🏆 **[日子指数](https://baichen99.github.io/rizi-city/#index)** | 每座城市"好好过日子"的综合排行，权重你自己调（[算法说明](docs/index-method.md)） |
+| 🎓 **[我是应届生](https://baichen99.github.io/rizi-city/#grad)** | 去哪、怎么落户、能领多少、别丢应届身份 |
+| 📝 **[我在考公考编](https://baichen99.github.io/rizi-city/#civil)** | 应届身份自查、各省考试入口、各城市待遇参考 |
+| 💻 **[我是自由职业 / 灵活就业](https://baichen99.github.io/rizi-city/#free)** | 自己交社保每月最少多少、外地户籍能不能交、在哪生活最划算 |
 
 ## 城市速览
 

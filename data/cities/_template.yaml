@@ -107,6 +107,7 @@ living:
   verified_at: null
   needs_human: false
   needs_human_reason: null
+  needs_human_fields: []   # 可选：needs_human 只针对哪几个值，如 [consumption_per_capita]；留空表示整段都待核实
   access_blocked: false
 
 flexible_employment:       # 灵活就业（个体、自由职业）自己交社保

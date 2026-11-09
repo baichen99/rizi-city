@@ -2,6 +2,29 @@
  "latest_verified": "2026-11-09",
  "city_count": 20,
  "disclaimer": "仅供参考，申请前以官方页面为准。",
+ "index_version": "v0.1",
+ "room_sqm": 30,
+ "national": {
+  "civil_service": {
+   "exam": "中央机关及其直属机构 2027 年度考试录用公务员（国考）",
+   "fresh_grad": {
+    "current_class": 2027,
+    "choose_job_years": [
+     2025,
+     2026
+    ],
+    "rule": "离校时和两年择业期内未落实工作单位，户口、档案、组织关系保留在原毕业学校或各级毕业生就业主管部门、人才交流服务机构、公共就业服务机构的，可按应届高校毕业生对待",
+    "social_security_note": "原文没有提到社保。缴过职工社保是否会被认定为\"已落实工作单位\"，原文没写，以具体招考公告和招录机关资格审查为准。",
+    "grassroots_project": "参加服务基层项目前无工作经历的人员，服务期满且考核合格后 2 年内，可以报考仅允许应届高校毕业生报考的职位",
+    "returnee": "2025 年 1 月 1 日至面试前取得国（境）外学位并完成学历认证、未落实工作单位的留学回国人员，可以报考仅允许应届高校毕业生报考的职位",
+    "qualification_deadline": "除 2027 届毕业生学历学位取得时间一般截止到 2027 年 7 月外，其他资格条件截止时间为 2026 年 10 月"
+   },
+   "source_title": "中央机关及其直属机构 2027 年度考试录用公务员报考指南（国家税务总局上海市税务局转载）",
+   "source_url": "https://shanghai.chinatax.gov.cn/xxgk/rsxx/202610/t481764.html",
+   "verified_at": "2026-11-09",
+   "needs_human": false
+  }
+ },
  "cities": [
   {
    "city": "北京",
@@ -193,6 +216,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -201,6 +225,7 @@
      "hukou_age_max": 26,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -209,6 +234,7 @@
      "hukou_age_max": 30,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -217,12 +243,50 @@
      "hukou_age_max": 35,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 0
+   "needs_human_count": 0,
+   "index": {
+    "rent": {
+     "value": 0.3046,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": 0.5621,
+     "ok": true,
+     "reason": null
+    },
+    "hukou": {
+     "value": "quota",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": 0,
+     "ok": true,
+     "reason": null
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": 0.2552,
+     "ok": true,
+     "reason": null
+    }
+   },
+   "floor": {
+    "rent": 2444,
+    "social": 2047.68,
+    "total": 4492
+   }
   },
   {
    "city": "长沙",
@@ -408,6 +472,7 @@
      "hukou_age_max": 45,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -416,6 +481,7 @@
      "hukou_age_max": 45,
      "total": 12000,
      "rent_subsidy_per_year": null,
+     "first_year": 12000,
      "counted": [
       {
        "index": 0,
@@ -433,6 +499,7 @@
      "hukou_age_max": 0,
      "total": 20000,
      "rent_subsidy_per_year": null,
+     "first_year": 20000,
      "counted": [
       {
        "index": 0,
@@ -450,6 +517,7 @@
      "hukou_age_max": 0,
      "total": 30000,
      "rent_subsidy_per_year": null,
+     "first_year": 30000,
      "counted": [
       {
        "index": 0,
@@ -464,7 +532,44 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 0
+   "needs_human_count": 0,
+   "index": {
+    "rent": {
+     "value": 0.1221,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": 0.6732,
+     "ok": true,
+     "reason": null
+    },
+    "hukou": {
+     "value": "direct",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": 12000,
+     "ok": true,
+     "reason": null
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": 0.1986,
+     "ok": true,
+     "reason": null
+    }
+   },
+   "floor": {
+    "rent": 734,
+    "social": 1193.42,
+    "total": 1927
+   }
   },
   {
    "city": "成都",
@@ -647,6 +752,7 @@
      "hukou_age_max": 35,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -665,6 +771,7 @@
      "hukou_age_max": 45,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -683,6 +790,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -701,6 +809,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -716,7 +825,44 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 2
+   "needs_human_count": 2,
+   "index": {
+    "rent": {
+     "value": null,
+     "ok": false,
+     "reason": "人均可支配收入未核实"
+    },
+    "cost": {
+     "value": null,
+     "ok": false,
+     "reason": "人均消费支出或可支配收入未核实"
+    },
+    "hukou": {
+     "value": "direct",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": 0,
+     "ok": true,
+     "reason": null
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": null,
+     "ok": false,
+     "reason": "灵活就业最少自缴额未核实"
+    }
+   },
+   "floor": {
+    "rent": 951,
+    "social": null,
+    "total": null
+   }
   },
   {
    "city": "重庆",
@@ -898,6 +1044,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -906,6 +1053,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -914,6 +1062,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -922,12 +1071,50 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 0
+   "needs_human_count": 0,
+   "index": {
+    "rent": {
+     "value": 0.1624,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": 0.6319,
+     "ok": true,
+     "reason": null
+    },
+    "hukou": {
+     "value": "job",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": 0,
+     "ok": true,
+     "reason": null
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": 0.2706,
+     "ok": true,
+     "reason": null
+    }
+   },
+   "floor": {
+    "rent": 702,
+    "social": 1169.35,
+    "total": 1871
+   }
   },
   {
    "city": "广州",
@@ -1112,6 +1299,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -1130,6 +1318,7 @@
      "hukou_age_max": 40,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -1148,6 +1337,7 @@
      "hukou_age_max": 45,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -1166,6 +1356,7 @@
      "hukou_age_max": 50,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -1181,7 +1372,44 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 2
+   "needs_human_count": 2,
+   "index": {
+    "rent": {
+     "value": 0.1985,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": 0.6025,
+     "ok": true,
+     "reason": null
+    },
+    "hukou": {
+     "value": "job",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": null,
+     "ok": false,
+     "reason": "有补贴待核实：博士安家费与区级生活补贴"
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": null,
+     "ok": false,
+     "reason": "灵活就业最少自缴额未核实"
+    }
+   },
+   "floor": {
+    "rent": 1424,
+    "social": null,
+    "total": null
+   }
   },
   {
    "city": "杭州",
@@ -1388,6 +1616,7 @@
      "hukou_age_max": 35,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -1415,6 +1644,7 @@
      "hukou_age_max": 45,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -1442,6 +1672,7 @@
      "hukou_age_max": 50,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -1469,6 +1700,7 @@
      "hukou_age_max": 55,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -1493,7 +1725,44 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 2
+   "needs_human_count": 2,
+   "index": {
+    "rent": {
+     "value": 0.2007,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": 0.6866,
+     "ok": true,
+     "reason": null
+    },
+    "hukou": {
+     "value": "direct",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": null,
+     "ok": false,
+     "reason": "有补贴待核实：应届大学生生活补贴、新引进应届大学生租房补贴"
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": 0.2075,
+     "ok": true,
+     "reason": null
+    }
+   },
+   "floor": {
+    "rent": 1449,
+    "social": 1498.07,
+    "total": 2947
+   }
   },
   {
    "city": "合肥",
@@ -1654,6 +1923,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -1672,6 +1942,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -1690,6 +1961,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -1708,6 +1980,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -1723,7 +1996,44 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 4
+   "needs_human_count": 4,
+   "index": {
+    "rent": {
+     "value": null,
+     "ok": false,
+     "reason": "人均可支配收入未核实"
+    },
+    "cost": {
+     "value": null,
+     "ok": false,
+     "reason": "人均消费支出或可支配收入未核实"
+    },
+    "hukou": {
+     "value": null,
+     "ok": false,
+     "reason": "落户政策未核实"
+    },
+    "subsidy": {
+     "value": null,
+     "ok": false,
+     "reason": "有补贴待核实：新落户人才租房补贴"
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": null,
+     "ok": false,
+     "reason": "灵活就业最少自缴额未核实"
+    }
+   },
+   "floor": {
+    "rent": 746,
+    "social": null,
+    "total": null
+   }
   },
   {
    "city": "济南",
@@ -1852,6 +2162,9 @@
     "verified_at": "2026-11-09",
     "needs_human": true,
     "needs_human_reason": "2025 年公报正文未列城镇居民人均消费支出（疑在图表中），需人工补。",
+    "needs_human_fields": [
+     "consumption_per_capita"
+    ],
     "access_blocked": false
    },
    "flexible_employment": {
@@ -1917,6 +2230,7 @@
      "hukou_age_max": 0,
      "total": 18000,
      "rent_subsidy_per_year": null,
+     "first_year": 6000,
      "counted": [
       {
        "index": 0,
@@ -1934,6 +2248,7 @@
      "hukou_age_max": 0,
      "total": 25200,
      "rent_subsidy_per_year": null,
+     "first_year": 8400,
      "counted": [
       {
        "index": 0,
@@ -1951,6 +2266,7 @@
      "hukou_age_max": 0,
      "total": 36000,
      "rent_subsidy_per_year": null,
+     "first_year": 12000,
      "counted": [
       {
        "index": 1,
@@ -1968,6 +2284,7 @@
      "hukou_age_max": 0,
      "total": 54000,
      "rent_subsidy_per_year": null,
+     "first_year": 18000,
      "counted": [
       {
        "index": 1,
@@ -1982,7 +2299,44 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 1
+   "needs_human_count": 1,
+   "index": {
+    "rent": {
+     "value": 0.1234,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": null,
+     "ok": false,
+     "reason": "人均消费支出或可支配收入未核实"
+    },
+    "hukou": {
+     "value": "direct",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": 8400,
+     "ok": true,
+     "reason": null
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": null,
+     "ok": false,
+     "reason": "灵活就业最少自缴额未核实"
+    }
+   },
+   "floor": {
+    "rent": 701,
+    "social": null,
+    "total": null
+   }
   },
   {
    "city": "南京",
@@ -2170,6 +2524,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -2197,6 +2552,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -2224,6 +2580,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -2251,6 +2608,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -2275,7 +2633,44 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 4
+   "needs_human_count": 4,
+   "index": {
+    "rent": {
+     "value": null,
+     "ok": false,
+     "reason": "人均可支配收入未核实"
+    },
+    "cost": {
+     "value": null,
+     "ok": false,
+     "reason": "人均消费支出或可支配收入未核实"
+    },
+    "hukou": {
+     "value": null,
+     "ok": false,
+     "reason": "落户政策未核实"
+    },
+    "subsidy": {
+     "value": null,
+     "ok": false,
+     "reason": "有补贴待核实：高校毕业生一次性生活补贴、高校毕业生住房租赁补贴"
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": null,
+     "ok": false,
+     "reason": "灵活就业最少自缴额未核实"
+    }
+   },
+   "floor": {
+    "rent": 1070,
+    "social": null,
+    "total": null
+   }
   },
   {
    "city": "宁波",
@@ -2470,6 +2865,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -2478,6 +2874,7 @@
      "hukou_age_max": 0,
      "total": 30000,
      "rent_subsidy_per_year": 10000,
+     "first_year": 10000,
      "counted": [
       {
        "index": 0,
@@ -2495,6 +2892,7 @@
      "hukou_age_max": 0,
      "total": 60000,
      "rent_subsidy_per_year": 10000,
+     "first_year": 40000,
      "counted": [
       {
        "index": 0,
@@ -2520,12 +2918,50 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 0
+   "needs_human_count": 0,
+   "index": {
+    "rent": {
+     "value": 0.1283,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": 0.6452,
+     "ok": true,
+     "reason": null
+    },
+    "hukou": {
+     "value": "job",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": 10000,
+     "ok": true,
+     "reason": null
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": null,
+     "ok": false,
+     "reason": "灵活就业最少自缴额未核实"
+    }
+   },
+   "floor": {
+    "rent": 920,
+    "social": null,
+    "total": null
+   }
   },
   {
    "city": "青岛",
@@ -2665,6 +3101,9 @@
     "verified_at": "2026-11-09",
     "needs_human": true,
     "needs_human_reason": "收入取自青岛市统计局《2025 年全市经济运行情况》；2025 年统计公报（http://qdtj.qingdao.gov.cn/tongjisj/tjsj_tjgb/202604/t20260408_10556209.shtml）正文未能提取（疑似图片或附件），城镇居民人均消费支出需人工补。",
+    "needs_human_fields": [
+     "consumption_per_capita"
+    ],
     "access_blocked": false
    },
    "flexible_employment": {
@@ -2742,6 +3181,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -2750,6 +3190,7 @@
      "hukou_age_max": null,
      "total": 18000,
      "rent_subsidy_per_year": null,
+     "first_year": 6000,
      "counted": [
       {
        "index": 0,
@@ -2767,6 +3208,7 @@
      "hukou_age_max": null,
      "total": 28800,
      "rent_subsidy_per_year": null,
+     "first_year": 9600,
      "counted": [
       {
        "index": 0,
@@ -2784,6 +3226,7 @@
      "hukou_age_max": null,
      "total": 43200,
      "rent_subsidy_per_year": null,
+     "first_year": 14400,
      "counted": [
       {
        "index": 0,
@@ -2798,7 +3241,44 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 2
+   "needs_human_count": 2,
+   "index": {
+    "rent": {
+     "value": 0.1278,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": null,
+     "ok": false,
+     "reason": "人均消费支出或可支配收入未核实"
+    },
+    "hukou": {
+     "value": null,
+     "ok": false,
+     "reason": "落户政策未核实"
+    },
+    "subsidy": {
+     "value": 6000,
+     "ok": true,
+     "reason": null
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": null,
+     "ok": false,
+     "reason": "灵活就业最少自缴额未核实"
+    }
+   },
+   "floor": {
+    "rent": 764,
+    "social": null,
+    "total": null
+   }
   },
   {
    "city": "上海",
@@ -2990,6 +3470,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -2998,6 +3479,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -3006,6 +3488,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -3014,12 +3497,50 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 0
+   "needs_human_count": 0,
+   "index": {
+    "rent": {
+     "value": 0.3153,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": 0.5894,
+     "ok": true,
+     "reason": null
+    },
+    "hukou": {
+     "value": "quota",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": 0,
+     "ok": true,
+     "reason": null
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": 0.3273,
+     "ok": true,
+     "reason": null
+    }
+   },
+   "floor": {
+    "rent": 2545,
+    "social": 2641.1,
+    "total": 5186
+   }
   },
   {
    "city": "沈阳",
@@ -3187,6 +3708,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -3205,6 +3727,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -3223,6 +3746,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -3241,6 +3765,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -3256,7 +3781,44 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 2
+   "needs_human_count": 2,
+   "index": {
+    "rent": {
+     "value": null,
+     "ok": false,
+     "reason": "人均可支配收入未核实"
+    },
+    "cost": {
+     "value": null,
+     "ok": false,
+     "reason": "人均消费支出或可支配收入未核实"
+    },
+    "hukou": {
+     "value": "direct",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": null,
+     "ok": false,
+     "reason": "有补贴待核实：高校毕业生就业创业生活补贴"
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": null,
+     "ok": false,
+     "reason": "灵活就业最少自缴额未核实"
+    }
+   },
+   "floor": {
+    "rent": 673,
+    "social": null,
+    "total": null
+   }
   },
   {
    "city": "深圳",
@@ -3489,6 +4051,7 @@
      "hukou_age_max": 35,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -3507,6 +4070,7 @@
      "hukou_age_max": 45,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -3525,6 +4089,7 @@
      "hukou_age_max": 45,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -3543,6 +4108,7 @@
      "hukou_age_max": 45,
      "total": 100000,
      "rent_subsidy_per_year": null,
+     "first_year": 100000,
      "counted": [
       {
        "index": 0,
@@ -3567,7 +4133,44 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 2
+   "needs_human_count": 2,
+   "index": {
+    "rent": {
+     "value": 0.3523,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": 0.6304,
+     "ok": true,
+     "reason": null
+    },
+    "hukou": {
+     "value": "job",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": null,
+     "ok": false,
+     "reason": "有补贴待核实：青年人才安居补贴"
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": null,
+     "ok": false,
+     "reason": "灵活就业最少自缴额未核实"
+    }
+   },
+   "floor": {
+    "rent": 2494,
+    "social": null,
+    "total": null
+   }
   },
   {
    "city": "苏州",
@@ -3781,6 +4384,7 @@
      "hukou_age_max": 35,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -3789,6 +4393,7 @@
      "hukou_age_max": 45,
      "total": 19200,
      "rent_subsidy_per_year": null,
+     "first_year": 9600,
      "counted": [
       {
        "index": 0,
@@ -3806,6 +4411,7 @@
      "hukou_age_max": 50,
      "total": 24000,
      "rent_subsidy_per_year": null,
+     "first_year": 12000,
      "counted": [
       {
        "index": 0,
@@ -3823,6 +4429,7 @@
      "hukou_age_max": 55,
      "total": 36000,
      "rent_subsidy_per_year": null,
+     "first_year": 18000,
      "counted": [
       {
        "index": 0,
@@ -3837,7 +4444,44 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 0
+   "needs_human_count": 0,
+   "index": {
+    "rent": {
+     "value": 0.1362,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": 0.6091,
+     "ok": true,
+     "reason": null
+    },
+    "hukou": {
+     "value": "direct",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": 9600,
+     "ok": true,
+     "reason": null
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": null,
+     "ok": false,
+     "reason": "灵活就业最少自缴额未核实"
+    }
+   },
+   "floor": {
+    "rent": 1023,
+    "social": null,
+    "total": null
+   }
   },
   {
    "city": "天津",
@@ -3915,6 +4559,9 @@
     "verified_at": "2026-11-09",
     "needs_human": true,
     "needs_human_reason": "2025 年公报正文未列城镇居民人均消费支出总额，需人工从统计年鉴或统计局数据补。",
+    "needs_human_fields": [
+     "consumption_per_capita"
+    ],
     "access_blocked": false
    },
    "flexible_employment": {
@@ -3987,6 +4634,7 @@
      "hukou_age_max": null,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -3995,6 +4643,7 @@
      "hukou_age_max": 40,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -4003,6 +4652,7 @@
      "hukou_age_max": 45,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -4011,12 +4661,50 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 1
+   "needs_human_count": 1,
+   "index": {
+    "rent": {
+     "value": 0.1744,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": null,
+     "ok": false,
+     "reason": "人均消费支出或可支配收入未核实"
+    },
+    "hukou": {
+     "value": "direct",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": 0,
+     "ok": true,
+     "reason": null
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": 0.2948,
+     "ok": true,
+     "reason": null
+    }
+   },
+   "floor": {
+    "rent": 873,
+    "social": 1476.3,
+    "total": 2349
+   }
   },
   {
    "city": "武汉",
@@ -4234,6 +4922,7 @@
      "hukou_age_max": 45,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -4242,6 +4931,7 @@
      "hukou_age_max": 45,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -4250,6 +4940,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -4258,12 +4949,50 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 0
+   "needs_human_count": 0,
+   "index": {
+    "rent": {
+     "value": 0.1344,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": 0.6429,
+     "ok": true,
+     "reason": null
+    },
+    "hukou": {
+     "value": "direct",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": 0,
+     "ok": true,
+     "reason": null
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": null,
+     "ok": false,
+     "reason": "灵活就业最少自缴额未核实"
+    }
+   },
+   "floor": {
+    "rent": 753,
+    "social": null,
+    "total": null
+   }
   },
   {
    "city": "厦门",
@@ -4476,6 +5205,7 @@
      "hukou_age_max": 35,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -4484,6 +5214,7 @@
      "hukou_age_max": 35,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -4492,6 +5223,7 @@
      "hukou_age_max": 45,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -4500,12 +5232,50 @@
      "hukou_age_max": 45,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 0
+   "needs_human_count": 0,
+   "index": {
+    "rent": {
+     "value": 0.1716,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": 0.6564,
+     "ok": true,
+     "reason": null
+    },
+    "hukou": {
+     "value": "direct",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": null,
+     "ok": false,
+     "reason": "金额无法取单一值（如按区分档）：新就业大学生\"5 年内 5 折租房\""
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": null,
+     "ok": false,
+     "reason": "灵活就业最少自缴额未核实"
+    }
+   },
+   "floor": {
+    "rent": 1140,
+    "social": null,
+    "total": null
+   }
   },
   {
    "city": "西安",
@@ -4696,6 +5466,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -4704,6 +5475,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -4712,6 +5484,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     },
@@ -4720,12 +5493,50 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": []
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 0
+   "needs_human_count": 0,
+   "index": {
+    "rent": {
+     "value": 0.1521,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": 0.5977,
+     "ok": true,
+     "reason": null
+    },
+    "hukou": {
+     "value": "direct",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": 0,
+     "ok": true,
+     "reason": null
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": 0.2886,
+     "ok": true,
+     "reason": null
+    }
+   },
+   "floor": {
+    "rent": 714,
+    "social": 1354.6,
+    "total": 2069
+   }
   },
   {
    "city": "郑州",
@@ -4964,6 +5775,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -4991,6 +5803,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -5018,6 +5831,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -5045,6 +5859,7 @@
      "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
+     "first_year": 0,
      "counted": [],
      "excluded": [
       {
@@ -5069,7 +5884,44 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 2
+   "needs_human_count": 2,
+   "index": {
+    "rent": {
+     "value": 0.1389,
+     "ok": true,
+     "reason": null
+    },
+    "cost": {
+     "value": 0.6703,
+     "ok": true,
+     "reason": null
+    },
+    "hukou": {
+     "value": "direct",
+     "ok": true,
+     "reason": null
+    },
+    "subsidy": {
+     "value": null,
+     "ok": false,
+     "reason": "有补贴待核实：青年人才生活补贴"
+    },
+    "commute": {
+     "value": null,
+     "ok": false,
+     "reason": "通勤指标暂停用"
+    },
+    "social": {
+     "value": null,
+     "ok": false,
+     "reason": "灵活就业最少自缴额未核实"
+    }
+   },
+   "floor": {
+    "rent": 607,
+    "social": null,
+    "total": null
+   }
   }
  ]
 }

@@ -104,6 +104,7 @@ living:
   verified_at: 2026-11-09
   needs_human: true
   needs_human_reason: 收入取自青岛市统计局《2025 年全市经济运行情况》；2025 年统计公报（http://qdtj.qingdao.gov.cn/tongjisj/tjsj_tjgb/202604/t20260408_10556209.shtml）正文未能提取（疑似图片或附件），城镇居民人均消费支出需人工补。
+  needs_human_fields: [consumption_per_capita]
   access_blocked: false
 
 flexible_employment:
