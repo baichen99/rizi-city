@@ -77,6 +77,51 @@ living:
   income_per_capita: 86069
   stats_year: 2025
   stats_source_url: https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html
+  statistical_metadata:
+    income_per_capita:
+      source_value: 86069
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 广州市全市行政范围内的城镇地区，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://tjj.gz.gov.cn/datav/admin/home/www_nj/2024/directory/08/08%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html
+      methodology_note: 住户收支与生活状况调查，广州调查队提供；2014年起按常住地而非户籍统计，分层多阶段PPS及随机等距抽样。方法文献为2024年鉴，2025公报原文称城镇居民，金额为全年人均平均数，不是工资或中位数；未取得年度误差区间，不作显著性判断。
+      cross_city_comparability_key: resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html
+      source_date: '2026-05-10'
+      publisher: 广州市统计局、国家统计局广州调查队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第九节人民生活和社会保障：收入段城镇居民86069元；注1为2025快报统计数
+      data_status: preliminary
+    consumption_per_capita:
+      source_value: 51860
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 广州市全市行政范围内的城镇地区，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://tjj.gz.gov.cn/datav/admin/home/www_nj/2024/directory/08/08%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html
+      methodology_note: 同一住户调查与城镇常住人口范围；全年人均消费支出含居住等支出及自有住房虚拟租金，不是个人现金生活预算，不应再机械叠加全部房租。方法文献为2024年鉴；不同城市消费结构仍有差异。
+      cross_city_comparability_key: resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html
+      source_date: '2026-05-10'
+      publisher: 广州市统计局、国家统计局广州调查队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第九节人民生活和社会保障：消费段城镇居民51860元；注1为2025快报统计数
+      data_status: preliminary
   verified_at: 2026-11-09
   needs_human: false
   needs_human_reason: null
@@ -175,3 +220,55 @@ changelog:
     old: null
     new: 仅完成省级口径核实；2026事业单位集中招聘公告仅载3月笔试，后续具体日期尚未读到。广州、深圳各自独立事业单位批次不由省级内容替代。
     basis: 考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx
+  - date: '2026-11-09'
+    field: living.statistical_metadata.income_per_capita
+    old: null
+    new:
+      source_value: 86069
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 广州市全市行政范围内的城镇地区，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://tjj.gz.gov.cn/datav/admin/home/www_nj/2024/directory/08/08%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html
+      methodology_note: 住户收支与生活状况调查，广州调查队提供；2014年起按常住地而非户籍统计，分层多阶段PPS及随机等距抽样。方法文献为2024年鉴，2025公报原文称城镇居民，金额为全年人均平均数，不是工资或中位数；未取得年度误差区间，不作显著性判断。
+      cross_city_comparability_key: resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html
+      source_date: '2026-05-10'
+      publisher: 广州市统计局、国家统计局广州调查队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第九节人民生活和社会保障：收入段城镇居民86069元；注1为2025快报统计数
+      data_status: preliminary
+    basis: https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html；第九节人民生活和社会保障：收入段城镇居民86069元；注1为2025快报统计数；方法 https://tjj.gz.gov.cn/datav/admin/home/www_nj/2024/directory/08/08%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html
+  - date: '2026-11-09'
+    field: living.statistical_metadata.consumption_per_capita
+    old: null
+    new:
+      source_value: 51860
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 广州市全市行政范围内的城镇地区，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://tjj.gz.gov.cn/datav/admin/home/www_nj/2024/directory/08/08%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html
+      methodology_note: 同一住户调查与城镇常住人口范围；全年人均消费支出含居住等支出及自有住房虚拟租金，不是个人现金生活预算，不应再机械叠加全部房租。方法文献为2024年鉴；不同城市消费结构仍有差异。
+      cross_city_comparability_key: resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html
+      source_date: '2026-05-10'
+      publisher: 广州市统计局、国家统计局广州调查队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第九节人民生活和社会保障：消费段城镇居民51860元；注1为2025快报统计数
+      data_status: preliminary
+    basis: https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html；第九节人民生活和社会保障：消费段城镇居民51860元；注1为2025快报统计数；方法 https://tjj.gz.gov.cn/datav/admin/home/www_nj/2024/directory/08/08%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html

@@ -170,7 +170,7 @@ def run(base_url, out):
             context.close()
         dark = browser.new_page(viewport={'width':390,'height':800},color_scheme='dark')
         dark.goto(base_url + '#compare&a=beijing&b=shanghai')
-        dark.locator('.comparison-card').wait_for()
+        dark.locator('.comparison-card').first.wait_for()
         check_page(dark, 'dark-compare')
         dark.screenshot(path=str(out / 'compare-390-dark.png'))
         browser.close()

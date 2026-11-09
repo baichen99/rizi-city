@@ -6,7 +6,7 @@ const source = fs.readFileSync('site/app.js','utf8');
 const data = JSON.parse(fs.readFileSync('site/data/cities.json','utf8'));
 const start = source.indexOf('  // ---------- 居民城市主页');
 const end = source.indexOf('  // ---------- 日子指数 ----------',start);
-const h = vm.runInNewContext(source.slice(start,end)+'\n({yoyChange,metricReading,metricGuide,historyExplanation,chartSegments,livingRecord,currentLifeRecord,comparisonRows,comparable})',{URL});
+const h = vm.runInNewContext(source.slice(start,end)+'\n({yoyChange,metricReading,metricGuide,historyExplanation,chartSegments,livingRecord,currentLifeRecord,comparisonRows,comparisonUnit,populationLabel,comparable})',{URL});
 const house = (value, extra={}) => ({metric:'housing_new_yoy_index',statistic:'index',comparison:'year_on_year',unit:'上年同月=100',period:'2026-09',review_status:'verified',value,...extra});
 test('100 reference translates exact year-on-year changes, not amounts or month-on-month',()=>{
   assert.equal(h.metricReading(house(97.3)),'比去年同月低 2.7%');
@@ -41,11 +41,11 @@ function record(extra={}, livingExtra={}) {
 }
 test('verified metadata binds the exact old value and opens only matching semantics',()=>{
  const a=record(),b=record({geographic_scope:'乙市',population_scope:'城镇居民'});
- assert.equal(a.value,86069);assert.equal(h.comparable(a,b),true);assert.equal(record({source_url:'http://tjzd.stats.gov.cn/system/report.shtml'}).value,86069);
+ assert.equal(h.populationLabel(a),'城镇常住居民');assert.equal(a.value,86069);assert.equal(h.comparable(a,b),true);assert.equal(record({source_url:'http://tjzd.stats.gov.cn/system/report.shtml'}).value,86069);
  for(const patch of [{population_scope_type:'all_residents',cross_city_comparability_key:'resident-statistics|income_per_capita|all_residents|city_administrative_area|CNY-person-year|household-survey'},{period:'2024'},{unit:'元/月'},{statistic:'median'},{price_basis:'real'},{methodology_key:'different'}]) assert.ok(!h.comparable(a,record(patch)));
 });
 test('wrong raw value, fake key, stale or future metadata cannot upgrade an old record',()=>{
- for(const patch of [{source_value:1},{source_value:'86069'},{source_value:true},{cross_city_comparability_key:'same-fake-key'},{review_due:'2026-11-08'},{review_due:null},{verified_at:'2026-11-10'},{source_date:'2026-11-10'},{review_status:'pending'},{publisher:null},{evidence_locator:null},{source_url:'https://gov.cn.evil.example/a'},{source_url:'https://user@gov.cn/a'}]) {const r=record(patch);assert.equal(r.value,null,JSON.stringify(patch));assert.notEqual(r.review_status,'verified');}
+ for(const patch of [{source_value:1},{source_value:'86069'},{source_value:true},{cross_city_comparability_key:'same-fake-key'},{review_due:'2026-11-08'},{review_due:null},{review_due:'2026-13-01'},{review_due:'2027-02-30'},{source_date:'2026-02-30'},{verified_at:'2026-02-30'},{verified_at:'2026-11-10'},{source_date:'2026-11-10'},{review_status:'pending'},{publisher:null},{evidence_locator:null},{source_url:'https://gov.cn.evil.example/a'},{source_url:'https://user@gov.cn/a'}]) {const r=record(patch);assert.equal(r.value,null,JSON.stringify(patch));assert.notEqual(r.review_status,'verified');}
  const legacy=record({}, {statistical_metadata:undefined});assert.equal(legacy.value,86069);assert.ok(!legacy.cross_city_comparability_key);
 });
 test('all eight comparison dimensions remain visible with honest statuses',()=>{
@@ -61,4 +61,20 @@ test('index original-input labels reject bad numbers rather than invent zero',()
  const f=vm.runInNewContext(source.slice(a,b)+'\nindexRawValue',{numberText:n=>String(n),TIER_LABEL:{job:'先就业'}});
  for(const value of [null,'0',true,NaN,Infinity])for(const key of ['rent','subsidy'])assert.equal(f({index:{[key]:{ok:true,value}}},{key}),'缺已核实数据');
  assert.equal(f({index:{rent:{ok:true,value:0}}},{key:'rent'}),'0%');
+});
+
+test('invalid years and unsafe bound amounts never become verified',()=>{
+ for(const year of [null,undefined,'null','',0,20250,'20x5'])assert.equal(record({period:String(year)},{stats_year:year}).value,null);
+ for(const value of [-1,Number.MAX_SAFE_INTEGER+1,Infinity,NaN,true,'86069']) {
+  const r=record({}, {income_per_capita:value,statistical_metadata:{income_per_capita:metadata(value)}});
+  assert.equal(r.value,null,String(value));
+ }
+});
+test('partially verified population scope stays unknown, not asserted different',()=>{
+ const a=JSON.parse(JSON.stringify(data.cities.find(c=>c.id==='guangzhou'))),b=JSON.parse(JSON.stringify(data.cities.find(c=>c.id==='beijing')));
+ delete b.living.statistical_metadata;
+ a.living.statistical_metadata={income_per_capita:metadata(a.living.income_per_capita)};
+ assert.match(h.comparisonRows(a,b).find(r=>r.metric==='income').reason,/尚未确认一致/);
+ assert.equal(h.comparisonUnit({metric:'income',unit:'元/年'}),'每人/年');
+ assert.equal(h.comparisonUnit({metric:'wage_private_mean',unit:'元/年',gross_or_net:'gross'}),'每年 · 税前');
 });

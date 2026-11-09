@@ -105,10 +105,10 @@
     const m = l.statistical_metadata?.[field];
     if (!m || !["income_per_capita", "consumption_per_capita"].includes(field)) return record;
     const expectedKey = `resident-statistics|${field}|${m.population_scope_type}|city_administrative_area|CNY-person-year|household-survey`;
-    const complete = (!m.cross_city_comparability_key || m.cross_city_comparability_key === expectedKey) && m.price_basis === "nominal" && Number.isFinite(m.source_value) && m.source_value === l[field] && m.period === String(l.stats_year) && m.unit === "元/年" && m.statistic === "mean"
+    const complete = (!m.cross_city_comparability_key || m.cross_city_comparability_key === expectedKey) && m.price_basis === "nominal" && Number.isFinite(m.source_value) && m.source_value >= 0 && m.source_value <= Number.MAX_SAFE_INTEGER && m.source_value === l[field] && /^(19|20)\d{2}$/.test(String(l.stats_year)) && typeof m.period === "string" && m.period === String(l.stats_year) && m.unit === "元/年" && m.statistic === "mean"
       && ["all_residents", "urban_residents", "rural_residents"].includes(m.population_scope_type) && m.population_scope && m.geographic_scope && m.geographic_scope_type === "city_administrative_area"
-      && m.methodology_key === "household_income_expenditure_survey" && statisticsSourceUrl(m.source_url) && /^\d{4}-\d{2}-\d{2}$/.test(m.source_date || "")
-      && m.publisher && m.evidence_locator && /^\d{4}-\d{2}-\d{2}$/.test(m.verified_at || "") && m.source_date <= m.verified_at;
+      && m.methodology_key === "household_income_expenditure_survey" && statisticsSourceUrl(m.source_url) && calendarDate(m.source_date)
+      && m.publisher && m.evidence_locator && calendarDate(m.verified_at) && calendarDate(m.review_due) && m.source_date <= m.verified_at && m.review_due >= m.verified_at;
     const status = complete && record.review_status === "verified" ? m.review_status : "pending_review";
     return { ...record, source_id: `living:${field}`, source_url: m.source_url, verified_at: m.verified_at,
       statistic: m.statistic, population_scope: m.population_scope || population, population_scope_type: m.population_scope_type,
@@ -116,7 +116,7 @@
       methodology_key: m.methodology_key, price_basis: m.price_basis, notes: m.methodology_note, data_status: m.data_status,
       cross_city_comparability_key: complete && typeof m.cross_city_comparability_key === "string" ? m.cross_city_comparability_key : null,
       review_status: status, missing_reason: complete ? record.missing_reason : "口径元数据与原值、年份或方法未匹配，暂不作为已核实数据展示或比较。",
-      metadata_source: {id:`living:${field}`, url:m.source_url, publisher:m.publisher, title:m.publisher + "统计原文", published_at:m.source_date, verified_at:m.verified_at, review_due:m.review_due, review_status:status} };
+      metadata_source: {id:`living:${field}`, url:m.source_url, publisher:m.publisher, title:(m.publisher || "待核实") + "统计原文", published_at:m.source_date, verified_at:m.verified_at, review_due:m.review_due, review_status:status} };
   }
   function lifeRecords(c) {
     const l = c.living || {};
@@ -132,13 +132,18 @@
     return records.map(r => currentLifeRecord(c, r));
   }
   function sourceFor(c, r) { return r.metadata_source || (c.life?.sources || []).find(s => s.id === r.source_id) || {}; }
+  function calendarDate(value) {
+    if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+    const parsed = new Date(value + "T00:00:00Z");
+    return Number.isFinite(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
+  }
   // Recheck static/offline snapshots at viewing time; never mutate their evidence.
   function currentLifeRecord(c, r, today = new Date().toISOString().slice(0, 10)) {
     const s = sourceFor(c, r);
     let reason = "", status = r.review_status;
     if (r.source_id) {
       if (!s.id || s.review_status !== "verified") { status = s.review_status === "restricted" ? "restricted" : "pending_review"; reason = "来源尚未通过核验，暂不展示数值。"; }
-      else if (!/^\d{4}-\d{2}-\d{2}$/.test(s.review_due || "")) { status = "pending_review"; reason = "来源缺少有效复核日期，暂不展示数值。"; }
+      else if (!calendarDate(s.review_due)) { status = "pending_review"; reason = "来源缺少有效复核日期，暂不展示数值。"; }
       else if (s.review_due < today) { status = "stale"; reason = `已超过来源复核日期 ${s.review_due}，需重新核验后展示数值。`; }
       else if (s.verified_at > today || r.verified_at > today) { status = "pending_review"; reason = "核验日期晚于查看日期，暂不作为已核验记录。"; }
     }
@@ -147,8 +152,8 @@
   }
   function recordDetails(c, r) {
     const s = sourceFor(c, r);
-    const semantic = { mean: "平均数", median: "中位数", index: "价格指数", gross: "税前", net: "税后", new: "新建商品住宅", resale: "二手住宅", transaction: "成交", listing: "挂牌" };
-    return `<dl class="life-facts"><dt>统计期间</dt><dd>${esc(r.period || "未提供")}</dd><dt>地域 / 对象</dt><dd>${esc(r.geographic_scope || "未提供")} · ${esc(r.population_scope || "未提供")}</dd><dt>统计口径</dt><dd>${esc([r.statistic, r.gross_or_net, r.price_basis, r.market_segment, r.reference_period, r.base_period ? "编制方法基期 " + r.base_period + "（不是同比的100参照）" : null, r.notes].filter(Boolean).map(v => semantic[v] || v).join(" · ") || r.label)}</dd>${r.comparison === "year_on_year" ? `<dt>同比参照</dt><dd>${esc(r.unit)}；与上年同月比较，不是环比。</dd>` : ""}${r.data_status ? `<dt>数据状态</dt><dd>${esc(({preliminary:"初步数", flash:"快报数", final:"最终数"})[r.data_status] || r.data_status)}</dd>` : ""}<dt>原文发布</dt><dd>${esc(s.published_at || "未提供")}</dd><dt>来源核验</dt><dd>${esc(r.verified_at || s.verified_at || "未提供核验日")}（不是统计年份）</dd><dt>来源复核期限</dt><dd>${esc(s.review_due || "旧数据未提供独立复核期限")}</dd></dl>${safeLink(r.source_url || s.url || s.source_url, s.title || s.publisher || "查看来源原文") + (s.attribution ? `<p class="small">${esc(s.attribution)}</p>` : "") || '<p class="small">暂无已核实来源链接。</p>'}`;
+    const semantic = { mean: "平均数", median: "中位数", index: "价格指数", nominal: "名义金额（当年价）", gross: "税前", net: "税后", new: "新建商品住宅", resale: "二手住宅", transaction: "成交", listing: "挂牌" };
+    return `<dl class="life-facts"><dt>统计期间</dt><dd>${esc(r.period || "未提供")}</dd><dt>地域 / 对象</dt><dd>${esc(r.geographic_scope || "未提供")} · ${esc(r.population_scope || "未提供")}</dd><dt>统计口径</dt><dd>${esc([r.statistic, r.gross_or_net, r.price_basis, r.market_segment, r.reference_period, r.base_period ? "编制方法基期 " + r.base_period + "（不是同比的100参照）" : null, r.notes].filter(Boolean).map(v => semantic[v] || v).join(" · ") || r.label)}</dd>${r.comparison === "year_on_year" ? `<dt>同比参照</dt><dd>${esc(r.unit)}；与上年同月比较，不是环比。</dd>` : ""}${r.data_status ? `<dt>数据状态</dt><dd>${esc(({preliminary:"初步数", flash:"快报数", final:"最终数", not_specified:"原文未说明是否最终数"})[r.data_status] || r.data_status)}</dd>` : ""}<dt>原文发布</dt><dd>${esc(s.published_at || "未提供")}</dd><dt>来源核验</dt><dd>${esc(r.verified_at || s.verified_at || "未提供核验日")}（不是统计年份）</dd><dt>来源复核期限</dt><dd>${esc(s.review_due || "旧数据未提供独立复核期限")}</dd></dl>${safeLink(r.source_url || s.url || s.source_url, s.title || s.publisher || "查看来源原文") + (s.attribution ? `<p class="small">${esc(s.attribution)}</p>` : "") || '<p class="small">暂无已核实来源链接。</p>'}`;
   }
   // Display explanations are derived only from verified values, never stored as new data.
   const checkedValue = r => r.review_status === "verified" && typeof r.value === "number" && Number.isFinite(r.value);
@@ -206,7 +211,7 @@
   }
   function metricCard(c, r) {
     const has = checkedValue(r), guide = metricGuide(r);
-    return `<article class="card metric-card" data-metric="${esc(r.metric)}"><div class="metric-top"><h3>${esc(r.label)}</h3><span class="life-status">${esc(LIFE_STATUS[r.review_status] || r.review_status || "待核实")}</span></div><p class="metric-reading">${esc(metricReading(r))}</p><p class="metric-original">原始数值：<strong>${lifeValue(r)}</strong>${has ? " " + esc(r.unit) : ""} · ${esc(r.period || "期间未提供")}</p>${!has ? `<p class="small">${esc(r.missing_reason || "未找到同口径公开数据")}</p>` : ""}<p class="metric-meaning">${esc(guide.meaning)}</p>${guide.basis ? `<p class="metric-basis">${esc(guide.basis)}</p>` : ""}<details class="metric-explainer"><summary>怎么理解？看例子与边界</summary>${explanationDetails(r)}</details><details><summary>口径与来源</summary>${recordDetails(c, r)}</details></article>`;
+    return `<article class="card metric-card" data-metric="${esc(r.metric)}"><div class="metric-top"><h3>${esc(r.label)}</h3><span class="life-status">${esc(LIFE_STATUS[r.review_status] || r.review_status || "待核实")}</span></div><p class="metric-reading">${esc(metricReading(r))}</p><p class="metric-original">原始数值：<strong>${lifeValue(r)}</strong>${has ? " " + esc(r.unit) : ""} · ${esc(r.period || "期间未提供")}</p>${!has ? `<p class="small">${esc(r.missing_reason || "未找到同口径公开数据")}</p>` : ""}<p class="metric-meaning">${esc(guide.meaning)}</p>${populationLabel(r) ? `<p class="metric-scope">统计人口：${esc(populationLabel(r))}${r.data_status === "preliminary" ? " · 初步数" : ""}</p>` : ""}${guide.basis ? `<p class="metric-basis">${esc(guide.basis)}</p>` : ""}<details class="metric-explainer"><summary>怎么理解？看例子与边界</summary>${explanationDetails(r)}</details><details><summary>口径与来源</summary>${recordDetails(c, r)}</details></article>`;
   }
   // Pure chart helpers: missing and unverified points always break the line.
   function periodNumber(period, frequency) {
@@ -317,7 +322,7 @@
       else if (!canCompare) {
         reason = r.period !== s.period ? `统计期间不同（${r.period || "未提供"} / ${s.period || "未提供"}），只分别展示，不作高低比较。`
           : r.unit !== s.unit ? "计量单位不同，不能直接作高低比较。"
-          : r.population_scope !== s.population_scope ? "统计对象不同，不能直接作高低比较。"
+          : r.population_scope_type && s.population_scope_type && r.population_scope_type !== s.population_scope_type ? "统计对象不同，不能直接作高低比较。"
           : "人口范围或统计口径尚未确认一致，只分别看原文，不作高低比较。";
       }
       return { metric, r, s, canCompare, state: canCompare ? "ready" : available ? "reference" : "missing", reason };
@@ -330,12 +335,21 @@
     if (r.unit === "元/年") return yearAmount(r.value);
     return lifeValue(r);
   }
+  function comparisonUnit(r) {
+    if (yoyChange(r) !== null) return "与去年同月相比";
+    if (r.unit === "元/年") return ["income", "consumption"].includes(r.metric) ? "每人/年" : r.gross_or_net === "gross" ? "每年 · 税前" : "每年";
+    return r.unit || "单位未提供";
+  }
+  function populationLabel(r) {
+    if (!["income", "consumption"].includes(r.metric)) return "";
+    return checkedValue(r) ? ({urban_residents:"城镇常住居民",all_residents:"全体常住居民",rural_residents:"农村常住居民"})[r.population_scope_type] || "人口范围待核实" : "";
+  }
   function comparisonCard(a, b, row) {
     const labels = {rent:"租房单价", housing_new_yoy_index:"新房价格变化", income:"居民可支配收入", consumption:"居民消费支出", wage_nonprivate_mean:"非私营单位工资", wage_private_mean:"私营单位工资", wage_median:"工资中位数", life_expectancy:"出生时预期寿命"};
     const statuses = {ready:"同口径可比", reference:"仅分别参考", missing:"数据待补"};
     const {r, s} = row;
     const values = [[a,r],[b,s]];
-    return `<article class="card comparison-card" data-metric="${esc(row.metric)}" data-comparable="${row.canCompare}"><header class="comparison-heading"><h3>${esc(labels[row.metric] || r.label)}</h3><span class="comparison-status ${row.state}">${statuses[row.state]}</span></header><div class="comparison-values">${values.map(([city, record], i) => `<section class="comparison-city city-side-${i}" aria-label="${esc(city.city)}${esc(record.label)}"><h4>${esc(city.city)}</h4><p class="comparison-number">${esc(comparisonNumber(record))}</p><p class="comparison-unit">${yoyChange(record) !== null ? "与去年同月相比" : esc(record.unit || "单位未提供")}</p><p class="comparison-period">${esc(record.period || "期间未提供")}</p>${yoyChange(record) !== null ? `<p class="comparison-original">原始指数 ${lifeValue(record)}</p>` : ""}<p class="comparison-source">${checkedValue(record) ? esc(sourceFor(city,record).publisher || (record.metric === "rent" ? city.living?.rent_source : "") || "原文见下方") : esc(LIFE_STATUS[record.review_status] || "尚未覆盖")}</p></section>`).join("")}</div><p class="comparison-reason">${esc(row.reason)}</p>${row.metric === "housing_new_yoy_index" ? '<p class="comparison-tip">100代表去年同月水平。比较的是涨跌幅，不能判断哪城房价更便宜，也不是环比。</p>' : ""}<details class="comparison-details"><summary>查看解释、限制与两城来源</summary>${values.map(([city,record])=>`<div class="comparison-evidence"><h4>${esc(city.city)} · ${esc(record.label)}</h4><p>原始数值：${lifeValue(record)} ${esc(record.unit || "")} · ${esc(record.period || "期间未提供")}</p><p>${esc(metricGuide(record).meaning)}</p>${!checkedValue(record) ? `<p class="note">${esc(record.missing_reason || "尚无已核实数值")}</p>` : ""}${explanationDetails(record)}${recordDetails(city,record)}</div>`).join("")}</details></article>`;
+    return `<article class="card comparison-card" data-metric="${esc(row.metric)}" data-comparable="${row.canCompare}"><header class="comparison-heading"><h3>${esc(labels[row.metric] || r.label)}</h3><span class="comparison-status ${row.state}">${statuses[row.state]}</span></header><div class="comparison-values">${values.map(([city, record], i) => `<section class="comparison-city city-side-${i}" aria-label="${esc(city.city)}${esc(record.label)}"><h4>${esc(city.city)}</h4><p class="comparison-number${checkedValue(record) ? "" : " missing"}">${esc(comparisonNumber(record))}</p><p class="comparison-unit">${esc(comparisonUnit(record))}</p><p class="comparison-period">${esc(record.period || "期间未提供")}${record.data_status === "preliminary" ? " · 初步数" : ""}</p>${populationLabel(record) ? `<p class="comparison-scope">${esc(populationLabel(record))}</p>` : ""}${yoyChange(record) !== null ? `<p class="comparison-original">原始指数 ${lifeValue(record)}</p>` : ""}<p class="comparison-source">${checkedValue(record) ? esc(sourceFor(city,record).publisher || (record.metric === "rent" ? city.living?.rent_source : "") || "原文见下方") : esc(LIFE_STATUS[record.review_status] || "尚未覆盖")}</p></section>`).join("")}</div><p class="comparison-reason">${esc(row.reason)}</p>${row.metric === "housing_new_yoy_index" ? '<p class="comparison-tip">100代表去年同月水平。比较的是涨跌幅，不能判断哪城房价更便宜，也不是环比。</p>' : ""}<details class="comparison-details"><summary>查看解释、限制与两城来源</summary>${values.map(([city,record])=>`<div class="comparison-evidence"><h4>${esc(city.city)} · ${esc(record.label)}</h4><p>原始数值：${lifeValue(record)} ${esc(record.unit || "")} · ${esc(record.period || "期间未提供")}</p><p>${esc(metricGuide(record).meaning)}</p>${!checkedValue(record) ? `<p class="note">${esc(record.missing_reason || "尚无已核实数值")}</p>` : ""}${explanationDetails(record)}${recordDetails(city,record)}</div>`).join("")}</details></article>`;
   }
   function renderCompare() {
     const a = D.cities.find(c=>c.id===state.compareA), b = D.cities.find(c=>c.id===state.compareB);
