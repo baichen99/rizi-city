@@ -130,18 +130,18 @@ flexible_employment:
   pension_rate: 20
   pension_year: 2026 年度（2026-07-01 起）
   medical_monthly_min: null
-  medical_note: 郑州灵活就业职工医保月缴额未找到官方原文
+  medical_note: 《郑州市职工基本医疗保险办法》第九条：灵活就业人员以本市上年度在岗职工月平均工资的 80% 为基数、费率 10% 定额缴费；自 2024-01-01 起应同时参加生育保险（费率 1%，基数与职工医保一致）。官方页面未给出当前年度社平工资数额与月缴额原文（市政府问答页仅有未标注年度的示例数字），且市医保局 2026 年工作要点称继续实施阶段性降低职工医保费率，实际执行费率可能低于 10%——故月缴额不推算、不填报，待官方公布现行年度数字后再补
   monthly_total_min: null
   calc: null
   hukou_restriction: null
   nonlocal_allowed: null
   apply_channel: 自 2024-04-01 起向税务部门申报缴费基数和缴费
   source_url: https://shbx.hrss.henan.gov.cn/hnsi/zhengce/fagui/webinfo/1794202557855397.htm
-  medical_source_url: null
+  medical_source_url: https://public.zhengzhou.gov.cn/D0107Y/248209.jhtml
   hukou_source_url: null
   verified_at: 2026-11-09
   needs_human: true
-  needs_human_reason: 缴费比例 20% 取自中国政府网全国通行说明（https://www.gov.cn/yaowen/liebiao/202305/content_6855917.htm）；郑州灵活就业医保月缴额与外地户籍参保条件缺官方原文。
+  needs_human_reason: 缴费比例 20% 取自中国政府网全国通行说明（https://www.gov.cn/yaowen/liebiao/202305/content_6855917.htm）；郑州灵活就业医保的计费规则已核实（办法第九条），但现行年度月缴额缺官方数字且有阶段性降费因素，暂不填报；外地户籍参保条件缺官方原文。
   access_blocked: false
 
 civil_service:
@@ -216,3 +216,8 @@ changelog:
     old: false
     new: true
     basis: 考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html
+  - date: 2026-11-09
+    field: flexible_employment.medical_note（核查记录，无金额变更）
+    old: 郑州灵活就业职工医保月缴额未找到官方原文
+    new: 记录已核实的计费规则与不填报原因
+    basis: 《郑州市职工基本医疗保险办法》第九条（郑州市政府官网）确认基数规则（上年度在岗职工月平均工资 80%）与费率 10%、生育 1%（2024-01-01 起）；市政府问答示例数字未标注年度、市医保局 2026 年工作要点称继续阶段性降费，故不推算现行月缴额
