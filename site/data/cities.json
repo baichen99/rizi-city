@@ -2671,7 +2671,7 @@
         "geographic_scope": "广州市",
         "source_id": "gz-health-2025",
         "review_status": "restricted",
-        "missing_reason": "已找到官方资料；再分发许可未确认，暂仅提供官方入口。",
+        "missing_reason": "官方报告已有居民预期寿命披露，但人口范围、出生时口径与计算方法尚未确认，来源使用条件亦未完成复核，暂不纳入可比较数列。",
         "verified_at": "2026-11-09",
         "comparability_key": "guangzhou|life_expectancy|岁|居民（常住/户籍定义待确认）|广州市|{'statistic': 'life_expectancy_at_birth', 'sex': 'all', 'age': 0}",
         "statistic": "life_expectancy_at_birth",
@@ -2798,7 +2798,7 @@
       "geographic_scope": "广州市",
       "source_id": "gz-health-2025",
       "review_status": "restricted",
-      "missing_reason": "已找到官方资料；再分发许可未确认，暂仅提供官方入口。",
+      "missing_reason": "官方报告已有居民预期寿命披露，但人口范围、出生时口径与计算方法尚未确认，来源使用条件亦未完成复核，暂不纳入可比较数列。",
       "verified_at": "2026-11-09",
       "comparability_key": "guangzhou|life_expectancy|岁|居民（常住/户籍定义待确认）|广州市|{'statistic': 'life_expectancy_at_birth', 'sex': 'all', 'age': 0}",
       "statistic": "life_expectancy_at_birth",
@@ -2955,11 +2955,15 @@
       "id": "water",
       "title": "水费",
       "status": "link_only",
-      "summary": "官方通知限定中心城区供水服务区域，另列独立表、多人口与合表事项。先核对供区，不能把中心城区规则推广到全市。",
+      "summary": "先确认是否属于广州市自来水有限公司中心城区供区。人口申报可向所属供水企业办理；中心城区按后发改革通知自申报成功次月执行，不混用早期文件的下一抄表周期。",
       "links": [
        {
         "label": "广州中心城区自来水价格改革通知",
         "url": "https://fgw.gz.gov.cn/ztzl/gzsfzggwzdlyxxgkzl/ys/content/post_10590952.html"
+       },
+       {
+        "label": "广州阶梯水价人口申报说明（2025-03-05，中心城区起算以较新改革通知为准）",
+        "url": "https://fgw.gz.gov.cn/ztzl/gzsfzggwzdlyxxgkzl/ys/content/post_10209788.html"
        }
       ],
       "coverage": "广州市自来水有限公司中心城区供水服务区域；不是广州所有区或所有供水企业",
@@ -2967,16 +2971,16 @@
       "verified_by": "assistant-source-text-review",
       "next_review_at": "2027-02-09",
       "source_date": "2025-04-29",
-      "reference_period": "2025年通知；完整现行性待独立复核",
-      "effective_from": null,
+      "reference_period": "穗发改规字〔2025〕4号：2025-06-01起施行，有效期五年；原文未列终止日历日期，仍须核对后续修订。人口申报配套通知发布于2025-03-05。",
+      "effective_from": "2025-06-01",
       "effective_to": null,
-      "evidence_locator": "第一部分适用范围、第二部分居民生活用水",
-      "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+      "evidence_locator": "改革通知第一、二及八条；人口核算通知第一至四条（证件、单地址申报、供水企业办理渠道）",
+      "verification_scope": "两次独立打开并核对改革通知及人口申报通知的适用范围、生效日和起算规则差异；未验证企业办理系统或完整费用。",
       "redistribution_status": "link_only",
       "license_id": null,
       "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
-      "review_status": "pending_independent_review",
-      "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+      "review_status": "reviewed",
+      "reason": "官方导航已复核；中心城区与其他供区不能混用，个人申报期限不是政策整体期限。污水等完整账单、企业配套和价格现行性仍待核，不提供金额计算。",
       "calculator_enabled": false,
       "usable": false
      },
@@ -3017,28 +3021,32 @@
       "id": "gas",
       "title": "燃气",
       "status": "link_only",
-      "summary": "此页是多人户人口核算和续期事项导航，不是燃气单价表。具体办理细则仍需向所属燃气企业确认。",
+      "summary": "人口核算通知适用于广州管道天然气居民用户，不是单价表。另附广州东部发展燃气的报装、点火和营业厅指南，仅适用于该企业用户。",
       "links": [
        {
         "label": "广州居民阶梯气价人口数核算通知",
         "url": "https://fgw.gz.gov.cn/ztzl/gzsfzggwzdlyxxgkzl/ys/content/post_9881534.html"
+       },
+       {
+        "label": "广州东部发展燃气居民办理与营业厅指南（仅该企业用户，2026-01-21）",
+        "url": "https://www.zc.gov.cn/gk/ggqsydwxxgk/sdq/content/post_10656871.html"
        }
       ],
-      "coverage": "广州居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
+      "coverage": "人口申报说明：广州市管道天然气居民用户；新增办理指南：广州东部发展燃气有限公司用户，非全市统一入口",
       "verified_at": "2026-11-09",
       "verified_by": "assistant-source-text-review",
       "next_review_at": "2027-02-09",
       "source_date": "2024-09-20",
-      "reference_period": "2024-09-20发布；非完整气价表",
+      "reference_period": "人口核算通知发布于2024-09-20；广州东部发展燃气服务指南发布于2026-01-21，未明示整体终止日期。",
       "effective_from": null,
       "effective_to": null,
-      "evidence_locator": "正文人口核算、申报生效及续期段",
-      "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+      "evidence_locator": "人口核算通知正文；企业指南第二部分居民业务、第三部分服务网点、第六部分服务及监督",
+      "verification_scope": "已独立打开企业指南核对机构、发布日期及办理渠道，未登录、提交申请或实测服务；不把指南中的价格表认作全市现行价格。",
       "redistribution_status": "link_only",
       "license_id": null,
       "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
-      "review_status": "pending_independent_review",
-      "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+      "review_status": "reviewed",
+      "reason": "先确认账单上的供气企业。服务指南仅作办理导航，其价格内容未全量复核；人口申报有效期不能代替政策整体有效期，不提供金额计算。",
       "calculator_enabled": false,
       "usable": false
      },
