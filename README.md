@@ -28,7 +28,7 @@
 |---|---|---|---|---|---|---|---|---|---|
 | [宁波](data/cities/ningbo.yaml) | 3 万 | 6 万 | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [济南](data/cities/jinan.yaml) | 2.52 万 | 3.6 万 | 5.4 万 | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ |
-| [青岛](data/cities/qingdao.yaml) | 1.8 万 | 2.88 万 | 4.32 万 | ⚠️ | ✅无 | ✅ | ✅ | ✅ | ⚠️ |
+| [青岛](data/cities/qingdao.yaml) | 1.8 万 | 2.88 万 | 4.32 万 | ⚠️ | ✅无 | ✅ | ✅ | ✅ | ✅ |
 | [苏州](data/cities/suzhou.yaml) | 1.92 万 | 2.4 万 | 3.6 万 | ✅ | ✅无 | ✅ | ✅ | ✅ | ✅ |
 | [长沙](data/cities/changsha.yaml) | 1.2 万 | 2 万 | 3 万 | ✅ | ✅ | ✅无 | ✅ | ✅ | ✅ |
 | [北京](data/cities/beijing.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
