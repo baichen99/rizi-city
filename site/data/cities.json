@@ -1,6 +1,6 @@
 {
  "latest_verified": "2026-11-09",
- "city_count": 13,
+ "city_count": 14,
  "disclaimer": "仅供参考，申请前以官方页面为准。",
  "cities": [
   {
@@ -669,6 +669,246 @@
        "period": null,
        "total": null,
        "reason": "仅有线索，未找到官方原文"
+      }
+     ]
+    }
+   },
+   "latest_verified": "2026-11-09",
+   "needs_human_count": 2
+  },
+  {
+   "city": "广州",
+   "province": "广东",
+   "maintainers": [],
+   "last_patrol": "2026-11-09",
+   "hukou": {
+    "summary": "在广州就业或创业的人才可申请入户：博士 50 周岁以下、硕士 45 周岁以下、全日制本科并有学士学位 40 周岁以下；本科以上无名额限制、网办\"秒批\"",
+    "education_min": "国内普通高校全日制本科并有学士学位",
+    "age_limit": "博士 50、硕士 45、本科（有学士学位）40 周岁以下",
+    "requires_job_or_social_security": true,
+    "eligible_by_degree": {
+     "associate": false,
+     "bachelor": true,
+     "master": true,
+     "phd": true
+    },
+    "tier_by_degree": {
+     "associate": null,
+     "bachelor": "job",
+     "master": "job",
+     "phd": "job"
+    },
+    "age_max_by_degree": {
+     "associate": null,
+     "bachelor": 40,
+     "master": 45,
+     "phd": 50
+    },
+    "conditions": [
+     "须在广州就业（与用人单位签劳动合同）或创业，并有社保缴费记录；工作单位须与参保单位一致",
+     "本科须同时有学士学位"
+    ],
+    "apply_window": "常态办理（\"广州人社\"公众号、\"穗好办\"APP、广东政务服务网）",
+    "policy_name": "广州市引进人才入户管理办法，穗府办规〔2025〕9号重新发布（有效期延长至 2026-12-31）",
+    "source_url": "https://www.gz.gov.cn/zwgk/fggw/sfbgtwj/content/post_10343147.html",
+    "source_date": "2025-07-04",
+    "valid_until": "2026-12-31",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false,
+    "lead": null,
+    "lead_url": null
+   },
+   "subsidies": [
+    {
+     "name": "博士安家费与区级生活补贴",
+     "type": "living",
+     "amount": "博士毕业生在广州就业并落户，可享市 10 万—20 万元安家费和区最高 12 万元生活补贴；硕士、本科在广州就业并落户，工作所在区最高给予 6 万元、3 万元生活补贴",
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": null,
+      "master": null,
+      "phd": null
+     },
+     "period": "once",
+     "periods_max": 1,
+     "payout": "一次性（按市、区分别发放）",
+     "target": "在广州就业并落户的博士、硕士、本科毕业生",
+     "conditions": [
+      "金额为区间或\"最高\"，具体由市、区政策确定"
+     ],
+     "deadline_rule": null,
+     "policy_name": "广州市人社局《来穗就业创业有什么福利？广州青年人才\"五来\"礼遇来了》（2026-03-20）",
+     "source_url": "https://rsj.gz.gov.cn/ywzt/jycy/gzdt/content/post_10734650.html",
+     "source_date": "2026-03-20",
+     "valid_until": null,
+     "verified_at": "2026-11-09",
+     "needs_human": true,
+     "needs_human_reason": "原文只给出区间（博士市级 10—20 万）和区级\"最高\"金额，没有确定值；是否按下限计入合计待你决定，暂不计入。",
+     "access_blocked": false,
+     "lead": "南沙区：新落户就业的本科、硕士、博士可连续 30 个月领每月 1000、2000、4000 元生活补贴（区级）",
+     "lead_url": "https://www.gz.gov.cn/zt/ljgaqngcwqwl/wlxd/content/post_10873248.html"
+    }
+   ],
+   "social_security": {
+    "base_min": null,
+    "base_max": null,
+    "year": null,
+    "scope": null,
+    "source_url": null,
+    "source_type": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "广州 2026 年养老保险缴费基数下限未找到官方原文；搜索摘要称 2025-07-01 起下限 5510、上限 27549 元（来源页面未打开核实）。",
+    "access_blocked": false
+   },
+   "living": {
+    "rent_avg_per_sqm": 47.46,
+    "rent_period": "2026-09",
+    "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
+    "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
+    "consumption_per_capita": 51860,
+    "income_per_capita": 86069,
+    "stats_year": 2025,
+    "stats_source_url": "https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "flexible_employment": {
+    "pension_base_min": null,
+    "pension_rate": null,
+    "pension_year": null,
+    "medical_monthly_min": null,
+    "medical_note": null,
+    "monthly_total_min": null,
+    "calc": null,
+    "hukou_restriction": null,
+    "nonlocal_allowed": null,
+    "apply_channel": null,
+    "source_url": null,
+    "medical_source_url": null,
+    "hukou_source_url": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "广州 2026 年养老基数下限、灵活就业医保月缴额（2026 年筹资标准通知标注\"尚未施行\"）均未核实。",
+    "access_blocked": false
+   },
+   "civil_service": {
+    "fresh_grad_rule": null,
+    "exam_schedule": null,
+    "announcement_url": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "commute": {
+    "avg_commute_minutes": null,
+    "year": null,
+    "report": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "待确定通勤数据口径"
+   },
+   "pitfalls": [
+    {
+     "text": "广州本科入户要有学士学位，只有本科学历没拿到学位不行；现行办法有效期到 2026-12-31，2027 届要看新文件。",
+     "source_url": "https://www.gz.gov.cn/zwgk/fggw/sfbgtwj/content/post_10343147.html"
+    }
+   ],
+   "changelog": [
+    {
+     "date": "2026-11-09",
+     "field": "全部",
+     "old": null,
+     "new": "首次采集",
+     "basis": "穗府办规〔2025〕9号、广州人社局 2026-03-20 青年人才\"五来\"礼遇、广州 2025 统计公报、中指研究院 2026 年 9 月租金"
+    }
+   ],
+   "id": "guangzhou",
+   "status": {
+    "hukou": "verified",
+    "living_subsidy": "lead",
+    "rent_subsidy": "missing",
+    "rent": "verified",
+    "social_security": "missing",
+    "cost": "verified"
+   },
+   "by_degree": {
+    "associate": {
+     "hukou_eligible": false,
+     "hukou_age_max": null,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "博士安家费与区级生活补贴",
+       "type": "living",
+       "per": null,
+       "period": "once",
+       "total": null,
+       "reason": "原文只给出区间（博士市级 10—20 万）和区级\"最高\"金额，没有确定值；是否按下限计入合计待你决定，暂不计入。"
+      }
+     ]
+    },
+    "bachelor": {
+     "hukou_eligible": true,
+     "hukou_age_max": 40,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "博士安家费与区级生活补贴",
+       "type": "living",
+       "per": null,
+       "period": "once",
+       "total": null,
+       "reason": "原文只给出区间（博士市级 10—20 万）和区级\"最高\"金额，没有确定值；是否按下限计入合计待你决定，暂不计入。"
+      }
+     ]
+    },
+    "master": {
+     "hukou_eligible": true,
+     "hukou_age_max": 45,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "博士安家费与区级生活补贴",
+       "type": "living",
+       "per": null,
+       "period": "once",
+       "total": null,
+       "reason": "原文只给出区间（博士市级 10—20 万）和区级\"最高\"金额，没有确定值；是否按下限计入合计待你决定，暂不计入。"
+      }
+     ]
+    },
+    "phd": {
+     "hukou_eligible": true,
+     "hukou_age_max": 50,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "博士安家费与区级生活补贴",
+       "type": "living",
+       "per": null,
+       "period": "once",
+       "total": null,
+       "reason": "原文只给出区间（博士市级 10—20 万）和区级\"最高\"金额，没有确定值；是否按下限计入合计待你决定，暂不计入。"
       }
      ]
     }
