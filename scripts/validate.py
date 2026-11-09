@@ -397,6 +397,14 @@ def main(argv):
             return 1
         reports.append(validate_file(p))
     reports.append(validate_national())
+    # Independent life data has its own schema and release gates. Validate the
+    # complete registry even for a single-city patrol so broken references fail.
+    from life_data import validate_life
+    from life_modules import validate_modules
+    life_report = Report("life data / modules")
+    for error in validate_life() + validate_modules():
+        life_report.err("life", error)
+    reports.append(life_report)
 
     n_err = n_warn = 0
     for r in reports:
@@ -408,7 +416,7 @@ def main(argv):
             print(f"    error   {e}")
         for w in r.warnings:
             print(f"    warning {w}")
-    print(f"\n{len(reports) - 2} 座城市，{n_err} 个错误，{n_warn} 个警告")
+    print(f"\n{len(files)} 座城市，{n_err} 个错误，{n_warn} 个警告")
     return 1 if n_err or (strict and n_warn) else 0
 
 

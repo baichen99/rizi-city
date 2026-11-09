@@ -1,0 +1,32 @@
+[
+  {
+    "schema_version": 1,
+    "city_id": "guangzhou",
+    "id": "healthcare",
+    "title": "医保就医导航",
+    "status": "link_only",
+    "summary": "先区分参保地与就医地，再核对职工/居民、在职/退休、本地/跨省及门诊/住院场景。官方指引提供备案与联网机构查询路径；本项目不判断资格、不测算报销。",
+    "links": [
+      {
+        "label": "国家医保局跨省就医查询与备案指引",
+        "url": "https://www.nhsa.gov.cn/art/2025/3/16/art_14_16010.html"
+      }
+    ],
+    "coverage": "广州居民可阅读的国家跨省导航；不代表广州地方待遇细则或所有医院可直接结算",
+    "verified_at": "2026-11-09",
+    "verified_by": "assistant-source-text-review",
+    "next_review_at": "2027-02-09",
+    "source_date": "2025-03-16",
+    "reference_period": "2025-03-16发布的国家指引；当前地方待遇未核验",
+    "effective_from": null,
+    "effective_to": null,
+    "evidence_locator": "如何办理跨省异地就医备案：第二步；此外还有哪些查询服务",
+    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "redistribution_status": "link_only",
+    "license_id": null,
+    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
+    "review_status": "pending_independent_review",
+    "reason": "本地险种待遇与现行备案例外待独立复核；定点状态和具体服务以办理当日官方查询为准。",
+    "calculator_enabled": false
+  }
+]

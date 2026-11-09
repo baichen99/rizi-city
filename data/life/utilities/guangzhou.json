@@ -1,0 +1,122 @@
+[
+  {
+    "schema_version": 1,
+    "city_id": "guangzhou",
+    "id": "water",
+    "title": "水费",
+    "status": "link_only",
+    "summary": "官方通知限定中心城区供水服务区域，另列独立表、多人口与合表事项。先核对供区，不能把中心城区规则推广到全市。",
+    "links": [
+      {
+        "label": "广州中心城区自来水价格改革通知",
+        "url": "https://fgw.gz.gov.cn/ztzl/gzsfzggwzdlyxxgkzl/ys/content/post_10590952.html"
+      }
+    ],
+    "coverage": "广州市自来水有限公司中心城区供水服务区域；不是广州所有区或所有供水企业",
+    "verified_at": "2026-11-09",
+    "verified_by": "assistant-source-text-review",
+    "next_review_at": "2027-02-09",
+    "source_date": "2025-04-29",
+    "reference_period": "2025年通知；完整现行性待独立复核",
+    "effective_from": null,
+    "effective_to": null,
+    "evidence_locator": "第一部分适用范围、第二部分居民生活用水",
+    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "redistribution_status": "link_only",
+    "license_id": null,
+    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
+    "review_status": "pending_independent_review",
+    "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+    "calculator_enabled": false
+  },
+  {
+    "schema_version": 1,
+    "city_id": "guangzhou",
+    "id": "power",
+    "title": "电费",
+    "status": "link_only",
+    "summary": "解读涉及夏季/非夏季阶梯、峰谷和多人户。水费内容早于2025年改革，本卡只提供电费阅读线索，不认定所有条款仍现行。",
+    "links": [
+      {
+        "label": "广州居民水电价格政策解读（2024年）",
+        "url": "https://www.hp.gov.cn/gzhpfg/gkmlpt/content/9/9523/post_9523185.html"
+      }
+    ],
+    "coverage": "广州居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
+    "verified_at": "2026-11-09",
+    "verified_by": "assistant-source-text-review",
+    "next_review_at": "2027-02-09",
+    "source_date": "2024-03-06",
+    "reference_period": "2024-03-06发布；仅历史政策解释",
+    "effective_from": null,
+    "effective_to": null,
+    "evidence_locator": "问答1、4、5、6",
+    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "redistribution_status": "link_only",
+    "license_id": null,
+    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
+    "review_status": "pending_independent_review",
+    "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+    "calculator_enabled": false
+  },
+  {
+    "schema_version": 1,
+    "city_id": "guangzhou",
+    "id": "gas",
+    "title": "燃气",
+    "status": "link_only",
+    "summary": "此页是多人户人口核算和续期事项导航，不是燃气单价表。具体办理细则仍需向所属燃气企业确认。",
+    "links": [
+      {
+        "label": "广州居民阶梯气价人口数核算通知",
+        "url": "https://fgw.gz.gov.cn/ztzl/gzsfzggwzdlyxxgkzl/ys/content/post_9881534.html"
+      }
+    ],
+    "coverage": "广州居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
+    "verified_at": "2026-11-09",
+    "verified_by": "assistant-source-text-review",
+    "next_review_at": "2027-02-09",
+    "source_date": "2024-09-20",
+    "reference_period": "2024-09-20发布；非完整气价表",
+    "effective_from": null,
+    "effective_to": null,
+    "evidence_locator": "正文人口核算、申报生效及续期段",
+    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "redistribution_status": "link_only",
+    "license_id": null,
+    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
+    "review_status": "pending_independent_review",
+    "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+    "calculator_enabled": false
+  },
+  {
+    "schema_version": 1,
+    "city_id": "guangzhou",
+    "id": "heating",
+    "title": "取暖",
+    "status": "missing",
+    "summary": "取暖收费规则尚未覆盖，可到价格主管部门目录查询。空调或燃气采暖还需核对是否已计入电费或气费。",
+    "links": [
+      {
+        "label": "广州价格政策官方目录",
+        "url": "https://fgw.gz.gov.cn/ztzl/gzsfzggwzdlyxxgkzl/ys/"
+      }
+    ],
+    "coverage": "广州取暖收费规则尚未覆盖",
+    "verified_at": "2026-11-09",
+    "verified_by": "assistant-source-text-review",
+    "next_review_at": "2027-02-09",
+    "source_date": null,
+    "reference_period": "动态目录，非价格适用期",
+    "effective_from": null,
+    "effective_to": null,
+    "evidence_locator": "价格政策栏目目录",
+    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "redistribution_status": "link_only",
+    "license_id": null,
+    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
+    "review_status": "pending_independent_review",
+    "reason": "未核实适用于本城居民的集中供暖收费规则；不能把缺失写成免费或没有供暖。",
+    "calculator_enabled": false
+  }
+]

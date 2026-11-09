@@ -28,7 +28,8 @@
   ];
 
   const state = {
-    tab: "index",
+    tab: "resident",
+    residentCity: "", compareA: "", compareB: "", policyTopic: "all",
     w: { ...PRESETS[0].w },
     deg: "bachelor",
     age: null,
@@ -54,35 +55,157 @@
 
   // ---------- URL 状态 ----------
   function readHash() {
-    const parts = location.hash.replace(/^#/, "").split("&").filter(Boolean);
-    for (const p of parts) {
-      const [k, v] = p.split("=");
-      if (!v && ["index", "grad", "civil", "free"].includes(k)) state.tab = k;
-      if (k === "w" && v) {
-        const nums = v.split(".").map(Number);
-        if (nums.length === ACTIVE.length && nums.every((n) => Number.isInteger(n) && n >= 0 && n <= 5)) {
-          ACTIVE.forEach((m, i) => (state.w[m.key] = nums[i]));
-        }
-      }
-      if (k === "deg" && DEG[v]) state.deg = v;
-      if (k === "city" && v) state.myCity = decodeURIComponent(v);
-    }
+    const params = new URLSearchParams(location.hash.replace(/^#/, ""));
+    const first = location.hash.slice(1).split("&")[0];
+    state.tab = ["resident", "compare", "index", "grad", "civil", "free"].includes(first) ? first : "resident";
+    state.residentCity = ""; state.compareA = ""; state.compareB = ""; state.myCity = null;
+    state.w = { ...PRESETS[0].w }; state.deg = "bachelor";
+    const validCity = id => D.cities.some(c => c.id === id) ? id : "";
+    const city = validCity(params.get("city"));
+    if (state.tab === "resident") state.residentCity = city || (!location.hash ? validCity(rememberedCity()) : "");
+    if (state.tab === "index") state.myCity = city || null;
+    if (state.tab === "compare") { state.compareA = validCity(params.get("a")); state.compareB = validCity(params.get("b")); }
+    const nums = (params.get("w") || "").split(".").map(Number);
+    if (nums.length === ACTIVE.length && nums.every(n => Number.isInteger(n) && n >= 0 && n <= 5)) ACTIVE.forEach((m,i) => state.w[m.key] = nums[i]);
+    if (DEG[params.get("deg")]) state.deg = params.get("deg");
   }
   function hashFor(tab) {
     const h = [tab];
-    if (tab === "index") {
-      h.push("w=" + ACTIVE.map((m) => state.w[m.key]).join("."));
-      if (state.myCity) h.push("city=" + encodeURIComponent(state.myCity));
-    }
+    if (tab === "resident" && state.residentCity) h.push("city=" + encodeURIComponent(state.residentCity));
+    if (tab === "compare") { if(state.compareA) h.push("a=" + encodeURIComponent(state.compareA)); if(state.compareB) h.push("b=" + encodeURIComponent(state.compareB)); }
+    if (tab === "index") { h.push("w=" + ACTIVE.map(m => state.w[m.key]).join(".")); if(state.myCity) h.push("city=" + encodeURIComponent(state.myCity)); }
     if (tab === "grad") h.push("deg=" + state.deg);
     return "#" + h.join("&");
   }
-  function writeHash() {
-    try { history.replaceState(null, "", hashFor(state.tab)); } catch (_) { /* file:// 下可能不允许 */ }
+  function writeHash(push = false) {
+    const next = hashFor(state.tab);
+    if (location.hash === next) return;
+    try { history[push ? "pushState" : "replaceState"](null, "", next); } catch (_) { /* file:// may disallow history */ }
   }
   function shareUrl() {
     const base = location.protocol.startsWith("http") ? location.origin + location.pathname : "https://baichen99.github.io/rizi-city/";
     return base + hashFor(state.tab);
+  }
+
+  // ---------- 居民城市主页：事实、口径和行动分别展示 ----------
+  const LIFE_STATUS = { restricted: "仅官方入口", stale: "待复核", pending_review: "待复核", verified: "已核实", pending: "待核实", needs_review: "待核实", expired: "已过期", missing: "尚未覆盖", not_covered: "尚未覆盖" };
+  const lifeValue = (r) => typeof r.value === "number" && Number.isFinite(r.value) ? r.value.toLocaleString("zh-CN", { maximumFractionDigits: 2 }) : "—";
+  const safeLink = (url, label) => /^https?:\/\//i.test(url || "") ? link(url, label) : "";
+  function rememberedCity() { try { return localStorage.getItem("rizi-resident-city") || ""; } catch (_) { return ""; } }
+  function cityOptions(value) { return `<option value="">请选择城市</option>` + D.cities.map(c => `<option value="${esc(c.id)}" ${c.id === value ? "selected" : ""}>${esc(c.city)}</option>`).join(""); }
+  function lifeRecords(c) {
+    const l = c.living || {};
+    const records = [...(c.life?.overview || [])];
+    for (const [metric, field, label, unit, period, source, population] of [
+      ["rent", "rent_avg_per_sqm", "住宅平均租金", "元/㎡/月", l.rent_period, l.rent_source_url, l.rent_source || "监测机构住宅租赁样本"],
+      ["income", "income_per_capita", "居民人均可支配收入", "元/年", l.stats_year, l.stats_source_url, "居民人均可支配收入（不是工资）；旧数据未结构化记录城镇 / 全体居民口径，请查看原统计公报"],
+      ["consumption", "consumption_per_capita", "居民人均消费支出", "元/年", l.stats_year, l.stats_source_url, "居民人均消费支出（包含居住等支出）；旧数据未结构化记录城镇 / 全体居民口径，请查看原统计公报"],
+    ]) records.push({ id: metric, metric, label, value: l[field], unit, period, source_url: source, population_scope: population, geographic_scope: c.city, review_status: (l.needs_human && (!l.needs_human_fields?.length || l.needs_human_fields.includes(field))) || l.access_blocked ? "pending" : l[field] == null ? "missing" : "verified", verified_at: l.verified_at, missing_reason: l.needs_human_reason || "尚未覆盖", comparability_key: metric === "rent" ? `${metric}:legacy` : null });
+    for (const [metric, label, unit] of [["housing_new_yoy_index", "新建商品住宅价格指数", "指数"], ["wage_nonprivate_mean", "城镇非私营单位就业人员平均工资", "元/年"], ["wage_private_mean", "城镇私营单位就业人员平均工资", "元/年"], ["wage_median", "工资中位数", "元/年"], ["life_expectancy", "出生时预期寿命", "岁"]]) {
+      if (!records.some(r => r.metric === metric)) records.push({ metric, label, unit, value: null, review_status: "missing", missing_reason: metric === "wage_median" ? "未找到同口径公开数据" : "尚未覆盖已核实数据" });
+    }
+    return records.map(r => currentLifeRecord(c, r));
+  }
+  function sourceFor(c, r) { return (c.life?.sources || []).find(s => s.id === r.source_id) || {}; }
+  // Recheck static/offline snapshots at viewing time; never mutate their evidence.
+  function currentLifeRecord(c, r, today = new Date().toISOString().slice(0, 10)) {
+    const s = sourceFor(c, r);
+    let reason = "", status = r.review_status;
+    if (r.source_id) {
+      if (!s.id || s.review_status !== "verified") { status = s.review_status === "restricted" ? "restricted" : "pending_review"; reason = "来源尚未通过核验，暂不展示数值。"; }
+      else if (!/^\d{4}-\d{2}-\d{2}$/.test(s.review_due || "")) { status = "pending_review"; reason = "来源缺少有效复核日期，暂不展示数值。"; }
+      else if (s.review_due < today) { status = "stale"; reason = `已超过来源复核日期 ${s.review_due}，需重新核验后展示数值。`; }
+      else if (s.verified_at > today || r.verified_at > today) { status = "pending_review"; reason = "核验日期晚于查看日期，暂不作为已核验记录。"; }
+    }
+    if (status !== "verified") return { ...r, value: null, review_status: status || "pending_review", missing_reason: [reason, r.missing_reason].filter(Boolean).join(" ") || "数据尚未核实，不参与数值展示或比较。" };
+    return { ...r };
+  }
+  function recordDetails(c, r) {
+    const s = sourceFor(c, r);
+    const semantic = { mean: "平均数", median: "中位数", index: "价格指数", gross: "税前", net: "税后", new: "新建商品住宅", resale: "二手住宅", transaction: "成交", listing: "挂牌" };
+    return `<dl class="life-facts"><dt>统计期间</dt><dd>${esc(r.period || "未提供")}</dd><dt>地域 / 对象</dt><dd>${esc(r.geographic_scope || "未提供")} · ${esc(r.population_scope || "未提供")}</dd><dt>统计口径</dt><dd>${esc([r.statistic, r.gross_or_net, r.price_basis, r.market_segment, r.reference_period, r.base_period ? "基期 " + r.base_period : null, r.notes].filter(Boolean).map(v => semantic[v] || v).join(" · ") || r.label)}</dd><dt>原文发布</dt><dd>${esc(s.published_at || "未提供")}</dd><dt>来源核验</dt><dd>${esc(r.verified_at || s.verified_at || "未提供核验日")}（不是统计年份）</dd><dt>来源复核期限</dt><dd>${esc(s.review_due || "旧数据未提供独立复核期限")}</dd></dl>${safeLink(r.source_url || s.url || s.source_url, s.title || s.publisher || "查看来源原文") + (s.attribution ? `<p class="small">${esc(s.attribution)}</p>` : "") || '<p class="small">暂无已核实来源链接。</p>'}`;
+  }
+  function metricCard(c, r) {
+    const has = typeof r.value === "number" && Number.isFinite(r.value);
+    return `<article class="card metric-card"><div class="metric-top"><h3>${esc(r.label)}</h3><span class="life-status">${esc(LIFE_STATUS[r.review_status] || r.review_status || "待核实")}</span></div><p class="metric-number">${lifeValue(r)} <small>${has ? esc(r.unit) : ""}</small></p><p class="small">${has ? esc(r.period || "统计期间未提供") : esc(r.missing_reason || "未找到同口径公开数据")}</p>${r.metric.includes("housing") ? '<p class="small">价格指数不是元/㎡房价，不可倒推成交均价。</p>' : ""}${r.metric.includes("wage") ? '<p class="small">单位工资统计不等于居民收入，也不代表个人到手工资。</p>' : ""}${r.metric === "life_expectancy" ? '<p class="small">人口统计指标，不预测个人寿命。</p>' : ""}<details><summary>口径与来源</summary>${recordDetails(c, r)}</details></article>`;
+  }
+  // Pure chart helpers: missing and unverified points always break the line.
+  function periodNumber(period, frequency) {
+    const m = /^(\d{4})(?:-(\d{2}))?$/.exec(String(period));
+    if (!m) return null;
+    return frequency === "monthly" ? (m[2] ? +m[1] * 12 + +m[2] - 1 : null) : +m[1];
+  }
+  function pointGroup(p, series) {
+    return JSON.stringify([p.comparability_key || series.comparability_key, p.unit || series.unit, p.population_scope, p.geographic_scope]);
+  }
+  function chartSegments(series) {
+    const points = [...(series.points || [])].sort((a, b) => String(a.period).localeCompare(String(b.period)));
+    const segments = []; let segment = [], previous = null, previousGroup = null;
+    for (const p of points) {
+      const n = periodNumber(p.period, series.frequency);
+      const valid = Number.isFinite(p.value) && p.value !== null && p.review_status === "verified" && n !== null;
+      const group = pointGroup(p, series);
+      if (!valid || (previous !== null && (n !== previous + 1 || group !== previousGroup))) { if (segment.length) segments.push(segment); segment = []; }
+      if (valid) segment.push(p);
+      previous = valid ? n : null; previousGroup = valid ? group : null;
+    }
+    if (segment.length) segments.push(segment);
+    return segments;
+  }
+  function comparable(a, b) {
+    return a && b && a.metric === b.metric && a.unit === b.unit && a.period === b.period && (a.cross_city_comparability_key || a.comparability_key) && (a.cross_city_comparability_key || a.comparability_key) === (b.cross_city_comparability_key || b.comparability_key) && a.population_scope === b.population_scope && a.review_status === "verified" && b.review_status === "verified" && Number.isFinite(a.value) && Number.isFinite(b.value);
+  }
+  function historyChart(c, series, index) {
+    series = { ...series, points: (series.points || []).map(p => currentLifeRecord(c, p)) };
+    const groups = new Map();
+    for (const p of series.points || []) { const key = pointGroup(p, series); if (!groups.has(key)) groups.set(key, []); groups.get(key).push(p); }
+    if (groups.size > 1) return [...groups.values()].map((points,i) => historyChart(c, {...series, label: series.label + " · 口径组 " + (i + 1), unit: points[0].unit || series.unit, comparability_key: points[0].comparability_key || series.comparability_key, points}, `${index}-${i}`)).join("");
+    const segments = chartSegments(series), valid = segments.flat();
+    const titleId = `history-title-${index}`;
+    let graph = '<p class="small">尚无可绘制的已核实历史数据。</p>';
+    if (valid.length) {
+      const periods = valid.map(p => periodNumber(p.period, series.frequency));
+      const minX = Math.min(...periods), maxX = Math.max(...periods);
+      const minY = Math.min(...valid.map(p => p.value)), maxY = Math.max(...valid.map(p => p.value));
+      const x = p => 62 + (periodNumber(p.period, series.frequency) - minX) / (maxX - minX || 1) * 510;
+      const y = p => 152 - (p.value - minY) / (maxY - minY || 1) * 110;
+      graph = `<svg class="history-chart" viewBox="0 0 620 195" role="img" aria-labelledby="${titleId}"><title id="${titleId}">${esc(series.label)}历史观测，${esc(series.unit)}。缺失期间断线，完整数值见下方表格。</title><path d="M62 24V152H582" class="chart-axis"/><text x="4" y="45">${esc(maxY)}</text><text x="4" y="154">${esc(minY)}</text>${segments.map(ps => `${ps.length > 1 ? `<polyline points="${ps.map(p => `${x(p)},${y(p)}`).join(" ")}"/>` : ""}${ps.map(p => `<circle tabindex="0" role="img" aria-label="${esc(p.period)}，${lifeValue(p)} ${esc(series.unit)}；${esc(sourceFor(c,p).title || "来源未提供")}；核验 ${esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}" cx="${x(p)}" cy="${y(p)}" r="4"><title>${esc(p.period)}：${lifeValue(p)} ${esc(series.unit)}；${esc(sourceFor(c,p).title || "来源未提供")}；核验 ${esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}</title></circle>`).join("")}`).join("")}<text x="62" y="182">${esc(valid[0].period)}</text><text x="572" y="182" text-anchor="end">${esc(valid[valid.length - 1].period)}</text></svg>`;
+    }
+    return `<article class="card"><h3>${esc(series.label)}</h3><p class="small">${esc(series.unit)} · ${esc(series.points?.[0]?.population_scope || "对象见明细")}。${esc(series.notes || "")} 只连接相邻且同口径的已核实观测，不补点、不把缺失当 0。纵轴按观测范围缩放，可能不从 0 起。</p>${graph}<details><summary>查看历史数据表与来源（${(series.points || []).length} 条）</summary><div class="table-scroll"><table><caption>${esc(series.label)}历史观测</caption><thead><tr><th scope="col">期间</th><th scope="col">数值（${esc(series.unit)}）</th><th scope="col">状态 / 来源</th></tr></thead><tbody>${(series.points || []).map(p => `<tr><th scope="row">${esc(p.period)}</th><td>${lifeValue(p)}</td><td>${esc(LIFE_STATUS[p.review_status] || "待核实")} ${safeLink(sourceFor(c,p).url || sourceFor(c,p).source_url, sourceFor(c,p).title || "原文") + " · 核验 " + esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}${p.missing_reason ? esc(p.missing_reason) : ""}</td></tr>`).join("")}</tbody></table></div></details></article>`;
+  }
+  function policyCards(c) {
+    const policies = [
+      { ...c.hukou, title: "毕业生 / 人才落户", topic: "hukou", audience: "毕业生或人才引进对象，按原文件条件", summary: c.hukou?.summary, window: c.hukou?.apply_window },
+      ...(c.subsidies || []).map(s => ({ ...s, title: s.name, topic: "subsidy", audience: s.target || "以原文件为准", summary: s.amount, window: s.deadline_rule })),
+      { ...c.flexible_employment, title: "灵活就业参保", topic: "social", audience: c.flexible_employment?.hukou_restriction, summary: c.flexible_employment?.calc, window: c.flexible_employment?.apply_channel },
+    ].filter(p => state.policyTopic === "all" || p.topic === state.policyTopic);
+    return `<section aria-labelledby="policy-heading"><h2 id="policy-heading">政策与办理线索</h2><p class="sub">目前覆盖毕业生 / 人才政策和灵活就业参保，不是全体居民政策库。主题筛选不判断个人资格。</p><label class="life-filter">按主题浏览 <select id="policy-topic"><option value="all">全部已收录主题</option>${[["hukou","落户"],["subsidy","人才补贴"],["social","灵活就业参保"]].map(([v,l])=>`<option value="${v}" ${state.policyTopic===v?"selected":""}>${l}</option>`).join("")}</select></label><div class="life-stack">${policies.map(p => {
+      const expired = p.valid_until && p.valid_until < new Date().toISOString().slice(0,10);
+      return `<article class="card"><h3>${esc(p.title)} <span class="life-status">${expired ? "依据文件已过期，延续情况待确认" : p.needs_human ? "待核实" : p.verified_at ? "资料已核验 · 资格仍需确认" : "尚未覆盖"}</span></h3><p>${esc(p.summary || "尚无已核实说明")}</p><p class="small"><strong>适用对象：</strong>${esc(p.audience || "尚未核实，请先看原文")}</p><details><summary>条件、期限和办理入口</summary><ul>${(p.conditions || []).map(x=>`<li>${esc(x)}</li>`).join("")}</ul><p>期限 / 渠道：${esc(p.window || "未见固定截止日期，需向官方确认")}</p><p>材料：尚未结构化核实，请按官方清单准备。</p><p>${safeLink(p.source_url, "政策原文 ↗")}</p>${p.official_action_url ? safeLink(p.official_action_url, "已核实官方办理入口 ↗") : '<p class="note">尚无单独核实的在线办理入口。政策原文不等于申办页面。</p>'}<p class="small">原文发布日期：${esc(p.source_date || "未提供")} · 有效至：${esc(p.valid_until || "需向官方确认")} · 资料核验：${esc(p.verified_at || "未核验")}</p>${p.needs_human_reason ? `<p class="note">${esc(p.needs_human_reason)}</p>` : ""}</details></article>`;
+    }).join("") || '<p class="note">该主题尚未覆盖已核实事项。</p>'}</div>${c.subsidy_scan?.living_none || c.subsidy_scan?.rent_none ? `<p class="note">既有扫描仅针对普通应届生的市级现金生活 / 租房补贴，排除区级、行业限定和实物配租；不表示本市没有其他居民补贴。${esc(c.subsidy_scan.basis || "")}</p>` : ""}</section>`;
+  }
+  function currentLifeModule(m, today = new Date().toISOString().slice(0, 10)) {
+    let status = m.status, reason = "";
+    if (m.effective_to && m.effective_to < today) { status = "expired"; reason = "来源记录已到期；仅留历史入口。"; }
+    else if (m.effective_from && m.effective_from > today) { status = "pending_review"; reason = "尚未到生效日，不能视为现行规则。"; }
+    else if (m.verified_at > today) { status = "pending_review"; reason = "核验日期晚于查看日期，不能作为已核验记录。"; }
+    else if (m.next_review_at && m.next_review_at < today) { status = "pending_review"; reason = "已超过复核窗口；入口及规则均需重新打开核验。"; }
+    return { ...m, status, reason: reason + (m.reason || ""), usable: false, calculator_enabled: false };
+  }
+  function moduleCard(m) {
+    m = currentLifeModule(m);
+    const statuses = {link_only: "仅官方资料入口", missing: "尚未覆盖", pending_review: "待复核", expired: "已过期"};
+    return `<article class="card"><h3>${esc(m.title)} <span class="life-status">${esc(statuses[m.status] || "待复核")}</span></h3><p>${esc(m.summary || "尚未覆盖")}</p><p class="note">${esc(m.reason || "尚未完成现行性与适用范围核验")}</p><p class="small">覆盖范围：${esc(m.coverage || "未提供")}</p><p class="small">资料期间：${esc(m.reference_period || "未提供")} · 原文日期：${esc(m.source_date || "未提供")}</p><p class="small">入口核验：${esc(m.verified_at || "未提供")} · 计划复核：${esc(m.next_review_at || "未提供")}</p><p class="small">${esc(m.verification_scope || "入口核验不等于当前规则或服务可用性已确认")}。本页不提供费用 / 待遇计算。</p>${(m.links || []).map(l=>safeLink(l.url,l.label)).join("<br>")}</article>`;
+  }
+  function renderResident() {
+    const c = D.cities.find(c => c.id === state.residentCity);
+    const saved = rememberedCity();
+    $("#tab-resident").innerHTML = `<div class="resident-intro"><p class="kicker">把日子过在这里</p><h2>${c ? esc(c.city) + "，生活概况" : "先看看你生活的城市"}</h2><p class="sub">看懂公开数据，找到政策原文。没有全体居民的城市总分，也不用填写个人收入或身份信息。</p></div><div class="card city-picker"><label for="resident-city">我住在</label><select id="resident-city">${cityOptions(state.residentCity)}</select><div class="row"><button class="btn ghost" data-remember ${!c ? "disabled" : ""}>在本机记住这座城</button><button class="btn ghost" data-forget ${!saved ? "disabled" : ""}>清除记住的城市</button>${c ? '<button class="btn ghost" data-copy>分享城市页</button>' : ""}</div><p class="small">${saved ? "已记住：" + esc(D.cities.find(x=>x.id===saved)?.city || saved) + "。" : "默认不保存。"}仅在此浏览器保存城市；分享链接不含个人条件。</p></div>${!c ? `<div class="resident-empty"><span aria-hidden="true">⌂</span><h3>一城一份，慢慢看清楚</h3><p>选择城市后查看概况、历史观测、政策和生活入口。未覆盖的数据会明确留空。</p><p><a href="#compare">还在考虑搬家？比较两座城市 →</a></p></div>` : `<nav class="life-jumps" aria-label="本城内容">${[["overview","概况"],["history","历史走势"],["policies","政策"],["daily","日常生活"],["sources","来源与更新"]].map(([id,l])=>`<button class="chip" data-jump="${id}">${l}</button>`).join("")}</nav><section id="life-overview"><h2>生活的几个侧面</h2><p class="sub">数字的时间和对象可能不同，请展开查看。没有值不代表为 0。</p><div class="metric-grid">${lifeRecords(c).map(r=>metricCard(c,r)).join("")}</div></section><section id="life-history"><h2>沿着时间看变化</h2><p class="sub">每张图独立呈现同一可比序列。历史数据不冒充现状。</p><div class="life-stack">${(c.life?.series || []).map((s,i)=>historyChart(c,s,i)).join("") || '<p class="note">尚未收录满足同口径要求的历史序列，暂不绘图。</p>'}</div></section><div id="life-policies">${policyCards(c)}</div><section id="life-daily"><h2>日常生活入口</h2><p class="sub">先找到可信的入口。不把官方单价当平均账单，也不估算个人费用。</p><div class="metric-grid">${(c.life?.modules || []).map(moduleCard).join("") || '<p class="note">本城账单、气候、就医、菜篮子与街区导航尚未覆盖；不提供未经核实的价格。</p>'}</div></section><section id="life-sources"><h2>来源与资料更新</h2><p class="sub">重新核验不等于政策发生变化。目前未建立独立的政策生效变更流，请以原文为准。</p><div class="card"><h3>资料核验</h3><p>本城最近核验：${esc(c.latest_verified || "未提供")}。统计年份请查看各指标。</p><details><summary>全部新增数据来源（${(c.life?.sources || []).length}）</summary><ul>${(c.life?.sources || []).map(s=>`<li>${safeLink(s.url || s.source_url, s.title || s.id)} <span class="small">${esc(s.verified_at || "")}</span></li>`).join("")}</ul></details><p>${link(yamlUrl(c),"查看城市数据与维护记录")} · ${link(REPO + "/issues/new?template=data-error.yml", "报告数据问题")}</p></div></section>`}`;
+  }
+  function renderCompare() {
+    const a = D.cities.find(c=>c.id===state.compareA), b = D.cities.find(c=>c.id===state.compareB);
+    const rows = a && b && a !== b ? lifeRecords(a).map(r=>[r, lifeRecords(b).find(s=>s.metric===r.metric)]).filter(([r,s])=>comparable(r,s)) : [];
+    $("#tab-compare").innerHTML = `<h2>我在选城市</h2><p class="sub">先并排看事实，再决定什么对你重要。不合并不同口径，不做全能排名。</p><div class="card compare-pickers"><label>第一座城市<select id="compare-a">${cityOptions(state.compareA)}</select></label><label>第二座城市<select id="compare-b">${cityOptions(state.compareB)}</select></label></div>${a && b ? a===b ? '<p class="note">请选择两座不同的城市。</p>' : `<div class="row"><a class="btn ghost" href="#resident&city=${encodeURIComponent(a.id)}">${esc(a.city)}生活页 →</a><a class="btn ghost" href="#resident&city=${encodeURIComponent(b.id)}">${esc(b.city)}生活页 →</a></div>${rows.length ? `<div class="card table-scroll"><table><caption>同指标、单位、期间和统计对象的资料对照，不作高低排名</caption><thead><tr><th scope="col">指标 / 期间</th><th scope="col">${esc(a.city)}</th><th scope="col">${esc(b.city)}</th></tr></thead><tbody>${rows.map(([r,s])=>`<tr><th scope="row">${esc(r.label)}<br><span class="small">${esc(r.period)} · ${esc(r.unit)}</span></th><td>${lifeValue(r)}<details><summary>口径与来源</summary>${recordDetails(a,r)}</details></td><td>${lifeValue(s)}<details><summary>口径与来源</summary>${recordDetails(b,s)}</details></td></tr>`).join("")}</tbody></table></div>` : '<p class="note">暂未找到两城同期间、同口径且已核实的指标。请分别打开城市页，不将缺失值拿来排名。</p>'}<p class="small">其余指标因缺失、待核实或口径不同，未放入对照表。</p>` : '<p class="note">选择两座候选城市开始比较。数据不足时会明确提示。</p>'}<div class="card"><h3>保留你熟悉的专题工具</h3><p>日子指数使用本科落户、补贴和灵活就业等特定条件，不是适用于所有居民的城市评分。</p><div class="row"><a href="#index">日子指数与权重 →</a><a href="#grad">应届生 →</a><a href="#civil">考公考编 →</a><a href="#free">自由职业 →</a></div><p>${link(METHOD_URL,"了解指数方法")}</p></div>`;
   }
 
   // ---------- 日子指数 ----------
@@ -146,7 +269,7 @@
       <ol class="rank">
         ${ranked.map((r) => `
           <li>
-            <div class="rank-head"><span class="rank-no">${r.rank}</span><span class="rank-name">${esc(r.c.city)}</span><span class="rank-score">${r.total == null ? "—" : r.total.toFixed(0)}</span></div>
+            <div class="rank-head"><span class="rank-no">${r.rank}</span><a class="rank-name" href="#resident&city=${encodeURIComponent(r.c.id)}">${esc(r.c.city)}</a><span class="rank-score">${r.total == null ? "—" : r.total.toFixed(0)}</span></div>
             <div class="bar"><i style="width:${(r.total || 0).toFixed(1)}%"></i></div>
             <div class="parts">
               ${ACTIVE.map((m) => r.scores[m.key] == null
@@ -547,6 +670,12 @@
   }
   function openShare(kind) {
     if (kind === "mycity" && !state.myCity) { const s = $("#my-city"); s && s.focus(); return; }
+    if (kind === "mycity" && computeIndex().ranked.find(r => r.c.id === state.myCity)?.total === null) {
+      toast("当前权重无法计算这座城市的得分，请给有数据的项目增加权重。"); return;
+    }
+    if (kind === "top5" && !computeIndex().ranked.some(r => r.total != null)) {
+      toast("当前权重无法生成排名，请至少给一项增加权重。"); return;
+    }
     const cv = { grad: shareGrad, top5: shareTop5, mycity: shareMyCity }[kind]();
     const url = cv.toDataURL("image/png");
     const name = `rizi-city-${kind}.png`;
@@ -558,13 +687,13 @@
   }
 
   // ---------- 渲染与事件 ----------
-  const RENDER = { index: renderIndex, grad: renderGrad, civil: renderCivil, free: renderFree };
-  function show(tab) {
+  const RENDER = { resident: renderResident, compare: renderCompare, index: renderIndex, grad: renderGrad, civil: renderCivil, free: renderFree };
+  function show(tab, push = false) {
     state.tab = tab;
-    document.querySelectorAll(".tabs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === tab)));
+    document.querySelectorAll(".tabs button").forEach((b) => { b.setAttribute("aria-selected", String(b.dataset.tab === tab)); b.tabIndex = b.dataset.tab === tab ? 0 : -1; b.id = "nav-" + b.dataset.tab; b.setAttribute("aria-controls", "tab-" + b.dataset.tab); $("#tab-" + b.dataset.tab).setAttribute("aria-labelledby", b.id); });
     for (const k of Object.keys(RENDER)) $("#tab-" + k).hidden = k !== tab;
     RENDER[tab]();
-    writeHash();
+    writeHash(push);
   }
   function rerenderKeepOpen() {
     const panel = $("#tab-" + state.tab);
@@ -587,8 +716,12 @@
   document.addEventListener("click", (e) => {
     const t = e.target.closest("button, a");
     if (!t) { if (e.target.id === "sheet") $("#sheet").hidden = true; return; }
+    if (t.classList.contains("skip-link")) { e.preventDefault(); $("#main-content").focus(); return; }
     const d = t.dataset;
-    if (d.tab) return show(d.tab);
+    if (d.tab) return show(d.tab, true);
+    if (d.jump) { const section = $("#life-" + d.jump); section?.scrollIntoView({ block: "start" }); section?.setAttribute("tabindex", "-1"); section?.focus({ preventScroll: true }); return; }
+    if ("remember" in d) { try { localStorage.setItem("rizi-resident-city", state.residentCity); toast("已在本机记住城市"); renderResident(); } catch (_) { toast("浏览器未允许保存，请使用城市链接"); } return; }
+    if ("forget" in d) { try { localStorage.removeItem("rizi-resident-city"); toast("已清除记住的城市"); renderResident(); } catch (_) { toast("无法清除，请检查浏览器存储设置"); } return; }
     if (d.preset != null) { state.w = { ...PRESETS[+d.preset].w }; return rerenderKeepOpen(); }
     if (d.deg) { state.deg = d.deg; return rerenderKeepOpen(); }
     if (d.gsort) { state.gradSort = d.gsort; return rerenderKeepOpen(); }
@@ -623,11 +756,23 @@
     }
   });
   document.addEventListener("change", (e) => {
+    if (["resident-city", "compare-a", "compare-b"].includes(e.target.id)) { state[{"resident-city":"residentCity", "compare-a":"compareA", "compare-b":"compareB"}[e.target.id]] = e.target.value; show(state.tab, true); $("#" + e.target.id)?.focus(); }
+    if (e.target.id === "policy-topic") { state.policyTopic = e.target.value; renderResident(); $("#policy-topic")?.focus(); }
     if (e.target.id === "my-city") { state.myCity = e.target.value || null; writeHash(); }
     if (e.target.id === "civil-project") { state.civil.project = e.target.checked; rerenderKeepOpen(); }
   });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") $("#sheet").hidden = true; });
 
+  window.addEventListener("hashchange", () => { if (D) { readHash(); show(state.tab); } });
+  window.addEventListener("popstate", () => { if (D) { readHash(); show(state.tab); } });
+  document.querySelector(".tabs").addEventListener("keydown", e => {
+    const buttons = [...document.querySelectorAll(".tabs button")];
+    const i = buttons.indexOf(e.target);
+    if (i < 0 || !["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) return;
+    e.preventDefault();
+    const next = e.key === "Home" ? 0 : e.key === "End" ? buttons.length - 1 : (i + (e.key === "ArrowRight" ? 1 : -1) + buttons.length) % buttons.length;
+    buttons[next].focus(); show(buttons[next].dataset.tab, true);
+  });
   async function load() {
     if (window.RIZI_DATA) return window.RIZI_DATA;
     const r = await fetch("data/cities.json", { cache: "no-cache" });

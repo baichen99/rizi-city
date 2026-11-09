@@ -1,0 +1,122 @@
+[
+  {
+    "schema_version": 1,
+    "city_id": "shanghai",
+    "id": "water",
+    "title": "水费",
+    "status": "link_only",
+    "summary": "官方实施细则区分居民、非居民和特种用水。此处链接制度文件，不代表任何具体供水企业的当前水价。",
+    "links": [
+      {
+        "label": "上海城镇供水价格管理实施细则",
+        "url": "https://fgw.sh.gov.cn/fgw_gfxwj/20230118/0edaa28f4a5442a2aebbf06c08586ee3.html"
+      }
+    ],
+    "coverage": "上海居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
+    "verified_at": "2026-11-09",
+    "verified_by": "assistant-source-text-review",
+    "next_review_at": "2027-02-09",
+    "source_date": "2023-01-18",
+    "reference_period": "2023年文件，仅制度导航",
+    "effective_from": null,
+    "effective_to": null,
+    "evidence_locator": "第三章第十五、十六条",
+    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "redistribution_status": "link_only",
+    "license_id": null,
+    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
+    "review_status": "pending_independent_review",
+    "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+    "calculator_enabled": false
+  },
+  {
+    "schema_version": 1,
+    "city_id": "shanghai",
+    "id": "power",
+    "title": "电费",
+    "status": "link_only",
+    "summary": "历史方案说明年累计阶梯与月抄表的区别。峰谷、多人户、新装表和后续修订尚需一并核验，不能直接套用历史单价。",
+    "links": [
+      {
+        "label": "上海居民阶梯电价原始方案（历史文件）",
+        "url": "https://fgw.sh.gov.cn/ys-szgyjcssfw-1.7.1-h5/20240819/b2cb5b1cde014210841ed62c91aa9e39.html"
+      }
+    ],
+    "coverage": "上海居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
+    "verified_at": "2026-11-09",
+    "verified_by": "assistant-source-text-review",
+    "next_review_at": "2027-02-09",
+    "source_date": null,
+    "reference_period": "2012年原始方案；不是2024年新政策",
+    "effective_from": null,
+    "effective_to": null,
+    "evidence_locator": "第二部分（二）、第四部分、末段实施安排",
+    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "redistribution_status": "link_only",
+    "license_id": null,
+    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
+    "review_status": "pending_independent_review",
+    "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+    "calculator_enabled": false
+  },
+  {
+    "schema_version": 1,
+    "city_id": "shanghai",
+    "id": "gas",
+    "title": "燃气",
+    "status": "link_only",
+    "summary": "先确认账单的供应企业、居民或非居民类别及独立表/合表，再在官方目录查对应文件。",
+    "links": [
+      {
+        "label": "上海价格政策官方目录",
+        "url": "https://fgw.sh.gov.cn/fgw_jggl/"
+      }
+    ],
+    "coverage": "上海居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
+    "verified_at": "2026-11-09",
+    "verified_by": "assistant-source-text-review",
+    "next_review_at": "2027-02-09",
+    "source_date": null,
+    "reference_period": "动态目录，非价格适用期",
+    "effective_from": null,
+    "effective_to": null,
+    "evidence_locator": "价格政策栏目目录",
+    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "redistribution_status": "link_only",
+    "license_id": null,
+    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
+    "review_status": "pending_independent_review",
+    "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+    "calculator_enabled": false
+  },
+  {
+    "schema_version": 1,
+    "city_id": "shanghai",
+    "id": "heating",
+    "title": "取暖",
+    "status": "missing",
+    "summary": "取暖收费规则尚未覆盖，可到价格主管部门目录查询。空调或燃气采暖还需核对是否已计入电费或气费。",
+    "links": [
+      {
+        "label": "上海价格政策官方目录",
+        "url": "https://fgw.sh.gov.cn/fgw_jggl/"
+      }
+    ],
+    "coverage": "上海取暖收费规则尚未覆盖",
+    "verified_at": "2026-11-09",
+    "verified_by": "assistant-source-text-review",
+    "next_review_at": "2027-02-09",
+    "source_date": null,
+    "reference_period": "动态目录，非价格适用期",
+    "effective_from": null,
+    "effective_to": null,
+    "evidence_locator": "价格政策栏目目录",
+    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "redistribution_status": "link_only",
+    "license_id": null,
+    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
+    "review_status": "pending_independent_review",
+    "reason": "未核实适用于本城居民的集中供暖收费规则；不能把缺失写成免费或没有供暖。",
+    "calculator_enabled": false
+  }
+]

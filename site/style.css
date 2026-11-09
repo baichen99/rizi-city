@@ -200,3 +200,54 @@ blockquote { margin: 8px 0 0; padding: 8px 12px; border-left: 3px solid var(--ac
 .foot { border-top: 1px solid var(--line); padding: 18px 0 40px; font-size: 13px; color: var(--ink-2); }
 .foot p { margin: 0 0 6px; }
 .empty { color: var(--ink-3); font-size: 14px; }
+
+/* Resident-first: calm editorial overview, with sources always one step away. */
+.skip-link { position: absolute; top: -80px; left: 16px; z-index: 50; background: var(--ink); color: var(--bg); padding: 12px; border-radius: 8px; }
+.skip-link:focus { top: 8px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+[hidden] { display: none !important; }
+.resident-intro { padding: 12px 0 4px; }
+.resident-intro h2 { font-size: clamp(24px, 4vw, 34px); letter-spacing: -.03em; }
+.city-picker { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 20px; }
+.city-picker > label { font-weight: 650; }
+.city-picker > select { flex: 1; min-width: 160px; }
+.city-picker > .row, .city-picker > p { width: 100%; margin: 0; }
+select { max-width: 100%; background: var(--paper); border: 1px solid var(--line); border-radius: 9px; padding: 10px; min-height: 44px; }
+button { min-height: 40px; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+.resident-empty { padding: 42px 24px; border: 1px dashed var(--line); text-align: center; border-radius: 16px; color: var(--ink-2); }
+.resident-empty > span { display: block; font-size: 64px; line-height: 1.2; color: var(--accent); }
+.resident-empty h3 { font-size: 20px; color: var(--ink); margin-top: 18px; }
+.life-jumps { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0; }
+[id^="life-"] { scroll-margin-top: 90px; margin-top: 32px; }
+.metric-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin-top: 16px; }
+.metric-card { display: flex; flex-direction: column; padding: 18px; }
+.metric-top { display: flex; flex-wrap: wrap; gap: 7px; align-items: baseline; }
+.metric-top h3 { flex: 1 1 150px; }
+.life-status { color: var(--ink-2); font-size: 11px; background: var(--bg); border: 1px solid var(--line); border-radius: 5px; padding: 2px 5px; font-weight: 400; }
+.metric-number { font-size: 30px; line-height: 1.25; font-weight: 650; margin: 16px 0 6px; letter-spacing: -.025em; font-variant-numeric: tabular-nums; }
+.metric-number small { display: inline-block; font-size: 12px; color: var(--ink-2); font-weight: 400; letter-spacing: normal; }
+.metric-card > p.small { margin: 4px 0 12px; }
+.metric-card > details { margin-top: auto; border-top: 1px solid var(--line); padding-top: 10px; }
+.life-facts { font-size: 13px; display: grid; grid-template-columns: 80px minmax(0,1fr); gap: 8px; }
+.life-facts dt { color: var(--ink-2); }
+.life-facts dd { margin: 0; overflow-wrap: anywhere; }
+.life-stack { display: grid; gap: 12px; margin-top: 14px; }
+.history-chart { display: block; width: 100%; height: auto; margin: 12px 0; overflow: visible; }
+.history-chart polyline { fill: none; stroke: var(--accent); stroke-width: 2.5; }
+.history-chart circle { fill: var(--accent); stroke: var(--paper); stroke-width: 1.5; }
+.history-chart text { fill: var(--ink-2); font-size: 12px; }
+.history-chart .chart-axis { fill: none; stroke: var(--line); stroke-width: 1; }
+.table-scroll { overflow-x: auto; }
+.table-scroll table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.table-scroll th, .table-scroll td { text-align: left; vertical-align: top; padding: 12px 8px; border-bottom: 1px solid var(--line); }
+.table-scroll th { font-weight: 600; }
+.table-scroll caption { text-align: left; padding: 8px; color: var(--ink-2); }
+.compare-pickers { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.compare-pickers label { display: grid; gap: 6px; }
+.life-filter { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 14px; }
+#tab-resident details summary, #tab-compare details summary { cursor: pointer; color: var(--accent); padding: 5px 0; }
+#tab-resident .card a, #tab-compare .card a { overflow-wrap: anywhere; }
+@media (min-width: 1000px) { .wrap { max-width: 900px; } .top { padding-top: 46px; } .top h1 { font-size: 36px; } .lede { max-width: 650px; } }
+@media (max-width: 480px) { .metric-grid { grid-template-columns: 1fr; } .city-picker { padding: 14px; } .city-picker .btn { font-size: 12px; padding: 8px 10px; } .compare-pickers { gap: 10px; } .table-scroll td, .table-scroll th { padding: 9px 5px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }

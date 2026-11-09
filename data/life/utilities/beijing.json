@@ -1,0 +1,122 @@
+[
+  {
+    "schema_version": 1,
+    "city_id": "beijing",
+    "id": "water",
+    "title": "水费",
+    "status": "link_only",
+    "summary": "先确认账单的供应企业、居民或非居民类别及独立表/合表，再在官方目录查对应文件。",
+    "links": [
+      {
+        "label": "北京水费标准查询",
+        "url": "https://www.beijing.gov.cn/fwcj/jiage/ggfw1/661ccdcc81e5641581784c4f.html"
+      }
+    ],
+    "coverage": "北京居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
+    "verified_at": "2026-11-09",
+    "verified_by": "assistant-source-text-review",
+    "next_review_at": "2027-02-09",
+    "source_date": null,
+    "reference_period": "查询页未单列完整适用期",
+    "effective_from": null,
+    "effective_to": null,
+    "evidence_locator": "居民、非居民水价表及注释",
+    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "redistribution_status": "link_only",
+    "license_id": null,
+    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
+    "review_status": "pending_independent_review",
+    "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+    "calculator_enabled": false
+  },
+  {
+    "schema_version": 1,
+    "city_id": "beijing",
+    "id": "power",
+    "title": "电费",
+    "status": "link_only",
+    "summary": "先确认账单的供应企业、居民或非居民类别及独立表/合表，再在官方目录查对应文件。",
+    "links": [
+      {
+        "label": "北京价格政策官方目录",
+        "url": "https://www.beijing.gov.cn/fwcj/jiage/index.html"
+      }
+    ],
+    "coverage": "北京居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
+    "verified_at": "2026-11-09",
+    "verified_by": "assistant-source-text-review",
+    "next_review_at": "2027-02-09",
+    "source_date": null,
+    "reference_period": "动态目录，非价格适用期",
+    "effective_from": null,
+    "effective_to": null,
+    "evidence_locator": "价格政策栏目目录",
+    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "redistribution_status": "link_only",
+    "license_id": null,
+    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
+    "review_status": "pending_independent_review",
+    "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+    "calculator_enabled": false
+  },
+  {
+    "schema_version": 1,
+    "city_id": "beijing",
+    "id": "gas",
+    "title": "燃气",
+    "status": "link_only",
+    "summary": "先确认账单的供应企业、居民或非居民类别及独立表/合表，再在官方目录查对应文件。",
+    "links": [
+      {
+        "label": "北京价格政策官方目录",
+        "url": "https://www.beijing.gov.cn/fwcj/jiage/index.html"
+      }
+    ],
+    "coverage": "北京居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
+    "verified_at": "2026-11-09",
+    "verified_by": "assistant-source-text-review",
+    "next_review_at": "2027-02-09",
+    "source_date": null,
+    "reference_period": "动态目录，非价格适用期",
+    "effective_from": null,
+    "effective_to": null,
+    "evidence_locator": "价格政策栏目目录",
+    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "redistribution_status": "link_only",
+    "license_id": null,
+    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
+    "review_status": "pending_independent_review",
+    "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+    "calculator_enabled": false
+  },
+  {
+    "schema_version": 1,
+    "city_id": "beijing",
+    "id": "heating",
+    "title": "取暖",
+    "status": "link_only",
+    "summary": "官方查询区分热源和计价方式。先核对合同、建筑面积与是否按热计量，不能把采暖季费用当作每月费用。",
+    "links": [
+      {
+        "label": "北京取暖标准查询",
+        "url": "https://www.beijing.gov.cn/fwcj/jiage/ggfw1/6aeaade0f88cdc0a5ef2d77e.html"
+      }
+    ],
+    "coverage": "北京居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
+    "verified_at": "2026-11-09",
+    "verified_by": "assistant-source-text-review",
+    "next_review_at": "2027-02-09",
+    "source_date": null,
+    "reference_period": "查询页未单列完整适用期",
+    "effective_from": null,
+    "effective_to": null,
+    "evidence_locator": "集中供热价格标准表及来源依据",
+    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "redistribution_status": "link_only",
+    "license_id": null,
+    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
+    "review_status": "pending_independent_review",
+    "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+    "calculator_enabled": false
+  }
+]
