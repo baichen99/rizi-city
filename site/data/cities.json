@@ -2481,11 +2481,11 @@
     "access_blocked": true
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
+    "fresh_grad_rule": "2027南京公务员：一般职位不限生源/户籍，特殊职位另定。应届专岗60—69仅2027普通高校应届及指南列明特定退役、留学、基层服务群体；研究生取得相应学位者不限生源，其他须江苏生源，不能将此限制套给全部岗位。以以前学历或非普通高校学历报考不按应届身份。 另：2026省属事业统招允许2024、2025普通高校毕业生报名时无工作单位者报2026毕业生岗（历史批次）。来源：https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html",
+    "exam_schedule": "2027省考：报名2026-11-03 09:00至11-09 16:00；公共科目笔试2026-12-06，公安专业科目12-05。报名已结束，时间均为北京时间。",
+    "announcement_url": "https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html",
+    "source_url": "https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html",
+    "verified_at": "2026-11-09",
     "needs_human": false,
     "needs_human_reason": null,
     "access_blocked": false
@@ -2521,6 +2521,41 @@
      "old": null,
      "new": 49506,
      "basis": "同上公报原文「城镇居民人均消费支出49506元，增长3.3%」；南京市统计局局长信箱 2026-04-27 答复亦确认此数"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "2027南京公务员：一般职位不限生源/户籍，特殊职位另定。应届专岗60—69仅2027普通高校应届及指南列明特定退役、留学、基层服务群体；研究生取得相应学位者不限生源，其他须江苏生源，不能将此限制套给全部岗位。以以前学历或非普通高校学历报考不按应届身份。 另：2026省属事业统招允许2024、2025普通高校毕业生报名时无工作单位者报2026毕业生岗（历史批次）。来源：https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；南京市2027年度考试录用公务员简章 https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html；南京市2027年度考试录用公务员报考指南 https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2027省考：报名2026-11-03 09:00至11-09 16:00；公共科目笔试2026-12-06，公安专业科目12-05。报名已结束，时间均为北京时间。",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；南京市2027年度考试录用公务员简章 https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html；南京市2027年度考试录用公务员报考指南 https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；南京市2027年度考试录用公务员简章 https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html；南京市2027年度考试录用公务员报考指南 https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；南京市2027年度考试录用公务员简章 https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html；南京市2027年度考试录用公务员报考指南 https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；南京市2027年度考试录用公务员简章 https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html；南京市2027年度考试录用公务员报考指南 https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
     }
    ],
    "id": "nanjing",
