@@ -102,12 +102,12 @@ flexible_employment:
 
 civil_service:
   fresh_grad_rule: null
-  exam_schedule: null
-  announcement_url: null
-  source_url: null
-  verified_at: null
-  needs_human: false
-  needs_human_reason: null
+  exam_schedule: 2027年度四川省级机关及直属机构公务员：报名2026年10月29日至11月4日08:00（已结束）；笔试2026年12月6日；准考证2026年12月1日至6日打印。仅核实省级机关公告，成都市职位须另核对本市公告。
+  announcement_url: https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html
+  source_url: https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html
+  verified_at: '2026-11-09'
+  needs_human: true
+  needs_human_reason: 2027省考应届认定细则及成都本市公告未核实，fresh_grad_rule留null；2026事业单位仅核实省人大直属单位公告，不能代表全省或成都全部统招。
   access_blocked: false
 
 commute:
@@ -144,3 +144,33 @@ changelog:
     old: null
     new: living_none=true, rent_none=true
     basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）
+  - date: '2026-11-09'
+    field: civil_service.exam_schedule
+    old: null
+    new: 2027年度四川省级机关及直属机构公务员：报名2026年10月29日至11月4日08:00（已结束）；笔试2026年12月6日；准考证2026年12月1日至6日打印。仅核实省级机关公告，成都市职位须另核对本市公告。
+    basis: 考公考编专项巡检；四川省2027年度省级机关及其直属机构公开考试录用公务员公告 https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html；四川省人大常委会办公厅关于直属事业单位2026年上半年公开考试招聘工作人员公告 https://www.scspc.gov.cn/tzgg/202603/156174.html
+  - date: '2026-11-09'
+    field: civil_service.announcement_url
+    old: null
+    new: https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html
+    basis: 考公考编专项巡检；四川省2027年度省级机关及其直属机构公开考试录用公务员公告 https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html；四川省人大常委会办公厅关于直属事业单位2026年上半年公开考试招聘工作人员公告 https://www.scspc.gov.cn/tzgg/202603/156174.html
+  - date: '2026-11-09'
+    field: civil_service.source_url
+    old: null
+    new: https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html
+    basis: 考公考编专项巡检；四川省2027年度省级机关及其直属机构公开考试录用公务员公告 https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html；四川省人大常委会办公厅关于直属事业单位2026年上半年公开考试招聘工作人员公告 https://www.scspc.gov.cn/tzgg/202603/156174.html
+  - date: '2026-11-09'
+    field: civil_service.verified_at
+    old: null
+    new: '2026-11-09'
+    basis: 考公考编专项巡检；四川省2027年度省级机关及其直属机构公开考试录用公务员公告 https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html；四川省人大常委会办公厅关于直属事业单位2026年上半年公开考试招聘工作人员公告 https://www.scspc.gov.cn/tzgg/202603/156174.html
+  - date: '2026-11-09'
+    field: civil_service.needs_human
+    old: false
+    new: true
+    basis: 考公考编专项巡检；四川省2027年度省级机关及其直属机构公开考试录用公务员公告 https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html；四川省人大常委会办公厅关于直属事业单位2026年上半年公开考试招聘工作人员公告 https://www.scspc.gov.cn/tzgg/202603/156174.html
+  - date: '2026-11-09'
+    field: civil_service.needs_human_reason
+    old: null
+    new: 2027省考应届认定细则及成都本市公告未核实，fresh_grad_rule留null；2026事业单位仅核实省人大直属单位公告，不能代表全省或成都全部统招。
+    basis: 考公考编专项巡检；四川省2027年度省级机关及其直属机构公开考试录用公务员公告 https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html；四川省人大常委会办公厅关于直属事业单位2026年上半年公开考试招聘工作人员公告 https://www.scspc.gov.cn/tzgg/202603/156174.html
