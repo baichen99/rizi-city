@@ -123,13 +123,13 @@ flexible_employment:
   access_blocked: false
 
 civil_service:
-  fresh_grad_rule: null
-  exam_schedule: null
-  announcement_url: null
-  source_url: null
-  verified_at: null
-  needs_human: false
-  needs_human_reason: null
+  fresh_grad_rule: 2026省考历史指南明确：2024、2025年普通高校毕业生可报身份要求为2026年普通高校应届毕业生的职位，硕士以上还可享年龄放宽；该条未附未就业或档案保留条件，不能改写成国考择业期口径。2024年1月至2026年7月获境外学位并完成认证者可报限应届岗。2026省直事业单位另将2024—2026届普通高校、职业院校（含技工院校）、境内中外合作办学及境外留学人员纳入应届同等待遇，按岗位条件审核。 事业单位依据：https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx
+  exam_schedule: 2026省考（历史批次）：报名2026-01-13 09:00至01-19 17:00；行测、申论2026-03-14，公安专业及综合知识2026-03-15，均已结束。2026省直事业单位统招（历史批次）：报名2026-02-03 08:00至02-10 17:00；A类笔试2026-03-28、B/C/D/E类2026-03-29，均已结束。本次未查到可核实的2027省考公告，不推测2027日期。 事业单位依据：https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml
+  announcement_url: https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml
+  source_url: https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml
+  verified_at: '2026-11-09'
+  needs_human: true
+  needs_human_reason: 2027省考公告未核实，保留2026历史信息。事业单位核实范围为省直统一招聘，不替代武汉市属、区属独立公告。
   access_blocked: false
 
 commute:
@@ -163,3 +163,38 @@ changelog:
     old: 最长 7 天免费住宿
     new: 最长 15 天免费入住
     basis: 武汉市政府门户网站 2025-07-22 转载长江日报（巡检报告 #1，Claude Code）
+  - date: '2026-11-09'
+    field: civil_service.fresh_grad_rule
+    old: null
+    new: 2026省考历史指南明确：2024、2025年普通高校毕业生可报身份要求为2026年普通高校应届毕业生的职位，硕士以上还可享年龄放宽；该条未附未就业或档案保留条件，不能改写成国考择业期口径。2024年1月至2026年7月获境外学位并完成认证者可报限应届岗。2026省直事业单位另将2024—2026届普通高校、职业院校（含技工院校）、境内中外合作办学及境外留学人员纳入应届同等待遇，按岗位条件审核。 事业单位依据：https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx
+    basis: 考公考编专项巡检；省考公告 https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml；省考指南 https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml；事业单位公告 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml；事业单位指南 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx
+  - date: '2026-11-09'
+    field: civil_service.exam_schedule
+    old: null
+    new: 2026省考（历史批次）：报名2026-01-13 09:00至01-19 17:00；行测、申论2026-03-14，公安专业及综合知识2026-03-15，均已结束。2026省直事业单位统招（历史批次）：报名2026-02-03 08:00至02-10 17:00；A类笔试2026-03-28、B/C/D/E类2026-03-29，均已结束。本次未查到可核实的2027省考公告，不推测2027日期。 事业单位依据：https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml
+    basis: 考公考编专项巡检；省考公告 https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml；省考指南 https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml；事业单位公告 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml；事业单位指南 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx
+  - date: '2026-11-09'
+    field: civil_service.announcement_url
+    old: null
+    new: https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml
+    basis: 考公考编专项巡检；省考公告 https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml；省考指南 https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml；事业单位公告 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml；事业单位指南 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx
+  - date: '2026-11-09'
+    field: civil_service.source_url
+    old: null
+    new: https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml
+    basis: 考公考编专项巡检；省考公告 https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml；省考指南 https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml；事业单位公告 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml；事业单位指南 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx
+  - date: '2026-11-09'
+    field: civil_service.verified_at
+    old: null
+    new: '2026-11-09'
+    basis: 考公考编专项巡检；省考公告 https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml；省考指南 https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml；事业单位公告 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml；事业单位指南 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx
+  - date: '2026-11-09'
+    field: civil_service.needs_human
+    old: false
+    new: true
+    basis: 考公考编专项巡检；省考公告 https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml；省考指南 https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml；事业单位公告 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml；事业单位指南 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx
+  - date: '2026-11-09'
+    field: civil_service.needs_human_reason
+    old: null
+    new: 2027省考公告未核实，保留2026历史信息。事业单位核实范围为省直统一招聘，不替代武汉市属、区属独立公告。
+    basis: 考公考编专项巡检；省考公告 https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml；省考指南 https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml；事业单位公告 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml；事业单位指南 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx
