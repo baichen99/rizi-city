@@ -5051,13 +5051,13 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "fresh_grad_rule": "2027天津省考：应届高校毕业生含2027年统招毕业生、2025/2026年统招毕业且未落实工作者；2025—2027年服务基层项目期满考核合格者；2025年1月至报名前退役的大学生军士或义务兵及在校入伍复学后2025—2027年毕业者；2025/2026年取得境外学位未落实工作者及2027年取得境外学位者。“2027届高校毕业生”职位另限指南第5问四类，不可直接等同上述应届范围。报名时符合认定、之后签合同缴社保，仍按相应应届身份认定。",
+    "exam_schedule": "2027年度天津省考：报名2026-11-03 08:30至2026-11-09 18:00（截至巡查已截止）；专业科目2026-12-05 14:30—16:30；行测2026-12-06 09:00—11:00，申论14:00—16:30。缴费至2026-11-11 16:00。",
+    "announcement_url": "https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html",
+    "source_url": "https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "天津事业单位2026/2027统一招聘公告及其应届口径未核实，不将公务员口径用于事业单位。",
     "access_blocked": false
    },
    "commute": {
@@ -5091,6 +5091,55 @@
      "old": null,
      "new": "living_none=true, rent_none=true",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "2027天津省考：应届高校毕业生含2027年统招毕业生、2025/2026年统招毕业且未落实工作者；2025—2027年服务基层项目期满考核合格者；2025年1月至报名前退役的大学生军士或义务兵及在校入伍复学后2025—2027年毕业者；2025/2026年取得境外学位未落实工作者及2027年取得境外学位者。“2027届高校毕业生”职位另限指南第5问四类，不可直接等同上述应届范围。报名时符合认定、之后签合同缴社保，仍按相应应届身份认定。",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2027年度天津省考：报名2026-11-03 08:30至2026-11-09 18:00（截至巡查已截止）；专业科目2026-12-05 14:30—16:30；行测2026-12-06 09:00—11:00，申论14:00—16:30。缴费至2026-11-11 16:00。",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "天津事业单位2026/2027统一招聘公告及其应届口径未核实，不将公务员口径用于事业单位。",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html"
     }
    ],
    "id": "tianjin",
