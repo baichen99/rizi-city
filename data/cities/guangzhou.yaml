@@ -57,15 +57,15 @@ subsidy_scan:
   verified_at: 2026-11-09
 
 social_security:
-  base_min: null
-  base_max: null
-  year: null
-  scope: null
-  source_url: null
-  source_type: null
-  verified_at: null
-  needs_human: true
-  needs_human_reason: 广州 2026 年养老保险缴费基数下限未找到官方原文；搜索摘要称 2025-07-01 起下限 5510、上限 27549 元（来源页面未打开核实）。
+  base_min: 5521
+  base_max: 27603
+  year: 2026 社保年度（2026-07 至 2027-06）
+  scope: 广东省统一（企业职工基本养老保险）；职工医保（含生育）为广州市定基数 6234–31170（2026 自然年度，穗医保规字〔2022〕1号公式核定）；失业保险下限为最低工资 2680（2026-09-01 起），上限官方未公布具体数额；工伤保险按单位工资总额计费，无个人统一基数
+  source_url: https://hrss.gd.gov.cn/zwgk/gsgg/content/post_4957552.html
+  source_type: gov
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
   access_blocked: false
 
 living:
@@ -130,6 +130,11 @@ changelog:
     old: null
     new: 首次采集
     basis: 穗府办规〔2025〕9号、广州人社局 2026-03-20 青年人才"五来"礼遇、广州 2025 统计公报、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: social_security.base_min/base_max
+    old: null
+    new: 5521 / 27603（企业职工基本养老保险，广东省统一，2026 社保年度）
+    basis: 粤人社发〔2026〕24号《广东省人力资源和社会保障厅 广东省财政厅 国家税务总局广东省税务局关于公布2026年职工基本养老保险缴费基数上下限有关问题的通知》原文「自2026年7月1日起，全省企业职工基本养老保险缴费基数上限调整为27603元，缴费基数下限调整为5521元」；广州无全险种统一基数，医保等口径差异已写进 scope
   - date: 2026-11-09
     field: subsidy_scan
     old: null

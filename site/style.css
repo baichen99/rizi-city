@@ -179,6 +179,24 @@ blockquote { margin: 8px 0 0; padding: 8px 12px; border-left: 3px solid var(--ac
 .icon-btn { border: 0; background: var(--line); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; }
 .sheet-body img { width: 100%; border-radius: 12px; display: block; margin: 10px 0; border: 1px solid var(--line); }
 
+/* 右上角固定入口（GitHub / Issue） */
+.corner-links {
+  position: fixed; z-index: 15;
+  top: calc(10px + env(safe-area-inset-top));
+  right: calc(12px + env(safe-area-inset-right));
+  display: flex; gap: 8px;
+}
+.corner-btn {
+  display: inline-flex; align-items: center;
+  padding: 7px 12px; border-radius: 999px;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border: 1px solid var(--line); box-shadow: var(--shadow);
+  color: var(--ink); font-size: 13px; font-weight: 600; text-decoration: none;
+}
+.corner-btn.accent { background: var(--accent); border-color: var(--accent); color: #fff; }
+@media (max-width: 480px) { .corner-btn { padding: 6px 10px; font-size: 12px; } }
+
 .foot { border-top: 1px solid var(--line); padding: 18px 0 40px; font-size: 13px; color: var(--ink-2); }
 .foot p { margin: 0 0 6px; }
 .empty { color: var(--ink-3); font-size: 14px; }
