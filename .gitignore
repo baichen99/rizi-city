@@ -3,3 +3,12 @@ __pycache__/
 .venv/
 .DS_Store
 dist/
+
+# 私有文件（双保险，见 MAINTAINING.md）
+.private/
+*.private.md
+*.local.md
+.env
+.env.*
+!.env.example
+rizi-city-private/

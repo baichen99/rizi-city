@@ -59,7 +59,7 @@ subsidies:                 # 可有多条；没有就写 []
       bachelor: null
       master: null
       phd: null
-    period: null           # once（一次性）| month（按月）| year（按年）
+    period: null           # once（一次性，或原文只给每人总额）| month（按月）| year（按年）
     periods_max: null      # 最多发放期数，原文写明才填（一次性=1，"每年发、最长 3 年"=3）
     payout: null           # 原文发放方式，如"按年发放，最长 3 年"
     target: null           # 发放对象

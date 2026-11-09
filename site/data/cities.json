@@ -1,8 +1,236 @@
 {
  "latest_verified": "2026-11-09",
- "city_count": 3,
+ "city_count": 4,
  "disclaimer": "仅供参考，申请前以官方页面为准。",
  "cities": [
+  {
+   "city": "长沙",
+   "province": "湖南",
+   "maintainers": [],
+   "last_patrol": "2026-11-09",
+   "hukou": {
+    "summary": "45 周岁（含）以下专科及以上学历（研究生不限年龄）经认定可凭毕业证直接落户；户口在学校集体户、有在长就业意向的长沙高校毕业生可认定为青年储备人才落户",
+    "education_min": "专科",
+    "age_limit": "45 周岁（含）以下；博士、硕士研究生不受年龄限制",
+    "requires_job_or_social_security": false,
+    "eligible_by_degree": {
+     "associate": true,
+     "bachelor": true,
+     "master": true,
+     "phd": true
+    },
+    "tier_by_degree": {
+     "associate": "direct",
+     "bachelor": "direct",
+     "master": "direct",
+     "phd": "direct"
+    },
+    "age_max_by_degree": {
+     "associate": 45,
+     "bachelor": 45,
+     "master": 0,
+     "phd": 0
+    },
+    "conditions": [
+     "需经人才认定（自贸区人才引进），通过\"我的长沙\"APP 选择\"自贸区人才引进\"申请",
+     "年龄上限 45 周岁为\"含\"本数"
+    ],
+    "apply_window": "常态办理",
+    "policy_name": "中国（湖南）自由贸易试验区长沙片区人才集聚发展若干措施（试行），长办发〔2021〕7号 第 6 条；长沙市公安局 2023-11 户口迁移政策优化通知",
+    "source_url": "http://ftz.hunan.gov.cn/hnzm/sjzc/202104/t20210420_33635926.html",
+    "source_date": "2021-04",
+    "valid_until": null,
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false,
+    "lead": null,
+    "lead_url": null
+   },
+   "subsidies": [
+    {
+     "name": "青年人才租房和生活补贴",
+     "type": "living",
+     "amount": "博士 3 万元、硕士 2 万元、全日制本科 1.2 万元（境外高校博士 10 万元）",
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": 12000,
+      "master": 20000,
+      "phd": 30000
+     },
+     "period": "once",
+     "periods_max": 1,
+     "payout": "原文给出的是每人总额；据办法原文按实际缴纳社保情况按月发放、最长两年（办法全文页面目前 404，未能重新打开核实发放节奏）",
+     "target": "35 周岁（含）以下、毕业两年内、落户并在长沙工作的博士、硕士、全日制本科毕业生",
+     "conditions": [
+      "落户长沙并在长沙工作",
+      "通过\"长沙人才\"App 申请"
+     ],
+     "deadline_rule": "毕业两年内",
+     "policy_name": "长沙市青年人才租房和生活补贴实施办法（试行），长人才办发〔2022〕9号",
+     "source_url": "https://rst.hunan.gov.cn/rst/xxgk/gzdt/zwdt/202605/t20260521_33982656.html",
+     "source_date": "2026-05-21",
+     "valid_until": null,
+     "verified_at": "2026-11-09",
+     "needs_human": false,
+     "needs_human_reason": null,
+     "access_blocked": false,
+     "lead": "湖南省政府\"政企通\"页面（2025-10）列明年龄、毕业年限条件和文号",
+     "lead_url": "https://www.hunan.gov.cn/zqt/hqzc/202510/t20251013_33824206.html"
+    }
+   ],
+   "social_security": {
+    "base_min": 4106,
+    "base_max": 20529,
+    "year": 2026,
+    "scope": "湖南全省（养老、工伤、失业），2026-01-01 至 2026-12-31",
+    "source_url": "https://rst.hunan.gov.cn/rst/xxgk/zcfg/zcjd/202608/t20260822_34049203.html",
+    "source_type": "gov",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "living": {
+    "rent_avg_per_sqm": 24.46,
+    "rent_period": "2026-09",
+    "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
+    "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
+    "consumption_per_capita": 48547,
+    "income_per_capita": 72117,
+    "stats_year": 2025,
+    "stats_source_url": "https://tjj.hunan.gov.cn/hntj/tjfx/tjgb/szgb/zss_1/202605/t20260512_33975356.html",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "flexible_employment": {
+    "pension_base_min": 4106,
+    "pension_rate": 20,
+    "pension_year": 2026,
+    "medical_monthly_min": 372.22,
+    "medical_note": "湖南省医保局：灵活就业人员缴费基数统一按基准值 60% 即 4106 元，费率 8.7%（医保 8% + 生育 0.7%），另加每月 15 元大病保险费；原文写\"约 372 元\"；2026-10-01 起执行",
+    "monthly_total_min": 1193.42,
+    "calc": "养老 4106 × 20% = 821.20；医保 4106 × 8.7% + 15 = 372.22；合计 1193.42 元/月",
+    "hukou_restriction": "湖南省政府 2026 年意见：全面取消灵活就业人员参加企业养老保险的户籍限制",
+    "nonlocal_allowed": true,
+    "apply_channel": "社保经办机构、湖南税务缴费渠道；无雇工个体户可在市场监管部门注册时同步参保",
+    "source_url": "https://rst.hunan.gov.cn/rst/xxgk/zcfg/zcjd/202608/t20260822_34049203.html",
+    "medical_source_url": "https://ybj.hunan.gov.cn/ybj/first113541/f4113601/202608/t20260824_34049618.html",
+    "hukou_source_url": "https://www.hunan.gov.cn/hnszf/xxgk/wjk/szfwj/202609/t20260911_34062368.html",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "civil_service": {
+    "fresh_grad_rule": null,
+    "exam_schedule": null,
+    "announcement_url": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "commute": {
+    "avg_commute_minutes": null,
+    "year": null,
+    "report": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "待确定通勤数据口径"
+   },
+   "pitfalls": [
+    {
+     "text": "长沙青年人才租房和生活补贴要求\"落户并在长工作\"、35 周岁以下、毕业两年内，落户和领钱是两道手续，别只办落户忘了申请补贴。",
+     "source_url": "https://www.hunan.gov.cn/zqt/hqzc/202510/t20251013_33824206.html"
+    }
+   ],
+   "changelog": [
+    {
+     "date": "2026-11-09",
+     "field": "全部",
+     "old": null,
+     "new": "首次采集",
+     "basis": "长办发〔2021〕7号、湖南省人社厅 2026-05 引才政策文章、湖南 2026 社保基准值通知解读、湖南医保局 2026 基准值说明、湘政 2026 社保意见、长沙 2025 统计公报（湖南省统计局转载）、中指研究院 2026 年 9 月租金"
+    }
+   ],
+   "id": "changsha",
+   "status": {
+    "hukou": "verified",
+    "living_subsidy": "verified",
+    "rent_subsidy": "missing",
+    "rent": "verified",
+    "social_security": "verified",
+    "cost": "verified"
+   },
+   "by_degree": {
+    "associate": {
+     "hukou_eligible": true,
+     "hukou_age_max": 45,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    },
+    "bachelor": {
+     "hukou_eligible": true,
+     "hukou_age_max": 45,
+     "total": 12000,
+     "rent_subsidy_per_year": null,
+     "counted": [
+      {
+       "index": 0,
+       "name": "青年人才租房和生活补贴",
+       "type": "living",
+       "per": 12000,
+       "period": "once",
+       "total": 12000
+      }
+     ],
+     "excluded": []
+    },
+    "master": {
+     "hukou_eligible": true,
+     "hukou_age_max": 0,
+     "total": 20000,
+     "rent_subsidy_per_year": null,
+     "counted": [
+      {
+       "index": 0,
+       "name": "青年人才租房和生活补贴",
+       "type": "living",
+       "per": 20000,
+       "period": "once",
+       "total": 20000
+      }
+     ],
+     "excluded": []
+    },
+    "phd": {
+     "hukou_eligible": true,
+     "hukou_age_max": 0,
+     "total": 30000,
+     "rent_subsidy_per_year": null,
+     "counted": [
+      {
+       "index": 0,
+       "name": "青年人才租房和生活补贴",
+       "type": "living",
+       "per": 30000,
+       "period": "once",
+       "total": 30000
+      }
+     ],
+     "excluded": []
+    }
+   },
+   "latest_verified": "2026-11-09",
+   "needs_human_count": 0
+  },
   {
    "city": "成都",
    "province": "四川",
