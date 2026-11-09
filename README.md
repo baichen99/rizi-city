@@ -35,21 +35,21 @@
 | 城市 | 本科能领 | 硕士能领 | 博士能领 | 落户 | 生活补贴 | 租房补贴 | 房租 | 社保 | 生活成本 |
 |---|---|---|---|---|---|---|---|---|---|
 | [宁波](data/cities/ningbo.yaml) | 3 万 | 6 万 | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [南京](data/cities/nanjing.yaml) | 3.16 万 | 5.88 万 | 17.2 万 | 🔒 | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [济南](data/cities/jinan.yaml) | 2.52 万 | 3.6 万 | 5.4 万 | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ |
 | [青岛](data/cities/qingdao.yaml) | 1.8 万 | 2.88 万 | 4.32 万 | ⚠️ | ✅无 | ✅ | ✅ | ✅ | ✅ |
 | [苏州](data/cities/suzhou.yaml) | 1.92 万 | 2.4 万 | 3.6 万 | ✅ | ✅无 | ✅ | ✅ | ✅ | ✅ |
 | [长沙](data/cities/changsha.yaml) | 1.2 万 | 2 万 | 3 万 | ✅ | ✅ | ✅无 | ✅ | ✅ | ✅ |
 | [北京](data/cities/beijing.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
-| [成都](data/cities/chengdu.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ✅无 | ✅无 | ✅ | ✅ | ❌ |
+| [成都](data/cities/chengdu.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
 | [重庆](data/cities/chongqing.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
-| [广州](data/cities/guangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ✅无 | ✅ | ❌ | ✅ |
+| [广州](data/cities/guangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ✅无 | ✅ | ✅ | ✅ |
 | [杭州](data/cities/hangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ | ✅ |
 | [合肥](data/cities/hefei.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | 🔒 | ❌ | 🔒 | ✅ | ⚠️ | 🔒 |
-| [南京](data/cities/nanjing.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | 🔒 | 🔒 | 🔒 | ✅ | ✅ | ✅ |
 | [上海](data/cities/shanghai.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
 | [沈阳](data/cities/shenyang.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ❌ | ✅ | ✅ | ✅ |
 | [深圳](data/cities/shenzhen.yaml) | — ⚠️ | — ⚠️ | 10 万 ⚠️ | ✅ | ✅ | ⚠️ | ✅ | ❌ | ✅ |
-| [天津](data/cities/tianjin.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ⚠️ |
+| [天津](data/cities/tianjin.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
 | [武汉](data/cities/wuhan.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
 | [厦门](data/cities/xiamen.yaml) | — | — | — | ✅ | ✅无 | ✅ | ✅ | ✅ | ✅ |
 | [西安](data/cities/xian.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
