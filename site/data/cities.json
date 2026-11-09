@@ -5972,19 +5972,19 @@
     "pension_base_min": 4579,
     "pension_rate": 20,
     "pension_year": 2026,
-    "medical_monthly_min": null,
-    "medical_note": "福建 2026 年城镇职工灵活就业人员医保月缴费基数不低于 4579 元（2026-07-01 起），厦门的缴费费率未找到官方原文",
-    "monthly_total_min": null,
-    "calc": null,
+    "medical_monthly_min": 434.91,
+    "medical_note": "厦门市 2026 年度口径（市人社局《2026 年度社保缴费标准》表二，转引市医保局、财政局、市税务局缴费率公告及闽医保函〔2026〕65号）：灵活就业医保费率 9.5%（个人缴纳），月缴费基数不低于 4579 元（2026-07-01 起，福建省统一区间 4579–22893）；月缴额为基数下限×费率测算，官方标准表未直接给月额。另：2026-03-01 起符合条件者可自愿同步按 0.7% 缴生育保险（厦医保〔2026〕24号），属自愿项，不计入最低额",
+    "monthly_total_min": 1350.71,
+    "calc": "养老 4579 × 20% = 915.80；医保 4579 × 9.5% = 434.91（基数下限，2026-07-01 起）；合计 1350.71 元/月",
     "hukou_restriction": null,
     "nonlocal_allowed": null,
     "apply_channel": "可按月、按季度、按半年、按年缴纳",
     "source_url": "https://rst.fujian.gov.cn/zw/zfxxgk/zfxxgkml/zyywgz/ldgx/202610/t20261008_7221778.htm",
-    "medical_source_url": "https://ybj.fujian.gov.cn/zfxxgkzl/fdzdgknr/qtyzdgkzfxx/202606/t20260629_7168980.htm",
+    "medical_source_url": "https://app.hrss.xm.gov.cn/jcubing/12333query/file-api/V1/b22ad292-5aa1-45f2-846c-1b42e5ad0993.html",
     "hukou_source_url": null,
     "verified_at": "2026-11-09",
     "needs_human": true,
-    "needs_human_reason": "缴费比例 20% 取自中国政府网全国通行说明（https://www.gov.cn/yaowen/liebiao/202305/content_6855917.htm）；厦门灵活就业医保费率、外地户籍参保条件缺官方原文（搜索摘要称 2023 年厦门已无户籍限制）。",
+    "needs_human_reason": "缴费比例 20% 取自中国政府网全国通行说明（https://www.gov.cn/yaowen/liebiao/202305/content_6855917.htm）；医保费率 9.5% 已核实；外地户籍参保条件仍缺官方原文（搜索摘要称 2023 年厦门已无户籍限制，未核实）。",
     "access_blocked": false
    },
    "civil_service": {
@@ -6075,6 +6075,13 @@
      "old": null,
      "new": "2027省考公告未核实，保留2026历史信息。省属事业单位仅核方案一，不替代厦门市属、区属招聘；应届条件须另核具体岗位表。",
      "basis": "考公考编专项巡检；省考公告 https://gwykl.fujian.gov.cn/Portal/news/bulletin2026；省考指南 https://gwykl.fujian.gov.cn/portal/help2026/s2.htm；事业单位公告 https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "flexible_employment.medical_monthly_min/monthly_total_min",
+     "old": null,
+     "new": "医保月缴 434.91（测算）、每月合计最低 1350.71",
+     "basis": "厦门市人社局《2026 年度社保缴费标准（表二：2026 年 7 月—12 月）》：灵活就业医保费率 9.5%、月缴费基数不低于 4579 元（2026-07-01 起）；月额为 4579×9.5% 测算（官方未直接给月额，已在 medical_note 注明）；生育 0.7% 为自愿同步项（厦医保〔2026〕24号），不计入最低额"
     }
    ],
    "id": "xiamen",
