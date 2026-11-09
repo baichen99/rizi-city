@@ -19,6 +19,17 @@ class LifeDataTests(unittest.TestCase):
     def test_repository_valid(self):
         self.assertEqual(validate_life(), [])
 
+    def test_beijing_life_history_keeps_recent_gaps_and_no_cross_city_key(self):
+        city = build_life(['beijing'])['beijing']
+        series = next(s for s in city['series'] if s['id'] == 'life_expectancy')
+        self.assertEqual([p['period'] for p in series['points']], [str(y) for y in range(2020, 2026)])
+        self.assertEqual([p['value'] for p in series['points']], [82.43, 82.47, None, None, None, None])
+        self.assertTrue(all('户籍' in p['population_scope'] and p['age'] == 0 and p['sex'] == 'all' for p in series['points']))
+        self.assertTrue(all(not p.get('cross_city_comparability_key') for p in series['points']))
+        latest = next(p for p in city['overview'] if p['metric'] == 'life_expectancy')
+        self.assertEqual(latest['period'], '2025')
+        self.assertIsNone(latest['value'])
+
     def test_zero_is_not_null(self):
         self.point['value'] = 0  # Synthetic boundary observation only.
         self.assertEqual(self.errors(), [])
