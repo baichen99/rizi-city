@@ -40,7 +40,7 @@
 | [南京](data/cities/nanjing.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | 🔒 | 🔒 | 🔒 | ✅ | ✅ | ✅ |
 | [上海](data/cities/shanghai.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
 | [沈阳](data/cities/shenyang.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ❌ | ✅ | ✅ | ✅ |
-| [深圳](data/cities/shenzhen.yaml) | — ⚠️ | — ⚠️ | 10 万 ⚠️ | ✅ | ✅ | ⚠️ | ✅ | ❌ | ✅ |
+| [深圳](data/cities/shenzhen.yaml) | — ⚠️ | — ⚠️ | 10 万 ⚠️ | ✅ | ✅ | ⚠️ | ✅ | ✅ | ✅ |
 | [天津](data/cities/tianjin.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ⚠️ |
 | [武汉](data/cities/wuhan.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
 | [厦门](data/cities/xiamen.yaml) | — | — | — | ✅ | ✅无 | ✅ | ✅ | ✅ | ✅ |
