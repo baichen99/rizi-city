@@ -668,13 +668,13 @@
     "rent_period": "2026-09",
     "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
     "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
-    "consumption_per_capita": null,
-    "income_per_capita": null,
-    "stats_year": null,
-    "stats_source_url": null,
+    "consumption_per_capita": 37100,
+    "income_per_capita": 59509,
+    "stats_year": 2025,
+    "stats_source_url": "https://cdstats.chengdu.gov.cn/cdstjj/c154795/2026-04/14/content_58dc076a80974f999828b691bfca027f.shtml",
     "verified_at": "2026-11-09",
-    "needs_human": true,
-    "needs_human_reason": "成都市统计局网站栏目页返回 HTTP 412（疑似反爬校验），未绕过；《2025年成都市国民经济和社会发展统计公报》仅找到新浪财经等转载（https://finance.sina.com.cn/jjxw/2026-04-15/doc-inhupeis3814625.shtml），需人工在 cdstats.chengdu.gov.cn 打开原文取城镇居民人均可支配收入与消费支出。",
+    "needs_human": false,
+    "needs_human_reason": null,
     "access_blocked": false
    },
    "flexible_employment": {
@@ -731,6 +731,20 @@
     },
     {
      "date": "2026-11-09",
+     "field": "living.income_per_capita",
+     "old": null,
+     "new": 59509,
+     "basis": "《2025年成都市国民经济和社会发展统计公报》（成都市统计局官网，2026-04-15）原文「城镇居民人均可支配收入 59509 元，增长 4.4%」；自动抓取被 412 拦截，经真实浏览器打开官网 PDF 原文核对"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "living.consumption_per_capita",
+     "old": null,
+     "new": 37100,
+     "basis": "同上公报原文「城镇居民人均消费支出 37100 元，增长 5.3%」"
+    },
+    {
+     "date": "2026-11-09",
      "field": "subsidy_scan",
      "old": null,
      "new": "living_none=true, rent_none=true",
@@ -751,7 +765,7 @@
     "rent_subsidy": "none",
     "rent": "verified",
     "social_security": "verified",
-    "cost": "missing"
+    "cost": "verified"
    },
    "by_degree": {
     "associate": {
@@ -832,17 +846,17 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 2,
+   "needs_human_count": 1,
    "index": {
     "rent": {
-     "value": null,
-     "ok": false,
-     "reason": "人均可支配收入未核实"
+     "value": 0.1918,
+     "ok": true,
+     "reason": null
     },
     "cost": {
-     "value": null,
-     "ok": false,
-     "reason": "人均消费支出或可支配收入未核实"
+     "value": 0.6234,
+     "ok": true,
+     "reason": null
     },
     "hukou": {
      "value": "direct",

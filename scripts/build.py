@@ -13,6 +13,7 @@
 from __future__ import annotations
 
 import json
+from urllib.parse import quote
 import sys
 from pathlib import Path
 
@@ -30,6 +31,7 @@ INDEX_VERSION = "v0.1"
 ROOM_SQM = 30   # 单间折算面积（㎡），见 docs/index-method.md
 README = ROOT / "README.md"
 START, END = "<!-- CITY_TABLE:START -->", "<!-- CITY_TABLE:END -->"
+BADGE_START, BADGE_END = "<!-- BADGES:START -->", "<!-- BADGES:END -->"
 
 
 def exclusion_reason(s: dict) -> str | None:
@@ -284,17 +286,37 @@ def table(cities) -> str:
     return "\n".join(rows)
 
 
+def badges(cities, latest) -> str:
+    def b(label, msg, color, link):
+        q = lambda x: quote(str(x).replace("-", "--").replace(" ", "_"))
+        return f"[![{label}](https://img.shields.io/badge/{q(label)}-{q(msg)}-{color})]({link})"
+    return " ".join([
+        b("城市", f"{len(cities)} 座", "d9653b", "data/cities/"),
+        b("最近核验", latest or "—", "3e8e63", "docs/leaderboard.md"),
+        b("数据", "CC BY-SA 4.0", "6b6157", "LICENSE-CONTENT"),
+        b("代码", "MIT", "6b6157", "LICENSE"),
+    ])
+
+
+def _replace_between(text, start, end, body):
+    if start not in text or end not in text:
+        return text
+    before, rest = text.split(start, 1)
+    _, after = rest.split(end, 1)
+    return f"{before}{start}\n{body}\n{end}{after}"
+
+
 def update_readme(cities, latest):
     if not README.exists():
         return
     text = README.read_text(encoding="utf-8")
+    original = text
+    text = _replace_between(text, BADGE_START, BADGE_END, badges(cities, latest))
     if START not in text or END not in text:
         print("! README.md 中没有 CITY_TABLE 标记，跳过")
         return
-    before, rest = text.split(START, 1)
-    _, after = rest.split(END, 1)
-    new = f"{before}{START}\n{table(cities)}\n{END}{after}"
-    if new != text:
+    new = _replace_between(text, START, END, table(cities))
+    if new != original:
         README.write_text(new, encoding="utf-8")
         print("✓ README.md 速览表已更新")
     else:
