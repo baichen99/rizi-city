@@ -1,0 +1,137 @@
+[
+  {
+    "date": "2026-11-09",
+    "city_id": "beijing",
+    "record_id": "beijing-housing_new_yoy_index-2026-06",
+    "field": "life.housing_new_yoy_index.2026-06.value",
+    "old": null,
+    "new": 97.9,
+    "basis": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964115.html；表1，本市行，同比列（上年同月=100）；附注1、2、5"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "beijing",
+    "record_id": "beijing-housing_new_yoy_index-2026-07",
+    "field": "life.housing_new_yoy_index.2026-07.value",
+    "old": null,
+    "new": 97.7,
+    "basis": "https://www.stats.gov.cn/sj/zxfbhjd/202608/t20260817_1965050.html；表1，本市行，同比列（上年同月=100）；附注1、2、5"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "beijing",
+    "record_id": "beijing-housing_new_yoy_index-2026-09",
+    "field": "life.housing_new_yoy_index.2026-09.value",
+    "old": null,
+    "new": 97.3,
+    "basis": "https://www.stats.gov.cn/sj/zxfb/202610/t20261019_1965609.html；表1，本市行，同比列（上年同月=100）；附注1、2、5"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "guangzhou",
+    "record_id": "guangzhou-housing_new_yoy_index-2026-06",
+    "field": "life.housing_new_yoy_index.2026-06.value",
+    "old": null,
+    "new": 97.4,
+    "basis": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964115.html；表1，本市行，同比列（上年同月=100）；附注1、2、5"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "guangzhou",
+    "record_id": "guangzhou-housing_new_yoy_index-2026-07",
+    "field": "life.housing_new_yoy_index.2026-07.value",
+    "old": null,
+    "new": 97.8,
+    "basis": "https://www.stats.gov.cn/sj/zxfbhjd/202608/t20260817_1965050.html；表1，本市行，同比列（上年同月=100）；附注1、2、5"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "guangzhou",
+    "record_id": "guangzhou-housing_new_yoy_index-2026-09",
+    "field": "life.housing_new_yoy_index.2026-09.value",
+    "old": null,
+    "new": 98.9,
+    "basis": "https://www.stats.gov.cn/sj/zxfb/202610/t20261019_1965609.html；表1，本市行，同比列（上年同月=100）；附注1、2、5"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "guangzhou",
+    "record_id": "guangzhou-wage_nonprivate_mean-2023",
+    "field": "life.wage_nonprivate_mean.2023.value",
+    "old": null,
+    "new": 154475,
+    "basis": "https://tjj.gz.gov.cn/zzfwzq/tjgb/content/post_10380218.html；正文首段、次段与附注统计范围"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "guangzhou",
+    "record_id": "guangzhou-wage_nonprivate_mean-2024",
+    "field": "life.wage_nonprivate_mean.2024.value",
+    "old": null,
+    "new": 159312,
+    "basis": "https://tjj.gz.gov.cn/zzfwzq/tjgb/content/post_10380221.html；正文首段、次段与附注统计范围"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "guangzhou",
+    "record_id": "guangzhou-wage_nonprivate_mean-2025",
+    "field": "life.wage_nonprivate_mean.2025.value",
+    "old": null,
+    "new": 166790,
+    "basis": "https://tjj.gz.gov.cn/zzfwzq/tjgb/content/post_10894735.html；正文首段、次段与附注统计范围"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "guangzhou",
+    "record_id": "guangzhou-wage_private_mean-2023",
+    "field": "life.wage_private_mean.2023.value",
+    "old": null,
+    "new": 81911,
+    "basis": "https://tjj.gz.gov.cn/zzfwzq/tjgb/content/post_10380218.html；正文首段、次段与附注统计范围"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "guangzhou",
+    "record_id": "guangzhou-wage_private_mean-2024",
+    "field": "life.wage_private_mean.2024.value",
+    "old": null,
+    "new": 82907,
+    "basis": "https://tjj.gz.gov.cn/zzfwzq/tjgb/content/post_10380221.html；正文首段、次段与附注统计范围"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "guangzhou",
+    "record_id": "guangzhou-wage_private_mean-2025",
+    "field": "life.wage_private_mean.2025.value",
+    "old": null,
+    "new": 86259,
+    "basis": "https://tjj.gz.gov.cn/zzfwzq/tjgb/content/post_10894735.html；正文首段、次段与附注统计范围"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "shanghai",
+    "record_id": "shanghai-housing_new_yoy_index-2026-06",
+    "field": "life.housing_new_yoy_index.2026-06.value",
+    "old": null,
+    "new": 103.1,
+    "basis": "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964115.html；表1，本市行，同比列（上年同月=100）；附注1、2、5"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "shanghai",
+    "record_id": "shanghai-housing_new_yoy_index-2026-07",
+    "field": "life.housing_new_yoy_index.2026-07.value",
+    "old": null,
+    "new": 103.0,
+    "basis": "https://www.stats.gov.cn/sj/zxfbhjd/202608/t20260817_1965050.html；表1，本市行，同比列（上年同月=100）；附注1、2、5"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "shanghai",
+    "record_id": "shanghai-housing_new_yoy_index-2026-09",
+    "field": "life.housing_new_yoy_index.2026-09.value",
+    "old": null,
+    "new": 102.8,
+    "basis": "https://www.stats.gov.cn/sj/zxfb/202610/t20261019_1965609.html；表1，本市行，同比列（上年同月=100）；附注1、2、5"
+  }
+]

@@ -10,14 +10,17 @@ const escape = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;',
 async function boot(input) {
   const nodes = new Map(), handlers = {};
   const node = key => {
-    if (!nodes.has(key)) nodes.set(key, {innerHTML:'', querySelectorAll:()=>[], hidden:false});
+    if (!nodes.has(key)) nodes.set(key, {innerHTML:'', querySelectorAll:()=>[], hidden:false,
+      addEventListener(){}, setAttribute(){}});
     return nodes.get(key);
   };
   const document = {querySelector:node, querySelectorAll:()=>[], addEventListener:(k,v)=>handlers[k]=v};
-  vm.runInNewContext(source, {document, window:{RIZI_DATA:input}, location:{hash:'#civil'}, history:{replaceState(){}}, console});
+  vm.runInNewContext(source, {document, window:{RIZI_DATA:input, addEventListener(){}},
+    location:{hash:'#civil'}, history:{replaceState(){}, pushState(){}}, URLSearchParams, console});
   await new Promise(resolve => setImmediate(resolve));
   assert.ok(!node('#meta').textContent, 'load must not fail');
-  return {html:()=>node('#tab-civil').innerHTML, click:dataset=>handlers.click({target:{closest:()=>({dataset})}})};
+  return {html:()=>node('#tab-civil').innerHTML,
+    click:dataset=>handlers.click({target:{closest:()=>({dataset, classList:{contains:()=>false}})}})};
 }
 (async () => {
   const app = await boot(data);

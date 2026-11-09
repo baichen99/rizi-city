@@ -4,6 +4,11 @@
   Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
   全文见 LICENSE-CONTENT。转载请署名「日子人城市指南 rizi-city」并以相同协议共享。
 
+  上述许可仅覆盖项目有权许可的原创内容，不替第三方来源材料授予许可。
+  官方网页、附件、数据表及其他第三方资料仍适用各来源的权利和使用条件；
+  有限事实摘录与链接不意味着原资料获得 CC BY-SA 再许可。
+  新增生活数据的具体来源与使用边界见 docs/life-data-method.md。
+
 - 代码（scripts/、site/ 中的 HTML/CSS/JS、skill/、agent/ 中的脚本等）：MIT License，全文如下。
 
 -----------------------------------------------------------------------

@@ -23,10 +23,19 @@ jobs:
       - name: 防泄露检查
         run: bash scripts/check-no-private.sh --all
       - run: python3 scripts/validate.py
+      - name: 居民概况和生活模块单元测试
+        run: python3 -m unittest discover -s tests -p 'test_*.py' -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: 网页语法与历史序列测试
+        run: |
+          node --check site/app.js
+          node --test tests/*.test.js
       - name: build 产物与提交一致
         run: |
           python3 scripts/build.py
-          git diff --exit-code -- site/data README.md || (echo "请在本地运行 python3 scripts/build.py 后提交" && exit 1)
+          git diff --exit-code -- site/data site/index.html README.md || (echo "请在本地运行 python3 scripts/build.py 后提交" && exit 1)
       - name: skill 冒烟测试（JSON 结构变了 skill 要跟着改）
         run: |
           Q="python3 skill/rizi-city/scripts/query.py --data site/data/cities.json"
@@ -36,3 +45,5 @@ jobs:
           $Q free > /dev/null
           $Q freshgrad > /dev/null
           $Q index --w 3.1.1.1.1 --city 武汉 > /dev/null
+          $Q overview 广州 北京 > /dev/null
+          $Q history 广州 --metric wage_nonprivate_mean > /dev/null
