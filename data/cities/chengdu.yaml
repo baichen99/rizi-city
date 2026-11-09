@@ -1,0 +1,124 @@
+city: 成都
+province: 四川
+maintainers: []
+last_patrol: 2026-11-09
+
+hukou:
+  summary: 45 周岁以下全日制本科、普通高校研究生（不限年龄）经人社部门认定可直接落户，不要求先就业；全日制专科 35 周岁以下，落户中心城区需在落户地正常缴纳社保
+  education_min: 全日制普通高校专科
+  age_limit: 专科 35 周岁以下、本科 45 周岁以下；研究生原文未设年龄限制
+  requires_job_or_social_security: null   # 分学历不同，见 tier_by_degree
+  eligible_by_degree: {associate: true, bachelor: true, master: true, phd: true}
+  tier_by_degree: {associate: job, bachelor: direct, master: direct, phd: direct}
+  age_max_by_degree: {associate: 35, bachelor: 45, master: 0, phd: 0}
+  conditions:
+    - 学历人才落户需经人社部门认证
+    - 专科落户天府新区直管区、高新区及锦江、青羊、金牛、武侯、成华、龙泉驿、青白江、新都、温江、双流、郫都、新津区，需在落户地正常缴纳社保
+  apply_window: 常态办理
+  policy_name: 成都市户籍迁入登记管理办法，成办规〔2024〕3号（2024-02-20 起施行，有效期 3 年）
+  source_url: https://www.chengdu.gov.cn/gkml/uploadfiles/1607625235320909825/1374406980667441152%E6%88%90%E5%8A%9E%E8%A7%84%E3%80%942024%E3%80%953%E5%8F%B7.pdf
+  source_date: 2024-01-05
+  valid_until: 2027-02-19
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+  lead: null
+  lead_url: null
+
+subsidies:
+  - name: 青年人才驿站（过渡性住宿）
+    type: other
+    amount: null
+    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+    period: null
+    periods_max: null
+    payout: null
+    target: null
+    conditions: []
+    deadline_rule: null
+    policy_name: null
+    source_url: null
+    source_date: null
+    valid_until: null
+    verified_at: null
+    needs_human: true
+    needs_human_reason: 成办规〔2026〕1号《成都市保障性租赁住房运营管理办法》仅原则性提出"支持将保障性租赁住房用作青年人才驿站"，未写免费天数等具体标准；媒体提到对创新创业人才"3免3减半"，未找到市级官方原文。市级层面未检索到面向应届生的现金生活补贴或租房补贴。
+    access_blocked: false
+    lead: 成办规〔2026〕1号支持保租房用作青年人才驿站，并鼓励各区（市）县对人才承租人制定租金补贴、减免政策（区级标准各异）
+    lead_url: https://www.chengdu.gov.cn/gkml/uploadfiles/1607625235320909825/14638450314450042881.pdf
+
+social_security:
+  base_min: 4699
+  base_max: 23493
+  year: 2026
+  scope: 四川全省（职工养老、失业、工伤）
+  source_url: https://rst.sc.gov.cn/rst/gsgg/2026/9/7/8b8edb37d4cd43ed995a0055f46b7705.shtml
+  source_type: gov
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+living:
+  rent_avg_per_sqm: 31.71
+  rent_period: 2026-09
+  rent_source: 中指研究院 50 城住宅租赁价格指数（元/㎡/月）
+  rent_source_url: https://m.cih-index.com/news/2026-10-16/55166711.html
+  consumption_per_capita: null
+  income_per_capita: null
+  stats_year: null
+  stats_source_url: null
+  verified_at: 2026-11-09
+  needs_human: true
+  needs_human_reason: 成都市统计局网站栏目页返回 HTTP 412（疑似反爬校验），未绕过；《2025年成都市国民经济和社会发展统计公报》仅找到新浪财经等转载（https://finance.sina.com.cn/jjxw/2026-04-15/doc-inhupeis3814625.shtml），需人工在 cdstats.chengdu.gov.cn 打开原文取城镇居民人均可支配收入与消费支出。
+  access_blocked: false
+
+flexible_employment:
+  pension_base_min: 4699
+  pension_rate: 20
+  pension_year: 2026
+  medical_monthly_min: null
+  medical_note: 2026 年四川灵活就业人员职工医保以 7831 元/月为依据执行（川人社办发〔2026〕50号），成都 2026 年具体缴费比例与月缴额未找到官方原文
+  monthly_total_min: null
+  calc: null
+  hukou_restriction: 成都允许户籍在外地、符合条件的灵活就业人员在成都参加基本养老保险（中国政府网转载人民日报 2025-01-08 报道，引成都市社保局负责人）
+  nonlocal_allowed: true
+  apply_channel: 国家社会保险公共服务平台、掌上 12333、社保经办窗口；四川省电子税务局缴费
+  source_url: https://rst.sc.gov.cn/rst/gsgg/2026/9/7/8b8edb37d4cd43ed995a0055f46b7705.shtml
+  medical_source_url: null
+  hukou_source_url: https://www.gov.cn/lianbo/difang/202501/content_6996923.htm
+  verified_at: 2026-11-09
+  needs_human: true
+  needs_human_reason: 养老基数 4699 来自川人社办发〔2026〕50号，缴费比例 20% 见四川省政府网转载的四川税务说明（https://www.sc.gov.cn/10462/10778/10876/2024/6/28/858a61a0e7df4df3ad2fdc3a0a4f6f60.shtml）；成都灵活就业医保 2026 月缴额缺官方原文，无法算出每月最少合计。
+  access_blocked: false
+
+civil_service:
+  fresh_grad_rule: null
+  exam_schedule: null
+  announcement_url: null
+  source_url: null
+  verified_at: null
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+commute:
+  avg_commute_minutes: null
+  year: null
+  report: null
+  source_url: null
+  verified_at: null
+  needs_human: true
+  needs_human_reason: 待确定通勤数据口径
+
+pitfalls:
+  - text: 成都现行落户办法（成办规〔2024〕3号）有效期到 2027-02-19，2027 届毕业生落户时可能已换新文件，办理前先看是否有接替办法。
+    source_url: https://www.chengdu.gov.cn/gkml/uploadfiles/1607625235320909825/1374406980667441152%E6%88%90%E5%8A%9E%E8%A7%84%E3%80%942024%E3%80%953%E5%8F%B7.pdf
+
+changelog:
+  - date: 2026-11-09
+    field: 全部
+    old: null
+    new: 首次采集
+    basis: 成办规〔2024〕3号原文、川人社办发〔2026〕50号、中指研究院 2026 年 9 月租金

@@ -1,8 +1,246 @@
 {
  "latest_verified": "2026-11-09",
- "city_count": 1,
+ "city_count": 3,
  "disclaimer": "仅供参考，申请前以官方页面为准。",
  "cities": [
+  {
+   "city": "成都",
+   "province": "四川",
+   "maintainers": [],
+   "last_patrol": "2026-11-09",
+   "hukou": {
+    "summary": "45 周岁以下全日制本科、普通高校研究生（不限年龄）经人社部门认定可直接落户，不要求先就业；全日制专科 35 周岁以下，落户中心城区需在落户地正常缴纳社保",
+    "education_min": "全日制普通高校专科",
+    "age_limit": "专科 35 周岁以下、本科 45 周岁以下；研究生原文未设年龄限制",
+    "requires_job_or_social_security": null,
+    "eligible_by_degree": {
+     "associate": true,
+     "bachelor": true,
+     "master": true,
+     "phd": true
+    },
+    "tier_by_degree": {
+     "associate": "job",
+     "bachelor": "direct",
+     "master": "direct",
+     "phd": "direct"
+    },
+    "age_max_by_degree": {
+     "associate": 35,
+     "bachelor": 45,
+     "master": 0,
+     "phd": 0
+    },
+    "conditions": [
+     "学历人才落户需经人社部门认证",
+     "专科落户天府新区直管区、高新区及锦江、青羊、金牛、武侯、成华、龙泉驿、青白江、新都、温江、双流、郫都、新津区，需在落户地正常缴纳社保"
+    ],
+    "apply_window": "常态办理",
+    "policy_name": "成都市户籍迁入登记管理办法，成办规〔2024〕3号（2024-02-20 起施行，有效期 3 年）",
+    "source_url": "https://www.chengdu.gov.cn/gkml/uploadfiles/1607625235320909825/1374406980667441152%E6%88%90%E5%8A%9E%E8%A7%84%E3%80%942024%E3%80%953%E5%8F%B7.pdf",
+    "source_date": "2024-01-05",
+    "valid_until": "2027-02-19",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false,
+    "lead": null,
+    "lead_url": null
+   },
+   "subsidies": [
+    {
+     "name": "青年人才驿站（过渡性住宿）",
+     "type": "other",
+     "amount": null,
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": null,
+      "master": null,
+      "phd": null
+     },
+     "period": null,
+     "periods_max": null,
+     "payout": null,
+     "target": null,
+     "conditions": [],
+     "deadline_rule": null,
+     "policy_name": null,
+     "source_url": null,
+     "source_date": null,
+     "valid_until": null,
+     "verified_at": null,
+     "needs_human": true,
+     "needs_human_reason": "成办规〔2026〕1号《成都市保障性租赁住房运营管理办法》仅原则性提出\"支持将保障性租赁住房用作青年人才驿站\"，未写免费天数等具体标准；媒体提到对创新创业人才\"3免3减半\"，未找到市级官方原文。市级层面未检索到面向应届生的现金生活补贴或租房补贴。",
+     "access_blocked": false,
+     "lead": "成办规〔2026〕1号支持保租房用作青年人才驿站，并鼓励各区（市）县对人才承租人制定租金补贴、减免政策（区级标准各异）",
+     "lead_url": "https://www.chengdu.gov.cn/gkml/uploadfiles/1607625235320909825/14638450314450042881.pdf"
+    }
+   ],
+   "social_security": {
+    "base_min": 4699,
+    "base_max": 23493,
+    "year": 2026,
+    "scope": "四川全省（职工养老、失业、工伤）",
+    "source_url": "https://rst.sc.gov.cn/rst/gsgg/2026/9/7/8b8edb37d4cd43ed995a0055f46b7705.shtml",
+    "source_type": "gov",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "living": {
+    "rent_avg_per_sqm": 31.71,
+    "rent_period": "2026-09",
+    "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
+    "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
+    "consumption_per_capita": null,
+    "income_per_capita": null,
+    "stats_year": null,
+    "stats_source_url": null,
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "成都市统计局网站栏目页返回 HTTP 412（疑似反爬校验），未绕过；《2025年成都市国民经济和社会发展统计公报》仅找到新浪财经等转载（https://finance.sina.com.cn/jjxw/2026-04-15/doc-inhupeis3814625.shtml），需人工在 cdstats.chengdu.gov.cn 打开原文取城镇居民人均可支配收入与消费支出。",
+    "access_blocked": false
+   },
+   "flexible_employment": {
+    "pension_base_min": 4699,
+    "pension_rate": 20,
+    "pension_year": 2026,
+    "medical_monthly_min": null,
+    "medical_note": "2026 年四川灵活就业人员职工医保以 7831 元/月为依据执行（川人社办发〔2026〕50号），成都 2026 年具体缴费比例与月缴额未找到官方原文",
+    "monthly_total_min": null,
+    "calc": null,
+    "hukou_restriction": "成都允许户籍在外地、符合条件的灵活就业人员在成都参加基本养老保险（中国政府网转载人民日报 2025-01-08 报道，引成都市社保局负责人）",
+    "nonlocal_allowed": true,
+    "apply_channel": "国家社会保险公共服务平台、掌上 12333、社保经办窗口；四川省电子税务局缴费",
+    "source_url": "https://rst.sc.gov.cn/rst/gsgg/2026/9/7/8b8edb37d4cd43ed995a0055f46b7705.shtml",
+    "medical_source_url": null,
+    "hukou_source_url": "https://www.gov.cn/lianbo/difang/202501/content_6996923.htm",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "养老基数 4699 来自川人社办发〔2026〕50号，缴费比例 20% 见四川省政府网转载的四川税务说明（https://www.sc.gov.cn/10462/10778/10876/2024/6/28/858a61a0e7df4df3ad2fdc3a0a4f6f60.shtml）；成都灵活就业医保 2026 月缴额缺官方原文，无法算出每月最少合计。",
+    "access_blocked": false
+   },
+   "civil_service": {
+    "fresh_grad_rule": null,
+    "exam_schedule": null,
+    "announcement_url": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "commute": {
+    "avg_commute_minutes": null,
+    "year": null,
+    "report": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "待确定通勤数据口径"
+   },
+   "pitfalls": [
+    {
+     "text": "成都现行落户办法（成办规〔2024〕3号）有效期到 2027-02-19，2027 届毕业生落户时可能已换新文件，办理前先看是否有接替办法。",
+     "source_url": "https://www.chengdu.gov.cn/gkml/uploadfiles/1607625235320909825/1374406980667441152%E6%88%90%E5%8A%9E%E8%A7%84%E3%80%942024%E3%80%953%E5%8F%B7.pdf"
+    }
+   ],
+   "changelog": [
+    {
+     "date": "2026-11-09",
+     "field": "全部",
+     "old": null,
+     "new": "首次采集",
+     "basis": "成办规〔2024〕3号原文、川人社办发〔2026〕50号、中指研究院 2026 年 9 月租金"
+    }
+   ],
+   "id": "chengdu",
+   "status": {
+    "hukou": "verified",
+    "living_subsidy": "missing",
+    "rent_subsidy": "missing",
+    "rent": "lead",
+    "social_security": "verified",
+    "cost": "missing"
+   },
+   "by_degree": {
+    "associate": {
+     "hukou_eligible": true,
+     "hukou_age_max": 35,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "青年人才驿站（过渡性住宿）",
+       "type": "other",
+       "per": null,
+       "period": null,
+       "total": null,
+       "reason": "仅有线索，未找到官方原文"
+      }
+     ]
+    },
+    "bachelor": {
+     "hukou_eligible": true,
+     "hukou_age_max": 45,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "青年人才驿站（过渡性住宿）",
+       "type": "other",
+       "per": null,
+       "period": null,
+       "total": null,
+       "reason": "仅有线索，未找到官方原文"
+      }
+     ]
+    },
+    "master": {
+     "hukou_eligible": true,
+     "hukou_age_max": 0,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "青年人才驿站（过渡性住宿）",
+       "type": "other",
+       "per": null,
+       "period": null,
+       "total": null,
+       "reason": "仅有线索，未找到官方原文"
+      }
+     ]
+    },
+    "phd": {
+     "hukou_eligible": true,
+     "hukou_age_max": 0,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "青年人才驿站（过渡性住宿）",
+       "type": "other",
+       "per": null,
+       "period": null,
+       "total": null,
+       "reason": "仅有线索，未找到官方原文"
+      }
+     ]
+    }
+   },
+   "latest_verified": "2026-11-09",
+   "needs_human_count": 2
+  },
   {
    "city": "杭州",
    "province": "浙江",
@@ -314,6 +552,239 @@
    },
    "latest_verified": "2026-11-09",
    "needs_human_count": 2
+  },
+  {
+   "city": "武汉",
+   "province": "湖北",
+   "maintainers": [],
+   "last_patrol": "2026-11-09",
+   "hukou": {
+    "summary": "专科及以上、不满 45 周岁（研究生不限年龄）的高校毕业生凭毕业证即可落户，不要求先就业",
+    "education_min": "高等学校专科（经教育部认证）",
+    "age_limit": "不满 45 周岁；博士、硕士研究生不受年龄限制",
+    "requires_job_or_social_security": false,
+    "eligible_by_degree": {
+     "associate": true,
+     "bachelor": true,
+     "master": true,
+     "phd": true
+    },
+    "tier_by_degree": {
+     "associate": "direct",
+     "bachelor": "direct",
+     "master": "direct",
+     "phd": "direct"
+    },
+    "age_max_by_degree": {
+     "associate": 45,
+     "bachelor": 45,
+     "master": 0,
+     "phd": 0
+    },
+    "conditions": [
+     "配偶及未成年子女可随迁",
+     "可在自有房屋、单位集体户或社区公共户落户"
+    ],
+    "apply_window": "常态办理（区政务服务中心公安户籍窗口或\"湖北公安政务服务平台\"网上申请）",
+    "policy_name": "武汉市人民政府办公厅关于进一步做好高校毕业生留汉就业创业工作的通知（2022-06-07）；市人社局\"高校毕业生落户\"政策清单（2023-08-02）",
+    "source_url": "https://www.wuhan.gov.cn/ztzl/23zt/jzwh/zcqd/lh/202308/t20230802_2241614.shtml",
+    "source_date": "2023-08-02",
+    "valid_until": null,
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false,
+    "lead": null,
+    "lead_url": null
+   },
+   "subsidies": [
+    {
+     "name": "人才租赁房租金减免",
+     "type": "other",
+     "amount": "租住人才租赁房的按不高于市场租金 70% 缴纳，累计不超过 3 年；全日制博士免缴 2 年、全日制硕士免缴 1 年，免租金额每月分别不超过 2000 元、1500 元",
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": null,
+      "master": null,
+      "phd": null
+     },
+     "period": null,
+     "periods_max": null,
+     "payout": "租金减免，不发现金",
+     "target": "全日制大专以上、毕业 6 年以内、在汉就业创业并正常缴纳社保、家庭在汉无自有住房的高校毕业生",
+     "conditions": [
+      "必须租住人才租赁房才能享受"
+     ],
+     "deadline_rule": "毕业 6 年以内",
+     "policy_name": "武汉市人民政府办公厅关于进一步做好高校毕业生留汉就业创业工作的通知（2022-06-07 印发）",
+     "source_url": "https://www.wuhan.gov.cn/ztzl/ztfw/gxbysycxcybt/zcwj_87510/202310/t20231020_2283321.shtml",
+     "source_date": "2022-06-07",
+     "valid_until": null,
+     "verified_at": "2026-11-09",
+     "needs_human": false,
+     "needs_human_reason": null,
+     "access_blocked": false,
+     "lead": null,
+     "lead_url": null
+    },
+    {
+     "name": "青年人才之家免费住宿",
+     "type": "other",
+     "amount": "最长 7 天免费住宿",
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": null,
+      "master": null,
+      "phd": null
+     },
+     "period": null,
+     "periods_max": null,
+     "payout": "实物",
+     "target": "毕业 6 年以内有意来汉就业创业的高校毕业生",
+     "conditions": [
+      "原文为\"鼓励各区建设\"，各区是否提供、如何申请以区里为准"
+     ],
+     "deadline_rule": null,
+     "policy_name": "同上",
+     "source_url": "https://www.wuhan.gov.cn/ztzl/ztfw/gxbysycxcybt/zcwj_87510/202310/t20231020_2283321.shtml",
+     "source_date": "2022-06-07",
+     "valid_until": null,
+     "verified_at": "2026-11-09",
+     "needs_human": false,
+     "needs_human_reason": null,
+     "access_blocked": false,
+     "lead": null,
+     "lead_url": null
+    }
+   ],
+   "social_security": {
+    "base_min": 4552,
+    "base_max": 22761,
+    "year": "2026 社保年度（2026-07 至 2027-06）",
+    "scope": "湖北全省（养老、医保、失业、工伤）",
+    "source_url": "https://rst.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/202610/t20261008_6027858.shtml",
+    "source_type": "gov",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "living": {
+    "rent_avg_per_sqm": 25.1,
+    "rent_period": "2026-09",
+    "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
+    "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
+    "consumption_per_capita": 43233,
+    "income_per_capita": 67248,
+    "stats_year": 2025,
+    "stats_source_url": "https://tjj.wuhan.gov.cn/tjfw/tjgb/202604/t20260408_2750693.shtml",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "flexible_employment": {
+    "pension_base_min": 4552,
+    "pension_rate": 20,
+    "pension_year": "2026 社保年度",
+    "medical_monthly_min": 366.81,
+    "medical_note": "武汉市官方页面口径：以 2025 年度职工医保缴费基数 7496 元 × 4.8% + 大额医疗 7 元 = 366.81 元/月（2025 社保年度）；2026 社保年度标准未见更新",
+    "monthly_total_min": 1277.21,
+    "calc": "养老 4552 × 20% = 910.40（2026 社保年度）；医保 366.81（2025 社保年度口径）；合计 1277.21 元/月",
+    "hukou_restriction": "在湖北省内以灵活就业方式参加职工养老没有户籍限制；灵活就业人员参加武汉职工医保不受户籍限制",
+    "nonlocal_allowed": true,
+    "apply_channel": "鄂汇办 APP、\"武汉人社\"小程序/公众号、电子税务局 APP、各区社保经办机构",
+    "source_url": "https://rst.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/202610/t20261008_6027858.shtml",
+    "medical_source_url": "https://www.wuhan.gov.cn/ztzl/ztfw/lhjyryjnsb/index.shtml",
+    "hukou_source_url": "https://www.wuhan.gov.cn/ztzl/ztfw/lhjyryjnsb/index.shtml",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "医保月缴额为 2025 社保年度口径，2026 社保年度（基数 7587）的灵活就业医保标准未在官方页面更新；养老缴费比例 20% 取自中国政府网全国通行说明（https://www.gov.cn/yaowen/liebiao/202305/content_6855917.htm），武汉页面未单列。",
+    "access_blocked": false
+   },
+   "civil_service": {
+    "fresh_grad_rule": null,
+    "exam_schedule": null,
+    "announcement_url": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "commute": {
+    "avg_commute_minutes": null,
+    "year": null,
+    "report": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "待确定通勤数据口径"
+   },
+   "pitfalls": [
+    {
+     "text": "武汉的租房优惠是\"住进人才租赁房才享受\"的租金折扣和免租，不是发现金；没租人才租赁房就拿不到。",
+     "source_url": "https://www.wuhan.gov.cn/ztzl/ztfw/gxbysycxcybt/zcwj_87510/202310/t20231020_2283321.shtml"
+    },
+    {
+     "text": "武汉灵活就业养老保险费不能补缴，社保年度内应在次年 6 月 30 日前缴完，逾期不能补。",
+     "source_url": "https://www.wuhan.gov.cn/ztzl/ztfw/lhjyryjnsb/index.shtml"
+    }
+   ],
+   "changelog": [
+    {
+     "date": "2026-11-09",
+     "field": "全部",
+     "old": null,
+     "new": "首次采集",
+     "basis": "武汉市政府办公厅 2022-06-07 通知、市人社局落户政策清单、鄂人社发〔2026〕29号、武汉灵活就业社保专题页、武汉统计局 2025 公报、中指研究院 2026 年 9 月租金"
+    }
+   ],
+   "id": "wuhan",
+   "status": {
+    "hukou": "verified",
+    "living_subsidy": "missing",
+    "rent_subsidy": "missing",
+    "rent": "verified",
+    "social_security": "verified",
+    "cost": "verified"
+   },
+   "by_degree": {
+    "associate": {
+     "hukou_eligible": true,
+     "hukou_age_max": 45,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    },
+    "bachelor": {
+     "hukou_eligible": true,
+     "hukou_age_max": 45,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    },
+    "master": {
+     "hukou_eligible": true,
+     "hukou_age_max": 0,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    },
+    "phd": {
+     "hukou_eligible": true,
+     "hukou_age_max": 0,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    }
+   },
+   "latest_verified": "2026-11-09",
+   "needs_human_count": 0
   }
  ]
 }
