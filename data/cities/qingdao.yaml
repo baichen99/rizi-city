@@ -1,0 +1,149 @@
+city: 青岛
+province: 山东
+maintainers: []
+last_patrol: 2026-11-09
+
+hukou:
+  summary: 取得毕业证并在"青岛人才"完成学历认证后，可按人才落户；没找到工作的应届毕业生可"先落户后就业"，落崂山、西海岸新区、城阳、即墨的人才集体户
+  education_min: null
+  age_limit: null
+  requires_job_or_social_security: false
+  eligible_by_degree: {associate: null, bachelor: true, master: true, phd: true}
+  tier_by_degree: {associate: null, bachelor: direct, master: direct, phd: direct}
+  age_max_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+  conditions:
+    - 必须先拿到毕业证，并在"青岛人才"公众号完成学历认证
+    - 先落户后就业只能落崂山区、西海岸新区、城阳区、即墨区的人才集体户
+  apply_window: 常态办理
+  policy_name: 青岛市公安局政策问答（2025-06-20）；中共青岛市委 青岛市人民政府关于实施新时代"人才强青"计划的意见（2022-05-05）
+  source_url: http://www.qingdao.gov.cn/ywdt/zwzl/zxwdpt_00/zxwdpt_06/202506/t20250620_9706445.shtml
+  source_date: 2025-06-20
+  valid_until: null
+  verified_at: 2026-11-09
+  needs_human: true
+  needs_human_reason: 公安问答确认了"先落户后就业"，但没写学历下限和年龄上限；搜索摘要称"本科 45、专科 40、硕博 50 周岁以下"，来源页面（hrss.qingdao.gov.cn 2022 问答）已 404，需人工找现行落户细则。
+  access_blocked: false
+  lead: 搜索摘要：50 周岁以下博士或硕士、45 周岁以下全日制本科或学士、40 周岁以下全日制专科可申请落户（来源页已下线）
+  lead_url: https://hrss.qingdao.gov.cn/ztzl_47/gxbys_47/bszn_47/202206/t20220613_6136382.shtml
+
+subsidies:
+  - name: 高校毕业生住房补贴
+    type: rent
+    amount: 本科每人每月 500 元、硕士 800 元、博士 1200 元，自首次享受月份起最长 36 个月
+    amount_by_degree: {associate: null, bachelor: 500, master: 800, phd: 1200}
+    period: month
+    periods_max: 36
+    payout: 按月
+    target: 在青就业创业的本科及以上学历、并获得相应学位的高校毕业生
+    conditions:
+      - 申领时须具有青岛市户籍（外籍及港澳台不受限）
+      - 由青岛用人单位或创业实体缴纳城镇职工社保（含以灵活就业身份缴费的无雇工个体户负责人）
+      - 须获得相应学士、硕士、博士学位
+    deadline_rule: null
+    policy_name: 关于实施高校毕业生住房补贴政策有关问题的通知，青人社发〔2024〕6号（2024-04-01 起施行，有效期至 2027-03-31）
+    source_url: http://www.qingdao.gov.cn/zwgk/xxgk/rlshbz/gkml/gwfg/202404/t20240411_7996962.shtml
+    source_date: 2024-04-11
+    valid_until: 2027-03-31
+    verified_at: 2026-11-09
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
+  - name: 高校毕业生免租金住宿保障
+    type: other
+    amount: 来青求职可免租金住宿累计最长 6 个月；在青就业创业后可再申请，合并最长 12 个月；"一人一间房"
+    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+    period: null
+    periods_max: null
+    payout: 实物（免房租、物业费等）
+    target: 毕业 3 年内（含毕业学年）全日制专科及以上高校毕业生（含技工院校高级工班、预备技师班、技师班）
+    conditions:
+      - 与租赁型人才住房、保障性租赁住房不可同时享受
+      - 房源有限，优先保障低保家庭毕业生
+    deadline_rule: 毕业 3 年内
+    policy_name: 青岛市人社局等 12 部门关于进一步做好促进高校毕业生就业创业免租金住宿保障有关工作的通知，青人社发〔2026〕3号（2026-07-01 起施行，有效期至 2029-06-30）
+    source_url: http://www.qingdao.gov.cn/zwgk/xxgk/rlshbz/gkml/gwfg/202606/t20260630_10647826.shtml
+    source_date: 2026-06-25
+    valid_until: 2029-06-30
+    verified_at: 2026-11-09
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
+
+social_security:
+  base_min: 4504
+  base_max: 22518
+  year: 2025（2025-01-01 至 2025-12-31；2026 年度山东标准截至 2026-11-09 未见公布）
+  scope: 山东全省（养老、医疗、工伤、失业）
+  source_url: http://hrss.shandong.gov.cn/articles/ch07931/202512/3ad6c431-8dbf-4ec8-b576-19e35c6ba8d3.shtml
+  source_type: gov
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+living:
+  rent_avg_per_sqm: 25.45
+  rent_period: 2026-09
+  rent_source: 中指研究院 50 城住宅租赁价格指数（元/㎡/月）
+  rent_source_url: https://m.cih-index.com/news/2026-10-16/55166711.html
+  consumption_per_capita: null
+  income_per_capita: 71703
+  stats_year: 2025
+  stats_source_url: http://www.qingdao.gov.cn/zwgk/xxgk/tjj/gkml/tjjd/202601/t20260129_10493547.shtml
+  verified_at: 2026-11-09
+  needs_human: true
+  needs_human_reason: 收入取自青岛市统计局《2025 年全市经济运行情况》；2025 年统计公报（http://qdtj.qingdao.gov.cn/tongjisj/tjsj_tjgb/202604/t20260408_10556209.shtml）正文未能提取（疑似图片或附件），城镇居民人均消费支出需人工补。
+  access_blocked: false
+
+flexible_employment:
+  pension_base_min: null
+  pension_rate: null
+  pension_year: null
+  medical_monthly_min: null
+  medical_note: 青岛市医保局《社会医疗保险政策简表（2026）》为表格附件，正文未能提取
+  monthly_total_min: null
+  calc: null
+  hukou_restriction: null
+  nonlocal_allowed: null
+  apply_channel: null
+  source_url: null
+  medical_source_url: null
+  hukou_source_url: null
+  verified_at: null
+  needs_human: true
+  needs_human_reason: 山东 2026 年度基数未公布；青岛 2026 灵活就业医保标准在 http://ybj.qingdao.gov.cn/gg_117/202602/t20260204_10502903.shtml 的表格里，需人工读取。
+  access_blocked: false
+
+civil_service:
+  fresh_grad_rule: null
+  exam_schedule: null
+  announcement_url: null
+  source_url: null
+  verified_at: null
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+commute:
+  avg_commute_minutes: null
+  year: null
+  report: null
+  source_url: null
+  verified_at: null
+  needs_human: true
+  needs_human_reason: 待确定通勤数据口径
+
+pitfalls:
+  - text: 青岛住房补贴申领时必须已是青岛户籍，并且要拿到学位（只有学历没学位不行）；有效期到 2027-03-31。
+    source_url: http://www.qingdao.gov.cn/zwgk/xxgk/rlshbz/gkml/gwfg/202404/t20240411_7996962.shtml
+
+changelog:
+  - date: 2026-11-09
+    field: 全部
+    old: null
+    new: 首次采集
+    basis: 青人社发〔2024〕6号、青人社发〔2026〕3号、青岛市公安局 2025-06-20 问答、山东 2025 年度社保基数通知、青岛统计局 2025 经济运行情况、中指研究院 2026 年 9 月租金
