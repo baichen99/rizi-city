@@ -1,6 +1,6 @@
 {
  "latest_verified": "2026-11-09",
- "city_count": 12,
+ "city_count": 13,
  "disclaimer": "仅供参考，申请前以官方页面为准。",
  "cities": [
   {
@@ -1976,6 +1976,317 @@
    },
    "latest_verified": "2026-11-09",
    "needs_human_count": 0
+  },
+  {
+   "city": "深圳",
+   "province": "广东",
+   "maintainers": [],
+   "last_patrol": "2026-11-09",
+   "hukou": {
+    "summary": "普通高校本科以上 45 周岁以下、专科以上 35 周岁以下，在深依法缴纳社会保险后可申请人才引进入户（支持\"秒批\"）",
+    "education_min": "普通高等教育专科",
+    "age_limit": "本科以上 45 周岁以下；专科以上 35 周岁以下",
+    "requires_job_or_social_security": true,
+    "eligible_by_degree": {
+     "associate": true,
+     "bachelor": true,
+     "master": true,
+     "phd": true
+    },
+    "tier_by_degree": {
+     "associate": "job",
+     "bachelor": "job",
+     "master": "job",
+     "phd": "job"
+    },
+    "age_max_by_degree": {
+     "associate": 35,
+     "bachelor": 45,
+     "master": 45,
+     "phd": 45
+    },
+    "conditions": [
+     "基本条件：已在深圳依法缴纳社会保险（高层次人才、留学人员等除外）"
+    ],
+    "apply_window": "常态办理",
+    "policy_name": "深圳市人才引进实施办法，深人社规〔2016〕22号（深圳市公安局 2026-06-18 在落户专题中公开）",
+    "source_url": "https://ga.sz.gov.cn/ZT/LHLY/TZGG/content/post_12850011.html",
+    "source_date": "2016-12-20",
+    "valid_until": null,
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": "文件为 2016 年印发，市公安局 2026-06 仍作为现行依据公开；原文未见有效期",
+    "access_blocked": false,
+    "lead": null,
+    "lead_url": null
+   },
+   "subsidies": [
+    {
+     "name": "新引进博士人才生活补贴",
+     "type": "living",
+     "amount": "新引进博士 10 万元/人（市级）；须在引进之日起 12 个月内申请",
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": null,
+      "master": null,
+      "phd": 100000
+     },
+     "period": "once",
+     "periods_max": 1,
+     "payout": "一次性",
+     "target": "新引进的博士人才",
+     "conditions": [
+      "通过\"广东省政务服务网\"搜索\"深圳市新引进博士人才生活补贴\"，经所在单位审核后提交"
+     ],
+     "deadline_rule": "引进之日起 12 个月内",
+     "policy_name": "深圳市人社局常见问题\"如何申请新引进青年人才入户补贴？\"（2026-01-15）",
+     "source_url": "https://hrss.sz.gov.cn/zmhd/cjwt/cjwt/rsrc/content/post_12601559.html",
+     "source_date": "2026-01-15",
+     "valid_until": null,
+     "verified_at": "2026-11-09",
+     "needs_human": false,
+     "needs_human_reason": null,
+     "access_blocked": false,
+     "lead": null,
+     "lead_url": null
+    },
+    {
+     "name": "新引进本硕人才入户补贴（区级）",
+     "type": "other",
+     "amount": "硕士不超过 5 万元、本科不超过 3 万元，具体标准由各区制定（不计入合计）",
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": null,
+      "master": null,
+      "phd": null
+     },
+     "period": "once",
+     "periods_max": 1,
+     "payout": "一次性，按区",
+     "target": "新引进入户的硕士、本科毕业生（各区条件不同）",
+     "conditions": [
+      "在\"i深圳\"App 青年人才专区查看所在区要求"
+     ],
+     "deadline_rule": null,
+     "policy_name": "关于加强青年人才来深发展服务保障的若干措施（政策解读）",
+     "source_url": "https://hrss.sz.gov.cn/xxgk/zcfgjjd/zcfg/zcjd/content/post_12551351.html",
+     "source_date": "2025-12",
+     "valid_until": null,
+     "verified_at": "2026-11-09",
+     "needs_human": false,
+     "needs_human_reason": null,
+     "access_blocked": false,
+     "lead": null,
+     "lead_url": null
+    },
+    {
+     "name": "青年人才安居补贴",
+     "type": "rent",
+     "amount": "未租住过渡性住房的经认定青年人才，每月 1250 元（税后 1000 元），不超过 24 个月；与过渡性住房（约市场租金 60%、最长 36 个月）二选一",
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": null,
+      "master": null,
+      "phd": null
+     },
+     "period": "month",
+     "periods_max": 24,
+     "payout": "按月",
+     "target": "45 周岁以下、2026-01-01 起首次在深就业创业、并经认定的青年人才",
+     "conditions": [
+      "须先通过青年人才认定（教育背景、创新能力、创新贡献等维度）",
+      "须在认定之日起 1 年内申请"
+     ],
+     "deadline_rule": "认定之日起 1 年内",
+     "policy_name": "关于加强青年人才来深发展服务保障的若干措施（2026-01-01 起施行，有效期 5 年）",
+     "source_url": "https://hrss.sz.gov.cn/xxgk/zcfgjjd/zcfg/zcjd/content/post_12551351.html",
+     "source_date": "2025-12",
+     "valid_until": null,
+     "verified_at": "2026-11-09",
+     "needs_human": true,
+     "needs_human_reason": "「经认定的青年人才」的学历/学校标准在解读中未列明（另有《深圳市青年人才认定和管理办法》），无法确定本科、硕士是否都能领，暂不按学历计入合计；需人工查认定标准。",
+     "access_blocked": false,
+     "lead": null,
+     "lead_url": null
+    }
+   ],
+   "social_security": {
+    "base_min": null,
+    "base_max": null,
+    "year": null,
+    "scope": null,
+    "source_url": null,
+    "source_type": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "深圳 2026 年养老保险缴费基数下限的具体金额未找到官方原文（医保 2026 年下限为 6727 元，见 flexible_employment）。",
+    "access_blocked": false
+   },
+   "living": {
+    "rent_avg_per_sqm": 83.12,
+    "rent_period": "2026-09",
+    "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
+    "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
+    "consumption_per_capita": 53548,
+    "income_per_capita": 84945,
+    "stats_year": 2025,
+    "stats_source_url": "https://www.sz.gov.cn/cn/xxgk/zfxxgj/tjsj/tjgb/content/post_12805133.html",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": "深圳公报只公布全市居民口径（无城镇/农村之分），与其他城市的\"城镇居民\"口径略有差异",
+    "access_blocked": false
+   },
+   "flexible_employment": {
+    "pension_base_min": null,
+    "pension_rate": 20,
+    "pension_year": 2026,
+    "medical_monthly_min": 538.16,
+    "medical_note": "2026 年深圳职工医保缴费基数下限 6727 元，灵活就业人员费率自 2026-01-01 由 7% 恢复为 8%，按下限计 538.16 元/月（旧口径显示非深户另有 0.2% 地方补充医疗，未计）",
+    "monthly_total_min": null,
+    "calc": null,
+    "hukou_restriction": "非深户籍灵活就业人员须已在深圳办理有效居住登记或持有居住证；深户养老比例 21%、非深户 20%",
+    "nonlocal_allowed": true,
+    "apply_channel": "深圳市社保局官网、\"深圳社保\"公众号、\"i深圳\"APP、社保自助终端或经办窗口",
+    "source_url": "https://hrss.sz.gov.cn/szsi/sbjxxgk/gzdt/content/post_12956467.html",
+    "medical_source_url": "https://hsa.sz.gov.cn/fzlm/znts/cnyc/content/post_12568243.html",
+    "hukou_source_url": "https://hrss.sz.gov.cn/szsi/sbjxxgk/gzdt/content/post_12956467.html",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "深圳社保局说明灵活就业养老基数下限为\"深圳市现行养老保险缴费基数下限\"，但未给出金额，无法算出每月最少合计。",
+    "access_blocked": false
+   },
+   "civil_service": {
+    "fresh_grad_rule": null,
+    "exam_schedule": null,
+    "announcement_url": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "commute": {
+    "avg_commute_minutes": null,
+    "year": null,
+    "report": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "待确定通勤数据口径"
+   },
+   "pitfalls": [
+    {
+     "text": "深圳灵活就业的养老、失业保险跨月不能补缴，当月没缴上就断了。",
+     "source_url": "https://hrss.sz.gov.cn/szsi/sbjxxgk/gzdt/content/post_12956467.html"
+    },
+    {
+     "text": "深圳青年人才安居补贴和过渡性住房只能二选一，并且要在青年人才认定之日起 1 年内申请。",
+     "source_url": "https://hrss.sz.gov.cn/xxgk/zcfgjjd/zcfg/zcjd/content/post_12551351.html"
+    }
+   ],
+   "changelog": [
+    {
+     "date": "2026-11-09",
+     "field": "全部",
+     "old": null,
+     "new": "首次采集",
+     "basis": "深人社规〔2016〕22号、深圳青年人才若干措施解读、深圳人社局 2026-01 常见问题、深圳社保局 2026-08 灵活就业指南、深圳医保局 2026 基数提示、深圳 2025 统计公报、中指研究院 2026 年 9 月租金"
+    }
+   ],
+   "id": "shenzhen",
+   "status": {
+    "hukou": "verified",
+    "living_subsidy": "verified",
+    "rent_subsidy": "lead",
+    "rent": "verified",
+    "social_security": "missing",
+    "cost": "verified"
+   },
+   "by_degree": {
+    "associate": {
+     "hukou_eligible": true,
+     "hukou_age_max": 35,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 2,
+       "name": "青年人才安居补贴",
+       "type": "rent",
+       "per": null,
+       "period": "month",
+       "total": null,
+       "reason": "「经认定的青年人才」的学历/学校标准在解读中未列明（另有《深圳市青年人才认定和管理办法》），无法确定本科、硕士是否都能领，暂不按学历计入合计；需人工查认定标准。"
+      }
+     ]
+    },
+    "bachelor": {
+     "hukou_eligible": true,
+     "hukou_age_max": 45,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 2,
+       "name": "青年人才安居补贴",
+       "type": "rent",
+       "per": null,
+       "period": "month",
+       "total": null,
+       "reason": "「经认定的青年人才」的学历/学校标准在解读中未列明（另有《深圳市青年人才认定和管理办法》），无法确定本科、硕士是否都能领，暂不按学历计入合计；需人工查认定标准。"
+      }
+     ]
+    },
+    "master": {
+     "hukou_eligible": true,
+     "hukou_age_max": 45,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 2,
+       "name": "青年人才安居补贴",
+       "type": "rent",
+       "per": null,
+       "period": "month",
+       "total": null,
+       "reason": "「经认定的青年人才」的学历/学校标准在解读中未列明（另有《深圳市青年人才认定和管理办法》），无法确定本科、硕士是否都能领，暂不按学历计入合计；需人工查认定标准。"
+      }
+     ]
+    },
+    "phd": {
+     "hukou_eligible": true,
+     "hukou_age_max": 45,
+     "total": 100000,
+     "rent_subsidy_per_year": null,
+     "counted": [
+      {
+       "index": 0,
+       "name": "新引进博士人才生活补贴",
+       "type": "living",
+       "per": 100000,
+       "period": "once",
+       "total": 100000
+      }
+     ],
+     "excluded": [
+      {
+       "index": 2,
+       "name": "青年人才安居补贴",
+       "type": "rent",
+       "per": null,
+       "period": "month",
+       "total": null,
+       "reason": "「经认定的青年人才」的学历/学校标准在解读中未列明（另有《深圳市青年人才认定和管理办法》），无法确定本科、硕士是否都能领，暂不按学历计入合计；需人工查认定标准。"
+      }
+     ]
+    }
+   },
+   "latest_verified": "2026-11-09",
+   "needs_human_count": 2
   },
   {
    "city": "苏州",

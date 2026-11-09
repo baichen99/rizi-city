@@ -22,6 +22,7 @@
 | [合肥](data/cities/hefei.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | 🔒 | ❌ | 🔒 | ⚠️ | ⚠️ | 🔒 |
 | [南京](data/cities/nanjing.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | 🔒 | 🔒 | 🔒 | ⚠️ | ✅ | 🔒 |
 | [上海](data/cities/shanghai.yaml) | — | — | — | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
+| [深圳](data/cities/shenzhen.yaml) | — ⚠️ | — ⚠️ | 10 万 ⚠️ | ✅ | ✅ | ⚠️ | ✅ | ❌ | ✅ |
 | [武汉](data/cities/wuhan.yaml) | — | — | — | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
 | [西安](data/cities/xian.yaml) | — | — | — | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
 | [郑州](data/cities/zhengzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ❌ | ✅ | ✅ | ✅ |
