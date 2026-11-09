@@ -1,6 +1,6 @@
 {
  "latest_verified": "2026-11-09",
- "city_count": 7,
+ "city_count": 8,
  "disclaimer": "仅供参考，申请前以官方页面为准。",
  "cities": [
   {
@@ -1768,6 +1768,212 @@
     "bachelor": {
      "hukou_eligible": true,
      "hukou_age_max": 45,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    },
+    "master": {
+     "hukou_eligible": true,
+     "hukou_age_max": 0,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    },
+    "phd": {
+     "hukou_eligible": true,
+     "hukou_age_max": 0,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    }
+   },
+   "latest_verified": "2026-11-09",
+   "needs_human_count": 0
+  },
+  {
+   "city": "西安",
+   "province": "陕西",
+   "maintainers": [],
+   "last_patrol": "2026-11-09",
+   "hukou": {
+    "summary": "毕业 2 年择业期内的全日制普通高校大专及以上毕业生，有意愿在西安就业并有合法稳定住所（租房、租期不限）即可落户，不要求先就业",
+    "education_min": "全日制普通高等学校大专",
+    "age_limit": "原文未设年龄限制；限毕业 2 年择业期内",
+    "requires_job_or_social_security": false,
+    "eligible_by_degree": {
+     "associate": true,
+     "bachelor": true,
+     "master": true,
+     "phd": true
+    },
+    "tier_by_degree": {
+     "associate": "direct",
+     "bachelor": "direct",
+     "master": "direct",
+     "phd": "direct"
+    },
+    "age_max_by_degree": {
+     "associate": 0,
+     "bachelor": 0,
+     "master": 0,
+     "phd": 0
+    },
+    "conditions": [
+     "限毕业 2 年择业期内",
+     "需有合法稳定住所，租房即可且租期无限制；可落本人住所、单位集体户或社区集体户",
+     "西安生源全日制大中专应届毕业生可回西安落户"
+    ],
+    "apply_window": "常态办理",
+    "policy_name": "西安市公安局关于进一步优化户籍管理工作的通知（2023-10-13）",
+    "source_url": "http://police.xa.gov.cn/zwgk/zfwj/bmwj/1712411225725870081.html",
+    "source_date": "2023-10-13",
+    "valid_until": null,
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false,
+    "lead": null,
+    "lead_url": null
+   },
+   "subsidies": [
+    {
+     "name": "大学生保障性租赁住房租金减免",
+     "type": "other",
+     "amount": "享受 2 年租金减免，减免比例不低于承租项目租金备案价格的 50%；每人限一次",
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": null,
+      "master": null,
+      "phd": null
+     },
+     "period": null,
+     "periods_max": null,
+     "payout": "租金减免，不发现金；须租住指定保租房项目",
+     "target": "普通高校毕业后 3 年内或\"双一流\"院校毕业后 5 年内的大学生",
+     "conditions": [
+      "在申请项目所在辖区内无自有住房，未享受其他政策性住房保障",
+      "通过\"i西安\"APP 或市住建局保租房服务平台报名，按批次发布房源"
+     ],
+     "deadline_rule": "普通高校毕业 3 年内、\"双一流\"毕业 5 年内",
+     "policy_name": "西安市保障性住房管理中心关于面向大学毕业生提供希望里·向阳等4个保租房项目房源的通告（2026）",
+     "source_url": "https://www.xa.gov.cn/gk/zfbz/zffp/2097616406225920001.html",
+     "source_date": "2026-09",
+     "valid_until": null,
+     "verified_at": "2026-11-09",
+     "needs_human": false,
+     "needs_human_reason": null,
+     "access_blocked": false,
+     "lead": "西安航天基地等开发区另有硕博奖补（如博士 1 万、硕士 5000 元一次性奖励），属区级政策且年份较旧，未收录",
+     "lead_url": "http://xcaib.xa.gov.cn/zmhd/cjwt/1707292682361581570.html"
+    }
+   ],
+   "social_security": {
+    "base_min": 4737,
+    "base_max": 23685,
+    "year": 2026,
+    "scope": "陕西全省（养老、失业、工伤）",
+    "source_url": "http://xahrss.xa.gov.cn/hdjl/zxrd/shbx/2117521076148273153.html",
+    "source_type": "gov",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "living": {
+    "rent_avg_per_sqm": 23.8,
+    "rent_period": "2026-09",
+    "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
+    "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
+    "consumption_per_capita": 33665.3,
+    "income_per_capita": 56324,
+    "stats_year": 2025,
+    "stats_source_url": "http://tjj.xa.gov.cn/web_files/tjj/file/2026/05/15/202605151000219859531.pdf",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "flexible_employment": {
+    "pension_base_min": 4737,
+    "pension_rate": 20,
+    "pension_year": 2026,
+    "medical_monthly_min": 407.2,
+    "medical_note": "西安 2026 年度灵活就业职工医保：月缴费基数 4990 元，费率阶段性由 9% 降至 8%（2026-01 至 2026-12），基本医保 399.2 元/月 + 大额医疗补助 8 元/月；集中缴费期 2025-11 至 2026-01-09",
+    "monthly_total_min": 1354.6,
+    "calc": "养老 4737 × 20% = 947.40；医保 399.2 + 8 = 407.2；合计 1354.60 元/月",
+    "hukou_restriction": null,
+    "nonlocal_allowed": null,
+    "apply_channel": "向税务部门申报缴纳（电子税务局、陕西税务等渠道）；医保需先在公共就业服务机构办理灵活就业医保参保登记",
+    "source_url": "http://xahrss.xa.gov.cn/hdjl/zxrd/shbx/2117521076148273153.html",
+    "medical_source_url": "https://xdz.xa.gov.cn/zwgk/jbmsbz/shbz/1990608250116059137.html",
+    "hukou_source_url": null,
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": "外地户籍能否以灵活就业身份参保，未找到西安官方表述（nonlocal_allowed 暂留空）",
+    "access_blocked": false
+   },
+   "civil_service": {
+    "fresh_grad_rule": null,
+    "exam_schedule": null,
+    "announcement_url": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "commute": {
+    "avg_commute_minutes": null,
+    "year": null,
+    "report": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "待确定通勤数据口径"
+   },
+   "pitfalls": [
+    {
+     "text": "西安\"择业期落户\"只认毕业 2 年内；超过 2 年就要走人才评价或居住证 + 社保满 3 年等其他通道。",
+     "source_url": "http://police.xa.gov.cn/zwgk/zfwj/bmwj/1712411225725870081.html"
+    },
+    {
+     "text": "西安灵活就业医保是\"集中缴费期\"一次性缴全年，2026 年度窗口在 2025-11 至 2026-01-09，错过要看经办机构安排。",
+     "source_url": "https://xdz.xa.gov.cn/zwgk/jbmsbz/shbz/1990608250116059137.html"
+    }
+   ],
+   "changelog": [
+    {
+     "date": "2026-11-09",
+     "field": "全部",
+     "old": null,
+     "new": "首次采集",
+     "basis": "西安市公安局 2023-10-13 户籍通知、西安保租房大学生项目通告（2026）、西安人社局 2026 灵活养老缴费通知、西安高新区转发 2026 灵活医保缴费指南、西安统计局 2025 公报、中指研究院 2026 年 9 月租金"
+    }
+   ],
+   "id": "xian",
+   "status": {
+    "hukou": "verified",
+    "living_subsidy": "missing",
+    "rent_subsidy": "missing",
+    "rent": "verified",
+    "social_security": "verified",
+    "cost": "verified"
+   },
+   "by_degree": {
+    "associate": {
+     "hukou_eligible": true,
+     "hukou_age_max": 0,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    },
+    "bachelor": {
+     "hukou_eligible": true,
+     "hukou_age_max": 0,
      "total": 0,
      "rent_subsidy_per_year": null,
      "counted": [],
