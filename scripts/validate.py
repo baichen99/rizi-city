@@ -24,6 +24,8 @@ from common import (  # noqa: E402
     city_files, expired, is_empty, is_gov_url, load_yaml, today,
 )
 
+from resident_statistics import validate_metadata
+
 TOP_KEYS = ("city", "province", "maintainers", "last_patrol", "hukou", "subsidies",
             "social_security", "living", "flexible_employment", "civil_service", "commute",
             "pitfalls", "changelog")
@@ -175,6 +177,8 @@ def check_living(r, lv):
         r.err("living", "缺失或不是映射")
         return
     w = "living"
+    for error in validate_metadata(lv):
+        r.err("living.statistical_metadata", error)
     for k in ("rent_avg_per_sqm", "consumption_per_capita", "income_per_capita"):
         v = lv.get(k)
         if v is not None and (isinstance(v, bool) or not isinstance(v, (int, float))):

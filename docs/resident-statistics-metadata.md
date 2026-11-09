@@ -1,0 +1,31 @@
+# 收入与消费的比较口径
+
+`living.statistical_metadata` 为既有收入、消费数值补充经原文核实的语义，不替换原数值，不改变日子指数或灵活就业底线。没有元数据表示范围尚未核实，不能从城市名称、字段名或数值大小猜测。
+
+## 数据契约
+
+映射只允许 `income_per_capita` 和 `consumption_per_capita`，分别独立核验：
+
+- `source_value` 必须是前端可安全表示的有限非负数且严格等于原字段（不超过2^53−1）。原值更新时必须重新核对元数据。
+- `period` 是四位年份字符串，必须与 `stats_year` 一致；`unit=元/年`，人均分母保留在总体和方法中。`statistic=mean`，`price_basis=nominal`，不把工资、中位数、月度值或扣价增长率混进来。
+- `population_scope` 保留人类可读口径；`population_scope_type` 只能为已证实的 `all_residents`、`urban_residents`、`rural_residents`。常住不是户籍。
+- `geographic_scope` 写具体城市完整范围；当前 `geographic_scope_type=city_administrative_area`，不是只覆盖中心城区的交易样本。
+- `methodology_key=household_income_expenditure_survey` 表示住户收支调查这一指标体系，不表示样本、权重或误差完全相同。必须保留 `methodology_source_url` 和 `methodology_note`。
+- `source_url`、`source_date`、`publisher`、`evidence_locator` 指向实际读到的统计原文，URL必须是真实官方HTTP(S)地址，不擅自改写协议或绕过限制。`source_date` 是页面实际发布日期，不取URL日期。
+- `verified_at`、`review_due` 记录核验及复核窗口；`review_status` 可为 `verified`、`needs_review`、`stale`。过期不是把历史事实判错，但须暂停可比资格。未来核验日、错年、错原值、缺字段都不能用于比较。
+- `data_status` 为 `preliminary`、`final` 或 `not_specified`；快报和初步数要明确，不把未说明当成最终数。
+
+显式跨城键按已核实语义赋值，格式为：
+
+`resident-statistics|{原字段名}|{人口类型}|city_administrative_area|CNY-person-year|household-survey`
+
+前端除核对该键外，还须匹配年份、单位、统计性质、名义价格基础、人口类型、地域类型和方法，并检查原值绑定及状态日期；不得仅凭同一个键放行。缺元数据可保留旧值及待核口径提示，但无跨城键；存在元数据却失败则应降为待核实。旧字段的未核验/禁止访问标记不能被新元数据覆盖。
+
+## 首批核验
+
+- 广州：2025公报第九节的86069元收入、51860元消费均为城镇居民，不是全体居民数。[原公报](https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html)发布于2026-05-10，注1为快报统计数。[当地年鉴方法](https://tjj.gz.gov.cn/datav/admin/home/www_nj/2024/directory/08/08%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html)明确2014年起按常住地而非户籍纳入、由广州调查队提供、采用住户收支调查。该方法材料是2024年鉴，不伪称为2025专门方法附件。
+- 其他城市仅在逐城完成数值、人口、地域及方法核验后补入。本批不为缺少正文的城市推定人口类型，也不修改它们既有指数输入。
+
+可支配收入包含工资之外的经营、财产和转移净收入；人均统计含无收入者，不是个人求职工资。消费包含居住等支出及实物项目，不是单身居民现金预算。城市城乡结构、消费结构、样本和误差仍有差别；同组只能做描述性对照，不能声称差异具有统计显著性或直接等于物价差异。
+
+程序校验在 `scripts/resident_statistics.py`，由校验器和构建入口共同调用。测试使用独立虚构夹具，并检查移除元数据后原指数和底线计算完全相同。元数据本身不创建自动复核任务。
