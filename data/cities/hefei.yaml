@@ -93,13 +93,13 @@ flexible_employment:
 
 civil_service:
   fresh_grad_rule: null
-  exam_schedule: null
-  announcement_url: null
-  source_url: null
-  verified_at: null
-  needs_human: false
-  needs_human_reason: null
-  access_blocked: false
+  exam_schedule: 2026年度安徽省考历史批次：报名2026年1月19日09:00至1月25日18:00；公共科目笔试3月14日09:00—11:00行测、14:00—16:30申论；专业科目3月15日09:00—11:00，均已结束。未核实2027省考公告。
+  announcement_url: https://www.hfxf.gov.cn/rsks/gwy/18913707.html
+  source_url: https://www.hfxf.gov.cn/rsks/gwy/18913707.html
+  verified_at: '2026-11-09'
+  needs_human: true
+  needs_human_reason: 2026省考报考指南DOCX返回403，已停止、不绕过；应届细则留null。事业单位省直统招公告未读到可用原文（省地震局参与公告重定向循环）；2027省考最新状态需人工复核。
+  access_blocked: true
 
 commute:
   avg_commute_minutes: null
@@ -118,3 +118,38 @@ changelog:
     old: null
     new: 首次采集（大部分官网无法访问）
     basis: 中指研究院 2026 年 9 月租金；其余见各项 needs_human_reason
+  - date: '2026-11-09'
+    field: civil_service.exam_schedule
+    old: null
+    new: 2026年度安徽省考历史批次：报名2026年1月19日09:00至1月25日18:00；公共科目笔试3月14日09:00—11:00行测、14:00—16:30申论；专业科目3月15日09:00—11:00，均已结束。未核实2027省考公告。
+    basis: 考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html
+  - date: '2026-11-09'
+    field: civil_service.announcement_url
+    old: null
+    new: https://www.hfxf.gov.cn/rsks/gwy/18913707.html
+    basis: 考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html
+  - date: '2026-11-09'
+    field: civil_service.source_url
+    old: null
+    new: https://www.hfxf.gov.cn/rsks/gwy/18913707.html
+    basis: 考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html
+  - date: '2026-11-09'
+    field: civil_service.verified_at
+    old: null
+    new: '2026-11-09'
+    basis: 考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html
+  - date: '2026-11-09'
+    field: civil_service.needs_human
+    old: false
+    new: true
+    basis: 考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html
+  - date: '2026-11-09'
+    field: civil_service.needs_human_reason
+    old: null
+    new: 2026省考报考指南DOCX返回403，已停止、不绕过；应届细则留null。事业单位省直统招公告未读到可用原文（省地震局参与公告重定向循环）；2027省考最新状态需人工复核。
+    basis: 考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html
+  - date: '2026-11-09'
+    field: civil_service.access_blocked
+    old: false
+    new: true
+    basis: 考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html

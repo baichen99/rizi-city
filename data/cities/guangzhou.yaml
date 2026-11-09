@@ -57,15 +57,15 @@ subsidy_scan:
   verified_at: 2026-11-09
 
 social_security:
-  base_min: null
-  base_max: null
-  year: null
-  scope: null
-  source_url: null
-  source_type: null
-  verified_at: null
-  needs_human: true
-  needs_human_reason: 广州 2026 年养老保险缴费基数下限未找到官方原文；搜索摘要称 2025-07-01 起下限 5510、上限 27549 元（来源页面未打开核实）。
+  base_min: 5521
+  base_max: 27603
+  year: 2026 社保年度（2026-07 至 2027-06）
+  scope: 广东省统一（企业职工基本养老保险）；职工医保（含生育）为广州市定基数 6234–31170（2026 自然年度，穗医保规字〔2022〕1号公式核定）；失业保险下限为最低工资 2680（2026-09-01 起），上限官方未公布具体数额；工伤保险按单位工资总额计费，无个人统一基数
+  source_url: https://hrss.gd.gov.cn/zwgk/gsgg/content/post_4957552.html
+  source_type: gov
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
   access_blocked: false
 
 living:
@@ -102,13 +102,13 @@ flexible_employment:
   access_blocked: false
 
 civil_service:
-  fresh_grad_rule: null
-  exam_schedule: null
-  announcement_url: null
-  source_url: null
-  verified_at: null
-  needs_human: false
-  needs_human_reason: null
+  fresh_grad_rule: 2027省考区分“限2027届”与“限应届”：前者面向统招2027届非在职毕业生；后者还包括2025、2026届未落实工作单位者、2025-01-09至报名首日取得境外学历学位且未就业并按时认证者、正在服务基层项目或期满考核合格2年内者；应届岗须以最高学历专业报考。2026事业单位集中招聘应届岗还覆盖当届职业学校、技工院校毕业生等，须按该批次指南单独认定，不可套用2027省考年份。 事业单位依据：https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx
+  exam_schedule: 2027省考：报名2026-11-02 09:00至11-06 16:00，已结束；缴费确认2026-11-14 09:00至11-16 16:00；笔试2026-12-06，行测14:00—15:30、申论16:15—18:45。2026事业单位集中招聘（历史批次）：报名2026-02-02 09:00至02-06 16:00，已结束；原公告只载笔试2026年3月，具体日期待补核。 事业单位依据：https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html
+  announcement_url: https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html
+  source_url: https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc
+  verified_at: '2026-11-09'
+  needs_human: true
+  needs_human_reason: 仅完成省级口径核实；2026事业单位集中招聘公告仅载3月笔试，后续具体日期尚未读到。广州、深圳各自独立事业单位批次不由省级内容替代。
   access_blocked: false
 
 commute:
@@ -131,7 +131,47 @@ changelog:
     new: 首次采集
     basis: 穗府办规〔2025〕9号、广州人社局 2026-03-20 青年人才"五来"礼遇、广州 2025 统计公报、中指研究院 2026 年 9 月租金
   - date: 2026-11-09
+    field: social_security.base_min/base_max
+    old: null
+    new: 5521 / 27603（企业职工基本养老保险，广东省统一，2026 社保年度）
+    basis: 粤人社发〔2026〕24号《广东省人力资源和社会保障厅 广东省财政厅 国家税务总局广东省税务局关于公布2026年职工基本养老保险缴费基数上下限有关问题的通知》原文「自2026年7月1日起，全省企业职工基本养老保险缴费基数上限调整为27603元，缴费基数下限调整为5521元」；广州无全险种统一基数，医保等口径差异已写进 scope
+  - date: 2026-11-09
     field: subsidy_scan
     old: null
     new: living_none=false, rent_none=true
     basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）
+  - date: '2026-11-09'
+    field: civil_service.fresh_grad_rule
+    old: null
+    new: 2027省考区分“限2027届”与“限应届”：前者面向统招2027届非在职毕业生；后者还包括2025、2026届未落实工作单位者、2025-01-09至报名首日取得境外学历学位且未就业并按时认证者、正在服务基层项目或期满考核合格2年内者；应届岗须以最高学历专业报考。2026事业单位集中招聘应届岗还覆盖当届职业学校、技工院校毕业生等，须按该批次指南单独认定，不可套用2027省考年份。 事业单位依据：https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx
+    basis: 考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx
+  - date: '2026-11-09'
+    field: civil_service.exam_schedule
+    old: null
+    new: 2027省考：报名2026-11-02 09:00至11-06 16:00，已结束；缴费确认2026-11-14 09:00至11-16 16:00；笔试2026-12-06，行测14:00—15:30、申论16:15—18:45。2026事业单位集中招聘（历史批次）：报名2026-02-02 09:00至02-06 16:00，已结束；原公告只载笔试2026年3月，具体日期待补核。 事业单位依据：https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html
+    basis: 考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx
+  - date: '2026-11-09'
+    field: civil_service.announcement_url
+    old: null
+    new: https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html
+    basis: 考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx
+  - date: '2026-11-09'
+    field: civil_service.source_url
+    old: null
+    new: https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc
+    basis: 考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx
+  - date: '2026-11-09'
+    field: civil_service.verified_at
+    old: null
+    new: '2026-11-09'
+    basis: 考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx
+  - date: '2026-11-09'
+    field: civil_service.needs_human
+    old: false
+    new: true
+    basis: 考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx
+  - date: '2026-11-09'
+    field: civil_service.needs_human_reason
+    old: null
+    new: 仅完成省级口径核实；2026事业单位集中招聘公告仅载3月笔试，后续具体日期尚未读到。广州、深圳各自独立事业单位批次不由省级内容替代。
+    basis: 考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx

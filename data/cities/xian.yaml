@@ -104,13 +104,13 @@ flexible_employment:
   access_blocked: false
 
 civil_service:
-  fresh_grad_rule: null
-  exam_schedule: null
-  announcement_url: null
-  source_url: null
-  verified_at: null
-  needs_human: false
-  needs_human_reason: null
+  fresh_grad_rule: 事业单位：已核实2026年下半年西安市统招应届岗位向2026届及2024、2025年毕业未落实编制内工作的高校毕业生开放，不限制工作经历或缴纳社保（陕政办发〔2025〕12号）。该口径不得直接套用于省考公务员；省考应届认定及与国家规则的差异尚待核实。
+  exam_schedule: 2026年陕西省考历史批次：报名2026年2月1日08:00至2月6日18:00；公共科目笔试3月14日09:00—11:00行测、14:00—17:00申论，已结束。未核实2027省考新公告，不能认定未发布。
+  announcement_url: https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html
+  source_url: https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html
+  verified_at: '2026-11-09'
+  needs_human: true
+  needs_human_reason: 陕西2026省考报考指南官网连续超时，省考应届认定留待人工；2027省考公告未检索到，不等于未发布。
   access_blocked: false
 
 commute:
@@ -139,3 +139,38 @@ changelog:
     old: null
     new: living_none=true, rent_none=true
     basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）
+  - date: '2026-11-09'
+    field: civil_service.fresh_grad_rule
+    old: null
+    new: 事业单位：已核实2026年下半年西安市统招应届岗位向2026届及2024、2025年毕业未落实编制内工作的高校毕业生开放，不限制工作经历或缴纳社保（陕政办发〔2025〕12号）。该口径不得直接套用于省考公务员；省考应届认定及与国家规则的差异尚待核实。
+    basis: 考公考编专项巡检；陕西省2026年统一考试录用公务员公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html；中共西安市委组织部 西安市人力资源和社会保障局关于2026年下半年西安市事业单位公开招聘工作人员的公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html
+  - date: '2026-11-09'
+    field: civil_service.exam_schedule
+    old: null
+    new: 2026年陕西省考历史批次：报名2026年2月1日08:00至2月6日18:00；公共科目笔试3月14日09:00—11:00行测、14:00—17:00申论，已结束。未核实2027省考新公告，不能认定未发布。
+    basis: 考公考编专项巡检；陕西省2026年统一考试录用公务员公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html；中共西安市委组织部 西安市人力资源和社会保障局关于2026年下半年西安市事业单位公开招聘工作人员的公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html
+  - date: '2026-11-09'
+    field: civil_service.announcement_url
+    old: null
+    new: https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html
+    basis: 考公考编专项巡检；陕西省2026年统一考试录用公务员公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html；中共西安市委组织部 西安市人力资源和社会保障局关于2026年下半年西安市事业单位公开招聘工作人员的公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html
+  - date: '2026-11-09'
+    field: civil_service.source_url
+    old: null
+    new: https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html
+    basis: 考公考编专项巡检；陕西省2026年统一考试录用公务员公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html；中共西安市委组织部 西安市人力资源和社会保障局关于2026年下半年西安市事业单位公开招聘工作人员的公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html
+  - date: '2026-11-09'
+    field: civil_service.verified_at
+    old: null
+    new: '2026-11-09'
+    basis: 考公考编专项巡检；陕西省2026年统一考试录用公务员公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html；中共西安市委组织部 西安市人力资源和社会保障局关于2026年下半年西安市事业单位公开招聘工作人员的公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html
+  - date: '2026-11-09'
+    field: civil_service.needs_human
+    old: false
+    new: true
+    basis: 考公考编专项巡检；陕西省2026年统一考试录用公务员公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html；中共西安市委组织部 西安市人力资源和社会保障局关于2026年下半年西安市事业单位公开招聘工作人员的公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html
+  - date: '2026-11-09'
+    field: civil_service.needs_human_reason
+    old: null
+    new: 陕西2026省考报考指南官网连续超时，省考应届认定留待人工；2027省考公告未检索到，不等于未发布。
+    basis: 考公考编专项巡检；陕西省2026年统一考试录用公务员公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html；中共西安市委组织部 西安市人力资源和社会保障局关于2026年下半年西安市事业单位公开招聘工作人员的公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html

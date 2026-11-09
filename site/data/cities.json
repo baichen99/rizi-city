@@ -158,13 +158,13 @@
    },
    "civil_service": {
     "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
-    "access_blocked": false
+    "exam_schedule": "仅2026年度北京市第二次事业单位公开招聘统一考试（历史批次）：报名2026-08-10 09:00至08-14 17:00，统一考试2026-09-05上午。仅本市部分事业单位参加，具体招聘要求按单位公告；截至巡查均已结束。 2027京考日程尚未核实。",
+    "announcement_url": "https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html",
+    "source_url": "https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "2027京考公告搜索可见，但公告正文访问返回403，停止该页面访问；省考日程和应届认定保留null。待人工核对 https://www.beijing.gov.cn/gongkai/rsxx/gwyzk/202611/t20261109_4938196.html 。2026第二次事业单位统考已核实（历史批次已结束），各单位招聘口径不可推广为全市统一应届规则。",
+    "access_blocked": true
    },
    "commute": {
     "avg_commute_minutes": null,
@@ -199,6 +199,55 @@
      "old": null,
      "new": "living_none=true, rent_none=true",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "仅2026年度北京市第二次事业单位公开招聘统一考试（历史批次）：报名2026-08-10 09:00至08-14 17:00，统一考试2026-09-05上午。仅本市部分事业单位参加，具体招聘要求按单位公告；截至巡查均已结束。 2027京考日程尚未核实。",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html；事业单位应届口径样本，仅北京市民政局所属单位 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260804_4808187.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html；事业单位应届口径样本，仅北京市民政局所属单位 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260804_4808187.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html；事业单位应届口径样本，仅北京市民政局所属单位 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260804_4808187.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html；事业单位应届口径样本，仅北京市民政局所属单位 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260804_4808187.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html；事业单位应届口径样本，仅北京市民政局所属单位 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260804_4808187.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "2027京考公告搜索可见，但公告正文访问返回403，停止该页面访问；省考日程和应届认定保留null。待人工核对 https://www.beijing.gov.cn/gongkai/rsxx/gwyzk/202611/t20261109_4938196.html 。2026第二次事业单位统考已核实（历史批次已结束），各单位招聘口径不可推广为全市统一应届规则。",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html；事业单位应届口径样本，仅北京市民政局所属单位 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260804_4808187.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.access_blocked",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html；事业单位应届口径样本，仅北京市民政局所属单位 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260804_4808187.html"
     }
    ],
    "id": "beijing",
@@ -417,13 +466,13 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "fresh_grad_rule": "按2026省考历史指南：“2026届”主要为2025-08-01至2026-07-31毕业、在校期间档案保留院校的统招学生，另含指南列明的留学、第二学士学位和退役人员。一般“应届”岗可含2024、2025届择业期内未落实单位且档案、组织关系保留规定机构者；未就业留学人员适用2024-01-01至2026-07-31取得学位并认证区间。2026届报应届岗须用即将取得的最高学历专业。事业单位须按独立公告和岗位表认定。 事业单位依据：https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html",
+    "exam_schedule": "2026省考（历史批次）：报名2026-01-29 09:00至02-04 17:00；公共科目笔试2026-03-14，专业科目2026-03-15，均已结束。2026省直事业单位第四次招聘（历史批次）：报名2026-09-09 09:00至09-16 17:00；笔试2026-10-17 08:30—12:00，均已结束。本次未查到可核实的2027省考公告，不推测2027日期。 事业单位依据：https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html",
+    "announcement_url": "https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml",
+    "source_url": "https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "2027省考公告未核实，保留2026历史信息。省直事业单位第四次招聘各岗位毕业年限与应届限制须核附件岗位表；长沙市属招聘未在本轮逐项核实。",
     "access_blocked": false
    },
    "commute": {
@@ -455,6 +504,55 @@
      "old": null,
      "new": "living_none=false, rent_none=true",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "按2026省考历史指南：“2026届”主要为2025-08-01至2026-07-31毕业、在校期间档案保留院校的统招学生，另含指南列明的留学、第二学士学位和退役人员。一般“应届”岗可含2024、2025届择业期内未落实单位且档案、组织关系保留规定机构者；未就业留学人员适用2024-01-01至2026-07-31取得学位并认证区间。2026届报应届岗须用即将取得的最高学历专业。事业单位须按独立公告和岗位表认定。 事业单位依据：https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html",
+     "basis": "考公考编专项巡检；省考公告 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml；省考指南 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx；事业单位公告 https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2026省考（历史批次）：报名2026-01-29 09:00至02-04 17:00；公共科目笔试2026-03-14，专业科目2026-03-15，均已结束。2026省直事业单位第四次招聘（历史批次）：报名2026-09-09 09:00至09-16 17:00；笔试2026-10-17 08:30—12:00，均已结束。本次未查到可核实的2027省考公告，不推测2027日期。 事业单位依据：https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html",
+     "basis": "考公考编专项巡检；省考公告 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml；省考指南 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx；事业单位公告 https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml",
+     "basis": "考公考编专项巡检；省考公告 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml；省考指南 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx；事业单位公告 https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx",
+     "basis": "考公考编专项巡检；省考公告 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml；省考指南 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx；事业单位公告 https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；省考公告 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml；省考指南 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx；事业单位公告 https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；省考公告 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml；省考指南 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx；事业单位公告 https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "2027省考公告未核实，保留2026历史信息。省直事业单位第四次招聘各岗位毕业年限与应届限制须核附件岗位表；长沙市属招聘未在本轮逐项核实。",
+     "basis": "考公考编专项巡检；省考公告 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml；省考指南 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx；事业单位公告 https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html"
     }
    ],
    "id": "changsha",
@@ -698,12 +796,12 @@
    },
    "civil_service": {
     "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "exam_schedule": "2027年度四川省级机关及直属机构公务员：报名2026年10月29日至11月4日08:00（已结束）；笔试2026年12月6日；准考证2026年12月1日至6日打印。仅核实省级机关公告，成都市职位须另核对本市公告。",
+    "announcement_url": "https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html",
+    "source_url": "https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "2027省考应届认定细则及成都本市公告未核实，fresh_grad_rule留null；2026事业单位仅核实省人大直属单位公告，不能代表全省或成都全部统招。",
     "access_blocked": false
    },
    "commute": {
@@ -749,6 +847,48 @@
      "old": null,
      "new": "living_none=true, rent_none=true",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2027年度四川省级机关及直属机构公务员：报名2026年10月29日至11月4日08:00（已结束）；笔试2026年12月6日；准考证2026年12月1日至6日打印。仅核实省级机关公告，成都市职位须另核对本市公告。",
+     "basis": "考公考编专项巡检；四川省2027年度省级机关及其直属机构公开考试录用公务员公告 https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html；四川省人大常委会办公厅关于直属事业单位2026年上半年公开考试招聘工作人员公告 https://www.scspc.gov.cn/tzgg/202603/156174.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html",
+     "basis": "考公考编专项巡检；四川省2027年度省级机关及其直属机构公开考试录用公务员公告 https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html；四川省人大常委会办公厅关于直属事业单位2026年上半年公开考试招聘工作人员公告 https://www.scspc.gov.cn/tzgg/202603/156174.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html",
+     "basis": "考公考编专项巡检；四川省2027年度省级机关及其直属机构公开考试录用公务员公告 https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html；四川省人大常委会办公厅关于直属事业单位2026年上半年公开考试招聘工作人员公告 https://www.scspc.gov.cn/tzgg/202603/156174.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；四川省2027年度省级机关及其直属机构公开考试录用公务员公告 https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html；四川省人大常委会办公厅关于直属事业单位2026年上半年公开考试招聘工作人员公告 https://www.scspc.gov.cn/tzgg/202603/156174.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；四川省2027年度省级机关及其直属机构公开考试录用公务员公告 https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html；四川省人大常委会办公厅关于直属事业单位2026年上半年公开考试招聘工作人员公告 https://www.scspc.gov.cn/tzgg/202603/156174.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "2027省考应届认定细则及成都本市公告未核实，fresh_grad_rule留null；2026事业单位仅核实省人大直属单位公告，不能代表全省或成都全部统招。",
+     "basis": "考公考编专项巡检；四川省2027年度省级机关及其直属机构公开考试录用公务员公告 https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html；四川省人大常委会办公厅关于直属事业单位2026年上半年公开考试招聘工作人员公告 https://www.scspc.gov.cn/tzgg/202603/156174.html"
     }
    ],
    "id": "chengdu",
@@ -1008,8 +1148,8 @@
     "announcement_url": null,
     "source_url": null,
     "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "needs_human": true,
+    "needs_human_reason": "公务员2026公告、区县事业单位2026第三季度公告及政府转载页均超时，未读到正文；搜索摘要仅线索，不填写事实字段。不确定是否存在访问拦截，access_blocked=false仅指未观察到403/412/521或验证码。",
     "access_blocked": false
    },
    "commute": {
@@ -1041,6 +1181,20 @@
      "old": null,
      "new": "living_none=true, rent_none=true",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；官网正文读取失败，未将搜索摘要写为事实。https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2026/202601/t20260115_15323576.html；https://www.cqyz.gov.cn/zwgk_229/fdzdgknr/zkly_31707/zklm/202601/t20260121_15342499.html；https://jgswj.cq.gov.cn/zfxxgkzl/zfxxgkml/gwyzlxx/202603/t20260309_15511195_wap.html；https://tyj.cq.gov.cn/zwgk_253/fdzdgknr/gwyzl/202601/t20260116_15325273_wap.html；https://rlsbj.cq.gov.cn/zwxx_182/sydw/sydwgkzp2026/202608/t20260828_15993554.html；https://www.cq.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zkgg/202608/t20260828_15999996.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "公务员2026公告、区县事业单位2026第三季度公告及政府转载页均超时，未读到正文；搜索摘要仅线索，不填写事实字段。不确定是否存在访问拦截，access_blocked=false仅指未观察到403/412/521或验证码。",
+     "basis": "考公考编专项巡检；官网正文读取失败，未将搜索摘要写为事实。https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2026/202601/t20260115_15323576.html；https://www.cqyz.gov.cn/zwgk_229/fdzdgknr/zkly_31707/zklm/202601/t20260121_15342499.html；https://jgswj.cq.gov.cn/zfxxgkzl/zfxxgkml/gwyzlxx/202603/t20260309_15511195_wap.html；https://tyj.cq.gov.cn/zwgk_253/fdzdgknr/gwyzl/202601/t20260116_15325273_wap.html；https://rlsbj.cq.gov.cn/zwxx_182/sydw/sydwgkzp2026/202608/t20260828_15993554.html；https://www.cq.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zkgg/202608/t20260828_15999996.html"
     }
    ],
    "id": "chongqing",
@@ -1213,15 +1367,15 @@
     "verified_at": "2026-11-09"
    },
    "social_security": {
-    "base_min": null,
-    "base_max": null,
-    "year": null,
-    "scope": null,
-    "source_url": null,
-    "source_type": null,
-    "verified_at": null,
-    "needs_human": true,
-    "needs_human_reason": "广州 2026 年养老保险缴费基数下限未找到官方原文；搜索摘要称 2025-07-01 起下限 5510、上限 27549 元（来源页面未打开核实）。",
+    "base_min": 5521,
+    "base_max": 27603,
+    "year": "2026 社保年度（2026-07 至 2027-06）",
+    "scope": "广东省统一（企业职工基本养老保险）；职工医保（含生育）为广州市定基数 6234–31170（2026 自然年度，穗医保规字〔2022〕1号公式核定）；失业保险下限为最低工资 2680（2026-09-01 起），上限官方未公布具体数额；工伤保险按单位工资总额计费，无个人统一基数",
+    "source_url": "https://hrss.gd.gov.cn/zwgk/gsgg/content/post_4957552.html",
+    "source_type": "gov",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
     "access_blocked": false
    },
    "living": {
@@ -1258,13 +1412,13 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "fresh_grad_rule": "2027省考区分“限2027届”与“限应届”：前者面向统招2027届非在职毕业生；后者还包括2025、2026届未落实工作单位者、2025-01-09至报名首日取得境外学历学位且未就业并按时认证者、正在服务基层项目或期满考核合格2年内者；应届岗须以最高学历专业报考。2026事业单位集中招聘应届岗还覆盖当届职业学校、技工院校毕业生等，须按该批次指南单独认定，不可套用2027省考年份。 事业单位依据：https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx",
+    "exam_schedule": "2027省考：报名2026-11-02 09:00至11-06 16:00，已结束；缴费确认2026-11-14 09:00至11-16 16:00；笔试2026-12-06，行测14:00—15:30、申论16:15—18:45。2026事业单位集中招聘（历史批次）：报名2026-02-02 09:00至02-06 16:00，已结束；原公告只载笔试2026年3月，具体日期待补核。 事业单位依据：https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html",
+    "announcement_url": "https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html",
+    "source_url": "https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "仅完成省级口径核实；2026事业单位集中招聘公告仅载3月笔试，后续具体日期尚未读到。广州、深圳各自独立事业单位批次不由省级内容替代。",
     "access_blocked": false
    },
    "commute": {
@@ -1292,10 +1446,66 @@
     },
     {
      "date": "2026-11-09",
+     "field": "social_security.base_min/base_max",
+     "old": null,
+     "new": "5521 / 27603（企业职工基本养老保险，广东省统一，2026 社保年度）",
+     "basis": "粤人社发〔2026〕24号《广东省人力资源和社会保障厅 广东省财政厅 国家税务总局广东省税务局关于公布2026年职工基本养老保险缴费基数上下限有关问题的通知》原文「自2026年7月1日起，全省企业职工基本养老保险缴费基数上限调整为27603元，缴费基数下限调整为5521元」；广州无全险种统一基数，医保等口径差异已写进 scope"
+    },
+    {
+     "date": "2026-11-09",
      "field": "subsidy_scan",
      "old": null,
      "new": "living_none=false, rent_none=true",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "2027省考区分“限2027届”与“限应届”：前者面向统招2027届非在职毕业生；后者还包括2025、2026届未落实工作单位者、2025-01-09至报名首日取得境外学历学位且未就业并按时认证者、正在服务基层项目或期满考核合格2年内者；应届岗须以最高学历专业报考。2026事业单位集中招聘应届岗还覆盖当届职业学校、技工院校毕业生等，须按该批次指南单独认定，不可套用2027省考年份。 事业单位依据：https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx",
+     "basis": "考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2027省考：报名2026-11-02 09:00至11-06 16:00，已结束；缴费确认2026-11-14 09:00至11-16 16:00；笔试2026-12-06，行测14:00—15:30、申论16:15—18:45。2026事业单位集中招聘（历史批次）：报名2026-02-02 09:00至02-06 16:00，已结束；原公告只载笔试2026年3月，具体日期待补核。 事业单位依据：https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html",
+     "basis": "考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html",
+     "basis": "考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc",
+     "basis": "考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "仅完成省级口径核实；2026事业单位集中招聘公告仅载3月笔试，后续具体日期尚未读到。广州、深圳各自独立事业单位批次不由省级内容替代。",
+     "basis": "考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx"
     }
    ],
    "id": "guangzhou",
@@ -1304,7 +1514,7 @@
     "living_subsidy": "lead",
     "rent_subsidy": "none",
     "rent": "verified",
-    "social_security": "missing",
+    "social_security": "verified",
     "cost": "verified"
    },
    "by_degree": {
@@ -1386,7 +1596,7 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 2,
+   "needs_human_count": 1,
    "index": {
     "rent": {
      "value": 0.1985,
@@ -1578,13 +1788,13 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "fresh_grad_rule": "仅限2026下半年省属事业单位集中招聘批次：应届主要为按学制于2026年内完成学业并取得学历学位的普通高校毕业生，岗位另有取证时限从其规定；政策规定视同应届的群体也可报。省考应届口径及事业单位视同群体完整范围待核实。",
+    "exam_schedule": "2026下半年省属事业单位集中招聘（历史批次，非省考）：报名2026-08-13 09:00至08-19 16:00；笔试2026-09-19，均已结束。2027省考日程尚待省级/目标市官方原文核实。",
+    "announcement_url": "https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html",
+    "source_url": "https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "已核实2026下半年省属事业单位公告；2027省考省级/杭州/宁波公告和指南未核实，省考试录用网https://gwy.zjks.gov.cn/打开超时；事业单位视同应届群体的具体范围及两市市属统招另待核实。",
     "access_blocked": false
    },
    "commute": {
@@ -1613,6 +1823,55 @@
      "old": null,
      "new": "首次采集",
      "basis": "杭政办函〔2023〕45号原文、市公安局 2025-09-05 答复、浙人社发〔2026〕52号及解读、杭州医保 2026 通告、杭州统计局 2025 人民生活公报、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "仅限2026下半年省属事业单位集中招聘批次：应届主要为按学制于2026年内完成学业并取得学历学位的普通高校毕业生，岗位另有取证时限从其规定；政策规定视同应届的群体也可报。省考应届口径及事业单位视同群体完整范围待核实。",
+     "basis": "考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2026下半年省属事业单位集中招聘（历史批次，非省考）：报名2026-08-13 09:00至08-19 16:00；笔试2026-09-19，均已结束。2027省考日程尚待省级/目标市官方原文核实。",
+     "basis": "考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html",
+     "basis": "考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html",
+     "basis": "考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "已核实2026下半年省属事业单位公告；2027省考省级/杭州/宁波公告和指南未核实，省考试录用网https://gwy.zjks.gov.cn/打开超时；事业单位视同应届群体的具体范围及两市市属统招另待核实。",
+     "basis": "考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html"
     }
    ],
    "id": "hangzhou",
@@ -1895,13 +2154,13 @@
    },
    "civil_service": {
     "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
-    "access_blocked": false
+    "exam_schedule": "2026年度安徽省考历史批次：报名2026年1月19日09:00至1月25日18:00；公共科目笔试3月14日09:00—11:00行测、14:00—16:30申论；专业科目3月15日09:00—11:00，均已结束。未核实2027省考公告。",
+    "announcement_url": "https://www.hfxf.gov.cn/rsks/gwy/18913707.html",
+    "source_url": "https://www.hfxf.gov.cn/rsks/gwy/18913707.html",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "2026省考报考指南DOCX返回403，已停止、不绕过；应届细则留null。事业单位省直统招公告未读到可用原文（省地震局参与公告重定向循环）；2027省考最新状态需人工复核。",
+    "access_blocked": true
    },
    "commute": {
     "avg_commute_minutes": null,
@@ -1920,6 +2179,55 @@
      "old": null,
      "new": "首次采集（大部分官网无法访问）",
      "basis": "中指研究院 2026 年 9 月租金；其余见各项 needs_human_reason"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2026年度安徽省考历史批次：报名2026年1月19日09:00至1月25日18:00；公共科目笔试3月14日09:00—11:00行测、14:00—16:30申论；专业科目3月15日09:00—11:00，均已结束。未核实2027省考公告。",
+     "basis": "考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.hfxf.gov.cn/rsks/gwy/18913707.html",
+     "basis": "考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://www.hfxf.gov.cn/rsks/gwy/18913707.html",
+     "basis": "考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "2026省考报考指南DOCX返回403，已停止、不绕过；应届细则留null。事业单位省直统招公告未读到可用原文（省地震局参与公告重定向循环）；2027省考最新状态需人工复核。",
+     "basis": "考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.access_blocked",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html"
     }
    ],
    "id": "hefei",
@@ -2153,11 +2461,11 @@
     }
    ],
    "social_security": {
-    "base_min": 4504,
-    "base_max": 22518,
-    "year": "2025（2025-01-01 至 2025-12-31；2026 年度山东标准截至 2026-11-09 未见公布）",
-    "scope": "山东全省（养老、医疗、工伤、失业）",
-    "source_url": "http://hrss.shandong.gov.cn/articles/ch07931/202512/3ad6c431-8dbf-4ec8-b576-19e35c6ba8d3.shtml",
+    "base_min": 4573,
+    "base_max": 22863,
+    "year": "2026（2026 年度，鲁人社字〔2026〕75号）",
+    "scope": "山东全省（养老、医疗、长期护理、工伤、失业）",
+    "source_url": "https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html",
     "source_type": "gov",
     "verified_at": "2026-11-09",
     "needs_human": false,
@@ -2182,32 +2490,32 @@
     "access_blocked": false
    },
    "flexible_employment": {
-    "pension_base_min": null,
-    "pension_rate": null,
-    "pension_year": null,
-    "medical_monthly_min": null,
-    "medical_note": null,
-    "monthly_total_min": null,
-    "calc": null,
+    "pension_base_min": 4573,
+    "pension_rate": 20,
+    "pension_year": 2026,
+    "medical_monthly_min": 330.11,
+    "medical_note": "济南市医保局口径（2026 年度，2026-09-01 起）：缴费基数固定按下限 4573 元，不建立个人账户费率 7% + 职工大额医疗费 10 元 = 330.11 元/月；建立个人账户费率 9% 为 411.57 元/月",
+    "monthly_total_min": 1244.71,
+    "calc": "养老 4573 × 20% = 914.60；医保 330.11（7% 档）；合计 1244.71 元/月",
     "hukou_restriction": null,
     "nonlocal_allowed": null,
     "apply_channel": null,
-    "source_url": null,
-    "medical_source_url": null,
+    "source_url": "https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html",
+    "medical_source_url": "http://ybj.jinan.gov.cn/col/col116777/art/2026/art_d23ae2576b954cefa27abf820b467a04.html",
     "hukou_source_url": null,
-    "verified_at": null,
+    "verified_at": "2026-11-09",
     "needs_human": true,
-    "needs_human_reason": "山东 2026 年度基数未公布；济南灵活就业医保月缴额未查。",
+    "needs_human_reason": "外地户籍能否以灵活就业身份在济南参保（养老、医保）尚未核实；其余字段已按鲁人社字〔2026〕75号与济南市医保局 2026 年口径补齐。",
     "access_blocked": false
    },
    "civil_service": {
     "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "exam_schedule": "2027济南市各级机关公务员：报名2026-11-06 09:00至11-09 16:00（已结束）；公共科目笔试2026-12-06，均为北京时间。",
+    "announcement_url": "https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html",
+    "source_url": "https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "未核实山东省级及济南、青岛2027报考指南的完整应届认定，fresh_grad_rule留空。烟台指南仅适用烟台，不能直接套用。青岛市级公告及2026省属事业统招应聘须知仍待核实。",
     "access_blocked": false
    },
    "commute": {
@@ -2227,6 +2535,62 @@
      "old": null,
      "new": "首次采集",
      "basis": "济南支持高校毕业生就业创业政策40条（2024版）、山东 2025 年度社保基数通知、济南 2025 统计公报、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "social_security.base_min/base_max",
+     "old": "4504 / 22518（2025 年度）",
+     "new": "4573 / 22863（2026 年度）",
+     "basis": "鲁人社字〔2026〕75号（山东省人社厅、省医保局、省税务局、青岛市税务局 2026-08-14 印发，济南市政府网转载全文）原文「我省2026年度职工基本养老保险、职工基本医疗保险、职工长期护理保险、工伤保险、失业保险个人月缴费基数的上限为22863元，下限为4573元」"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "flexible_employment（养老基数、医保月缴、每月合计）",
+     "old": null,
+     "new": "养老基数下限 4573（2026）、医保月缴最低 330.11、每月合计最低 1244.71",
+     "basis": "养老基数同鲁人社字〔2026〕75号；医保为济南市医保局 2026 年口径（基数 4573，7% 档 330.11 元/月含大额医疗费 10 元）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2027济南市各级机关公务员：报名2026-11-06 09:00至11-09 16:00（已结束）；公共科目笔试2026-12-06，均为北京时间。",
+     "basis": "考公考编专项巡检；2027年度山东省省级机关及其直属机构考试录用公务员公告（重庆市委党校官方转载） https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html；2027年度济南市各级机关考试录用公务员公告发布 https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html；2027年度烟台市各级机关考试录用公务员报考指南 https://www.yantai.gov.cn/col/col51398/art/2026/art_24a0d55c1f9c4466be3149929429d2a7.html；2026事业单位招聘公告（历史批次） https://www.jinan.gov.cn/zt/2025nzt/yhyshj/rcbf/qzzp/art/2026/art_01d480a8b56929600263bed5185da7eb.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html",
+     "basis": "考公考编专项巡检；2027年度山东省省级机关及其直属机构考试录用公务员公告（重庆市委党校官方转载） https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html；2027年度济南市各级机关考试录用公务员公告发布 https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html；2027年度烟台市各级机关考试录用公务员报考指南 https://www.yantai.gov.cn/col/col51398/art/2026/art_24a0d55c1f9c4466be3149929429d2a7.html；2026事业单位招聘公告（历史批次） https://www.jinan.gov.cn/zt/2025nzt/yhyshj/rcbf/qzzp/art/2026/art_01d480a8b56929600263bed5185da7eb.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html",
+     "basis": "考公考编专项巡检；2027年度山东省省级机关及其直属机构考试录用公务员公告（重庆市委党校官方转载） https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html；2027年度济南市各级机关考试录用公务员公告发布 https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html；2027年度烟台市各级机关考试录用公务员报考指南 https://www.yantai.gov.cn/col/col51398/art/2026/art_24a0d55c1f9c4466be3149929429d2a7.html；2026事业单位招聘公告（历史批次） https://www.jinan.gov.cn/zt/2025nzt/yhyshj/rcbf/qzzp/art/2026/art_01d480a8b56929600263bed5185da7eb.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；2027年度山东省省级机关及其直属机构考试录用公务员公告（重庆市委党校官方转载） https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html；2027年度济南市各级机关考试录用公务员公告发布 https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html；2027年度烟台市各级机关考试录用公务员报考指南 https://www.yantai.gov.cn/col/col51398/art/2026/art_24a0d55c1f9c4466be3149929429d2a7.html；2026事业单位招聘公告（历史批次） https://www.jinan.gov.cn/zt/2025nzt/yhyshj/rcbf/qzzp/art/2026/art_01d480a8b56929600263bed5185da7eb.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；2027年度山东省省级机关及其直属机构考试录用公务员公告（重庆市委党校官方转载） https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html；2027年度济南市各级机关考试录用公务员公告发布 https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html；2027年度烟台市各级机关考试录用公务员报考指南 https://www.yantai.gov.cn/col/col51398/art/2026/art_24a0d55c1f9c4466be3149929429d2a7.html；2026事业单位招聘公告（历史批次） https://www.jinan.gov.cn/zt/2025nzt/yhyshj/rcbf/qzzp/art/2026/art_01d480a8b56929600263bed5185da7eb.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "未核实山东省级及济南、青岛2027报考指南的完整应届认定，fresh_grad_rule留空。烟台指南仅适用烟台，不能直接套用。青岛市级公告及2026省属事业统招应聘须知仍待核实。",
+     "basis": "考公考编专项巡检；2027年度山东省省级机关及其直属机构考试录用公务员公告（重庆市委党校官方转载） https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html；2027年度济南市各级机关考试录用公务员公告发布 https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html；2027年度烟台市各级机关考试录用公务员报考指南 https://www.yantai.gov.cn/col/col51398/art/2026/art_24a0d55c1f9c4466be3149929429d2a7.html；2026事业单位招聘公告（历史批次） https://www.jinan.gov.cn/zt/2025nzt/yhyshj/rcbf/qzzp/art/2026/art_01d480a8b56929600263bed5185da7eb.html"
     }
    ],
    "id": "jinan",
@@ -2397,56 +2761,62 @@
     {
      "name": "高校毕业生一次性生活补贴",
      "type": "living",
-     "amount": null,
+     "amount": "学士 1 万元、硕士 3 万元、博士 10 万元，同一人只能享受一次（分两笔各发 50%：连续参保满 6 个月后申领第一笔、满 12 个月后申领第二笔）",
      "amount_by_degree": {
       "associate": null,
-      "bachelor": null,
-      "master": null,
-      "phd": null
+      "bachelor": 10000,
+      "master": 30000,
+      "phd": 100000
      },
-     "period": null,
-     "periods_max": null,
-     "payout": null,
-     "target": null,
-     "conditions": [],
-     "deadline_rule": null,
-     "policy_name": null,
-     "source_url": null,
-     "source_date": null,
-     "valid_until": null,
-     "verified_at": null,
-     "needs_human": true,
-     "needs_human_reason": "官网被拦截（HTTP 403），无法打开原文。需人工打开 lead_url 核对金额、条件、发文文号和有效期。",
-     "access_blocked": true,
-     "lead": "搜索摘要称南京 2026 年初人才新政对在宁就业的高校毕业生发放一次性生活补贴：学士 1 万元、硕士 3 万元、博士 10 万元",
-     "lead_url": "https://www.nanjing.gov.cn/zzb/ywdt/njxx/202601/t20260106_5757786.html"
+     "period": "once",
+     "periods_max": 1,
+     "payout": "分两笔各 50%",
+     "target": "在南京市各类用人单位就业创业、取得学士及以上学位的全日制普通高校毕业生（含国（境）外），或首次就业创业的非全日制研究生；在宁缴纳企业职工基本养老保险等（条件满足其一，见原文）",
+     "conditions": [
+      "参保首月须在毕业后 1 年内，第一笔申领须在毕业后一年半内，第二笔申领须在毕业后两年内，逾期不补发"
+     ],
+     "deadline_rule": "第二笔申领须在毕业后 2 年内",
+     "policy_name": "《南京市高校毕业生生活补贴操作办法》（宁人社规〔2026〕5号）",
+     "source_url": "https://rsj.nanjing.gov.cn/njsrlzyhshbzj/202603/t20260304_5799881.html",
+     "source_date": "2026-02-12",
+     "valid_until": "2028-12-31",
+     "verified_at": "2026-11-09",
+     "needs_human": false,
+     "needs_human_reason": null,
+     "access_blocked": false,
+     "lead": null,
+     "lead_url": null
     },
     {
      "name": "高校毕业生住房租赁补贴",
      "type": "rent",
-     "amount": null,
+     "amount": "博士每人每月 2000 元、硕士每人每月 800 元、学士（含高级工及以上）每人每月 600 元，补贴发放累计不超过 36 个月",
      "amount_by_degree": {
       "associate": null,
-      "bachelor": null,
-      "master": null,
-      "phd": null
+      "bachelor": 600,
+      "master": 800,
+      "phd": 2000
      },
-     "period": null,
-     "periods_max": null,
-     "payout": null,
-     "target": null,
-     "conditions": [],
-     "deadline_rule": null,
-     "policy_name": null,
-     "source_url": null,
-     "source_date": null,
+     "period": "month",
+     "periods_max": 36,
+     "payout": "按月（每连续参保缴费 6 个月可申领一次）",
+     "target": "与南京市用人单位签订劳动合同的高校毕业生（无房为必要条件）",
+     "conditions": [
+      "首次申请应在毕业之日起 2 年半内提交，末次申请应在享受补贴的首月起 5 年内提交",
+      "审核采用「3+1」要素：无房、学历、社保 + 租住状态承诺",
+      "2026 年起另有提标：大专（高级工以上）500 元/月、重点领域规上企业新引进毕业生博士 2400 元/月、硕士 960 元/月等（宁人社规〔2026〕6号），详见原文；本条记全市统一基础标准"
+     ],
+     "deadline_rule": "首次申请须在毕业之日起 2 年半内",
+     "policy_name": "《南京市人力资源和社会保障局等七部门关于优化调整高校毕业生住房租赁补贴政策的通知》（宁人社规〔2025〕2号，2025-10-01 起施行，有效期 5 年）；2026 年调整为宁人社规〔2026〕6号",
+     "source_url": "https://rsj.nanjing.gov.cn/njsrlzyhshbzj/202510/P020251023387958026408.pdf",
+     "source_date": "2025-09-29",
      "valid_until": null,
-     "verified_at": null,
-     "needs_human": true,
-     "needs_human_reason": "官网被拦截（HTTP 403），无法打开原文。需人工核对宁人社规〔2025〕2号与 2026-03 十部门通知（宁人社规〔2026〕6号？）的现行标准和有效期。",
-     "access_blocked": true,
-     "lead": "搜索摘要：宁人社规〔2025〕2号（2025-10-01 起）标准为博士每月 2000 元、硕士 800 元、学士（含高级工）600 元，累计不超过 36 个月，首次申请须在毕业 2 年半内；2026-03 十部门通知对重点领域企业另有上浮，有效期至 2028-12-31",
-     "lead_url": "https://rsj.nanjing.gov.cn/njsrlzyhshbzj/202603/t20260304_5799867.html"
+     "verified_at": "2026-11-09",
+     "needs_human": false,
+     "needs_human_reason": null,
+     "access_blocked": false,
+     "lead": null,
+     "lead_url": null
     }
    ],
    "social_security": {
@@ -2495,11 +2865,11 @@
     "access_blocked": true
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
+    "fresh_grad_rule": "2027南京公务员：一般职位不限生源/户籍，特殊职位另定。应届专岗60—69仅2027普通高校应届及指南列明特定退役、留学、基层服务群体；研究生取得相应学位者不限生源，其他须江苏生源，不能将此限制套给全部岗位。以以前学历或非普通高校学历报考不按应届身份。 另：2026省属事业统招允许2024、2025普通高校毕业生报名时无工作单位者报2026毕业生岗（历史批次）。来源：https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html",
+    "exam_schedule": "2027省考：报名2026-11-03 09:00至11-09 16:00；公共科目笔试2026-12-06，公安专业科目12-05。报名已结束，时间均为北京时间。",
+    "announcement_url": "https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html",
+    "source_url": "https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html",
+    "verified_at": "2026-11-09",
     "needs_human": false,
     "needs_human_reason": null,
     "access_blocked": false
@@ -2535,13 +2905,62 @@
      "old": null,
      "new": 49506,
      "basis": "同上公报原文「城镇居民人均消费支出49506元，增长3.3%」；南京市统计局局长信箱 2026-04-27 答复亦确认此数"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidies（高校毕业生一次性生活补贴）",
+     "old": "null（仅有线索）",
+     "new": "学士 1 万元、硕士 3 万元、博士 10 万元（一次性，分两笔各 50%）",
+     "basis": "《南京市高校毕业生生活补贴操作办法》（宁人社规〔2026〕5号，南京市人社局官网原文），有效期至 2028-12-31"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidies（高校毕业生住房租赁补贴）",
+     "old": "null（仅有线索）",
+     "new": "博士 2000 元/月、硕士 800 元/月、学士 600 元/月，最长 36 个月",
+     "basis": "宁人社规〔2025〕2号（南京市人社局官网原文）；2026 年重点领域提标见宁人社规〔2026〕6号，已记入 conditions"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "2027南京公务员：一般职位不限生源/户籍，特殊职位另定。应届专岗60—69仅2027普通高校应届及指南列明特定退役、留学、基层服务群体；研究生取得相应学位者不限生源，其他须江苏生源，不能将此限制套给全部岗位。以以前学历或非普通高校学历报考不按应届身份。 另：2026省属事业统招允许2024、2025普通高校毕业生报名时无工作单位者报2026毕业生岗（历史批次）。来源：https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；南京市2027年度考试录用公务员简章 https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html；南京市2027年度考试录用公务员报考指南 https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2027省考：报名2026-11-03 09:00至11-09 16:00；公共科目笔试2026-12-06，公安专业科目12-05。报名已结束，时间均为北京时间。",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；南京市2027年度考试录用公务员简章 https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html；南京市2027年度考试录用公务员报考指南 https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；南京市2027年度考试录用公务员简章 https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html；南京市2027年度考试录用公务员报考指南 https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；南京市2027年度考试录用公务员简章 https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html；南京市2027年度考试录用公务员报考指南 https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；南京市2027年度考试录用公务员简章 https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html；南京市2027年度考试录用公务员报考指南 https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
     }
    ],
    "id": "nanjing",
    "status": {
     "hukou": "blocked",
-    "living_subsidy": "blocked",
-    "rent_subsidy": "blocked",
+    "living_subsidy": "verified",
+    "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"
@@ -2554,114 +2973,89 @@
      "rent_subsidy_per_year": null,
      "first_year": 0,
      "counted": [],
-     "excluded": [
-      {
-       "index": 0,
-       "name": "高校毕业生一次性生活补贴",
-       "type": "living",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
-      },
-      {
-       "index": 1,
-       "name": "高校毕业生住房租赁补贴",
-       "type": "rent",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
-      }
-     ]
+     "excluded": []
     },
     "bachelor": {
      "hukou_eligible": null,
      "hukou_age_max": null,
-     "total": 0,
+     "total": 31600,
      "rent_subsidy_per_year": null,
-     "first_year": 0,
-     "counted": [],
-     "excluded": [
+     "first_year": 17200,
+     "counted": [
       {
        "index": 0,
        "name": "高校毕业生一次性生活补贴",
        "type": "living",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "per": 10000,
+       "period": "once",
+       "total": 10000
       },
       {
        "index": 1,
        "name": "高校毕业生住房租赁补贴",
        "type": "rent",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "per": 600,
+       "period": "month",
+       "total": 21600
       }
-     ]
+     ],
+     "excluded": []
     },
     "master": {
      "hukou_eligible": null,
      "hukou_age_max": null,
-     "total": 0,
+     "total": 58800,
      "rent_subsidy_per_year": null,
-     "first_year": 0,
-     "counted": [],
-     "excluded": [
+     "first_year": 39600,
+     "counted": [
       {
        "index": 0,
        "name": "高校毕业生一次性生活补贴",
        "type": "living",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "per": 30000,
+       "period": "once",
+       "total": 30000
       },
       {
        "index": 1,
        "name": "高校毕业生住房租赁补贴",
        "type": "rent",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "per": 800,
+       "period": "month",
+       "total": 28800
       }
-     ]
+     ],
+     "excluded": []
     },
     "phd": {
      "hukou_eligible": null,
      "hukou_age_max": null,
-     "total": 0,
+     "total": 172000,
      "rent_subsidy_per_year": null,
-     "first_year": 0,
-     "counted": [],
-     "excluded": [
+     "first_year": 124000,
+     "counted": [
       {
        "index": 0,
        "name": "高校毕业生一次性生活补贴",
        "type": "living",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "per": 100000,
+       "period": "once",
+       "total": 100000
       },
       {
        "index": 1,
        "name": "高校毕业生住房租赁补贴",
        "type": "rent",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "per": 2000,
+       "period": "month",
+       "total": 72000
       }
-     ]
+     ],
+     "excluded": []
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 3,
+   "needs_human_count": 1,
    "index": {
     "rent": {
      "value": 0.1488,
@@ -2679,9 +3073,9 @@
      "reason": "落户政策未核实"
     },
     "subsidy": {
-     "value": null,
-     "ok": false,
-     "reason": "有补贴待核实：高校毕业生一次性生活补贴、高校毕业生住房租赁补贴"
+     "value": 17200,
+     "ok": true,
+     "reason": null
     },
     "commute": {
      "value": null,
@@ -2850,13 +3244,13 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "fresh_grad_rule": "仅限2026下半年省属事业单位集中招聘批次：应届主要为按学制于2026年内完成学业并取得学历学位的普通高校毕业生，岗位另有取证时限从其规定；政策规定视同应届的群体也可报。省考应届口径及事业单位视同群体完整范围待核实。",
+    "exam_schedule": "2026下半年省属事业单位集中招聘（历史批次，非省考）：报名2026-08-13 09:00至08-19 16:00；笔试2026-09-19，均已结束。2027省考日程尚待省级/目标市官方原文核实。",
+    "announcement_url": "https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html",
+    "source_url": "https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "已核实2026下半年省属事业单位公告；2027省考省级/杭州/宁波公告和指南未核实，省考试录用网https://gwy.zjks.gov.cn/打开超时；事业单位视同应届群体的具体范围及两市市属统招另待核实。",
     "access_blocked": false
    },
    "commute": {
@@ -2876,6 +3270,55 @@
      "old": null,
      "new": "首次采集",
      "basis": "宁波市政府办公厅 2020 落户通知、宁波市人才政策页（2025-04）、浙人社发〔2026〕52号解读、宁波 2025 统计公报、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "仅限2026下半年省属事业单位集中招聘批次：应届主要为按学制于2026年内完成学业并取得学历学位的普通高校毕业生，岗位另有取证时限从其规定；政策规定视同应届的群体也可报。省考应届口径及事业单位视同群体完整范围待核实。",
+     "basis": "考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2026下半年省属事业单位集中招聘（历史批次，非省考）：报名2026-08-13 09:00至08-19 16:00；笔试2026-09-19，均已结束。2027省考日程尚待省级/目标市官方原文核实。",
+     "basis": "考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html",
+     "basis": "考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html",
+     "basis": "考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "已核实2026下半年省属事业单位公告；2027省考省级/杭州/宁波公告和指南未核实，省考试录用网https://gwy.zjks.gov.cn/打开超时；事业单位视同应届群体的具体范围及两市市属统招另待核实。",
+     "basis": "考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html"
     }
    ],
    "id": "ningbo",
@@ -3106,11 +3549,11 @@
     "verified_at": "2026-11-09"
    },
    "social_security": {
-    "base_min": 4504,
-    "base_max": 22518,
-    "year": "2025（2025-01-01 至 2025-12-31；2026 年度山东标准截至 2026-11-09 未见公布）",
-    "scope": "山东全省（养老、医疗、工伤、失业）",
-    "source_url": "http://hrss.shandong.gov.cn/articles/ch07931/202512/3ad6c431-8dbf-4ec8-b576-19e35c6ba8d3.shtml",
+    "base_min": 4573,
+    "base_max": 22863,
+    "year": "2026（2026 年度，鲁人社字〔2026〕75号）",
+    "scope": "山东全省（养老、医疗、长期护理、工伤、失业）",
+    "source_url": "https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html",
     "source_type": "gov",
     "verified_at": "2026-11-09",
     "needs_human": false,
@@ -3133,32 +3576,32 @@
     "access_blocked": false
    },
    "flexible_employment": {
-    "pension_base_min": null,
-    "pension_rate": null,
-    "pension_year": null,
+    "pension_base_min": 4573,
+    "pension_rate": 20,
+    "pension_year": 2026,
     "medical_monthly_min": null,
-    "medical_note": "青岛市医保局《社会医疗保险政策简表（2026）》为表格附件，正文未能提取",
+    "medical_note": "山东省统一规则（鲁政字〔2023〕184号）：灵活就业医保可按 7%（不建个人账户）或 9%（含 2% 入个人账户）缴纳，基数不低于全省平均工资 60%；青岛市级官方页面未明示本市 2026 年执行档位（青岛日报转述市医保局指南称为 9% 单档，未在官网核实），故月缴额暂不填报",
     "monthly_total_min": null,
     "calc": null,
     "hukou_restriction": null,
     "nonlocal_allowed": null,
     "apply_channel": null,
-    "source_url": null,
+    "source_url": "https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html",
     "medical_source_url": null,
     "hukou_source_url": null,
-    "verified_at": null,
+    "verified_at": "2026-11-09",
     "needs_human": true,
-    "needs_human_reason": "山东 2026 年度基数未公布；青岛 2026 灵活就业医保标准在 http://ybj.qingdao.gov.cn/gg_117/202602/t20260204_10502903.shtml 的表格里，需人工读取。",
+    "needs_human_reason": "青岛灵活就业医保执行档位（省级规则 7%/9% 两档，媒体称青岛为 9% 单档）未在市级官方页面核实，月缴额与每月合计暂缺；外地户籍参保条件未核实。养老部分已按鲁人社字〔2026〕75号补齐。",
     "access_blocked": false
    },
    "civil_service": {
     "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "exam_schedule": "2027省级机关省考报名2026-11-06 09:00至11-09 16:00；公共科目笔试2026-12-06。均为北京时间。济南公告同日程；青岛本市公告尚待核对。 截至2026-11-09北京时间20:08，本轮报名已结束。",
+    "announcement_url": "https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html",
+    "source_url": "https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "未核实山东省级及济南、青岛2027报考指南的完整应届认定，fresh_grad_rule留空。烟台指南仅适用烟台，不能直接套用。青岛市级公告及2026省属事业统招应聘须知仍待核实。",
     "access_blocked": false
    },
    "commute": {
@@ -3197,6 +3640,62 @@
      "old": null,
      "new": "living_none=true, rent_none=false",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "social_security.base_min/base_max",
+     "old": "4504 / 22518（2025 年度）",
+     "new": "4573 / 22863（2026 年度）",
+     "basis": "鲁人社字〔2026〕75号（2026-08-14 印发，受文对象含青岛市税务局，济南市政府网转载全文），原文同济南条目"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "flexible_employment.pension_base_min/pension_rate",
+     "old": null,
+     "new": "4573 / 20%（2026 年度）",
+     "basis": "养老基数同鲁人社字〔2026〕75号（山东全省统一）；医保档位未在青岛市级官方页面核实，medical_note 已记录省级规则与媒体线索，月缴额仍留空"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2027省级机关省考报名2026-11-06 09:00至11-09 16:00；公共科目笔试2026-12-06。均为北京时间。济南公告同日程；青岛本市公告尚待核对。 截至2026-11-09北京时间20:08，本轮报名已结束。",
+     "basis": "考公考编专项巡检；2027年度山东省省级机关及其直属机构考试录用公务员公告（重庆市委党校官方转载） https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html；2027年度济南市各级机关考试录用公务员公告发布 https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html；2027年度烟台市各级机关考试录用公务员报考指南 https://www.yantai.gov.cn/col/col51398/art/2026/art_24a0d55c1f9c4466be3149929429d2a7.html；2026事业单位招聘公告（历史批次） https://www.jinan.gov.cn/zt/2025nzt/yhyshj/rcbf/qzzp/art/2026/art_01d480a8b56929600263bed5185da7eb.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html",
+     "basis": "考公考编专项巡检；2027年度山东省省级机关及其直属机构考试录用公务员公告（重庆市委党校官方转载） https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html；2027年度济南市各级机关考试录用公务员公告发布 https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html；2027年度烟台市各级机关考试录用公务员报考指南 https://www.yantai.gov.cn/col/col51398/art/2026/art_24a0d55c1f9c4466be3149929429d2a7.html；2026事业单位招聘公告（历史批次） https://www.jinan.gov.cn/zt/2025nzt/yhyshj/rcbf/qzzp/art/2026/art_01d480a8b56929600263bed5185da7eb.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html",
+     "basis": "考公考编专项巡检；2027年度山东省省级机关及其直属机构考试录用公务员公告（重庆市委党校官方转载） https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html；2027年度济南市各级机关考试录用公务员公告发布 https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html；2027年度烟台市各级机关考试录用公务员报考指南 https://www.yantai.gov.cn/col/col51398/art/2026/art_24a0d55c1f9c4466be3149929429d2a7.html；2026事业单位招聘公告（历史批次） https://www.jinan.gov.cn/zt/2025nzt/yhyshj/rcbf/qzzp/art/2026/art_01d480a8b56929600263bed5185da7eb.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；2027年度山东省省级机关及其直属机构考试录用公务员公告（重庆市委党校官方转载） https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html；2027年度济南市各级机关考试录用公务员公告发布 https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html；2027年度烟台市各级机关考试录用公务员报考指南 https://www.yantai.gov.cn/col/col51398/art/2026/art_24a0d55c1f9c4466be3149929429d2a7.html；2026事业单位招聘公告（历史批次） https://www.jinan.gov.cn/zt/2025nzt/yhyshj/rcbf/qzzp/art/2026/art_01d480a8b56929600263bed5185da7eb.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；2027年度山东省省级机关及其直属机构考试录用公务员公告（重庆市委党校官方转载） https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html；2027年度济南市各级机关考试录用公务员公告发布 https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html；2027年度烟台市各级机关考试录用公务员报考指南 https://www.yantai.gov.cn/col/col51398/art/2026/art_24a0d55c1f9c4466be3149929429d2a7.html；2026事业单位招聘公告（历史批次） https://www.jinan.gov.cn/zt/2025nzt/yhyshj/rcbf/qzzp/art/2026/art_01d480a8b56929600263bed5185da7eb.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "未核实山东省级及济南、青岛2027报考指南的完整应届认定，fresh_grad_rule留空。烟台指南仅适用烟台，不能直接套用。青岛市级公告及2026省属事业统招应聘须知仍待核实。",
+     "basis": "考公考编专项巡检；2027年度山东省省级机关及其直属机构考试录用公务员公告（重庆市委党校官方转载） https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html；2027年度济南市各级机关考试录用公务员公告发布 https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html；2027年度烟台市各级机关考试录用公务员报考指南 https://www.yantai.gov.cn/col/col51398/art/2026/art_24a0d55c1f9c4466be3149929429d2a7.html；2026事业单位招聘公告（历史批次） https://www.jinan.gov.cn/zt/2025nzt/yhyshj/rcbf/qzzp/art/2026/art_01d480a8b56929600263bed5185da7eb.html"
     }
    ],
    "id": "qingdao",
@@ -3444,11 +3943,11 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
+    "fresh_grad_rule": "2027市考应届专岗面向国家统招、非定向且按时取得学历学位的2027届；境外学位取得期为2026-07-01至2027-06-30。2026事业单位第二批则允许2025、2026普通高校毕业生未落实编制内工作者按应届报考，不能混用两类口径。 事业单位来源：https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html",
+    "exam_schedule": "2027市考报名2026-11-01 00:00至11-07 12:00，已截止；缴费11-09 10:00至11-11 18:00；笔试12-06。均为北京时间。",
+    "announcement_url": "https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html",
+    "source_url": "https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html",
+    "verified_at": "2026-11-09",
     "needs_human": false,
     "needs_human_reason": null,
     "access_blocked": false
@@ -3486,6 +3985,41 @@
      "old": null,
      "new": "living_none=true, rent_none=true",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "2027市考应届专岗面向国家统招、非定向且按时取得学历学位的2027届；境外学位取得期为2026-07-01至2027-06-30。2026事业单位第二批则允许2025、2026普通高校毕业生未落实编制内工作者按应届报考，不能混用两类口径。 事业单位来源：https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html",
+     "basis": "考公考编专项巡检；沪2027年度考试录用公务员报名周六截止，宝山有这些岗位（政府门户转载市考公告） https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html；上海市2026年部分事业单位公开招聘（第二批）政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html；2026事业单位招聘公告（历史批次） https://rsj.sh.gov.cn/tgsgg_17341/20261015/t0035_1444213.html；事业单位招聘政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2027市考报名2026-11-01 00:00至11-07 12:00，已截止；缴费11-09 10:00至11-11 18:00；笔试12-06。均为北京时间。",
+     "basis": "考公考编专项巡检；沪2027年度考试录用公务员报名周六截止，宝山有这些岗位（政府门户转载市考公告） https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html；上海市2026年部分事业单位公开招聘（第二批）政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html；2026事业单位招聘公告（历史批次） https://rsj.sh.gov.cn/tgsgg_17341/20261015/t0035_1444213.html；事业单位招聘政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html",
+     "basis": "考公考编专项巡检；沪2027年度考试录用公务员报名周六截止，宝山有这些岗位（政府门户转载市考公告） https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html；上海市2026年部分事业单位公开招聘（第二批）政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html；2026事业单位招聘公告（历史批次） https://rsj.sh.gov.cn/tgsgg_17341/20261015/t0035_1444213.html；事业单位招聘政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html",
+     "basis": "考公考编专项巡检；沪2027年度考试录用公务员报名周六截止，宝山有这些岗位（政府门户转载市考公告） https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html；上海市2026年部分事业单位公开招聘（第二批）政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html；2026事业单位招聘公告（历史批次） https://rsj.sh.gov.cn/tgsgg_17341/20261015/t0035_1444213.html；事业单位招聘政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；沪2027年度考试录用公务员报名周六截止，宝山有这些岗位（政府门户转载市考公告） https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html；上海市2026年部分事业单位公开招聘（第二批）政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html；2026事业单位招聘公告（历史批次） https://rsj.sh.gov.cn/tgsgg_17341/20261015/t0035_1444213.html；事业单位招聘政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html"
     }
    ],
    "id": "shanghai",
@@ -3694,12 +4228,12 @@
    },
    "civil_service": {
     "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "exam_schedule": "2026年度辽宁省考（历史批次，报名和笔试均已结束）：报名2026-01-30 09:00至02-03 24:00；行测2026-03-14 09:00—11:00，申论14:00—16:30；公安专业科目2026-03-15 09:00—11:00。未核实到2027年度正式省考公告。 事业单位：报名2026-02-06 09:00至02-12 12:00；A类笔试2026-03-28 08:30—12:00；B/C/D/E类及综合行政执法类2026-03-29 08:30—12:00。报名及考试均已结束。 来源：https://rsj.fuxin.gov.cn/content/2026/1039920.html",
+    "announcement_url": "https://www.fuxin.gov.cn/content/2026/1038905.html",
+    "source_url": "https://www.fuxin.gov.cn/content/2026/1038905.html",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "2026省考报考指南关于择业期、留学和服务基层人员等应届认定未核实，fresh_grad_rule留null；未核实2027正式省考/事业单位统招公告。2026事业单位统招仅核实公告正文，应聘指南附件尚未完整解析。",
     "access_blocked": false
    },
    "commute": {
@@ -3738,6 +4272,48 @@
      "old": null,
      "new": 44505,
      "basis": "《2025年沈阳市国民经济和社会发展统计公报》（同上，原文为「人均生活消费支出」44505 元，市政府站部门动态稿同数字作「城镇居民人均消费支出」）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2026年度辽宁省考（历史批次，报名和笔试均已结束）：报名2026-01-30 09:00至02-03 24:00；行测2026-03-14 09:00—11:00，申论14:00—16:30；公安专业科目2026-03-15 09:00—11:00。未核实到2027年度正式省考公告。 事业单位：报名2026-02-06 09:00至02-12 12:00；A类笔试2026-03-28 08:30—12:00；B/C/D/E类及综合行政执法类2026-03-29 08:30—12:00。报名及考试均已结束。 来源：https://rsj.fuxin.gov.cn/content/2026/1039920.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.fuxin.gov.cn/content/2026/1038905.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://www.fuxin.gov.cn/content/2026/1038905.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "2026省考报考指南关于择业期、留学和服务基层人员等应届认定未核实，fresh_grad_rule留null；未核实2027正式省考/事业单位统招公告。2026事业单位统招仅核实公告正文，应聘指南附件尚未完整解析。",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html"
     }
    ],
    "id": "shenyang",
@@ -4046,13 +4622,13 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "fresh_grad_rule": "2027省考区分“限2027届”与“限应届”：前者面向统招2027届非在职毕业生；后者还包括2025、2026届未落实工作单位者、2025-01-09至报名首日取得境外学历学位且未就业并按时认证者、正在服务基层项目或期满考核合格2年内者；应届岗须以最高学历专业报考。2026事业单位集中招聘应届岗还覆盖当届职业学校、技工院校毕业生等，须按该批次指南单独认定，不可套用2027省考年份。 事业单位依据：https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx",
+    "exam_schedule": "2027省考：报名2026-11-02 09:00至11-06 16:00，已结束；缴费确认2026-11-14 09:00至11-16 16:00；笔试2026-12-06，行测14:00—15:30、申论16:15—18:45。2026事业单位集中招聘（历史批次）：报名2026-02-02 09:00至02-06 16:00，已结束；原公告只载笔试2026年3月，具体日期待补核。 事业单位依据：https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html",
+    "announcement_url": "https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html",
+    "source_url": "https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "仅完成省级口径核实；2026事业单位集中招聘公告仅载3月笔试，后续具体日期尚未读到。广州、深圳各自独立事业单位批次不由省级内容替代。",
     "access_blocked": false
    },
    "commute": {
@@ -4088,6 +4664,55 @@
      "old": null,
      "new": "5521 / 27603（企业职工基本养老保险，广东省统一，2026 社保年度）",
      "basis": "粤人社发〔2026〕24号原文「自2026年7月1日起，全省企业职工基本养老保险缴费基数上限调整为27603元，缴费基数下限调整为5521元」；深圳企业职工养老执行省定标准（深圳市人社局下限衔接通知及落实通知均称遵照省标准执行）；深圳无全险种统一基数，医保市定口径等差异已写进 scope"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "2027省考区分“限2027届”与“限应届”：前者面向统招2027届非在职毕业生；后者还包括2025、2026届未落实工作单位者、2025-01-09至报名首日取得境外学历学位且未就业并按时认证者、正在服务基层项目或期满考核合格2年内者；应届岗须以最高学历专业报考。2026事业单位集中招聘应届岗还覆盖当届职业学校、技工院校毕业生等，须按该批次指南单独认定，不可套用2027省考年份。 事业单位依据：https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx",
+     "basis": "考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2027省考：报名2026-11-02 09:00至11-06 16:00，已结束；缴费确认2026-11-14 09:00至11-16 16:00；笔试2026-12-06，行测14:00—15:30、申论16:15—18:45。2026事业单位集中招聘（历史批次）：报名2026-02-02 09:00至02-06 16:00，已结束；原公告只载笔试2026年3月，具体日期待补核。 事业单位依据：https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html",
+     "basis": "考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html",
+     "basis": "考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc",
+     "basis": "考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "仅完成省级口径核实；2026事业单位集中招聘公告仅载3月笔试，后续具体日期尚未读到。广州、深圳各自独立事业单位批次不由省级内容替代。",
+     "basis": "考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx"
     }
    ],
    "id": "shenzhen",
@@ -4383,11 +5008,11 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
+    "fresh_grad_rule": "2027苏州公务员：2027应届本科生以本科学历、应届研究生以研究生学历报一般岗位不限生源；应届研究生用本科学历限苏州生源或户籍，社会人员用本科学历限苏州户籍。应届专岗60—69为2027普通高校应届及简章第2—4项特定群体；研究生学历及相应学位不限生源，本科限江苏生源，不能用以前学历或非普通高校学历报该专岗。 另：2026省属事业统招允许2024、2025普通高校毕业生报名时无工作单位者报2026毕业生岗（历史批次）。来源：https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html",
+    "exam_schedule": "2027省考：报名2026-11-03 09:00至11-09 16:00；公共科目笔试2026-12-06，公安专业科目12-05。报名已结束，时间均为北京时间。",
+    "announcement_url": "https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml",
+    "source_url": "https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml",
+    "verified_at": "2026-11-09",
     "needs_human": false,
     "needs_human_reason": null,
     "access_blocked": false
@@ -4421,6 +5046,41 @@
      "old": null,
      "new": "living_none=true, rent_none=false",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "2027苏州公务员：2027应届本科生以本科学历、应届研究生以研究生学历报一般岗位不限生源；应届研究生用本科学历限苏州生源或户籍，社会人员用本科学历限苏州户籍。应届专岗60—69为2027普通高校应届及简章第2—4项特定群体；研究生学历及相应学位不限生源，本科限江苏生源，不能用以前学历或非普通高校学历报该专岗。 另：2026省属事业统招允许2024、2025普通高校毕业生报名时无工作单位者报2026毕业生岗（历史批次）。来源：https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；苏州市2027年度考试录用公务员简章 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml；苏州市2027年度考试录用公务员报考指南 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/60a550973c154da484a714dc3d7dc6ac.shtml；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2027省考：报名2026-11-03 09:00至11-09 16:00；公共科目笔试2026-12-06，公安专业科目12-05。报名已结束，时间均为北京时间。",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；苏州市2027年度考试录用公务员简章 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml；苏州市2027年度考试录用公务员报考指南 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/60a550973c154da484a714dc3d7dc6ac.shtml；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；苏州市2027年度考试录用公务员简章 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml；苏州市2027年度考试录用公务员报考指南 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/60a550973c154da484a714dc3d7dc6ac.shtml；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；苏州市2027年度考试录用公务员简章 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml；苏州市2027年度考试录用公务员报考指南 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/60a550973c154da484a714dc3d7dc6ac.shtml；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；苏州市2027年度考试录用公务员简章 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml；苏州市2027年度考试录用公务员报考指南 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/60a550973c154da484a714dc3d7dc6ac.shtml；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
     }
    ],
    "id": "suzhou",
@@ -4606,16 +5266,14 @@
     "rent_period": "2026-09",
     "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
     "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
-    "consumption_per_capita": null,
+    "consumption_per_capita": 39693,
     "income_per_capita": 60099,
     "stats_year": 2025,
-    "stats_source_url": "https://www.tj.gov.cn/sq/tjgb/202603/t20260327_7271193.html",
+    "stats_source_url": "http://tjzd.stats.gov.cn/system/2026/01/20/030241179.shtml",
     "verified_at": "2026-11-09",
-    "needs_human": true,
-    "needs_human_reason": "2025 年公报正文未列城镇居民人均消费支出总额，需人工从统计年鉴或统计局数据补。",
-    "needs_human_fields": [
-     "consumption_per_capita"
-    ],
+    "needs_human": false,
+    "needs_human_reason": null,
+    "needs_human_fields": [],
     "access_blocked": false
    },
    "flexible_employment": {
@@ -4638,13 +5296,13 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "fresh_grad_rule": "2027天津省考：应届高校毕业生含2027年统招毕业生、2025/2026年统招毕业且未落实工作者；2025—2027年服务基层项目期满考核合格者；2025年1月至报名前退役的大学生军士或义务兵及在校入伍复学后2025—2027年毕业者；2025/2026年取得境外学位未落实工作者及2027年取得境外学位者。“2027届高校毕业生”职位另限指南第5问四类，不可直接等同上述应届范围。报名时符合认定、之后签合同缴社保，仍按相应应届身份认定。",
+    "exam_schedule": "2027年度天津省考：报名2026-11-03 08:30至2026-11-09 18:00（截至巡查已截止）；专业科目2026-12-05 14:30—16:30；行测2026-12-06 09:00—11:00，申论14:00—16:30。缴费至2026-11-11 16:00。",
+    "announcement_url": "https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html",
+    "source_url": "https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "天津事业单位2026/2027统一招聘公告及其应届口径未核实，不将公务员口径用于事业单位。",
     "access_blocked": false
    },
    "commute": {
@@ -4667,10 +5325,66 @@
     },
     {
      "date": "2026-11-09",
+     "field": "living.consumption_per_capita",
+     "old": null,
+     "new": 39693,
+     "basis": "国家统计局天津调查总队《数据：2025年天津居民收入和消费支出情况》原文「城镇居民人均消费支出39693元，增长3.6%」；2025 年统计公报未公布该指标。同页城镇居民人均可支配收入 60099 与原收入值一致，stats_source_url 一并改为该数据发布页"
+    },
+    {
+     "date": "2026-11-09",
      "field": "subsidy_scan",
      "old": null,
      "new": "living_none=true, rent_none=true",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "2027天津省考：应届高校毕业生含2027年统招毕业生、2025/2026年统招毕业且未落实工作者；2025—2027年服务基层项目期满考核合格者；2025年1月至报名前退役的大学生军士或义务兵及在校入伍复学后2025—2027年毕业者；2025/2026年取得境外学位未落实工作者及2027年取得境外学位者。“2027届高校毕业生”职位另限指南第5问四类，不可直接等同上述应届范围。报名时符合认定、之后签合同缴社保，仍按相应应届身份认定。",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2027年度天津省考：报名2026-11-03 08:30至2026-11-09 18:00（截至巡查已截止）；专业科目2026-12-05 14:30—16:30；行测2026-12-06 09:00—11:00，申论14:00—16:30。缴费至2026-11-11 16:00。",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "天津事业单位2026/2027统一招聘公告及其应届口径未核实，不将公务员口径用于事业单位。",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/W020261103587711425497.docx；官方公告或报考指南 https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zk/202611/t20261103_7649185.html"
     }
    ],
    "id": "tianjin",
@@ -4680,7 +5394,7 @@
     "rent_subsidy": "none",
     "rent": "verified",
     "social_security": "verified",
-    "cost": "lead"
+    "cost": "verified"
    },
    "by_degree": {
     "associate": {
@@ -4721,7 +5435,7 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 1,
+   "needs_human_count": 0,
    "index": {
     "rent": {
      "value": 0.1744,
@@ -4729,9 +5443,9 @@
      "reason": null
     },
     "cost": {
-     "value": null,
-     "ok": false,
-     "reason": "人均消费支出或可支配收入未核实"
+     "value": 0.6605,
+     "ok": true,
+     "reason": null
     },
     "hukou": {
      "value": "direct",
@@ -4917,13 +5631,13 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "fresh_grad_rule": "2026省考历史指南明确：2024、2025年普通高校毕业生可报身份要求为2026年普通高校应届毕业生的职位，硕士以上还可享年龄放宽；该条未附未就业或档案保留条件，不能改写成国考择业期口径。2024年1月至2026年7月获境外学位并完成认证者可报限应届岗。2026省直事业单位另将2024—2026届普通高校、职业院校（含技工院校）、境内中外合作办学及境外留学人员纳入应届同等待遇，按岗位条件审核。 事业单位依据：https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx",
+    "exam_schedule": "2026省考（历史批次）：报名2026-01-13 09:00至01-19 17:00；行测、申论2026-03-14，公安专业及综合知识2026-03-15，均已结束。2026省直事业单位统招（历史批次）：报名2026-02-03 08:00至02-10 17:00；A类笔试2026-03-28、B/C/D/E类2026-03-29，均已结束。本次未查到可核实的2027省考公告，不推测2027日期。 事业单位依据：https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml",
+    "announcement_url": "https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml",
+    "source_url": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "2027省考公告未核实，保留2026历史信息。事业单位核实范围为省直统一招聘，不替代武汉市属、区属独立公告。",
     "access_blocked": false
    },
    "commute": {
@@ -4966,6 +5680,55 @@
      "old": "最长 7 天免费住宿",
      "new": "最长 15 天免费入住",
      "basis": "武汉市政府门户网站 2025-07-22 转载长江日报（巡检报告"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "2026省考历史指南明确：2024、2025年普通高校毕业生可报身份要求为2026年普通高校应届毕业生的职位，硕士以上还可享年龄放宽；该条未附未就业或档案保留条件，不能改写成国考择业期口径。2024年1月至2026年7月获境外学位并完成认证者可报限应届岗。2026省直事业单位另将2024—2026届普通高校、职业院校（含技工院校）、境内中外合作办学及境外留学人员纳入应届同等待遇，按岗位条件审核。 事业单位依据：https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx",
+     "basis": "考公考编专项巡检；省考公告 https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml；省考指南 https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml；事业单位公告 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml；事业单位指南 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2026省考（历史批次）：报名2026-01-13 09:00至01-19 17:00；行测、申论2026-03-14，公安专业及综合知识2026-03-15，均已结束。2026省直事业单位统招（历史批次）：报名2026-02-03 08:00至02-10 17:00；A类笔试2026-03-28、B/C/D/E类2026-03-29，均已结束。本次未查到可核实的2027省考公告，不推测2027日期。 事业单位依据：https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml",
+     "basis": "考公考编专项巡检；省考公告 https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml；省考指南 https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml；事业单位公告 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml；事业单位指南 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml",
+     "basis": "考公考编专项巡检；省考公告 https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml；省考指南 https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml；事业单位公告 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml；事业单位指南 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml",
+     "basis": "考公考编专项巡检；省考公告 https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml；省考指南 https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml；事业单位公告 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml；事业单位指南 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；省考公告 https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml；省考指南 https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml；事业单位公告 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml；事业单位指南 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；省考公告 https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml；省考指南 https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml；事业单位公告 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml；事业单位指南 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "2027省考公告未核实，保留2026历史信息。事业单位核实范围为省直统一招聘，不替代武汉市属、区属独立公告。",
+     "basis": "考公考编专项巡检；省考公告 https://www.wuhan.gov.cn/zwgk/xxgk/rsxx/gwyzl/202601/t20260119_2714020.shtml；省考指南 https://rst.hubei.gov.cn/hbrsksw/zlplks/jglyks/hbsgwyks/zcjsykwjd/202601/t20260112_5853246.shtml；事业单位公告 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/t20260202_5867947.shtml；事业单位指南 https://rst.hubei.gov.cn/bmdt/ztzl/ywzl/hbsszsydwgkzp/zpgg/202602/P020260202398600948600.docx"
     }
    ],
    "id": "wuhan",
@@ -5211,13 +5974,13 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "fresh_grad_rule": "2026省考历史指南“应届生岗位”面向2026-01-01至12-31毕业、可出具就业协议书的规定普通高校毕业生；已签就业协议者可报，符合条件的非全日制研究生、高职扩招及第二学士学位毕业生视同。另含以当年在校生或应届生身份入伍、2025年内退役并取得毕业证学位证的大学生退役士兵。指南未将普通2024/2025届未就业者概括纳入，不可直接套用国考两年择业期。事业单位独立按招聘方案及岗位表审核。 事业单位依据：https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm",
+    "exam_schedule": "2026省考（历史批次）：报名2026-01-19 09:00至01-23 17:00；行测、申论2026-03-14，公安专业2026-03-15，均已结束。2026省属事业单位招聘方案一（历史批次）：报名2026-03-24 08:00至03-30 16:00；笔试2026-04-25 09:00—11:00，均已结束。本次未查到可核实的2027省考公告，不推测2027日期。 事业单位依据：https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm",
+    "announcement_url": "https://gwykl.fujian.gov.cn/Portal/news/bulletin2026",
+    "source_url": "https://gwykl.fujian.gov.cn/portal/help2026/s2.htm",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "2027省考公告未核实，保留2026历史信息。省属事业单位仅核方案一，不替代厦门市属、区属招聘；应届条件须另核具体岗位表。",
     "access_blocked": false
    },
    "commute": {
@@ -5249,6 +6012,55 @@
      "old": null,
      "new": "living_none=true, rent_none=false",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "2026省考历史指南“应届生岗位”面向2026-01-01至12-31毕业、可出具就业协议书的规定普通高校毕业生；已签就业协议者可报，符合条件的非全日制研究生、高职扩招及第二学士学位毕业生视同。另含以当年在校生或应届生身份入伍、2025年内退役并取得毕业证学位证的大学生退役士兵。指南未将普通2024/2025届未就业者概括纳入，不可直接套用国考两年择业期。事业单位独立按招聘方案及岗位表审核。 事业单位依据：https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm",
+     "basis": "考公考编专项巡检；省考公告 https://gwykl.fujian.gov.cn/Portal/news/bulletin2026；省考指南 https://gwykl.fujian.gov.cn/portal/help2026/s2.htm；事业单位公告 https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2026省考（历史批次）：报名2026-01-19 09:00至01-23 17:00；行测、申论2026-03-14，公安专业2026-03-15，均已结束。2026省属事业单位招聘方案一（历史批次）：报名2026-03-24 08:00至03-30 16:00；笔试2026-04-25 09:00—11:00，均已结束。本次未查到可核实的2027省考公告，不推测2027日期。 事业单位依据：https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm",
+     "basis": "考公考编专项巡检；省考公告 https://gwykl.fujian.gov.cn/Portal/news/bulletin2026；省考指南 https://gwykl.fujian.gov.cn/portal/help2026/s2.htm；事业单位公告 https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://gwykl.fujian.gov.cn/Portal/news/bulletin2026",
+     "basis": "考公考编专项巡检；省考公告 https://gwykl.fujian.gov.cn/Portal/news/bulletin2026；省考指南 https://gwykl.fujian.gov.cn/portal/help2026/s2.htm；事业单位公告 https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://gwykl.fujian.gov.cn/portal/help2026/s2.htm",
+     "basis": "考公考编专项巡检；省考公告 https://gwykl.fujian.gov.cn/Portal/news/bulletin2026；省考指南 https://gwykl.fujian.gov.cn/portal/help2026/s2.htm；事业单位公告 https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；省考公告 https://gwykl.fujian.gov.cn/Portal/news/bulletin2026；省考指南 https://gwykl.fujian.gov.cn/portal/help2026/s2.htm；事业单位公告 https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；省考公告 https://gwykl.fujian.gov.cn/Portal/news/bulletin2026；省考指南 https://gwykl.fujian.gov.cn/portal/help2026/s2.htm；事业单位公告 https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "2027省考公告未核实，保留2026历史信息。省属事业单位仅核方案一，不替代厦门市属、区属招聘；应届条件须另核具体岗位表。",
+     "basis": "考公考编专项巡检；省考公告 https://gwykl.fujian.gov.cn/Portal/news/bulletin2026；省考指南 https://gwykl.fujian.gov.cn/portal/help2026/s2.htm；事业单位公告 https://gxt.fujian.gov.cn/zwgk/rsxx/zkxx/202603/t20260319_7113311.htm"
     }
    ],
    "id": "xiamen",
@@ -5468,13 +6280,13 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "fresh_grad_rule": "事业单位：已核实2026年下半年西安市统招应届岗位向2026届及2024、2025年毕业未落实编制内工作的高校毕业生开放，不限制工作经历或缴纳社保（陕政办发〔2025〕12号）。该口径不得直接套用于省考公务员；省考应届认定及与国家规则的差异尚待核实。",
+    "exam_schedule": "2026年陕西省考历史批次：报名2026年2月1日08:00至2月6日18:00；公共科目笔试3月14日09:00—11:00行测、14:00—17:00申论，已结束。未核实2027省考新公告，不能认定未发布。",
+    "announcement_url": "https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html",
+    "source_url": "https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "陕西2026省考报考指南官网连续超时，省考应届认定留待人工；2027省考公告未检索到，不等于未发布。",
     "access_blocked": false
    },
    "commute": {
@@ -5510,6 +6322,55 @@
      "old": null,
      "new": "living_none=true, rent_none=true",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "事业单位：已核实2026年下半年西安市统招应届岗位向2026届及2024、2025年毕业未落实编制内工作的高校毕业生开放，不限制工作经历或缴纳社保（陕政办发〔2025〕12号）。该口径不得直接套用于省考公务员；省考应届认定及与国家规则的差异尚待核实。",
+     "basis": "考公考编专项巡检；陕西省2026年统一考试录用公务员公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html；中共西安市委组织部 西安市人力资源和社会保障局关于2026年下半年西安市事业单位公开招聘工作人员的公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2026年陕西省考历史批次：报名2026年2月1日08:00至2月6日18:00；公共科目笔试3月14日09:00—11:00行测、14:00—17:00申论，已结束。未核实2027省考新公告，不能认定未发布。",
+     "basis": "考公考编专项巡检；陕西省2026年统一考试录用公务员公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html；中共西安市委组织部 西安市人力资源和社会保障局关于2026年下半年西安市事业单位公开招聘工作人员的公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html",
+     "basis": "考公考编专项巡检；陕西省2026年统一考试录用公务员公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html；中共西安市委组织部 西安市人力资源和社会保障局关于2026年下半年西安市事业单位公开招聘工作人员的公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html",
+     "basis": "考公考编专项巡检；陕西省2026年统一考试录用公务员公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html；中共西安市委组织部 西安市人力资源和社会保障局关于2026年下半年西安市事业单位公开招聘工作人员的公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；陕西省2026年统一考试录用公务员公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html；中共西安市委组织部 西安市人力资源和社会保障局关于2026年下半年西安市事业单位公开招聘工作人员的公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；陕西省2026年统一考试录用公务员公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html；中共西安市委组织部 西安市人力资源和社会保障局关于2026年下半年西安市事业单位公开招聘工作人员的公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "陕西2026省考报考指南官网连续超时，省考应届认定留待人工；2027省考公告未检索到，不等于未发布。",
+     "basis": "考公考编专项巡检；陕西省2026年统一考试录用公务员公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2015977793512304641.html；中共西安市委组织部 西安市人力资源和社会保障局关于2026年下半年西安市事业单位公开招聘工作人员的公告 https://www.xa.gov.cn/gk/rsxx/gwykl/2094612371989401601.html"
     }
    ],
    "id": "xian",
@@ -5786,14 +6647,14 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
-    "access_blocked": false
+    "fresh_grad_rule": "河南2026事业单位联考（仅该批次）将“择业期内高校毕业生”定义为2024、2025、2026年毕业生，条件说明本条未加未就业要求，仍须符合具体岗位条件。省考应届身份的择业期、就业等认定未核实，不据此套用省考；2026省考普通高校当年应届生须2026-07-31前取得毕业证/学位证并以即将获得的最高学历报考。 事业单位来源：https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html",
+    "exam_schedule": "河南2026省考（历史批次已结束）：报名2026-01-06 09:00至01-12 17:00；行测2026-03-14 09:00—11:00，申论14:00—16:30，公安专业科目2026-03-15 09:00—11:00。未核实到2027正式省考公告。 事业单位：报名2026-04-24 09:00至04-30 17:00；笔试2026-05-30 09:00—10:30职业能力测验，14:00—15:30公共基础知识/教育类专业知识/卫生类专业知识。均已结束。 来源：https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html",
+    "announcement_url": "https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html",
+    "source_url": "https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "省考完整应届认定报考指南尚未核实，不能把事业单位“择业期内”口径套用省考；2027正式省考/事业单位联考公告未核实。南阳市城管局转载页返回403，未绕过；已从济源政府独立公开转载页核实2026公告。",
+    "access_blocked": true
    },
    "commute": {
     "avg_commute_minutes": null,
@@ -5819,6 +6680,62 @@
      "old": null,
      "new": "living_none=false, rent_none=true",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "河南2026事业单位联考（仅该批次）将“择业期内高校毕业生”定义为2024、2025、2026年毕业生，条件说明本条未加未就业要求，仍须符合具体岗位条件。省考应届身份的择业期、就业等认定未核实，不据此套用省考；2026省考普通高校当年应届生须2026-07-31前取得毕业证/学位证并以即将获得的最高学历报考。 事业单位来源：https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "河南2026省考（历史批次已结束）：报名2026-01-06 09:00至01-12 17:00；行测2026-03-14 09:00—11:00，申论14:00—16:30，公安专业科目2026-03-15 09:00—11:00。未核实到2027正式省考公告。 事业单位：报名2026-04-24 09:00至04-30 17:00；笔试2026-05-30 09:00—10:30职业能力测验，14:00—15:30公共基础知识/教育类专业知识/卫生类专业知识。均已结束。 来源：https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "省考完整应届认定报考指南尚未核实，不能把事业单位“择业期内”口径套用省考；2027正式省考/事业单位联考公告未核实。南阳市城管局转载页返回403，未绕过；已从济源政府独立公开转载页核实2026公告。",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.access_blocked",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
     }
    ],
    "id": "zhengzhou",
