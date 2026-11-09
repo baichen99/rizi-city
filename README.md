@@ -16,6 +16,7 @@
 | [青岛](data/cities/qingdao.yaml) | 1.8 万 | 28,800 | 43,200 | ⚠️ | ❌ | ✅ | ⚠️ | ✅ | ⚠️ |
 | [苏州](data/cities/suzhou.yaml) | 19,200 | 2.4 万 | 3.6 万 | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |
 | [长沙](data/cities/changsha.yaml) | 1.2 万 | 2 万 | 3 万 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ |
+| [北京](data/cities/beijing.yaml) | — | — | — | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
 | [成都](data/cities/chengdu.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ❌ | ❌ | ⚠️ | ✅ | ❌ |
 | [杭州](data/cities/hangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ | ✅ |
 | [合肥](data/cities/hefei.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | 🔒 | ❌ | 🔒 | ⚠️ | ⚠️ | 🔒 |

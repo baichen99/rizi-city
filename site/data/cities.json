@@ -1,8 +1,215 @@
 {
  "latest_verified": "2026-11-09",
- "city_count": 10,
+ "city_count": 11,
  "disclaimer": "仅供参考，申请前以官方页面为准。",
  "cities": [
+  {
+   "city": "北京",
+   "province": "北京",
+   "maintainers": [],
+   "last_patrol": "2026-11-09",
+   "hukou": {
+    "summary": "用人单位指标制：由符合条件的单位申请引进；原则上本科不超过 26 周岁、硕士不超过 30 周岁、博士不超过 35 周岁，京外本科仅限\"双一流\"建设高校",
+    "education_min": "本科（京外仅限\"双一流\"建设高校；部分行业另有例外）",
+    "age_limit": "原则上本科不超过 26 周岁、硕士 30 周岁、博士 35 周岁",
+    "requires_job_or_social_security": true,
+    "eligible_by_degree": {
+     "associate": false,
+     "bachelor": true,
+     "master": true,
+     "phd": true
+    },
+    "tier_by_degree": {
+     "associate": null,
+     "bachelor": "quota",
+     "master": "quota",
+     "phd": "quota"
+    },
+    "age_max_by_degree": {
+     "associate": null,
+     "bachelor": 26,
+     "master": 30,
+     "phd": 35
+    },
+    "conditions": [
+     "必须由在京注册、具备档案管理权限的用人单位使用引进指标申请",
+     "专业需符合单位主营业务、与岗位匹配",
+     "京外高校本科须为\"双一流\"建设高校（文化、体育、郊区教师、医疗等岗位有例外）"
+    ],
+    "apply_window": "按年度由用人单位申报，具体以当年通知为准",
+    "policy_name": "北京市引进毕业生管理办法，京人社毕发〔2021〕22号（2021-07-16 实施，现行有效）",
+    "source_url": "https://rsj.beijing.gov.cn/xxgk/2024zcwj/202406/t20240617_3717192.html",
+    "source_date": "2021-07-05",
+    "valid_until": null,
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false,
+    "lead": null,
+    "lead_url": null
+   },
+   "subsidies": [
+    {
+     "name": "海淀区青年人才安居补贴（海青安居）",
+     "type": "other",
+     "amount": "经认定的海淀区重点产业体系内用人单位就业的应届毕业生，每月 1000 元、最长 2 年；在海淀北部租房的每月再加 500 元（区级政策、限行业，不计入北京合计）",
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": null,
+      "master": null,
+      "phd": null
+     },
+     "period": "month",
+     "periods_max": 24,
+     "payout": "按月",
+     "target": "2026 年 1—12 月毕业、全日制本科及以上、在海淀区重点产业用人单位就业或自主创业并在海淀缴社保的毕业生",
+     "conditions": [
+      "用人单位须在海淀注册纳税并属于\"1+X+1\"产业体系（人工智能、集成电路、生物医药、商业航天、科技服务业等）",
+      "本人及家庭在京无住房，未享受其他住房保障",
+      "申请人与用人单位联合提交，首次 2026-03-01 至 03-15，此后每月 1—10 日"
+     ],
+     "deadline_rule": "按毕业年度申请（2026 年为 2026 届）",
+     "policy_name": "海淀区关于支持\"海青安居\"的若干措施（有效期至 2028-12-31）；海淀区人才工作局关于开展 2026 年海淀区青年人才安居补贴申请的通知",
+     "source_url": "https://zyk.bjhd.gov.cn/zwdt/zcwj/202602/t20260228_4806584.shtml",
+     "source_date": "2026-02-28",
+     "valid_until": "2028-12-31",
+     "verified_at": "2026-11-09",
+     "needs_human": false,
+     "needs_human_reason": null,
+     "access_blocked": false,
+     "lead": null,
+     "lead_url": null
+    }
+   ],
+   "social_security": {
+    "base_min": 7270,
+    "base_max": 36348,
+    "year": "2026 年度（2026-07 起）",
+    "scope": "北京市（养老、失业、工伤、医疗含生育）",
+    "source_url": "https://rsj.beijing.gov.cn/xxgk/2024zcwj/202608/t20260821_4831461.html",
+    "source_type": "gov",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "living": {
+    "rent_avg_per_sqm": 81.48,
+    "rent_period": "2026-09",
+    "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
+    "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
+    "consumption_per_capita": 54122,
+    "income_per_capita": 96292,
+    "stats_year": 2025,
+    "stats_source_url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/202603/t20260325_4565678.html",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "flexible_employment": {
+    "pension_base_min": 7270,
+    "pension_rate": 20,
+    "pension_year": "2026 年度（2026-07 起）",
+    "medical_monthly_min": 593.68,
+    "medical_note": "以个人身份参保人员每月缴纳职工基本医疗保险费 593.68 元",
+    "monthly_total_min": 2047.68,
+    "calc": "养老按下限 7270 × 20% = 1454（通告原文给出）；医保 593.68；合计 2047.68 元/月（不含可选的失业保险 72.7 元）",
+    "hukou_restriction": "北京市政务服务网\"灵活就业参保一件事\"：具有北京市户籍、在法定年龄内、未在用人单位参保的灵活就业人员可以办理",
+    "nonlocal_allowed": false,
+    "apply_channel": "街道（乡镇）便民服务中心、人力资源公共服务中心存档参保；\"京通\"小程序/北京市政务服务网\"灵活就业一件事\"",
+    "source_url": "https://rsj.beijing.gov.cn/xxgk/2024zcwj/202608/t20260821_4831461.html",
+    "medical_source_url": "https://rsj.beijing.gov.cn/xxgk/2024zcwj/202608/t20260821_4831461.html",
+    "hukou_source_url": "https://banshi.beijing.gov.cn/pubtask/bhyjs/lhjy/lhjy.html",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "civil_service": {
+    "fresh_grad_rule": null,
+    "exam_schedule": null,
+    "announcement_url": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "commute": {
+    "avg_commute_minutes": null,
+    "year": null,
+    "report": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "待确定通勤数据口径"
+   },
+   "pitfalls": [
+    {
+     "text": "北京落户靠用人单位的引进指标，不是个人申请；而且有年龄线（本科原则上 26 周岁），读研、延毕都可能超龄。",
+     "source_url": "https://rsj.beijing.gov.cn/xxgk/2024zcwj/202406/t20240617_3717192.html"
+    },
+    {
+     "text": "北京以灵活就业身份自己交社保，目前网办渠道要求北京户籍；非京籍自由职业者通常没法在北京个人参保。",
+     "source_url": "https://banshi.beijing.gov.cn/pubtask/bhyjs/lhjy/lhjy.html"
+    }
+   ],
+   "changelog": [
+    {
+     "date": "2026-11-09",
+     "field": "全部",
+     "old": null,
+     "new": "首次采集",
+     "basis": "京人社毕发〔2021〕22号、海淀\"海青安居\"若干措施及 2026 申请通知、京人社发〔2026〕7号通告、北京 2025 统计公报、北京市政务服务网灵活就业一件事、中指研究院 2026 年 9 月租金"
+    }
+   ],
+   "id": "beijing",
+   "status": {
+    "hukou": "verified",
+    "living_subsidy": "missing",
+    "rent_subsidy": "missing",
+    "rent": "verified",
+    "social_security": "verified",
+    "cost": "verified"
+   },
+   "by_degree": {
+    "associate": {
+     "hukou_eligible": false,
+     "hukou_age_max": null,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    },
+    "bachelor": {
+     "hukou_eligible": true,
+     "hukou_age_max": 26,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    },
+    "master": {
+     "hukou_eligible": true,
+     "hukou_age_max": 30,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    },
+    "phd": {
+     "hukou_eligible": true,
+     "hukou_age_max": 35,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": []
+    }
+   },
+   "latest_verified": "2026-11-09",
+   "needs_human_count": 0
+  },
   {
    "city": "长沙",
    "province": "湖南",
