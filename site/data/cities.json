@@ -668,13 +668,13 @@
     "rent_period": "2026-09",
     "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
     "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
-    "consumption_per_capita": null,
-    "income_per_capita": null,
-    "stats_year": null,
-    "stats_source_url": null,
+    "consumption_per_capita": 37100,
+    "income_per_capita": 59509,
+    "stats_year": 2025,
+    "stats_source_url": "https://cdstats.chengdu.gov.cn/cdstjj/c154795/2026-04/14/content_58dc076a80974f999828b691bfca027f.shtml",
     "verified_at": "2026-11-09",
-    "needs_human": true,
-    "needs_human_reason": "成都市统计局网站栏目页返回 HTTP 412（疑似反爬校验），未绕过；《2025年成都市国民经济和社会发展统计公报》仅找到新浪财经等转载（https://finance.sina.com.cn/jjxw/2026-04-15/doc-inhupeis3814625.shtml），需人工在 cdstats.chengdu.gov.cn 打开原文取城镇居民人均可支配收入与消费支出。",
+    "needs_human": false,
+    "needs_human_reason": null,
     "access_blocked": false
    },
    "flexible_employment": {
@@ -731,6 +731,20 @@
     },
     {
      "date": "2026-11-09",
+     "field": "living.income_per_capita",
+     "old": null,
+     "new": 59509,
+     "basis": "《2025年成都市国民经济和社会发展统计公报》（成都市统计局官网，2026-04-15）原文「城镇居民人均可支配收入 59509 元，增长 4.4%」；自动抓取被 412 拦截，经真实浏览器打开官网 PDF 原文核对"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "living.consumption_per_capita",
+     "old": null,
+     "new": 37100,
+     "basis": "同上公报原文「城镇居民人均消费支出 37100 元，增长 5.3%」"
+    },
+    {
+     "date": "2026-11-09",
      "field": "subsidy_scan",
      "old": null,
      "new": "living_none=true, rent_none=true",
@@ -744,7 +758,7 @@
     "rent_subsidy": "none",
     "rent": "verified",
     "social_security": "verified",
-    "cost": "missing"
+    "cost": "verified"
    },
    "by_degree": {
     "associate": {
@@ -825,17 +839,17 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 2,
+   "needs_human_count": 1,
    "index": {
     "rent": {
-     "value": null,
-     "ok": false,
-     "reason": "人均可支配收入未核实"
+     "value": 0.1918,
+     "ok": true,
+     "reason": null
     },
     "cost": {
-     "value": null,
-     "ok": false,
-     "reason": "人均消费支出或可支配收入未核实"
+     "value": 0.6234,
+     "ok": true,
+     "reason": null
     },
     "hukou": {
      "value": "direct",
@@ -1199,15 +1213,15 @@
     "verified_at": "2026-11-09"
    },
    "social_security": {
-    "base_min": null,
-    "base_max": null,
-    "year": null,
-    "scope": null,
-    "source_url": null,
-    "source_type": null,
-    "verified_at": null,
-    "needs_human": true,
-    "needs_human_reason": "广州 2026 年养老保险缴费基数下限未找到官方原文；搜索摘要称 2025-07-01 起下限 5510、上限 27549 元（来源页面未打开核实）。",
+    "base_min": 5521,
+    "base_max": 27603,
+    "year": "2026 社保年度（2026-07 至 2027-06）",
+    "scope": "广东省统一（企业职工基本养老保险）；职工医保（含生育）为广州市定基数 6234–31170（2026 自然年度，穗医保规字〔2022〕1号公式核定）；失业保险下限为最低工资 2680（2026-09-01 起），上限官方未公布具体数额；工伤保险按单位工资总额计费，无个人统一基数",
+    "source_url": "https://hrss.gd.gov.cn/zwgk/gsgg/content/post_4957552.html",
+    "source_type": "gov",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
     "access_blocked": false
    },
    "living": {
@@ -1278,6 +1292,13 @@
     },
     {
      "date": "2026-11-09",
+     "field": "social_security.base_min/base_max",
+     "old": null,
+     "new": "5521 / 27603（企业职工基本养老保险，广东省统一，2026 社保年度）",
+     "basis": "粤人社发〔2026〕24号《广东省人力资源和社会保障厅 广东省财政厅 国家税务总局广东省税务局关于公布2026年职工基本养老保险缴费基数上下限有关问题的通知》原文「自2026年7月1日起，全省企业职工基本养老保险缴费基数上限调整为27603元，缴费基数下限调整为5521元」；广州无全险种统一基数，医保等口径差异已写进 scope"
+    },
+    {
+     "date": "2026-11-09",
      "field": "subsidy_scan",
      "old": null,
      "new": "living_none=false, rent_none=true",
@@ -1290,7 +1311,7 @@
     "living_subsidy": "lead",
     "rent_subsidy": "none",
     "rent": "verified",
-    "social_security": "missing",
+    "social_security": "verified",
     "cost": "verified"
    },
    "by_degree": {
@@ -1372,7 +1393,7 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 2,
+   "needs_human_count": 1,
    "index": {
     "rent": {
      "value": 0.1985,
@@ -2139,11 +2160,11 @@
     }
    ],
    "social_security": {
-    "base_min": 4504,
-    "base_max": 22518,
-    "year": "2025（2025-01-01 至 2025-12-31；2026 年度山东标准截至 2026-11-09 未见公布）",
-    "scope": "山东全省（养老、医疗、工伤、失业）",
-    "source_url": "http://hrss.shandong.gov.cn/articles/ch07931/202512/3ad6c431-8dbf-4ec8-b576-19e35c6ba8d3.shtml",
+    "base_min": 4573,
+    "base_max": 22863,
+    "year": "2026（2026 年度，鲁人社字〔2026〕75号）",
+    "scope": "山东全省（养老、医疗、长期护理、工伤、失业）",
+    "source_url": "https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html",
     "source_type": "gov",
     "verified_at": "2026-11-09",
     "needs_human": false,
@@ -2168,22 +2189,22 @@
     "access_blocked": false
    },
    "flexible_employment": {
-    "pension_base_min": null,
-    "pension_rate": null,
-    "pension_year": null,
-    "medical_monthly_min": null,
-    "medical_note": null,
-    "monthly_total_min": null,
-    "calc": null,
+    "pension_base_min": 4573,
+    "pension_rate": 20,
+    "pension_year": 2026,
+    "medical_monthly_min": 330.11,
+    "medical_note": "济南市医保局口径（2026 年度，2026-09-01 起）：缴费基数固定按下限 4573 元，不建立个人账户费率 7% + 职工大额医疗费 10 元 = 330.11 元/月；建立个人账户费率 9% 为 411.57 元/月",
+    "monthly_total_min": 1244.71,
+    "calc": "养老 4573 × 20% = 914.60；医保 330.11（7% 档）；合计 1244.71 元/月",
     "hukou_restriction": null,
     "nonlocal_allowed": null,
     "apply_channel": null,
-    "source_url": null,
-    "medical_source_url": null,
+    "source_url": "https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html",
+    "medical_source_url": "http://ybj.jinan.gov.cn/col/col116777/art/2026/art_d23ae2576b954cefa27abf820b467a04.html",
     "hukou_source_url": null,
-    "verified_at": null,
+    "verified_at": "2026-11-09",
     "needs_human": true,
-    "needs_human_reason": "山东 2026 年度基数未公布；济南灵活就业医保月缴额未查。",
+    "needs_human_reason": "外地户籍能否以灵活就业身份在济南参保（养老、医保）尚未核实；其余字段已按鲁人社字〔2026〕75号与济南市医保局 2026 年口径补齐。",
     "access_blocked": false
    },
    "civil_service": {
@@ -2213,6 +2234,20 @@
      "old": null,
      "new": "首次采集",
      "basis": "济南支持高校毕业生就业创业政策40条（2024版）、山东 2025 年度社保基数通知、济南 2025 统计公报、中指研究院 2026 年 9 月租金"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "social_security.base_min/base_max",
+     "old": "4504 / 22518（2025 年度）",
+     "new": "4573 / 22863（2026 年度）",
+     "basis": "鲁人社字〔2026〕75号（山东省人社厅、省医保局、省税务局、青岛市税务局 2026-08-14 印发，济南市政府网转载全文）原文「我省2026年度职工基本养老保险、职工基本医疗保险、职工长期护理保险、工伤保险、失业保险个人月缴费基数的上限为22863元，下限为4573元」"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "flexible_employment（养老基数、医保月缴、每月合计）",
+     "old": null,
+     "new": "养老基数下限 4573（2026）、医保月缴最低 330.11、每月合计最低 1244.71",
+     "basis": "养老基数同鲁人社字〔2026〕75号；医保为济南市医保局 2026 年口径（基数 4573，7% 档 330.11 元/月含大额医疗费 10 元）"
     }
    ],
    "id": "jinan",
@@ -2383,56 +2418,62 @@
     {
      "name": "高校毕业生一次性生活补贴",
      "type": "living",
-     "amount": null,
+     "amount": "学士 1 万元、硕士 3 万元、博士 10 万元，同一人只能享受一次（分两笔各发 50%：连续参保满 6 个月后申领第一笔、满 12 个月后申领第二笔）",
      "amount_by_degree": {
       "associate": null,
-      "bachelor": null,
-      "master": null,
-      "phd": null
+      "bachelor": 10000,
+      "master": 30000,
+      "phd": 100000
      },
-     "period": null,
-     "periods_max": null,
-     "payout": null,
-     "target": null,
-     "conditions": [],
-     "deadline_rule": null,
-     "policy_name": null,
-     "source_url": null,
-     "source_date": null,
-     "valid_until": null,
-     "verified_at": null,
-     "needs_human": true,
-     "needs_human_reason": "官网被拦截（HTTP 403），无法打开原文。需人工打开 lead_url 核对金额、条件、发文文号和有效期。",
-     "access_blocked": true,
-     "lead": "搜索摘要称南京 2026 年初人才新政对在宁就业的高校毕业生发放一次性生活补贴：学士 1 万元、硕士 3 万元、博士 10 万元",
-     "lead_url": "https://www.nanjing.gov.cn/zzb/ywdt/njxx/202601/t20260106_5757786.html"
+     "period": "once",
+     "periods_max": 1,
+     "payout": "分两笔各 50%",
+     "target": "在南京市各类用人单位就业创业、取得学士及以上学位的全日制普通高校毕业生（含国（境）外），或首次就业创业的非全日制研究生；在宁缴纳企业职工基本养老保险等（条件满足其一，见原文）",
+     "conditions": [
+      "参保首月须在毕业后 1 年内，第一笔申领须在毕业后一年半内，第二笔申领须在毕业后两年内，逾期不补发"
+     ],
+     "deadline_rule": "第二笔申领须在毕业后 2 年内",
+     "policy_name": "《南京市高校毕业生生活补贴操作办法》（宁人社规〔2026〕5号）",
+     "source_url": "https://rsj.nanjing.gov.cn/njsrlzyhshbzj/202603/t20260304_5799881.html",
+     "source_date": "2026-02-12",
+     "valid_until": "2028-12-31",
+     "verified_at": "2026-11-09",
+     "needs_human": false,
+     "needs_human_reason": null,
+     "access_blocked": false,
+     "lead": null,
+     "lead_url": null
     },
     {
      "name": "高校毕业生住房租赁补贴",
      "type": "rent",
-     "amount": null,
+     "amount": "博士每人每月 2000 元、硕士每人每月 800 元、学士（含高级工及以上）每人每月 600 元，补贴发放累计不超过 36 个月",
      "amount_by_degree": {
       "associate": null,
-      "bachelor": null,
-      "master": null,
-      "phd": null
+      "bachelor": 600,
+      "master": 800,
+      "phd": 2000
      },
-     "period": null,
-     "periods_max": null,
-     "payout": null,
-     "target": null,
-     "conditions": [],
-     "deadline_rule": null,
-     "policy_name": null,
-     "source_url": null,
-     "source_date": null,
+     "period": "month",
+     "periods_max": 36,
+     "payout": "按月（每连续参保缴费 6 个月可申领一次）",
+     "target": "与南京市用人单位签订劳动合同的高校毕业生（无房为必要条件）",
+     "conditions": [
+      "首次申请应在毕业之日起 2 年半内提交，末次申请应在享受补贴的首月起 5 年内提交",
+      "审核采用「3+1」要素：无房、学历、社保 + 租住状态承诺",
+      "2026 年起另有提标：大专（高级工以上）500 元/月、重点领域规上企业新引进毕业生博士 2400 元/月、硕士 960 元/月等（宁人社规〔2026〕6号），详见原文；本条记全市统一基础标准"
+     ],
+     "deadline_rule": "首次申请须在毕业之日起 2 年半内",
+     "policy_name": "《南京市人力资源和社会保障局等七部门关于优化调整高校毕业生住房租赁补贴政策的通知》（宁人社规〔2025〕2号，2025-10-01 起施行，有效期 5 年）；2026 年调整为宁人社规〔2026〕6号",
+     "source_url": "https://rsj.nanjing.gov.cn/njsrlzyhshbzj/202510/P020251023387958026408.pdf",
+     "source_date": "2025-09-29",
      "valid_until": null,
-     "verified_at": null,
-     "needs_human": true,
-     "needs_human_reason": "官网被拦截（HTTP 403），无法打开原文。需人工核对宁人社规〔2025〕2号与 2026-03 十部门通知（宁人社规〔2026〕6号？）的现行标准和有效期。",
-     "access_blocked": true,
-     "lead": "搜索摘要：宁人社规〔2025〕2号（2025-10-01 起）标准为博士每月 2000 元、硕士 800 元、学士（含高级工）600 元，累计不超过 36 个月，首次申请须在毕业 2 年半内；2026-03 十部门通知对重点领域企业另有上浮，有效期至 2028-12-31",
-     "lead_url": "https://rsj.nanjing.gov.cn/njsrlzyhshbzj/202603/t20260304_5799867.html"
+     "verified_at": "2026-11-09",
+     "needs_human": false,
+     "needs_human_reason": null,
+     "access_blocked": false,
+     "lead": null,
+     "lead_url": null
     }
    ],
    "social_security": {
@@ -2524,6 +2565,20 @@
     },
     {
      "date": "2026-11-09",
+     "field": "subsidies（高校毕业生一次性生活补贴）",
+     "old": "null（仅有线索）",
+     "new": "学士 1 万元、硕士 3 万元、博士 10 万元（一次性，分两笔各 50%）",
+     "basis": "《南京市高校毕业生生活补贴操作办法》（宁人社规〔2026〕5号，南京市人社局官网原文），有效期至 2028-12-31"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidies（高校毕业生住房租赁补贴）",
+     "old": "null（仅有线索）",
+     "new": "博士 2000 元/月、硕士 800 元/月、学士 600 元/月，最长 36 个月",
+     "basis": "宁人社规〔2025〕2号（南京市人社局官网原文）；2026 年重点领域提标见宁人社规〔2026〕6号，已记入 conditions"
+    },
+    {
+     "date": "2026-11-09",
      "field": "civil_service.fresh_grad_rule",
      "old": null,
      "new": "2027南京公务员：一般职位不限生源/户籍，特殊职位另定。应届专岗60—69仅2027普通高校应届及指南列明特定退役、留学、基层服务群体；研究生取得相应学位者不限生源，其他须江苏生源，不能将此限制套给全部岗位。以以前学历或非普通高校学历报考不按应届身份。 另：2026省属事业统招允许2024、2025普通高校毕业生报名时无工作单位者报2026毕业生岗（历史批次）。来源：https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html",
@@ -2561,8 +2616,8 @@
    "id": "nanjing",
    "status": {
     "hukou": "blocked",
-    "living_subsidy": "blocked",
-    "rent_subsidy": "blocked",
+    "living_subsidy": "verified",
+    "rent_subsidy": "verified",
     "rent": "verified",
     "social_security": "verified",
     "cost": "verified"
@@ -2575,114 +2630,89 @@
      "rent_subsidy_per_year": null,
      "first_year": 0,
      "counted": [],
-     "excluded": [
-      {
-       "index": 0,
-       "name": "高校毕业生一次性生活补贴",
-       "type": "living",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
-      },
-      {
-       "index": 1,
-       "name": "高校毕业生住房租赁补贴",
-       "type": "rent",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
-      }
-     ]
+     "excluded": []
     },
     "bachelor": {
      "hukou_eligible": null,
      "hukou_age_max": null,
-     "total": 0,
+     "total": 31600,
      "rent_subsidy_per_year": null,
-     "first_year": 0,
-     "counted": [],
-     "excluded": [
+     "first_year": 17200,
+     "counted": [
       {
        "index": 0,
        "name": "高校毕业生一次性生活补贴",
        "type": "living",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "per": 10000,
+       "period": "once",
+       "total": 10000
       },
       {
        "index": 1,
        "name": "高校毕业生住房租赁补贴",
        "type": "rent",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "per": 600,
+       "period": "month",
+       "total": 21600
       }
-     ]
+     ],
+     "excluded": []
     },
     "master": {
      "hukou_eligible": null,
      "hukou_age_max": null,
-     "total": 0,
+     "total": 58800,
      "rent_subsidy_per_year": null,
-     "first_year": 0,
-     "counted": [],
-     "excluded": [
+     "first_year": 39600,
+     "counted": [
       {
        "index": 0,
        "name": "高校毕业生一次性生活补贴",
        "type": "living",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "per": 30000,
+       "period": "once",
+       "total": 30000
       },
       {
        "index": 1,
        "name": "高校毕业生住房租赁补贴",
        "type": "rent",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "per": 800,
+       "period": "month",
+       "total": 28800
       }
-     ]
+     ],
+     "excluded": []
     },
     "phd": {
      "hukou_eligible": null,
      "hukou_age_max": null,
-     "total": 0,
+     "total": 172000,
      "rent_subsidy_per_year": null,
-     "first_year": 0,
-     "counted": [],
-     "excluded": [
+     "first_year": 124000,
+     "counted": [
       {
        "index": 0,
        "name": "高校毕业生一次性生活补贴",
        "type": "living",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "per": 100000,
+       "period": "once",
+       "total": 100000
       },
       {
        "index": 1,
        "name": "高校毕业生住房租赁补贴",
        "type": "rent",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "per": 2000,
+       "period": "month",
+       "total": 72000
       }
-     ]
+     ],
+     "excluded": []
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 3,
+   "needs_human_count": 1,
    "index": {
     "rent": {
      "value": 0.1488,
@@ -2700,9 +2730,9 @@
      "reason": "落户政策未核实"
     },
     "subsidy": {
-     "value": null,
-     "ok": false,
-     "reason": "有补贴待核实：高校毕业生一次性生活补贴、高校毕业生住房租赁补贴"
+     "value": 17200,
+     "ok": true,
+     "reason": null
     },
     "commute": {
      "value": null,
@@ -3127,11 +3157,11 @@
     "verified_at": "2026-11-09"
    },
    "social_security": {
-    "base_min": 4504,
-    "base_max": 22518,
-    "year": "2025（2025-01-01 至 2025-12-31；2026 年度山东标准截至 2026-11-09 未见公布）",
-    "scope": "山东全省（养老、医疗、工伤、失业）",
-    "source_url": "http://hrss.shandong.gov.cn/articles/ch07931/202512/3ad6c431-8dbf-4ec8-b576-19e35c6ba8d3.shtml",
+    "base_min": 4573,
+    "base_max": 22863,
+    "year": "2026（2026 年度，鲁人社字〔2026〕75号）",
+    "scope": "山东全省（养老、医疗、长期护理、工伤、失业）",
+    "source_url": "https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html",
     "source_type": "gov",
     "verified_at": "2026-11-09",
     "needs_human": false,
@@ -3154,22 +3184,22 @@
     "access_blocked": false
    },
    "flexible_employment": {
-    "pension_base_min": null,
-    "pension_rate": null,
-    "pension_year": null,
+    "pension_base_min": 4573,
+    "pension_rate": 20,
+    "pension_year": 2026,
     "medical_monthly_min": null,
-    "medical_note": "青岛市医保局《社会医疗保险政策简表（2026）》为表格附件，正文未能提取",
+    "medical_note": "山东省统一规则（鲁政字〔2023〕184号）：灵活就业医保可按 7%（不建个人账户）或 9%（含 2% 入个人账户）缴纳，基数不低于全省平均工资 60%；青岛市级官方页面未明示本市 2026 年执行档位（青岛日报转述市医保局指南称为 9% 单档，未在官网核实），故月缴额暂不填报",
     "monthly_total_min": null,
     "calc": null,
     "hukou_restriction": null,
     "nonlocal_allowed": null,
     "apply_channel": null,
-    "source_url": null,
+    "source_url": "https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html",
     "medical_source_url": null,
     "hukou_source_url": null,
-    "verified_at": null,
+    "verified_at": "2026-11-09",
     "needs_human": true,
-    "needs_human_reason": "山东 2026 年度基数未公布；青岛 2026 灵活就业医保标准在 http://ybj.qingdao.gov.cn/gg_117/202602/t20260204_10502903.shtml 的表格里，需人工读取。",
+    "needs_human_reason": "青岛灵活就业医保执行档位（省级规则 7%/9% 两档，媒体称青岛为 9% 单档）未在市级官方页面核实，月缴额与每月合计暂缺；外地户籍参保条件未核实。养老部分已按鲁人社字〔2026〕75号补齐。",
     "access_blocked": false
    },
    "civil_service": {
@@ -3218,6 +3248,20 @@
      "old": null,
      "new": "living_none=true, rent_none=false",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "social_security.base_min/base_max",
+     "old": "4504 / 22518（2025 年度）",
+     "new": "4573 / 22863（2026 年度）",
+     "basis": "鲁人社字〔2026〕75号（2026-08-14 印发，受文对象含青岛市税务局，济南市政府网转载全文），原文同济南条目"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "flexible_employment.pension_base_min/pension_rate",
+     "old": null,
+     "new": "4573 / 20%（2026 年度）",
+     "basis": "养老基数同鲁人社字〔2026〕75号（山东全省统一）；医保档位未在青岛市级官方页面核实，medical_note 已记录省级规则与媒体线索，月缴额仍留空"
     }
    ],
    "id": "qingdao",
@@ -4620,16 +4664,14 @@
     "rent_period": "2026-09",
     "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
     "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
-    "consumption_per_capita": null,
+    "consumption_per_capita": 39693,
     "income_per_capita": 60099,
     "stats_year": 2025,
-    "stats_source_url": "https://www.tj.gov.cn/sq/tjgb/202603/t20260327_7271193.html",
+    "stats_source_url": "http://tjzd.stats.gov.cn/system/2026/01/20/030241179.shtml",
     "verified_at": "2026-11-09",
-    "needs_human": true,
-    "needs_human_reason": "2025 年公报正文未列城镇居民人均消费支出总额，需人工从统计年鉴或统计局数据补。",
-    "needs_human_fields": [
-     "consumption_per_capita"
-    ],
+    "needs_human": false,
+    "needs_human_reason": null,
+    "needs_human_fields": [],
     "access_blocked": false
    },
    "flexible_employment": {
@@ -4681,6 +4723,13 @@
     },
     {
      "date": "2026-11-09",
+     "field": "living.consumption_per_capita",
+     "old": null,
+     "new": 39693,
+     "basis": "国家统计局天津调查总队《数据：2025年天津居民收入和消费支出情况》原文「城镇居民人均消费支出39693元，增长3.6%」；2025 年统计公报未公布该指标。同页城镇居民人均可支配收入 60099 与原收入值一致，stats_source_url 一并改为该数据发布页"
+    },
+    {
+     "date": "2026-11-09",
      "field": "subsidy_scan",
      "old": null,
      "new": "living_none=true, rent_none=true",
@@ -4694,7 +4743,7 @@
     "rent_subsidy": "none",
     "rent": "verified",
     "social_security": "verified",
-    "cost": "lead"
+    "cost": "verified"
    },
    "by_degree": {
     "associate": {
@@ -4735,7 +4784,7 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 1,
+   "needs_human_count": 0,
    "index": {
     "rent": {
      "value": 0.1744,
@@ -4743,9 +4792,9 @@
      "reason": null
     },
     "cost": {
-     "value": null,
-     "ok": false,
-     "reason": "人均消费支出或可支配收入未核实"
+     "value": 0.6605,
+     "ok": true,
+     "reason": null
     },
     "hukou": {
      "value": "direct",
