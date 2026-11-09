@@ -1099,8 +1099,8 @@
     "announcement_url": null,
     "source_url": null,
     "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "needs_human": true,
+    "needs_human_reason": "公务员2026公告、区县事业单位2026第三季度公告及政府转载页均超时，未读到正文；搜索摘要仅线索，不填写事实字段。不确定是否存在访问拦截，access_blocked=false仅指未观察到403/412/521或验证码。",
     "access_blocked": false
    },
    "commute": {
@@ -1132,6 +1132,20 @@
      "old": null,
      "new": "living_none=true, rent_none=true",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；官网正文读取失败，未将搜索摘要写为事实。https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2026/202601/t20260115_15323576.html；https://www.cqyz.gov.cn/zwgk_229/fdzdgknr/zkly_31707/zklm/202601/t20260121_15342499.html；https://jgswj.cq.gov.cn/zfxxgkzl/zfxxgkml/gwyzlxx/202603/t20260309_15511195_wap.html；https://tyj.cq.gov.cn/zwgk_253/fdzdgknr/gwyzl/202601/t20260116_15325273_wap.html；https://rlsbj.cq.gov.cn/zwxx_182/sydw/sydwgkzp2026/202608/t20260828_15993554.html；https://www.cq.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zkgg/202608/t20260828_15999996.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "公务员2026公告、区县事业单位2026第三季度公告及政府转载页均超时，未读到正文；搜索摘要仅线索，不填写事实字段。不确定是否存在访问拦截，access_blocked=false仅指未观察到403/412/521或验证码。",
+     "basis": "考公考编专项巡检；官网正文读取失败，未将搜索摘要写为事实。https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2026/202601/t20260115_15323576.html；https://www.cqyz.gov.cn/zwgk_229/fdzdgknr/zkly_31707/zklm/202601/t20260121_15342499.html；https://jgswj.cq.gov.cn/zfxxgkzl/zfxxgkml/gwyzlxx/202603/t20260309_15511195_wap.html；https://tyj.cq.gov.cn/zwgk_253/fdzdgknr/gwyzl/202601/t20260116_15325273_wap.html；https://rlsbj.cq.gov.cn/zwxx_182/sydw/sydwgkzp2026/202608/t20260828_15993554.html；https://www.cq.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zkgg/202608/t20260828_15999996.html"
     }
    ],
    "id": "chongqing",
