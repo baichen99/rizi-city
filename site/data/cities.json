@@ -595,7 +595,7 @@
     "hukou": "verified",
     "living_subsidy": "missing",
     "rent_subsidy": "missing",
-    "rent": "lead",
+    "rent": "verified",
     "social_security": "verified",
     "cost": "missing"
    },
@@ -1574,7 +1574,7 @@
     "hukou": "blocked",
     "living_subsidy": "missing",
     "rent_subsidy": "blocked",
-    "rent": "lead",
+    "rent": "verified",
     "social_security": "lead",
     "cost": "blocked"
    },
@@ -1837,7 +1837,7 @@
     "hukou": "verified",
     "living_subsidy": "verified",
     "rent_subsidy": "verified",
-    "rent": "lead",
+    "rent": "verified",
     "social_security": "verified",
     "cost": "lead"
    },
@@ -2090,7 +2090,7 @@
     "hukou": "blocked",
     "living_subsidy": "blocked",
     "rent_subsidy": "blocked",
-    "rent": "lead",
+    "rent": "verified",
     "social_security": "verified",
     "cost": "blocked"
    },
@@ -2648,7 +2648,7 @@
     "hukou": "lead",
     "living_subsidy": "missing",
     "rent_subsidy": "verified",
-    "rent": "lead",
+    "rent": "verified",
     "social_security": "verified",
     "cost": "lead"
    },
@@ -3079,7 +3079,7 @@
     "hukou": "verified",
     "living_subsidy": "lead",
     "rent_subsidy": "missing",
-    "rent": "lead",
+    "rent": "verified",
     "social_security": "verified",
     "cost": "missing"
    },
@@ -3851,7 +3851,7 @@
     "hukou": "verified",
     "living_subsidy": "missing",
     "rent_subsidy": "missing",
-    "rent": "lead",
+    "rent": "verified",
     "social_security": "verified",
     "cost": "lead"
    },

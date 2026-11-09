@@ -133,11 +133,13 @@ def dimension_status(city: dict) -> dict[str, str]:
         group = [s for s in subs if s.get("type") == kind]
         return _best([_status(s, SUBSIDY_FACTS) for s in group]) if group else "missing"
 
-    def living_part(value_keys, url_key):
+    def living_part(value_keys, url_key, honor_flag=True):
+        # 房租与统计共用 living 段；房租数字有来源和核验日期即视为已核实，
+        # needs_human 只影响统计（收入/消费）部分。
         if living.get("access_blocked") and all(living.get(k) is None for k in value_keys):
             return "blocked"
         if all(living.get(k) is not None for k in value_keys) and living.get(url_key) \
-                and living.get("verified_at") and not living.get("needs_human"):
+                and living.get("verified_at") and not (honor_flag and living.get("needs_human")):
             return "verified"
         if any(living.get(k) is not None for k in value_keys):
             return "lead"
@@ -157,7 +159,7 @@ def dimension_status(city: dict) -> dict[str, str]:
         "hukou": _status(city.get("hukou"), HUKOU_FACTS),
         "living_subsidy": subs_status("living"),
         "rent_subsidy": subs_status("rent"),
-        "rent": living_part(("rent_avg_per_sqm",), "rent_source_url"),
+        "rent": living_part(("rent_avg_per_sqm",), "rent_source_url", honor_flag=False),
         "social_security": ss_status,
         "cost": living_part(("consumption_per_capita", "income_per_capita"), "stats_source_url"),
     }
