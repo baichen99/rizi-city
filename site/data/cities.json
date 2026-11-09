@@ -3551,11 +3551,11 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
+    "fresh_grad_rule": "2027市考应届专岗面向国家统招、非定向且按时取得学历学位的2027届；境外学位取得期为2026-07-01至2027-06-30。2026事业单位第二批则允许2025、2026普通高校毕业生未落实编制内工作者按应届报考，不能混用两类口径。 事业单位来源：https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html",
+    "exam_schedule": "2027市考报名2026-11-01 00:00至11-07 12:00，已截止；缴费11-09 10:00至11-11 18:00；笔试12-06。均为北京时间。",
+    "announcement_url": "https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html",
+    "source_url": "https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html",
+    "verified_at": "2026-11-09",
     "needs_human": false,
     "needs_human_reason": null,
     "access_blocked": false
@@ -3593,6 +3593,41 @@
      "old": null,
      "new": "living_none=true, rent_none=true",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "2027市考应届专岗面向国家统招、非定向且按时取得学历学位的2027届；境外学位取得期为2026-07-01至2027-06-30。2026事业单位第二批则允许2025、2026普通高校毕业生未落实编制内工作者按应届报考，不能混用两类口径。 事业单位来源：https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html",
+     "basis": "考公考编专项巡检；沪2027年度考试录用公务员报名周六截止，宝山有这些岗位（政府门户转载市考公告） https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html；上海市2026年部分事业单位公开招聘（第二批）政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html；2026事业单位招聘公告（历史批次） https://rsj.sh.gov.cn/tgsgg_17341/20261015/t0035_1444213.html；事业单位招聘政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2027市考报名2026-11-01 00:00至11-07 12:00，已截止；缴费11-09 10:00至11-11 18:00；笔试12-06。均为北京时间。",
+     "basis": "考公考编专项巡检；沪2027年度考试录用公务员报名周六截止，宝山有这些岗位（政府门户转载市考公告） https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html；上海市2026年部分事业单位公开招聘（第二批）政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html；2026事业单位招聘公告（历史批次） https://rsj.sh.gov.cn/tgsgg_17341/20261015/t0035_1444213.html；事业单位招聘政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html",
+     "basis": "考公考编专项巡检；沪2027年度考试录用公务员报名周六截止，宝山有这些岗位（政府门户转载市考公告） https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html；上海市2026年部分事业单位公开招聘（第二批）政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html；2026事业单位招聘公告（历史批次） https://rsj.sh.gov.cn/tgsgg_17341/20261015/t0035_1444213.html；事业单位招聘政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html",
+     "basis": "考公考编专项巡检；沪2027年度考试录用公务员报名周六截止，宝山有这些岗位（政府门户转载市考公告） https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html；上海市2026年部分事业单位公开招聘（第二批）政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html；2026事业单位招聘公告（历史批次） https://rsj.sh.gov.cn/tgsgg_17341/20261015/t0035_1444213.html；事业单位招聘政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；沪2027年度考试录用公务员报名周六截止，宝山有这些岗位（政府门户转载市考公告） https://www.shanghai.gov.cn/nw17239/20261104/65c6d594b96342acb7053771d38f1f16.html；上海市2026年部分事业单位公开招聘（第二批）政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html；2026事业单位招聘公告（历史批次） https://rsj.sh.gov.cn/tgsgg_17341/20261015/t0035_1444213.html；事业单位招聘政策问答 https://rsj.sh.gov.cn/tzcjd_17352_17352/20261015/t0035_1444212.html"
     }
    ],
    "id": "shanghai",
