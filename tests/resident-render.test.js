@@ -46,7 +46,7 @@ test('all city-pair comparison render paths stay finite and include disclosure',
     r.state.compareA=a.id; r.state.compareB=b.id; r.run('renderCompare');
     const html=r.elements['#tab-compare'].innerHTML;
     assert.ok(!html.includes('NaN') && !html.includes('undefined'), `${a.id}/${b.id}`);
-    assert.ok(html.includes(a===b ? '两座不同的城市' : '其余指标因缺失'));
+    assert.ok(html.includes(a===b ? '两座不同的城市' : '所有维度都列出来'));
   }
 });
 

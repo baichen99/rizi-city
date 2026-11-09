@@ -11,7 +11,7 @@
   const TIER_SCORE = { direct: 2, job: 1, quota: 0 };
   const TIER_LABEL = { direct: "直接落户", job: "先就业或缴社保", quota: "单位指标或积分" };
   const METRICS = [
-    { key: "rent", short: "房租", label: "房租负担", dir: -1, how: "30㎡ 单间月租 ÷ 人均月可支配收入" },
+    { key: "rent", short: "房租", label: "房租负担", dir: -1, how: "假设30㎡月租 ÷ 人均月可支配收入（年数÷12），不是你的实际负担" },
     { key: "cost", short: "生活成本", label: "生活成本", dir: -1, how: "人均消费支出 ÷ 人均可支配收入" },
     { key: "hukou", short: "落户", label: "落户难度", dir: 1, how: "本科：直接落户 > 先就业 > 指标或积分" },
     { key: "subsidy", short: "补贴", label: "补贴力度", dir: 1, how: "本科一次性补贴 + 首年租房补贴" },
@@ -93,6 +93,31 @@
   const safeLink = (url, label) => /^https?:\/\//i.test(url || "") ? link(url, label) : "";
   function rememberedCity() { try { return localStorage.getItem("rizi-resident-city") || ""; } catch (_) { return ""; } }
   function cityOptions(value) { return `<option value="">请选择城市</option>` + D.cities.map(c => `<option value="${esc(c.id)}" ${c.id === value ? "selected" : ""}>${esc(c.city)}</option>`).join(""); }
+  function statisticsSourceUrl(value) {
+    try {
+      const u = new URL(value);
+      return ["http:", "https:"].includes(u.protocol) && (u.hostname === "gov.cn" || u.hostname.endsWith(".gov.cn")) && !u.username && !u.password && !u.port;
+    } catch (_) { return false; }
+  }
+  function livingRecord(c, metric, field, label, unit, period, source, population) {
+    const l = c.living || {};
+    const record = { id: metric, metric, label, value: l[field], unit, period, source_url: source, population_scope: population, geographic_scope: c.city, review_status: (l.needs_human && (!l.needs_human_fields?.length || l.needs_human_fields.includes(field))) || l.access_blocked ? "pending" : l[field] == null ? "missing" : "verified", verified_at: l.verified_at, missing_reason: l.needs_human_reason || "尚未覆盖", comparability_key: metric === "rent" ? `${metric}:legacy` : null };
+    const m = l.statistical_metadata?.[field];
+    if (!m || !["income_per_capita", "consumption_per_capita"].includes(field)) return record;
+    const expectedKey = `resident-statistics|${field}|${m.population_scope_type}|city_administrative_area|CNY-person-year|household-survey`;
+    const complete = (!m.cross_city_comparability_key || m.cross_city_comparability_key === expectedKey) && m.price_basis === "nominal" && Number.isFinite(m.source_value) && m.source_value >= 0 && m.source_value <= Number.MAX_SAFE_INTEGER && m.source_value === l[field] && /^(19|20)\d{2}$/.test(String(l.stats_year)) && typeof m.period === "string" && m.period === String(l.stats_year) && m.unit === "元/年" && m.statistic === "mean"
+      && ["all_residents", "urban_residents", "rural_residents"].includes(m.population_scope_type) && m.population_scope && m.geographic_scope && m.geographic_scope_type === "city_administrative_area"
+      && m.methodology_key === "household_income_expenditure_survey" && statisticsSourceUrl(m.source_url) && calendarDate(m.source_date)
+      && m.publisher && m.evidence_locator && calendarDate(m.verified_at) && calendarDate(m.review_due) && m.source_date <= m.verified_at && m.review_due >= m.verified_at;
+    const status = complete && record.review_status === "verified" ? m.review_status : "pending_review";
+    return { ...record, source_id: `living:${field}`, source_url: m.source_url, verified_at: m.verified_at,
+      statistic: m.statistic, population_scope: m.population_scope || population, population_scope_type: m.population_scope_type,
+      geographic_scope: m.geographic_scope || c.city, geographic_scope_type: m.geographic_scope_type,
+      methodology_key: m.methodology_key, price_basis: m.price_basis, notes: m.methodology_note, data_status: m.data_status,
+      cross_city_comparability_key: complete && typeof m.cross_city_comparability_key === "string" ? m.cross_city_comparability_key : null,
+      review_status: status, missing_reason: complete ? record.missing_reason : "口径元数据与原值、年份或方法未匹配，暂不作为已核实数据展示或比较。",
+      metadata_source: {id:`living:${field}`, url:m.source_url, publisher:m.publisher, title:(m.publisher || "待核实") + "统计原文", published_at:m.source_date, verified_at:m.verified_at, review_due:m.review_due, review_status:status} };
+  }
   function lifeRecords(c) {
     const l = c.living || {};
     const records = [...(c.life?.overview || [])];
@@ -100,20 +125,25 @@
       ["rent", "rent_avg_per_sqm", "住宅平均租金", "元/㎡/月", l.rent_period, l.rent_source_url, l.rent_source || "监测机构住宅租赁样本"],
       ["income", "income_per_capita", "居民人均可支配收入", "元/年", l.stats_year, l.stats_source_url, "居民人均可支配收入（不是工资）；旧数据未结构化记录城镇 / 全体居民口径，请查看原统计公报"],
       ["consumption", "consumption_per_capita", "居民人均消费支出", "元/年", l.stats_year, l.stats_source_url, "居民人均消费支出（包含居住等支出）；旧数据未结构化记录城镇 / 全体居民口径，请查看原统计公报"],
-    ]) records.push({ id: metric, metric, label, value: l[field], unit, period, source_url: source, population_scope: population, geographic_scope: c.city, review_status: (l.needs_human && (!l.needs_human_fields?.length || l.needs_human_fields.includes(field))) || l.access_blocked ? "pending" : l[field] == null ? "missing" : "verified", verified_at: l.verified_at, missing_reason: l.needs_human_reason || "尚未覆盖", comparability_key: metric === "rent" ? `${metric}:legacy` : null });
+    ]) records.push(livingRecord(c, metric, field, label, unit, period, source, population));
     for (const [metric, label, unit] of [["housing_new_yoy_index", "新建商品住宅价格指数", "指数"], ["wage_nonprivate_mean", "城镇非私营单位就业人员平均工资", "元/年"], ["wage_private_mean", "城镇私营单位就业人员平均工资", "元/年"], ["wage_median", "工资中位数", "元/年"], ["life_expectancy", "出生时预期寿命", "岁"]]) {
       if (!records.some(r => r.metric === metric)) records.push({ metric, label, unit, value: null, review_status: "missing", missing_reason: metric === "wage_median" ? "未找到同口径公开数据" : "尚未覆盖已核实数据" });
     }
     return records.map(r => currentLifeRecord(c, r));
   }
-  function sourceFor(c, r) { return (c.life?.sources || []).find(s => s.id === r.source_id) || {}; }
+  function sourceFor(c, r) { return r.metadata_source || (c.life?.sources || []).find(s => s.id === r.source_id) || {}; }
+  function calendarDate(value) {
+    if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+    const parsed = new Date(value + "T00:00:00Z");
+    return Number.isFinite(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
+  }
   // Recheck static/offline snapshots at viewing time; never mutate their evidence.
   function currentLifeRecord(c, r, today = new Date().toISOString().slice(0, 10)) {
     const s = sourceFor(c, r);
     let reason = "", status = r.review_status;
     if (r.source_id) {
       if (!s.id || s.review_status !== "verified") { status = s.review_status === "restricted" ? "restricted" : "pending_review"; reason = "来源尚未通过核验，暂不展示数值。"; }
-      else if (!/^\d{4}-\d{2}-\d{2}$/.test(s.review_due || "")) { status = "pending_review"; reason = "来源缺少有效复核日期，暂不展示数值。"; }
+      else if (!calendarDate(s.review_due)) { status = "pending_review"; reason = "来源缺少有效复核日期，暂不展示数值。"; }
       else if (s.review_due < today) { status = "stale"; reason = `已超过来源复核日期 ${s.review_due}，需重新核验后展示数值。`; }
       else if (s.verified_at > today || r.verified_at > today) { status = "pending_review"; reason = "核验日期晚于查看日期，暂不作为已核验记录。"; }
     }
@@ -122,12 +152,66 @@
   }
   function recordDetails(c, r) {
     const s = sourceFor(c, r);
-    const semantic = { mean: "平均数", median: "中位数", index: "价格指数", gross: "税前", net: "税后", new: "新建商品住宅", resale: "二手住宅", transaction: "成交", listing: "挂牌" };
-    return `<dl class="life-facts"><dt>统计期间</dt><dd>${esc(r.period || "未提供")}</dd><dt>地域 / 对象</dt><dd>${esc(r.geographic_scope || "未提供")} · ${esc(r.population_scope || "未提供")}</dd><dt>统计口径</dt><dd>${esc([r.statistic, r.gross_or_net, r.price_basis, r.market_segment, r.reference_period, r.base_period ? "基期 " + r.base_period : null, r.notes].filter(Boolean).map(v => semantic[v] || v).join(" · ") || r.label)}</dd><dt>原文发布</dt><dd>${esc(s.published_at || "未提供")}</dd><dt>来源核验</dt><dd>${esc(r.verified_at || s.verified_at || "未提供核验日")}（不是统计年份）</dd><dt>来源复核期限</dt><dd>${esc(s.review_due || "旧数据未提供独立复核期限")}</dd></dl>${safeLink(r.source_url || s.url || s.source_url, s.title || s.publisher || "查看来源原文") + (s.attribution ? `<p class="small">${esc(s.attribution)}</p>` : "") || '<p class="small">暂无已核实来源链接。</p>'}`;
+    const semantic = { mean: "平均数", median: "中位数", index: "价格指数", nominal: "名义金额（当年价）", gross: "税前", net: "税后", new: "新建商品住宅", resale: "二手住宅", transaction: "成交", listing: "挂牌" };
+    return `<dl class="life-facts"><dt>统计期间</dt><dd>${esc(r.period || "未提供")}</dd><dt>地域 / 对象</dt><dd>${esc(r.geographic_scope || "未提供")} · ${esc(r.population_scope || "未提供")}</dd><dt>统计口径</dt><dd>${esc([r.statistic, r.gross_or_net, r.price_basis, r.market_segment, r.reference_period, r.base_period ? "编制方法基期 " + r.base_period + "（不是同比的100参照）" : null, r.notes].filter(Boolean).map(v => semantic[v] || v).join(" · ") || r.label)}</dd>${r.comparison === "year_on_year" ? `<dt>同比参照</dt><dd>${esc(r.unit)}；与上年同月比较，不是环比。</dd>` : ""}${r.data_status ? `<dt>数据状态</dt><dd>${esc(({preliminary:"初步数", flash:"快报数", final:"最终数", not_specified:"原文未说明是否最终数"})[r.data_status] || r.data_status)}</dd>` : ""}<dt>原文发布</dt><dd>${esc(s.published_at || "未提供")}</dd><dt>来源核验</dt><dd>${esc(r.verified_at || s.verified_at || "未提供核验日")}（不是统计年份）</dd><dt>来源复核期限</dt><dd>${esc(s.review_due || "旧数据未提供独立复核期限")}</dd></dl>${safeLink(r.source_url || s.url || s.source_url, s.title || s.publisher || "查看来源原文") + (s.attribution ? `<p class="small">${esc(s.attribution)}</p>` : "") || '<p class="small">暂无已核实来源链接。</p>'}`;
+  }
+  // Display explanations are derived only from verified values, never stored as new data.
+  const checkedValue = r => r.review_status === "verified" && typeof r.value === "number" && Number.isFinite(r.value);
+  const numberText = (value, digits = 2) => value.toLocaleString("zh-CN", { maximumFractionDigits: digits });
+  const yearAmount = value => Math.abs(value) >= 10000 ? `${numberText(value / 10000)}万元` : `${numberText(value)}元`;
+  function periodLabel(period) {
+    const m = /^(\d{4})(?:-(\d{2}))?$/.exec(String(period || ""));
+    return m ? `${m[1]}年${m[2] ? Number(m[2]) + "月" : ""}` : String(period || "期间未提供");
+  }
+  function yoyChange(r) {
+    return checkedValue(r) && r.metric === "housing_new_yoy_index" && r.statistic === "index" && r.comparison === "year_on_year" && r.unit === "上年同月=100" && /^\d{4}-(0[1-9]|1[0-2])$/.test(r.period || "")
+      ? Math.round((r.value - 100) * 100) / 100 : null;
+  }
+  function metricReading(r) {
+    if (!checkedValue(r)) return "暂无已核实数值";
+    const change = yoyChange(r);
+    if (change !== null) return change === 0 ? "与去年同月持平" : `比去年同月${change < 0 ? "低" : "高"} ${numberText(Math.abs(change))}%`;
+    if (r.metric === "rent" && r.unit === "元/㎡/月") return `每平方米每月约 ${numberText(r.value)} 元`;
+    if (["wage_nonprivate_mean", "wage_private_mean", "wage_median"].includes(r.metric) && r.unit === "元/年") return `${r.statistic === "median" ? "工资中间水平" : "年平均工资"}约 ${yearAmount(r.value)}${r.gross_or_net === "gross" ? "（税前）" : ""}`;
+    if (r.metric === "income" && r.unit === "元/年") return `平均每人一年可支配约 ${yearAmount(r.value)}`;
+    if (r.metric === "consumption" && r.unit === "元/年") return `平均每人一年消费约 ${yearAmount(r.value)}`;
+    return `${lifeValue(r)} ${r.unit || ""}`.trim();
+  }
+  function metricGuide(r) {
+    const has = checkedValue(r), change = yoyChange(r);
+    const guides = {
+      housing_new_yoy_index: { meaning: "看新建商品住宅价格相对去年同月的变化，不是每平方米售价。", caution: "不能倒推房价金额，也不能判断你的房子涨跌。同比不等于与上个月相比的环比。" },
+      rent: { meaning: "监测样本的每平方米月租平均单价，不是一套房的月租。", caution: "具体租金还取决于地段、面积和房型；不是房源报价。" },
+      income: { meaning: "按统计范围内人口平均的一年可支配收入，不是在职者的平均工资。", caution: "人口范围可能是城镇或全体居民，按原公报口径看；不代表你个人能挣到的钱。" },
+      consumption: { meaning: "统计范围内居民一年消费支出的平均数，包含居住等开销。", caution: "不是你个人必须花的钱，也不要把它和房租直接相加。人口范围请看原公报。" },
+      wage_nonprivate_mean: { meaning: "城镇非私营单位就业人员的工资平均数。“非私营”不等于全部是体制内工作。", caution: "只代表这类统计单位，不包含所有劳动者；平均数不代表多数人的工资。" },
+      wage_private_mean: { meaning: "城镇私营单位就业人员的工资平均数，不是所有打工人的收入。", caution: "不能代表个体经营者、自由职业者或每个人的到手工资。" },
+      wage_median: { meaning: "把同一人群的工资从低到高排，中间位置的数。它和平均工资不是一回事。", caution: "没有同口径中位数时，不能用平均数猜，也不把缺失当作0。" },
+      life_expectancy: { meaning: "假设统计当年的各年龄死亡率保持不变，新生儿平均预期可活多少年。", caution: "这是特定人口的群体指标，不是去世者平均年龄，也不预测个人寿命。历史年份不代表现状。" },
+    };
+    const guide = { ...(guides[r.metric] || { meaning: "按标注的单位、年份和统计对象理解这个数。", caution: "不同口径不能直接比较。" }) };
+    if (change !== null) {
+      const m = /^(\d{4})-(\d{2})$/.exec(r.period || "");
+      guide.basis = `100 = 上年同月的价格水平${m ? `；这里比较${periodLabel(r.period)}与${Number(m[1]) - 1}年${Number(m[2])}月` : ""}。`;
+      guide.example = "读数示例（不是新增城市数据）：100表示持平，102表示同比涨2%，98表示同比降2%。";
+    } else if (r.metric === "housing_new_yoy_index") {
+      guide.basis = "只有明确标注“上年同月=100”的同比指数，才能用指数减100读出同比涨跌幅。";
+    }
+    if (has && r.metric === "rent" && r.unit === "元/㎡/月") guide.example = `只看量级：假设30㎡，${numberText(r.value)} × 30 ≈ ${numberText(Math.round(r.value * 30))}元/月。面积是假设，乘算示意不是具体房源报价。`;
+    if (has && ["wage_nonprivate_mean", "wage_private_mean", "income", "consumption"].includes(r.metric) && r.unit === "元/年") {
+      const wage = r.metric.startsWith("wage");
+      guide.example = `只看量级：年数 ${numberText(r.value)} ÷ 12 ≈ ${numberText(Math.round(r.value / 12))}元/月。这只是把年数摊到12个月${wage ? "，不是每月到手工资" : "，不是新增月度统计"}。`;
+      if (wage && r.gross_or_net === "gross") guide.caution += " 税前口径" + (r.includes_bonus ? "含奖金等，" : "，") + "未扣个人税费、社保和公积金。";
+    }
+    return guide;
+  }
+  function explanationDetails(r) {
+    const guide = metricGuide(r);
+    return `${guide.basis ? `<p>${esc(guide.basis)}</p>` : ""}${guide.example ? `<p>${esc(guide.example)}</p>` : ""}<p>${esc(guide.caution)}</p>`;
   }
   function metricCard(c, r) {
-    const has = typeof r.value === "number" && Number.isFinite(r.value);
-    return `<article class="card metric-card"><div class="metric-top"><h3>${esc(r.label)}</h3><span class="life-status">${esc(LIFE_STATUS[r.review_status] || r.review_status || "待核实")}</span></div><p class="metric-number">${lifeValue(r)} <small>${has ? esc(r.unit) : ""}</small></p><p class="small">${has ? esc(r.period || "统计期间未提供") : esc(r.missing_reason || "未找到同口径公开数据")}</p>${r.metric.includes("housing") ? '<p class="small">价格指数不是元/㎡房价，不可倒推成交均价。</p>' : ""}${r.metric.includes("wage") ? '<p class="small">单位工资统计不等于居民收入，也不代表个人到手工资。</p>' : ""}${r.metric === "life_expectancy" ? '<p class="small">人口统计指标，不预测个人寿命。</p>' : ""}<details><summary>口径与来源</summary>${recordDetails(c, r)}</details></article>`;
+    const has = checkedValue(r), guide = metricGuide(r);
+    return `<article class="card metric-card" data-metric="${esc(r.metric)}"><div class="metric-top"><h3>${esc(r.label)}</h3><span class="life-status">${esc(LIFE_STATUS[r.review_status] || r.review_status || "待核实")}</span></div><p class="metric-reading">${esc(metricReading(r))}</p><p class="metric-original">原始数值：<strong>${lifeValue(r)}</strong>${has ? " " + esc(r.unit) : ""} · ${esc(r.period || "期间未提供")}</p>${!has ? `<p class="small">${esc(r.missing_reason || "未找到同口径公开数据")}</p>` : ""}<p class="metric-meaning">${esc(guide.meaning)}</p>${populationLabel(r) ? `<p class="metric-scope">统计人口：${esc(populationLabel(r))}${r.data_status === "preliminary" ? " · 初步数" : ""}</p>` : ""}${guide.basis ? `<p class="metric-basis">${esc(guide.basis)}</p>` : ""}<details class="metric-explainer"><summary>怎么理解？看例子与边界</summary>${explanationDetails(r)}</details><details><summary>口径与来源</summary>${recordDetails(c, r)}</details></article>`;
   }
   // Pure chart helpers: missing and unverified points always break the line.
   function periodNumber(period, frequency) {
@@ -153,7 +237,24 @@
     return segments;
   }
   function comparable(a, b) {
-    return a && b && a.metric === b.metric && a.unit === b.unit && a.period === b.period && (a.cross_city_comparability_key || a.comparability_key) && (a.cross_city_comparability_key || a.comparability_key) === (b.cross_city_comparability_key || b.comparability_key) && a.population_scope === b.population_scope && a.review_status === "verified" && b.review_status === "verified" && Number.isFinite(a.value) && Number.isFinite(b.value);
+    return a && b && a.metric === b.metric && a.unit === b.unit && a.period === b.period && (a.cross_city_comparability_key || a.comparability_key) && (a.cross_city_comparability_key || a.comparability_key) === (b.cross_city_comparability_key || b.comparability_key) && (a.population_scope_type || a.population_scope) === (b.population_scope_type || b.population_scope) && a.statistic === b.statistic && a.price_basis === b.price_basis && a.methodology_key === b.methodology_key && a.geographic_scope_type === b.geographic_scope_type && a.review_status === "verified" && b.review_status === "verified" && Number.isFinite(a.value) && Number.isFinite(b.value);
+  }
+  function historyExplanation(series, segments) {
+    const valid = segments.flat(), lastSegment = segments[segments.length - 1] || [];
+    const latest = valid[valid.length - 1];
+    if (!latest) return "尚无已核实观测，不能判断走势；没有数值不代表为0。";
+    let text = `最新已核实观测：${periodLabel(latest.period)}，${metricReading(latest)}。`;
+    const change = yoyChange(latest), previous = lastSegment[lastSegment.length - 2];
+    if (change !== null) {
+      if (previous && yoyChange(previous) !== null) {
+        const delta = Math.round((change - yoyChange(previous)) * 100) / 100;
+        text += delta === 0 ? "同比涨跌幅与前一个月相同。" : `同比涨跌幅比前一个月${delta > 0 ? "高" : "低"} ${numberText(Math.abs(delta))} 个百分点。`;
+      }
+      text += "每个点各自与去年同月比；曲线上升不一定表示比上个月涨价，不能据此计算环比。";
+    } else if (previous) text += `前一条相邻观测是${periodLabel(previous.period)}的${lifeValue(previous)} ${previous.unit || series.unit}；仅描述这两个已核实期间。`;
+    const missing = (series.points || []).filter(p => !checkedValue(p)).length;
+    if (missing) text += `另有${missing}个期间暂无可用数值，留空、不补点，也不把旧年值当现状。`;
+    return text;
   }
   function historyChart(c, series, index) {
     series = { ...series, points: (series.points || []).map(p => currentLifeRecord(c, p)) };
@@ -167,17 +268,19 @@
       const timeline = [...series.points].filter(p => Number.isFinite(periodNumber(p.period, series.frequency))).sort((a,b) => periodNumber(a.period, series.frequency) - periodNumber(b.period, series.frequency));
       const periods = timeline.map(p => periodNumber(p.period, series.frequency));
       const minX = Math.min(...periods), maxX = Math.max(...periods);
-      const minY = Math.min(...valid.map(p => p.value)), maxY = Math.max(...valid.map(p => p.value));
+      const hasReference = valid.every(p => yoyChange(p) !== null);
+      let minY = Math.min(...valid.map(p => p.value), ...(hasReference ? [100] : [])), maxY = Math.max(...valid.map(p => p.value), ...(hasReference ? [100] : []));
+      if (minY === maxY) { minY -= 1; maxY += 1; }
       // Separate coordinate systems keep labels legible when a chart is only 260px wide.
       // CSS chooses one SVG, so resizing does not require a state-changing rerender.
       graph = [[620, "wide"], [300, "narrow"]].map(([width, mode]) => {
         const x = p => 62 + (periodNumber(p.period, series.frequency) - minX) / (maxX - minX || 1) * (width - 110);
         const y = p => 152 - (p.value - minY) / (maxY - minY || 1) * 110;
         const id = `${titleId}-${mode}`;
-        return `<svg class="history-chart history-${mode}" viewBox="0 0 ${width} 195" role="img" aria-labelledby="${id}"><title id="${id}">${esc(series.label)}历史观测，${esc(series.unit)}。缺失期间断线，完整数值见下方表格。</title><path d="M62 24V152H${width - 38}" class="chart-axis"/><text x="4" y="45">${esc(maxY)}</text><text x="4" y="154">${esc(minY)}</text>${segments.map(ps => `${ps.length > 1 ? `<polyline points="${ps.map(p => `${x(p)},${y(p)}`).join(" ")}"/>` : ""}${ps.map(p => `<circle tabindex="0" role="img" aria-label="${esc(p.period)}，${lifeValue(p)} ${esc(series.unit)}；${esc(sourceFor(c,p).title || "来源未提供")}；核验 ${esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}" cx="${x(p)}" cy="${y(p)}" r="4"><title>${esc(p.period)}：${lifeValue(p)} ${esc(series.unit)}；${esc(sourceFor(c,p).title || "来源未提供")}；核验 ${esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}</title></circle>`).join("")}`).join("")}<text x="62" y="182">${esc(timeline[0].period)}</text><text x="${width - 48}" y="182" text-anchor="end">${esc(timeline[timeline.length - 1].period)}</text></svg>`;
+        return `<svg class="history-chart history-${mode}" viewBox="0 0 ${width} 195" role="img" aria-labelledby="${id}"><title id="${id}">${esc(series.label)}历史观测，${esc(series.unit)}。缺失期间断线，完整数值见下方表格。</title><path d="M62 24V152H${width - 38}" class="chart-axis"/><text x="4" y="45">${esc(maxY)}</text><text x="4" y="154">${esc(minY)}</text>${hasReference ? `<path d="M62 ${y({value:100})}H${width - 48}" class="chart-reference"/><text x="62" y="${y({value:100}) - 8}" class="chart-reference-label">100：去年同月</text>` : ""}${segments.map(ps => `${ps.length > 1 ? `<polyline points="${ps.map(p => `${x(p)},${y(p)}`).join(" ")}"/>` : ""}${ps.map(p => `<circle tabindex="0" role="img" aria-label="${esc(p.period)}，${lifeValue(p)} ${esc(series.unit)}；${esc(sourceFor(c,p).title || "来源未提供")}；核验 ${esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}" cx="${x(p)}" cy="${y(p)}" r="4"><title>${esc(p.period)}：${lifeValue(p)} ${esc(series.unit)}；${esc(sourceFor(c,p).title || "来源未提供")}；核验 ${esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}</title></circle>`).join("")}`).join("")}<text x="62" y="182">${esc(timeline[0].period)}</text><text x="${width - 48}" y="182" text-anchor="end">${esc(timeline[timeline.length - 1].period)}</text></svg>`;
       }).join("");
     }
-    return `<article class="card"><h3>${esc(series.label)}</h3><p class="small">${esc(series.unit)} · ${esc(series.points?.[0]?.population_scope || "对象见明细")}。${esc(series.notes || "")} 只连接相邻且同口径的已核实观测，不补点、不把缺失当 0。纵轴按观测范围缩放，可能不从 0 起。</p>${graph}<details><summary>查看历史数据表与来源（${(series.points || []).length} 条）</summary><div class="table-scroll history-table"><table role="table"><caption>${esc(series.label)}历史观测</caption><thead role="rowgroup"><tr role="row"><th scope="col">期间</th><th scope="col">数值（${esc(series.unit)}）</th><th scope="col">状态 / 来源</th></tr></thead><tbody role="rowgroup">${(series.points || []).map(p => `<tr><th scope="row">${esc(p.period)}</th><td role="cell">${lifeValue(p)} <span class="history-value-unit">${esc(series.unit)}</span></td><td role="cell">${esc(LIFE_STATUS[p.review_status] || "待核实")} ${safeLink(sourceFor(c,p).url || sourceFor(c,p).source_url, sourceFor(c,p).title || "原文") + " · 核验 " + esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}${p.missing_reason ? esc(p.missing_reason) : ""}</td></tr>`).join("")}</tbody></table></div></details></article>`;
+    return `<article class="card"><h3>${esc(series.label)}</h3><p class="small">${esc(series.unit)} · ${esc(series.points?.[0]?.population_scope || "对象见明细")}。${esc(series.notes || "")} 只连接相邻且同口径的已核实观测，不补点、不把缺失当 0。纵轴按观测范围缩放，可能不从 0 起。</p><p class="trend-reading">${esc(historyExplanation(series, segments))}</p>${graph}<details><summary>查看历史数据表与来源（${(series.points || []).length} 条）</summary><div class="table-scroll history-table"><table role="table"><caption>${esc(series.label)}历史观测</caption><thead role="rowgroup"><tr role="row"><th scope="col">期间</th><th scope="col">数值（${esc(series.unit)}）</th><th scope="col">状态 / 来源</th></tr></thead><tbody role="rowgroup">${(series.points || []).map(p => `<tr><th scope="row">${esc(p.period)}</th><td role="cell">${lifeValue(p)} <span class="history-value-unit">${esc(series.unit)}</span></td><td role="cell">${esc(LIFE_STATUS[p.review_status] || "待核实")} ${safeLink(sourceFor(c,p).url || sourceFor(c,p).source_url, sourceFor(c,p).title || "原文") + " · 核验 " + esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}${p.missing_reason ? esc(p.missing_reason) : ""}</td></tr>`).join("")}</tbody></table></div></details></article>`;
   }
   function policyCards(c) {
     const policies = [
@@ -208,10 +311,51 @@
     const saved = rememberedCity();
     $("#tab-resident").innerHTML = `<div class="resident-intro"><p class="kicker">把日子过在这里</p><h2>${c ? esc(c.city) + "，生活概况" : "先看看你生活的城市"}</h2><p class="sub">看懂公开数据，找到政策原文。没有全体居民的城市总分，也不用填写个人收入或身份信息。</p></div><div class="card city-picker"><label for="resident-city">我住在</label><select id="resident-city">${cityOptions(state.residentCity)}</select><div class="row"><button class="btn ghost" data-remember ${!c ? "disabled" : ""}>在本机记住这座城</button><button class="btn ghost" data-forget ${!saved ? "disabled" : ""}>清除记住的城市</button>${c ? '<button class="btn ghost" data-copy>分享城市页</button>' : ""}</div><p class="small">${saved ? "已记住：" + esc(D.cities.find(x=>x.id===saved)?.city || saved) + "。" : "默认不保存。"}仅在此浏览器保存城市；分享链接不含个人条件。</p></div>${!c ? `<div class="resident-empty"><span aria-hidden="true">⌂</span><h3>一城一份，慢慢看清楚</h3><p>选择城市后查看概况、历史观测、政策和生活入口。未覆盖的数据会明确留空。</p><p><a href="#compare">还在考虑搬家？比较两座城市 →</a></p></div>` : `<nav class="life-jumps" aria-label="本城内容">${[["overview","概况"],["history","历史走势"],["policies","政策"],["daily","日常生活"],["sources","来源与更新"]].map(([id,l])=>`<button class="chip" data-jump="${id}">${l}</button>`).join("")}</nav><section id="life-overview"><h2>生活的几个侧面</h2><p class="sub">数字的时间和对象可能不同，请展开查看。没有值不代表为 0。</p><div class="metric-grid">${lifeRecords(c).map(r=>metricCard(c,r)).join("")}</div></section><section id="life-history"><h2>沿着时间看变化</h2><p class="sub">每张图独立呈现同一可比序列。历史数据不冒充现状。</p><div class="life-stack">${(c.life?.series || []).map((s,i)=>historyChart(c,s,i)).join("") || '<p class="note">尚未收录满足同口径要求的历史序列，暂不绘图。</p>'}</div></section><div id="life-policies">${policyCards(c)}</div><section id="life-daily"><h2>日常生活入口</h2><p class="sub">先找到可信的入口。不把官方单价当平均账单，也不估算个人费用。</p><div class="metric-grid">${(c.life?.modules || []).map(moduleCard).join("") || '<p class="note">本城账单、气候、就医、菜篮子与街区导航尚未覆盖；不提供未经核实的价格。</p>'}</div></section><section id="life-sources"><h2>来源与资料更新</h2><p class="sub">重新核验不等于政策发生变化。目前未建立独立的政策生效变更流，请以原文为准。</p><div class="card"><h3>资料核验</h3><p>本城最近核验：${esc(c.latest_verified || "未提供")}。统计年份请查看各指标。</p><details><summary>全部新增数据来源（${(c.life?.sources || []).length}）</summary><ul>${(c.life?.sources || []).map(s=>`<li>${safeLink(s.url || s.source_url, s.title || s.id)} <span class="small">${esc(s.verified_at || "")}</span></li>`).join("")}</ul></details><p>${link(yamlUrl(c),"查看城市数据与维护记录")} · ${link(REPO + "/issues/new?template=data-error.yml", "报告数据问题")}</p></div></section>`}`;
   }
+  function comparisonRows(a, b) {
+    const left = lifeRecords(a), right = lifeRecords(b);
+    const order = ["rent", "housing_new_yoy_index", "income", "consumption", "wage_nonprivate_mean", "wage_private_mean", "wage_median", "life_expectancy"];
+    return order.map(metric => {
+      const r = left.find(x => x.metric === metric), s = right.find(x => x.metric === metric);
+      const canCompare = Boolean(comparable(r, s)), available = checkedValue(r) && checkedValue(s);
+      let reason = "统计对象、期间和指标口径一致，可以读两城差异。";
+      if (!available) reason = !checkedValue(r) && !checkedValue(s) ? "两城都还缺已核实数值，不补0，也不猜测。" : "一座城市还缺已核实数值，暂时不能做两城比较。";
+      else if (!canCompare) {
+        reason = r.period !== s.period ? `统计期间不同（${r.period || "未提供"} / ${s.period || "未提供"}），只分别展示，不作高低比较。`
+          : r.unit !== s.unit ? "计量单位不同，不能直接作高低比较。"
+          : r.population_scope_type && s.population_scope_type && r.population_scope_type !== s.population_scope_type ? "统计对象不同，不能直接作高低比较。"
+          : "人口范围或统计口径尚未确认一致，只分别看原文，不作高低比较。";
+      }
+      return { metric, r, s, canCompare, state: canCompare ? "ready" : available ? "reference" : "missing", reason };
+    });
+  }
+  function comparisonNumber(r) {
+    if (!checkedValue(r)) return "暂无";
+    const change = yoyChange(r);
+    if (change !== null) return change === 0 ? "同比持平" : `${change < 0 ? "下降" : "上涨"}${numberText(Math.abs(change))}%`;
+    if (r.unit === "元/年") return yearAmount(r.value);
+    return lifeValue(r);
+  }
+  function comparisonUnit(r) {
+    if (yoyChange(r) !== null) return "与去年同月相比";
+    if (r.unit === "元/年") return ["income", "consumption"].includes(r.metric) ? "每人/年" : r.gross_or_net === "gross" ? "每年 · 税前" : "每年";
+    return r.unit || "单位未提供";
+  }
+  function populationLabel(r) {
+    if (!["income", "consumption"].includes(r.metric)) return "";
+    return checkedValue(r) ? ({urban_residents:"城镇常住居民",all_residents:"全体常住居民",rural_residents:"农村常住居民"})[r.population_scope_type] || "人口范围待核实" : "";
+  }
+  function comparisonCard(a, b, row) {
+    const labels = {rent:"租房单价", housing_new_yoy_index:"新房价格变化", income:"居民可支配收入", consumption:"居民消费支出", wage_nonprivate_mean:"非私营单位工资", wage_private_mean:"私营单位工资", wage_median:"工资中位数", life_expectancy:"出生时预期寿命"};
+    const statuses = {ready:"同口径可比", reference:"仅分别参考", missing:"数据待补"};
+    const {r, s} = row;
+    const values = [[a,r],[b,s]];
+    return `<article class="card comparison-card" data-metric="${esc(row.metric)}" data-comparable="${row.canCompare}"><header class="comparison-heading"><h3>${esc(labels[row.metric] || r.label)}</h3><span class="comparison-status ${row.state}">${statuses[row.state]}</span></header><div class="comparison-values">${values.map(([city, record], i) => `<section class="comparison-city city-side-${i}" aria-label="${esc(city.city)}${esc(record.label)}"><h4>${esc(city.city)}</h4><p class="comparison-number${checkedValue(record) ? "" : " missing"}">${esc(comparisonNumber(record))}</p><p class="comparison-unit">${esc(comparisonUnit(record))}</p><p class="comparison-period">${esc(record.period || "期间未提供")}${record.data_status === "preliminary" ? " · 初步数" : ""}</p>${populationLabel(record) ? `<p class="comparison-scope">${esc(populationLabel(record))}</p>` : ""}${yoyChange(record) !== null ? `<p class="comparison-original">原始指数 ${lifeValue(record)}</p>` : ""}<p class="comparison-source">${checkedValue(record) ? esc(sourceFor(city,record).publisher || (record.metric === "rent" ? city.living?.rent_source : "") || "原文见下方") : esc(LIFE_STATUS[record.review_status] || "尚未覆盖")}</p></section>`).join("")}</div><p class="comparison-reason">${esc(row.reason)}</p>${row.metric === "housing_new_yoy_index" ? '<p class="comparison-tip">100代表去年同月水平。比较的是涨跌幅，不能判断哪城房价更便宜，也不是环比。</p>' : ""}<details class="comparison-details"><summary>查看解释、限制与两城来源</summary>${values.map(([city,record])=>`<div class="comparison-evidence"><h4>${esc(city.city)} · ${esc(record.label)}</h4><p>原始数值：${lifeValue(record)} ${esc(record.unit || "")} · ${esc(record.period || "期间未提供")}</p><p>${esc(metricGuide(record).meaning)}</p>${!checkedValue(record) ? `<p class="note">${esc(record.missing_reason || "尚无已核实数值")}</p>` : ""}${explanationDetails(record)}${recordDetails(city,record)}</div>`).join("")}</details></article>`;
+  }
   function renderCompare() {
     const a = D.cities.find(c=>c.id===state.compareA), b = D.cities.find(c=>c.id===state.compareB);
-    const rows = a && b && a !== b ? lifeRecords(a).map(r=>[r, lifeRecords(b).find(s=>s.metric===r.metric)]).filter(([r,s])=>comparable(r,s)) : [];
-    $("#tab-compare").innerHTML = `<h2>我在选城市</h2><p class="sub">先并排看事实，再决定什么对你重要。不合并不同口径，不做全能排名。</p><div class="card compare-pickers"><label>第一座城市<select id="compare-a">${cityOptions(state.compareA)}</select></label><label>第二座城市<select id="compare-b">${cityOptions(state.compareB)}</select></label></div>${a && b ? a===b ? '<p class="note">请选择两座不同的城市。</p>' : `<div class="row"><a class="btn ghost" href="#resident&city=${encodeURIComponent(a.id)}">${esc(a.city)}生活页 →</a><a class="btn ghost" href="#resident&city=${encodeURIComponent(b.id)}">${esc(b.city)}生活页 →</a></div>${rows.length ? `<div class="card table-scroll compare-table"><table role="table"><caption>同指标、单位、期间和统计对象的资料对照，不作高低排名</caption><thead role="rowgroup"><tr role="row"><th scope="col">指标 / 期间</th><th scope="col">${esc(a.city)}</th><th scope="col">${esc(b.city)}</th></tr></thead><tbody>${rows.map(([r,s])=>`<tr role="row"><th scope="row" role="rowheader">${esc(r.label)}<br><span class="small">${esc(r.period)} · ${esc(r.unit)}</span></th><td role="cell"><span class="compare-city-label">${esc(a.city)}</span><strong class="compare-value">${lifeValue(r)}</strong><details><summary>口径与来源</summary>${recordDetails(a,r)}</details></td><td role="cell"><span class="compare-city-label">${esc(b.city)}</span><strong class="compare-value">${lifeValue(s)}</strong><details><summary>口径与来源</summary>${recordDetails(b,s)}</details></td></tr>`).join("")}</tbody></table></div>` : '<p class="note">暂未找到两城同期间、同口径且已核实的指标。请分别打开城市页，不将缺失值拿来排名。</p>'}<p class="small">其余指标因缺失、待核实或口径不同，未放入对照表。</p>` : '<p class="note">选择两座候选城市开始比较。数据不足时会明确提示。</p>'}<div class="card"><h3>保留你熟悉的专题工具</h3><p>日子指数使用本科落户、补贴和灵活就业等特定条件，不是适用于所有居民的城市评分。</p><div class="row"><a href="#index">日子指数与权重 →</a><a href="#grad">应届生 →</a><a href="#civil">考公考编 →</a><a href="#free">自由职业 →</a></div><p>${link(METHOD_URL,"了解指数方法")}</p></div>`;
+    const rows = a && b && a !== b ? comparisonRows(a, b) : [];
+    const count = state => rows.filter(r => r.state === state).length;
+    $("#tab-compare").innerHTML = `<h2>两座城市，放在一起看</h2><p class="sub">先看租房、收入与生活数据，再判断什么对你重要。不把不同年份、不同人群硬凑成排名。</p><div class="card compare-pickers"><label>第一座城市<select id="compare-a">${cityOptions(state.compareA)}</select></label><label>第二座城市<select id="compare-b">${cityOptions(state.compareB)}</select></label></div>${a && b ? a===b ? '<p class="note">请选择两座不同的城市。</p>' : `<div class="compare-coverage" aria-label="数据可比性"><strong>${rows.length}个维度</strong><span>${count("ready")}项同口径可比</span><span>${count("reference")}项仅分别参考</span><span>${count("missing")}项数据待补</span></div><p class="small">所有维度都列出来。灰色“暂无”不是0，标注“仅分别参考”的项目不比较高低。</p><div class="row compare-city-links"><a class="btn ghost" href="#resident&city=${encodeURIComponent(a.id)}">${esc(a.city)}生活页 →</a><a class="btn ghost" href="#resident&city=${encodeURIComponent(b.id)}">${esc(b.city)}生活页 →</a></div><div class="comparison-grid">${rows.map(row=>comparisonCard(a,b,row)).join("")}</div>` : '<p class="note">选择两座城市，即可查看已覆盖、不可比和待补的生活维度。</p>'}<div class="card"><h3>还想按自己的偏好排序？</h3><p>日子指数使用本科落户、补贴和灵活就业等特定条件，是相对分，不是适用于所有居民的城市总分。</p><div class="row"><a href="#index">日子指数与权重 →</a><a href="#grad">应届生 →</a><a href="#civil">考公考编 →</a><a href="#free">自由职业 →</a></div><p>${link(METHOD_URL,"了解指数方法")}</p></div>`;
   }
 
   // ---------- 日子指数 ----------
@@ -249,6 +393,14 @@
   }
   const weightText = () => ACTIVE.map((m) => `${m.short}×${state.w[m.key]}`).join("  ");
 
+  function indexRawValue(city, metric) {
+    const input = city.index[metric.key];
+    if (!input?.ok) return "缺已核实数据";
+    if (metric.key === "hukou") return TIER_LABEL[input.value] || "口径未确认";
+    if (!Number.isFinite(input.value)) return "缺已核实数据";
+    if (metric.key === "subsidy") return `${numberText(input.value)}元`;
+    return `${numberText(input.value * 100)}%`;
+  }
   function renderIndex() {
     const el = $("#tab-index");
     const sumW = ACTIVE.reduce((a, m) => a + state.w[m.key], 0);
@@ -257,9 +409,16 @@
     el.innerHTML = `
       <div>
         <h2>日子指数：哪座城市更好过日子？</h2>
-        <p class="sub">${ACTIVE.length} 项公开数据，各自归一化到 0–100 分再按你的权重加权。拖一拖滑块，看看你在乎的东西换了，排名怎么变。</p>
+        <p class="sub">按你在乎的${ACTIVE.length}件事，把当前可排名的城市放在一起比。分数越高，只表示在这套条件和权重下更靠前。</p>
+      </div>
+      <div class="card index-guide">
+        <h3>80分是什么意思？</h3>
+        <p>是当前${ranked.length}座入榜城市之间的相对分，不是幸福概率，也不是城市综合体检。0分不等于差，100分不等于完美。</p>
+        <p class="small">主要面向本科落户、补贴与灵活就业等特定条件；城市、数据或权重变了，分数也会变。</p>
+        <details><summary>看一个算分例子</summary><p>示意，不是城市数据：假设房租负担最低20%、最高40%，某城25%，这一项得75分。表示它在这组城市中相对靠前，不是房租便宜75%。</p><p>权重0：这一项不计入总分；有数据的项目中，3按三份、1按一份参与加权。缺1项按其余有数据项目重新加权；是否入榜仍按全部启用项目的数据完整性判断。</p></details>
       </div>
       <div class="card">
+        <p class="small">滑块越大，这件事在你的总分里占得越重；0表示不计入总分。</p>
         <div class="row">${PRESETS.map((p, i) => `<button class="chip" data-preset="${i}" aria-pressed="${presetOn(p)}">${esc(p.name)}</button>`).join("")}</div>
         <div class="weights">
           ${METRICS.map((m) => m.off
@@ -282,6 +441,7 @@
                 ? `<span class="miss" title="${esc(r.c.index[m.key].reason)}">${m.short} ⚠️缺</span>`
                 : `<span title="${esc(m.how)}">${m.short} <b>${r.scores[m.key].toFixed(0)}</b></span>`).join("")}
             </div>
+            <details class="rank-explanation"><summary>看原始数据和分数</summary><ul>${ACTIVE.map(m => `<li><strong>${esc(m.label)}</strong>：${esc(indexRawValue(r.c, m))}${r.scores[m.key] == null ? "，本项不计分" : ` → 本项相对分${r.scores[m.key].toFixed(0)}`}<br><span class="small">${esc(m.how)}</span></li>`).join("")}</ul></details>
             ${r.miss.length ? `<div class="parts tiny" style="margin-top:4px">⚠️ ${esc(r.miss[0].label)}：${esc(r.c.index[r.miss[0].key].reason)}（这一项不计分，按其余几项加权）</div>` : ""}
           </li>`).join("")}
       </ol>`}

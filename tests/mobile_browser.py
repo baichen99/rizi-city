@@ -51,12 +51,19 @@ def run(base_url, out):
                 page.goto(base_url + '#' + route)
                 page.locator('#meta').filter(has_text='座城市').wait_for()
                 page.locator(f'#tab-{name}').wait_for(state='visible')
+                page.evaluate('window.scrollTo(0, 0)')
                 report.append({'width': width, 'page': name, **check_page(page, name)})
                 page.screenshot(path=str(out / f'{name}-{width}.png'))
                 if name == 'resident':
                     page.locator('[data-jump="overview"]').click()
                     assert page.locator('#life-overview').bounding_box()['y'] >= page.locator('.tabs').bounding_box()['height']
-                    page.locator('#life-overview details summary').first.click()
+                    page.locator('#life-overview details:not(.metric-explainer) summary').first.click()
+                    house = page.locator('#life-overview [data-metric="housing_new_yoy_index"]')
+                    assert '低 2.7%' in house.locator('.metric-reading').inner_text()
+                    assert '97.3' in house.locator('.metric-original').inner_text()
+                    house.locator('.metric-explainer summary').click()
+                    assert '102表示同比涨2%' in house.inner_text()
+                    house.screenshot(path=str(out / f'house-explained-{width}.png'))
                     check_page(page, 'resident-source')
                     page.screenshot(path=str(out / f'resident-source-{width}.png'))
                     page.locator('[data-jump="history"]').click()
@@ -87,13 +94,19 @@ def run(base_url, out):
                     assert page.locator('#policy-topic').input_value() == 'social'
                     check_page(page, 'resident-policy')
                 if name == 'compare':
+                    assert page.locator('.comparison-card').count() == 8
+                    assert page.locator('.comparison-card[data-comparable="true"]').count() >= 2
+                    cells = page.locator('.comparison-card').first.locator('.comparison-city')
+                    assert cells.nth(0).bounding_box()['y'] == cells.nth(1).bounding_box()['y']
+                    assert cells.nth(0).bounding_box()['x'] < cells.nth(1).bounding_box()['x']
+                    page.locator('.comparison-card[data-metric="housing_new_yoy_index"]').screenshot(path=str(out / f'compare-housing-{width}.png'))
                     sources = page.locator('#tab-compare details summary')
                     if sources.count():
                         sources.first.click()
                         check_page(page, 'compare-source')
                         if width <= 600:
-                            assert page.locator('.compare-table td').first.bounding_box()['width'] >= 220
-                            assert page.locator('.compare-city-label').first.is_visible()
+                            assert page.locator('.comparison-evidence').first.bounding_box()['width'] >= 220
+                            assert page.locator('.comparison-city h4').first.is_visible()
                         page.screenshot(path=str(out / f'compare-source-{width}.png'))
                     page.select_option('#compare-b', 'beijing')
                     assert page.get_by_text('请选择两座不同的城市。', exact=True).is_visible()
@@ -109,6 +122,11 @@ def run(base_url, out):
                     page.locator('#tab-civil details.city summary').first.click()
                     check_page(page, 'civil-expanded')
                 if name == 'index':
+                    page.locator('.index-guide summary').click()
+                    assert '不是房租便宜75%' in page.locator('.index-guide').inner_text()
+                    page.locator('.rank-explanation summary').first.click()
+                    check_page(page, 'index-explanation')
+                    page.locator('.index-guide').screenshot(path=str(out / f'index-explanation-{width}.png'))
                     for action in ('button', 'escape', 'button'):
                         page.locator('[data-share="top5"]').click()
                         assert page.locator('#sheet').is_visible()
@@ -129,6 +147,17 @@ def run(base_url, out):
                     assert page.locator('#tab-index').is_visible()
                     page.go_forward()
                     assert page.locator('#tab-civil').is_visible()
+            page.goto(base_url + '#compare&a=guangzhou&b=shanghai')
+            page.locator('.comparison-card[data-metric="income"]').wait_for()
+            snapshot = json.loads((ROOT / 'site/data/cities.json').read_text())
+            by_id = {c['id']: c for c in snapshot['cities']}
+            for metric, field in (('income','income_per_capita'), ('consumption','consumption_per_capita')):
+                pair = [by_id[c]['living'].get('statistical_metadata', {}).get(field, {}) for c in ('guangzhou','shanghai')]
+                if all(m.get('review_status') == 'verified' for m in pair):
+                    same = pair[0].get('cross_city_comparability_key') == pair[1].get('cross_city_comparability_key') and pair[0].get('period') == pair[1].get('period')
+                    assert page.locator(f'.comparison-card[data-metric="{metric}"]').get_attribute('data-comparable') == str(same).lower()
+            page.locator('.comparison-card[data-metric="income"]').screenshot(path=str(out / f'compare-income-{width}.png'))
+            check_page(page, 'guangzhou-shanghai-metadata')
             page.goto(base_url + '#resident&city=guangzhou')
             page.locator('#resident-city').wait_for()
             page.locator('[data-jump="daily"]').click()
@@ -141,7 +170,7 @@ def run(base_url, out):
             context.close()
         dark = browser.new_page(viewport={'width':390,'height':800},color_scheme='dark')
         dark.goto(base_url + '#compare&a=beijing&b=shanghai')
-        dark.locator('.compare-table').wait_for()
+        dark.locator('.comparison-card').first.wait_for()
         check_page(dark, 'dark-compare')
         dark.screenshot(path=str(out / 'compare-390-dark.png'))
         browser.close()
@@ -166,7 +195,7 @@ if __name__ == '__main__':
             # Pages may be briefly cached after deploy. Verify the exact tested assets first.
             for attempt in range(12):
                 try:
-                    for name in ('app.js', 'style.css', 'index.html'):
+                    for name in ('app.js', 'style.css', 'index.html', 'data/cities.json'):
                         with urlopen(args.base_url + name + '?mobile-check=' + str(time.time()), timeout=20) as response:
                             assert response.read() == (ROOT / 'site' / name).read_bytes(), name
                     break
