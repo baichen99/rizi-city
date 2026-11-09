@@ -4095,7 +4095,7 @@
     {
      "name": "青年人才之家免费住宿",
      "type": "other",
-     "amount": "最长 7 天免费住宿",
+     "amount": "最长 15 天免费入住",
      "amount_by_degree": {
       "associate": null,
       "bachelor": null,
@@ -4109,10 +4109,10 @@
      "conditions": [
       "原文为\"鼓励各区建设\"，各区是否提供、如何申请以区里为准"
      ],
-     "deadline_rule": null,
-     "policy_name": "同上",
-     "source_url": "https://www.wuhan.gov.cn/ztzl/ztfw/gxbysycxcybt/zcwj_87510/202310/t20231020_2283321.shtml",
-     "source_date": "2022-06-07",
+     "deadline_rule": "毕业 6 年以内",
+     "policy_name": "武汉市政府门户网站转载长江日报《免费住！武汉青年人才之家最长可住15天》（2025-07-22）；原依据为 2022-06-07 市政府办公厅通知（最长 7 天）",
+     "source_url": "https://www.wuhan.gov.cn/hdjl/rdhy/202507/t20250722_2623124.shtml",
+     "source_date": "2025-07-22",
      "valid_until": null,
      "verified_at": "2026-11-09",
      "needs_human": false,
@@ -4217,6 +4217,13 @@
      "old": null,
      "new": "living_none=true, rent_none=true",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "subsidies[1].amount",
+     "old": "最长 7 天免费住宿",
+     "new": "最长 15 天免费入住",
+     "basis": "武汉市政府门户网站 2025-07-22 转载长江日报（巡检报告"
     }
    ],
    "id": "wuhan",
