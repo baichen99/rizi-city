@@ -1,0 +1,123 @@
+city: 沈阳
+province: 辽宁
+maintainers: []
+last_patrol: 2026-11-09
+
+hukou:
+  summary: 高中毕业生，技工学校、职业学校及以上院校的在校生和毕业生，本人及近亲属即可在沈阳落户；取得《辽宁省居住证》也可落户，不要求先就业
+  education_min: 高中
+  age_limit: 原文未设
+  requires_job_or_social_security: false
+  eligible_by_degree: {associate: true, bachelor: true, master: true, phd: true}
+  tier_by_degree: {associate: direct, bachelor: direct, master: direct, phd: direct}
+  age_max_by_degree: {associate: 0, bachelor: 0, master: 0, phd: 0}
+  conditions:
+    - 可在派出所集体户落户
+  apply_window: 常态办理
+  policy_name: 沈阳市进一步促进外来人口落户若干政策措施，沈政办发〔2024〕5号
+  source_url: https://www.shenyang.gov.cn/zwgk/zcwj/zfwj/szfbgtwj1/202405/t20240510_4641776.html
+  source_date: 2024-05-01
+  valid_until: null
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+  lead: null
+  lead_url: null
+
+subsidies:
+  - name: 高校毕业生就业创业生活补贴
+    type: living
+    amount: null
+    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+    period: null
+    periods_max: null
+    payout: null
+    target: null
+    conditions: []
+    deadline_rule: null
+    policy_name: 2026 版"兴沈英才计划"（实施细则待发布）
+    source_url: https://rsj.shenyang.gov.cn/xwzx/tzgg/202606/t20260618_5043690.html
+    source_date: 2026-06-18
+    valid_until: null
+    verified_at: 2026-11-09
+    needs_human: true
+    needs_human_reason: 沈阳市人社局 2026-06-18 说明：旧政策只适用于 2026-05-31 前已在沈参保的人员（12 月 31 日前申请）；2026-06-01 后来沈工作的人才按 2026 版"兴沈英才计划"执行，细则尚未印发。2027 届适用标准未知，需持续关注。
+    access_blocked: false
+    lead: 2023 年细则（沈人社发〔2023〕系列）：大专每月 300 元、本科 600 元、硕士 1200 元、博士 2500 元，36 个月，要求沈阳户籍、毕业两年内（仅适用于 2026-05-31 前已参保人员）
+    lead_url: https://www.shenyang.gov.cn/zwgk/zcwj/zfwj/bmwj/202305/t20230511_4462861.html
+
+social_security:
+  base_min: 4533
+  base_max: 22665
+  year: 2026
+  scope: 辽宁全省（企业职工、机关事业单位养老保险个人缴费基数）
+  source_url: https://rst.ln.gov.cn/rst/zfxx/fdzdgknr/lzyj/rstgfxwj/lrs/2026083110175583355/index.shtml
+  source_type: gov
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+living:
+  rent_avg_per_sqm: 22.43
+  rent_period: 2026-09
+  rent_source: 中指研究院 50 城住宅租赁价格指数（元/㎡/月）
+  rent_source_url: https://m.cih-index.com/news/2026-10-16/55166711.html
+  consumption_per_capita: null
+  income_per_capita: null
+  stats_year: null
+  stats_source_url: null
+  verified_at: 2026-11-09
+  needs_human: true
+  needs_human_reason: 未检索到沈阳 2025 年统计公报原文，需人工在沈阳市统计局网站查找。
+  access_blocked: false
+
+flexible_employment:
+  pension_base_min: 4533
+  pension_rate: 20
+  pension_year: 2026
+  medical_monthly_min: null
+  medical_note: 沈阳灵活就业职工医保以上年全口径平均工资为基数、按 6% 缴费（2025 年政策解读），2026 年基数金额未找到
+  monthly_total_min: null
+  calc: null
+  hukou_restriction: null
+  nonlocal_allowed: null
+  apply_channel: null
+  source_url: https://rst.ln.gov.cn/rst/zfxx/fdzdgknr/lzyj/rstgfxwj/lrs/2026083110175583355/index.shtml
+  medical_source_url: https://ybj.shenyang.gov.cn/zwgk/fdzdgknr/zcjd/202501/t20250102_4789995.html
+  hukou_source_url: null
+  verified_at: 2026-11-09
+  needs_human: true
+  needs_human_reason: 辽人社〔2026〕19号附表给出个人参保各档金额（摘要称最低档 906.6 元/月），附表未能打开核对；比例 20% 取自中国政府网全国通行说明；沈阳医保 2026 基数缺原文。
+  access_blocked: false
+
+civil_service:
+  fresh_grad_rule: null
+  exam_schedule: null
+  announcement_url: null
+  source_url: null
+  verified_at: null
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+commute:
+  avg_commute_minutes: null
+  year: null
+  report: null
+  source_url: null
+  verified_at: null
+  needs_human: true
+  needs_human_reason: 待确定通勤数据口径
+
+pitfalls:
+  - text: 沈阳高校毕业生生活补贴、购房补贴在 2026 年 6 月换版，旧标准只照顾 5 月底前已在沈参保的人；之后来的按新版"兴沈英才计划"，细则出来前别按旧数字做打算。
+    source_url: https://rsj.shenyang.gov.cn/xwzx/tzgg/202606/t20260618_5043690.html
+
+changelog:
+  - date: 2026-11-09
+    field: 全部
+    old: null
+    new: 首次采集
+    basis: 沈政办发〔2024〕5号、沈阳人社局 2026-06-18 过渡期说明、辽人社〔2026〕19号、中指研究院 2026 年 9 月租金
