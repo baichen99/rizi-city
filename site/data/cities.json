@@ -4577,15 +4577,15 @@
     }
    ],
    "social_security": {
-    "base_min": null,
-    "base_max": null,
-    "year": null,
-    "scope": null,
-    "source_url": null,
-    "source_type": null,
-    "verified_at": null,
-    "needs_human": true,
-    "needs_human_reason": "深圳 2026 年养老保险缴费基数下限的具体金额未找到官方原文（医保 2026 年下限为 6727 元，见 flexible_employment）。",
+    "base_min": 5521,
+    "base_max": 27603,
+    "year": "2026 社保年度（2026-07 起）",
+    "scope": "广东省统一（企业职工基本养老保险，深圳遵照省定标准执行）；职工医保（含生育）为深圳市定基数 6727–33633（2026 自然年度，深圳市医保局 2025-12-29 提示）；失业保险下限为最低工资 2700（2026-09-01 起），上限官方未公布具体数额；工伤保险按单位工资总额计费，无个人统一基数",
+    "source_url": "https://hrss.gd.gov.cn/zwgk/gsgg/content/post_4957552.html",
+    "source_type": "gov",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
     "access_blocked": false
    },
    "living": {
@@ -4660,6 +4660,13 @@
     },
     {
      "date": "2026-11-09",
+     "field": "social_security.base_min/base_max",
+     "old": null,
+     "new": "5521 / 27603（企业职工基本养老保险，广东省统一，2026 社保年度）",
+     "basis": "粤人社发〔2026〕24号原文「自2026年7月1日起，全省企业职工基本养老保险缴费基数上限调整为27603元，缴费基数下限调整为5521元」；深圳企业职工养老执行省定标准（深圳市人社局下限衔接通知及落实通知均称遵照省标准执行）；深圳无全险种统一基数，医保市定口径等差异已写进 scope"
+    },
+    {
+     "date": "2026-11-09",
      "field": "civil_service.fresh_grad_rule",
      "old": null,
      "new": "2027省考区分“限2027届”与“限应届”：前者面向统招2027届非在职毕业生；后者还包括2025、2026届未落实工作单位者、2025-01-09至报名首日取得境外学历学位且未就业并按时认证者、正在服务基层项目或期满考核合格2年内者；应届岗须以最高学历专业报考。2026事业单位集中招聘应届岗还覆盖当届职业学校、技工院校毕业生等，须按该批次指南单独认定，不可套用2027省考年份。 事业单位依据：https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx",
@@ -4714,7 +4721,7 @@
     "living_subsidy": "verified",
     "rent_subsidy": "lead",
     "rent": "verified",
-    "social_security": "missing",
+    "social_security": "verified",
     "cost": "verified"
    },
    "by_degree": {
@@ -4805,7 +4812,7 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 2,
+   "needs_human_count": 1,
    "index": {
     "rent": {
      "value": 0.3523,
