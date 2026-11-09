@@ -133,5 +133,14 @@
     "old": null,
     "new": 102.8,
     "basis": "https://www.stats.gov.cn/sj/zxfb/202610/t20261019_1965609.html；表1，本市行，同比列（上年同月=100）；附注1、2、5"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "beijing",
+    "record_id": "beijing-housing_new_yoy_index-2026-08",
+    "field": "life.housing_new_yoy_index.2026-08.value",
+    "old": null,
+    "new": 97.7,
+    "basis": "https://www.stats.gov.cn/english/PressRelease/202609/t20260915_1965314.html；Table I，北京/Beijing行，Y/Y列（the Same Month Last Year=100）；附注1、2、5"
   }
 ]
