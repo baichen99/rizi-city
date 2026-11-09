@@ -1,0 +1,144 @@
+city: 宁波
+province: 浙江
+maintainers: []
+last_patrol: 2026-11-09
+
+hukou:
+  summary: 硕士、全日制本科及以上毕业 15 年内，在宁波合法稳定就业并按规定缴社保即可落户（无房可落"人才专户 B 类家庭户"），不再要求社保满 1 年；余姚、慈溪、宁海、象山全面取消落户限制
+  education_min: 全日制普通高校本科
+  age_limit: 原文未设年龄限制；本科须毕业 15 年内
+  requires_job_or_social_security: true
+  eligible_by_degree: {associate: null, bachelor: true, master: true, phd: true}
+  tier_by_degree: {associate: null, bachelor: job, master: job, phd: job}
+  age_max_by_degree: {associate: null, bachelor: 0, master: 0, phd: 0}
+  conditions:
+    - 申请落户当月社保参保状态应为"正常缴费"
+    - 长三角三省一市缴纳的社保可累计计入
+  apply_window: 常态办理
+  policy_name: 宁波市人民政府办公厅关于进一步放开我市落户条件的通知（2020-09-11 起施行）
+  source_url: http://jgswj.ningbo.gov.cn/art/2020/9/4/art_1229047159_1256279.html
+  source_date: 2020-08-10
+  valid_until: null
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+  lead: 甬政办发〔2018〕16号细则曾规定全日制专科及以上应届生有意来甬就业即可落人才服务机构集体户（"零门槛"），现行效力未核实
+  lead_url: http://gaj.ningbo.gov.cn/art/2018/2/5/art_1229026976_182942.html
+
+subsidies:
+  - name: 应届毕业生租房补贴
+    type: rent
+    amount: 35 周岁以下全日制应届本科、应届硕士，无房的每年 1 万元，最长 3 年
+    amount_by_degree: {associate: null, bachelor: 10000, master: 10000, phd: null}
+    period: year
+    periods_max: 3
+    payout: 按年
+    target: 35 周岁以下、无房的全日制应届本科和应届硕士
+    conditions:
+      - 无房
+    deadline_rule: null
+    policy_name: 宁波市人才政策（宁波市营商环境建设局"人才服务"栏目，2025-04-08）
+    source_url: https://qf.ningbo.gov.cn/qfpt/fwbk/rcfw/rczc/art/2024/art_6dc9b6caed174ac8ac1cb99e0c79d396.html
+    source_date: 2025-04-08
+    valid_until: null
+    verified_at: 2026-11-09
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
+  - name: 硕博生活补贴
+    type: living
+    amount: 35 周岁以下硕士无房的生活补贴 3 万元（TOP100 高校硕士 8 万元）；40 周岁以下 TOP200 高校博士无房的生活补贴 10 万元
+    amount_by_degree: {associate: null, bachelor: null, master: 30000, phd: null}
+    period: once
+    periods_max: 1
+    payout: null
+    target: 35 周岁以下无房硕士；40 周岁以下 TOP200 高校无房博士
+    conditions:
+      - 博士 10 万元仅限 TOP200 高校，非 TOP200 博士的标准原文未列，故博士不计入合计
+    deadline_rule: null
+    policy_name: 同上
+    source_url: https://qf.ningbo.gov.cn/qfpt/fwbk/rcfw/rczc/art/2024/art_6dc9b6caed174ac8ac1cb99e0c79d396.html
+    source_date: 2025-04-08
+    valid_until: null
+    verified_at: 2026-11-09
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
+
+social_security:
+  base_min: 5122
+  base_max: 25611
+  year: 2026
+  scope: 浙江全省（个人缴费基数）
+  source_url: https://rlsbt.zj.gov.cn/col/col1229101513/art/2026/art_e8b496ab59834390884b8d375cff1651.html
+  source_type: gov
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+living:
+  rent_avg_per_sqm: 30.68
+  rent_period: 2026-09
+  rent_source: 中指研究院 50 城住宅租赁价格指数（元/㎡/月）
+  rent_source_url: https://m.cih-index.com/news/2026-10-16/55166711.html
+  consumption_per_capita: 55546
+  income_per_capita: 86088
+  stats_year: 2025
+  stats_source_url: https://tjj.ningbo.gov.cn/col/col1229042825/art/2026/art_b2b660dd55464802bf39f27f4b070f2a.html
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+flexible_employment:
+  pension_base_min: 5122
+  pension_rate: 20
+  pension_year: 2026
+  medical_monthly_min: null
+  medical_note: 宁波灵活就业职工医保月缴额未找到官方原文
+  monthly_total_min: null
+  calc: null
+  hukou_restriction: 浙江自 2021-12-01 起放开灵活就业人员在就业地参加职工养老的户籍限制（杭州市审管办转述的全省政策）
+  nonlocal_allowed: true
+  apply_channel: null
+  source_url: https://rlsbt.zj.gov.cn/col/col1229101513/art/2026/art_e8b496ab59834390884b8d375cff1651.html
+  medical_source_url: null
+  hukou_source_url: https://sgb.hangzhou.gov.cn/art/2024/8/15/art_1695175_58873742.html
+  verified_at: 2026-11-09
+  needs_human: true
+  needs_human_reason: 宁波灵活就业医保月缴额缺官方原文，无法算出每月最少合计。
+  access_blocked: false
+
+civil_service:
+  fresh_grad_rule: null
+  exam_schedule: null
+  announcement_url: null
+  source_url: null
+  verified_at: null
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+commute:
+  avg_commute_minutes: null
+  year: null
+  report: null
+  source_url: null
+  verified_at: null
+  needs_human: true
+  needs_human_reason: 待确定通勤数据口径
+
+pitfalls: []
+
+changelog:
+  - date: 2026-11-09
+    field: 全部
+    old: null
+    new: 首次采集
+    basis: 宁波市政府办公厅 2020 落户通知、宁波市人才政策页（2025-04）、浙人社发〔2026〕52号解读、宁波 2025 统计公报、中指研究院 2026 年 9 月租金
