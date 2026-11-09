@@ -120,13 +120,13 @@ flexible_employment:
   access_blocked: false
 
 civil_service:
-  fresh_grad_rule: null
-  exam_schedule: null
-  announcement_url: null
-  source_url: null
-  verified_at: null
-  needs_human: false
-  needs_human_reason: null
+  fresh_grad_rule: 仅限2026下半年省属事业单位集中招聘批次：应届主要为按学制于2026年内完成学业并取得学历学位的普通高校毕业生，岗位另有取证时限从其规定；政策规定视同应届的群体也可报。省考应届口径及事业单位视同群体完整范围待核实。
+  exam_schedule: 2026下半年省属事业单位集中招聘（历史批次，非省考）：报名2026-08-13 09:00至08-19 16:00；笔试2026-09-19，均已结束。2027省考日程尚待省级/目标市官方原文核实。
+  announcement_url: https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html
+  source_url: https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html
+  verified_at: '2026-11-09'
+  needs_human: true
+  needs_human_reason: 已核实2026下半年省属事业单位公告；2027省考省级/杭州/宁波公告和指南未核实，省考试录用网https://gwy.zjks.gov.cn/打开超时；事业单位视同应届群体的具体范围及两市市属统招另待核实。
   access_blocked: false
 
 commute:
@@ -150,3 +150,38 @@ changelog:
     old: null
     new: 首次采集
     basis: 杭政办函〔2023〕45号原文、市公安局 2025-09-05 答复、浙人社发〔2026〕52号及解读、杭州医保 2026 通告、杭州统计局 2025 人民生活公报、中指研究院 2026 年 9 月租金
+  - date: '2026-11-09'
+    field: civil_service.fresh_grad_rule
+    old: null
+    new: 仅限2026下半年省属事业单位集中招聘批次：应届主要为按学制于2026年内完成学业并取得学历学位的普通高校毕业生，岗位另有取证时限从其规定；政策规定视同应届的群体也可报。省考应届口径及事业单位视同群体完整范围待核实。
+    basis: 考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html
+  - date: '2026-11-09'
+    field: civil_service.exam_schedule
+    old: null
+    new: 2026下半年省属事业单位集中招聘（历史批次，非省考）：报名2026-08-13 09:00至08-19 16:00；笔试2026-09-19，均已结束。2027省考日程尚待省级/目标市官方原文核实。
+    basis: 考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html
+  - date: '2026-11-09'
+    field: civil_service.announcement_url
+    old: null
+    new: https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html
+    basis: 考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html
+  - date: '2026-11-09'
+    field: civil_service.source_url
+    old: null
+    new: https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html
+    basis: 考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html
+  - date: '2026-11-09'
+    field: civil_service.verified_at
+    old: null
+    new: '2026-11-09'
+    basis: 考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html
+  - date: '2026-11-09'
+    field: civil_service.needs_human
+    old: false
+    new: true
+    basis: 考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html
+  - date: '2026-11-09'
+    field: civil_service.needs_human_reason
+    old: null
+    new: 已核实2026下半年省属事业单位公告；2027省考省级/杭州/宁波公告和指南未核实，省考试录用网https://gwy.zjks.gov.cn/打开超时；事业单位视同应届群体的具体范围及两市市属统招另待核实。
+    basis: 考公考编专项巡检；温州市各级机关单位2027年度考试录用公务员公告 https://www.wzdj.gov.cn/system/2026/11/05/015612839.shtml；浙江省省属事业单位2026年下半年集中公开招聘人员公告 https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html；2026事业单位招聘公告（历史批次） https://fad.zj.gov.cn/col/col1229123222/art/2026/art_f4e7b336bdf540868837e805105054e2.html
