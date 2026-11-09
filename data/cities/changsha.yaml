@@ -103,13 +103,13 @@ flexible_employment:
   access_blocked: false
 
 civil_service:
-  fresh_grad_rule: null
-  exam_schedule: null
-  announcement_url: null
-  source_url: null
-  verified_at: null
-  needs_human: false
-  needs_human_reason: null
+  fresh_grad_rule: 按2026省考历史指南：“2026届”主要为2025-08-01至2026-07-31毕业、在校期间档案保留院校的统招学生，另含指南列明的留学、第二学士学位和退役人员。一般“应届”岗可含2024、2025届择业期内未落实单位且档案、组织关系保留规定机构者；未就业留学人员适用2024-01-01至2026-07-31取得学位并认证区间。2026届报应届岗须用即将取得的最高学历专业。事业单位须按独立公告和岗位表认定。 事业单位依据：https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html
+  exam_schedule: 2026省考（历史批次）：报名2026-01-29 09:00至02-04 17:00；公共科目笔试2026-03-14，专业科目2026-03-15，均已结束。2026省直事业单位第四次招聘（历史批次）：报名2026-09-09 09:00至09-16 17:00；笔试2026-10-17 08:30—12:00，均已结束。本次未查到可核实的2027省考公告，不推测2027日期。 事业单位依据：https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html
+  announcement_url: https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml
+  source_url: https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx
+  verified_at: '2026-11-09'
+  needs_human: true
+  needs_human_reason: 2027省考公告未核实，保留2026历史信息。省直事业单位第四次招聘各岗位毕业年限与应届限制须核附件岗位表；长沙市属招聘未在本轮逐项核实。
   access_blocked: false
 
 commute:
@@ -136,3 +136,38 @@ changelog:
     old: null
     new: living_none=false, rent_none=true
     basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）
+  - date: '2026-11-09'
+    field: civil_service.fresh_grad_rule
+    old: null
+    new: 按2026省考历史指南：“2026届”主要为2025-08-01至2026-07-31毕业、在校期间档案保留院校的统招学生，另含指南列明的留学、第二学士学位和退役人员。一般“应届”岗可含2024、2025届择业期内未落实单位且档案、组织关系保留规定机构者；未就业留学人员适用2024-01-01至2026-07-31取得学位并认证区间。2026届报应届岗须用即将取得的最高学历专业。事业单位须按独立公告和岗位表认定。 事业单位依据：https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html
+    basis: 考公考编专项巡检；省考公告 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml；省考指南 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx；事业单位公告 https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html
+  - date: '2026-11-09'
+    field: civil_service.exam_schedule
+    old: null
+    new: 2026省考（历史批次）：报名2026-01-29 09:00至02-04 17:00；公共科目笔试2026-03-14，专业科目2026-03-15，均已结束。2026省直事业单位第四次招聘（历史批次）：报名2026-09-09 09:00至09-16 17:00；笔试2026-10-17 08:30—12:00，均已结束。本次未查到可核实的2027省考公告，不推测2027日期。 事业单位依据：https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html
+    basis: 考公考编专项巡检；省考公告 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml；省考指南 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx；事业单位公告 https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html
+  - date: '2026-11-09'
+    field: civil_service.announcement_url
+    old: null
+    new: https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml
+    basis: 考公考编专项巡检；省考公告 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml；省考指南 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx；事业单位公告 https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html
+  - date: '2026-11-09'
+    field: civil_service.source_url
+    old: null
+    new: https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx
+    basis: 考公考编专项巡检；省考公告 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml；省考指南 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx；事业单位公告 https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html
+  - date: '2026-11-09'
+    field: civil_service.verified_at
+    old: null
+    new: '2026-11-09'
+    basis: 考公考编专项巡检；省考公告 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml；省考指南 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx；事业单位公告 https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html
+  - date: '2026-11-09'
+    field: civil_service.needs_human
+    old: false
+    new: true
+    basis: 考公考编专项巡检；省考公告 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml；省考指南 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx；事业单位公告 https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html
+  - date: '2026-11-09'
+    field: civil_service.needs_human_reason
+    old: null
+    new: 2027省考公告未核实，保留2026历史信息。省直事业单位第四次招聘各岗位毕业年限与应届限制须核附件岗位表；长沙市属招聘未在本轮逐项核实。
+    basis: 考公考编专项巡检；省考公告 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml；省考指南 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx；事业单位公告 https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html

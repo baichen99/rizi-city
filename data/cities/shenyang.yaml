@@ -77,29 +77,29 @@ flexible_employment:
   pension_base_min: 4533
   pension_rate: 20
   pension_year: 2026
-  medical_monthly_min: null
-  medical_note: 沈阳灵活就业职工医保以上年全口径平均工资为基数、按 6% 缴费（2025 年政策解读），2026 年基数金额未找到
-  monthly_total_min: null
-  calc: null
+  medical_monthly_min: 484.56
+  medical_note: 沈阳市医保局口径（2025-12-01 起）：灵活就业医保以上年全口径平均工资 8076 元为基数、费率 6%，月缴费标准 484.56 元（官方原文直接给出）；另须同时参加职工大额医疗费用补助保险，每人每年 132 元（每年首次缴医保费时一并缴纳）
+  monthly_total_min: 1391.16
+  calc: 养老 906.6（辽人社〔2026〕19号附表 60% 档：基数 4533 × 20%）；医保 484.56（基数 8076 × 6%）；合计 1391.16 元/月（另有大额补助 132 元/年）
   hukou_restriction: null
   nonlocal_allowed: null
   apply_channel: null
   source_url: https://rst.ln.gov.cn/rst/zfxx/fdzdgknr/lzyj/rstgfxwj/lrs/2026083110175583355/index.shtml
-  medical_source_url: https://ybj.shenyang.gov.cn/zwgk/fdzdgknr/zcjd/202501/t20250102_4789995.html
+  medical_source_url: https://ybj.shenyang.gov.cn/zwgk/fdzdgknr/tzgg/202511/t20251125_4943248.html
   hukou_source_url: null
   verified_at: 2026-11-09
   needs_human: true
-  needs_human_reason: 辽人社〔2026〕19号附表给出个人参保各档金额（摘要称最低档 906.6 元/月），附表未能打开核对；比例 20% 取自中国政府网全国通行说明；沈阳医保 2026 基数缺原文。
+  needs_human_reason: 外地户籍能否以灵活就业身份在沈阳参保（养老、医保）尚未核实；养老附表金额（906.6）与医保月缴额（484.56）均已在官方原文核实。
   access_blocked: false
 
 civil_service:
   fresh_grad_rule: null
-  exam_schedule: null
-  announcement_url: null
-  source_url: null
-  verified_at: null
-  needs_human: false
-  needs_human_reason: null
+  exam_schedule: 2026年度辽宁省考（历史批次，报名和笔试均已结束）：报名2026-01-30 09:00至02-03 24:00；行测2026-03-14 09:00—11:00，申论14:00—16:30；公安专业科目2026-03-15 09:00—11:00。未核实到2027年度正式省考公告。 事业单位：报名2026-02-06 09:00至02-12 12:00；A类笔试2026-03-28 08:30—12:00；B/C/D/E类及综合行政执法类2026-03-29 08:30—12:00。报名及考试均已结束。 来源：https://rsj.fuxin.gov.cn/content/2026/1039920.html
+  announcement_url: https://www.fuxin.gov.cn/content/2026/1038905.html
+  source_url: https://www.fuxin.gov.cn/content/2026/1038905.html
+  verified_at: '2026-11-09'
+  needs_human: true
+  needs_human_reason: 2026省考报考指南关于择业期、留学和服务基层人员等应届认定未核实，fresh_grad_rule留null；未核实2027正式省考/事业单位统招公告。2026事业单位统招仅核实公告正文，应聘指南附件尚未完整解析。
   access_blocked: false
 
 commute:
@@ -131,3 +131,38 @@ changelog:
     old: null
     new: 44505
     basis: 《2025年沈阳市国民经济和社会发展统计公报》（同上，原文为「人均生活消费支出」44505 元，市政府站部门动态稿同数字作「城镇居民人均消费支出」）
+  - date: 2026-11-09
+    field: flexible_employment.medical_monthly_min/monthly_total_min
+    old: null
+    new: 医保月缴 484.56、每月合计最低 1391.16
+    basis: 沈阳市医保局《关于调整我市职工医保和生育保险缴费基数的通知》原文「自2025年12月1日起……灵活就业职工医保参保人员月缴费标准调整为484.56元」（基数 8076、费率 6%），大额补助 132 元/年见市医保局参保指南；养老 906.6 已经辽人社〔2026〕19号附表逐档核对（60% 档基数 4533、月缴费额 906.6，与附表一致）
+  - date: '2026-11-09'
+    field: civil_service.exam_schedule
+    old: null
+    new: 2026年度辽宁省考（历史批次，报名和笔试均已结束）：报名2026-01-30 09:00至02-03 24:00；行测2026-03-14 09:00—11:00，申论14:00—16:30；公安专业科目2026-03-15 09:00—11:00。未核实到2027年度正式省考公告。 事业单位：报名2026-02-06 09:00至02-12 12:00；A类笔试2026-03-28 08:30—12:00；B/C/D/E类及综合行政执法类2026-03-29 08:30—12:00。报名及考试均已结束。 来源：https://rsj.fuxin.gov.cn/content/2026/1039920.html
+    basis: 考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html
+  - date: '2026-11-09'
+    field: civil_service.announcement_url
+    old: null
+    new: https://www.fuxin.gov.cn/content/2026/1038905.html
+    basis: 考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html
+  - date: '2026-11-09'
+    field: civil_service.source_url
+    old: null
+    new: https://www.fuxin.gov.cn/content/2026/1038905.html
+    basis: 考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html
+  - date: '2026-11-09'
+    field: civil_service.verified_at
+    old: null
+    new: '2026-11-09'
+    basis: 考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html
+  - date: '2026-11-09'
+    field: civil_service.needs_human
+    old: false
+    new: true
+    basis: 考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html
+  - date: '2026-11-09'
+    field: civil_service.needs_human_reason
+    old: null
+    new: 2026省考报考指南关于择业期、留学和服务基层人员等应届认定未核实，fresh_grad_rule留null；未核实2027正式省考/事业单位统招公告。2026事业单位统招仅核实公告正文，应聘指南附件尚未完整解析。
+    basis: 考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html
