@@ -254,7 +254,7 @@ button:disabled { opacity: .5; cursor: not-allowed; }
 
 
 /* Small screens: keep navigation visible and evidence readable without sideways scrolling. */
-.nav-short, .compare-city-label, .history-narrow { display: none; }
+.nav-short, .compare-city-label, .history-narrow, .history-value-unit { display: none; }
 .panel, .card, .row > *, .compare-pickers > *, .seg { min-width: 0; }
 .panel { overflow-wrap: anywhere; }
 button, .btn, .corner-btn, summary { touch-action: manipulation; }
@@ -306,6 +306,14 @@ input[type="range"] { min-height: 44px; }
   .compare-city-label { display: inline-block; font-weight: 600; margin-right: 12px; }
   .compare-table .life-facts { grid-template-columns: 72px minmax(0, 1fr); }
   .table-scroll:not(.compare-table) table { min-width: 320px; }
+  .history-table table { min-width: 0 !important; }
+  .history-table table, .history-table tbody, .history-table caption { display: block; }
+  .history-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .history-table tbody tr { display: grid; grid-template-columns: 70px minmax(0, 1fr); border-bottom: 1px solid var(--line); padding: 8px 0; }
+  .history-table th, .history-table td { display: block; border: 0; padding: 4px 5px; min-width: 0; }
+  .history-table tbody th, .history-table td:nth-child(2) { white-space: nowrap; }
+  .history-table td:nth-child(3) { grid-column: 1 / -1; }
+  .history-value-unit { display: inline; color: var(--ink-2); }
   .sheet-card { padding-left: 14px; padding-right: 14px; }
 }
 @media (max-width: 360px) {

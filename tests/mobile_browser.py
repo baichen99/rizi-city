@@ -76,7 +76,10 @@ def run(base_url, out):
                     lifespan.locator('summary').click()
                     for year in range(2022, 2026):
                         row = lifespan.locator('tbody tr').filter(has=page.get_by_role('rowheader', name=str(year), exact=True))
-                        assert row.locator('td').first.inner_text() == '—'
+                        assert row.locator('td').first.inner_text().strip().startswith('—')
+                    if width <= 600:
+                        for cell in lifespan.locator('tbody th, tbody td:nth-child(2)').all():
+                            assert cell.evaluate("el => el.scrollWidth <= el.clientWidth")
                     lifespan.screenshot(path=str(out / f'beijing-life-history-{width}.png'))
                     check_page(page, 'beijing-life-gaps')
                     page.locator('[data-jump="policies"]').click()
