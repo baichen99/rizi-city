@@ -1213,15 +1213,15 @@
     "verified_at": "2026-11-09"
    },
    "social_security": {
-    "base_min": null,
-    "base_max": null,
-    "year": null,
-    "scope": null,
-    "source_url": null,
-    "source_type": null,
-    "verified_at": null,
-    "needs_human": true,
-    "needs_human_reason": "广州 2026 年养老保险缴费基数下限未找到官方原文；搜索摘要称 2025-07-01 起下限 5510、上限 27549 元（来源页面未打开核实）。",
+    "base_min": 5521,
+    "base_max": 27603,
+    "year": "2026 社保年度（2026-07 至 2027-06）",
+    "scope": "广东省统一（企业职工基本养老保险）；职工医保（含生育）为广州市定基数 6234–31170（2026 自然年度，穗医保规字〔2022〕1号公式核定）；失业保险下限为最低工资 2680（2026-09-01 起），上限官方未公布具体数额；工伤保险按单位工资总额计费，无个人统一基数",
+    "source_url": "https://hrss.gd.gov.cn/zwgk/gsgg/content/post_4957552.html",
+    "source_type": "gov",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
     "access_blocked": false
    },
    "living": {
@@ -1292,6 +1292,13 @@
     },
     {
      "date": "2026-11-09",
+     "field": "social_security.base_min/base_max",
+     "old": null,
+     "new": "5521 / 27603（企业职工基本养老保险，广东省统一，2026 社保年度）",
+     "basis": "粤人社发〔2026〕24号《广东省人力资源和社会保障厅 广东省财政厅 国家税务总局广东省税务局关于公布2026年职工基本养老保险缴费基数上下限有关问题的通知》原文「自2026年7月1日起，全省企业职工基本养老保险缴费基数上限调整为27603元，缴费基数下限调整为5521元」；广州无全险种统一基数，医保等口径差异已写进 scope"
+    },
+    {
+     "date": "2026-11-09",
      "field": "subsidy_scan",
      "old": null,
      "new": "living_none=false, rent_none=true",
@@ -1304,7 +1311,7 @@
     "living_subsidy": "lead",
     "rent_subsidy": "none",
     "rent": "verified",
-    "social_security": "missing",
+    "social_security": "verified",
     "cost": "verified"
    },
    "by_degree": {
@@ -1386,7 +1393,7 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 2,
+   "needs_human_count": 1,
    "index": {
     "rent": {
      "value": 0.1985,
@@ -4594,16 +4601,14 @@
     "rent_period": "2026-09",
     "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
     "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
-    "consumption_per_capita": null,
+    "consumption_per_capita": 39693,
     "income_per_capita": 60099,
     "stats_year": 2025,
-    "stats_source_url": "https://www.tj.gov.cn/sq/tjgb/202603/t20260327_7271193.html",
+    "stats_source_url": "http://tjzd.stats.gov.cn/system/2026/01/20/030241179.shtml",
     "verified_at": "2026-11-09",
-    "needs_human": true,
-    "needs_human_reason": "2025 年公报正文未列城镇居民人均消费支出总额，需人工从统计年鉴或统计局数据补。",
-    "needs_human_fields": [
-     "consumption_per_capita"
-    ],
+    "needs_human": false,
+    "needs_human_reason": null,
+    "needs_human_fields": [],
     "access_blocked": false
    },
    "flexible_employment": {
@@ -4655,6 +4660,13 @@
     },
     {
      "date": "2026-11-09",
+     "field": "living.consumption_per_capita",
+     "old": null,
+     "new": 39693,
+     "basis": "国家统计局天津调查总队《数据：2025年天津居民收入和消费支出情况》原文「城镇居民人均消费支出39693元，增长3.6%」；2025 年统计公报未公布该指标。同页城镇居民人均可支配收入 60099 与原收入值一致，stats_source_url 一并改为该数据发布页"
+    },
+    {
+     "date": "2026-11-09",
      "field": "subsidy_scan",
      "old": null,
      "new": "living_none=true, rent_none=true",
@@ -4668,7 +4680,7 @@
     "rent_subsidy": "none",
     "rent": "verified",
     "social_security": "verified",
-    "cost": "lead"
+    "cost": "verified"
    },
    "by_degree": {
     "associate": {
@@ -4709,7 +4721,7 @@
     }
    },
    "latest_verified": "2026-11-09",
-   "needs_human_count": 1,
+   "needs_human_count": 0,
    "index": {
     "rent": {
      "value": 0.1744,
@@ -4717,9 +4729,9 @@
      "reason": null
     },
     "cost": {
-     "value": null,
-     "ok": false,
-     "reason": "人均消费支出或可支配收入未核实"
+     "value": 0.6605,
+     "ok": true,
+     "reason": null
     },
     "hukou": {
      "value": "direct",
