@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>日子人城市指南</title>
+<meta name="description" content="落户、补贴、房租、社保，一城一份，每个数字都带官方来源和核验日期。仅供参考，申请前以官方页面为准。">
+<meta name="theme-color" content="#f7f1e6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d9653b'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23fff' font-family='sans-serif'%3E日%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="kicker">日子人城市指南 · rizi-city</p>
+    <h1>不卷了，找一座<br>能好好过日子的城市</h1>
+    <p class="lede">落户、补贴、房租、社保，一城一份。每个数字都能点开看官方来源和核验日期；找不到原文的，老实写「待核实」。</p>
+    <p class="meta" id="meta">数据加载中…</p>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="入口">
+  <div class="wrap tabs-inner">
+    <button role="tab" data-tab="index" aria-selected="true">🏆 日子指数</button>
+    <button role="tab" data-tab="grad">🎓 应届生</button>
+    <button role="tab" data-tab="civil">📝 考公考编</button>
+    <button role="tab" data-tab="free">💻 自由职业</button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section id="tab-index" class="panel" role="tabpanel"></section>
+  <section id="tab-grad" class="panel" role="tabpanel" hidden></section>
+  <section id="tab-civil" class="panel" role="tabpanel" hidden></section>
+  <section id="tab-free" class="panel" role="tabpanel" hidden></section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p><strong>仅供参考，申请前以官方页面为准。</strong>本项目不是任何政府部门的官方渠道。</p>
+    <p>数据由 AI 助手协助巡检，所有合并由人工完成。发现错了？<a href="https://github.com/baichen99/rizi-city/issues/new?template=data-error.yml" target="_blank" rel="noopener">提个 Issue</a> · <a href="https://github.com/baichen99/rizi-city" target="_blank" rel="noopener">GitHub 仓库</a></p>
+  </div>
+</footer>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <div class="sheet-head">
+      <h2 id="sheet-title">分享图</h2>
+      <button class="icon-btn" data-close aria-label="关闭">✕</button>
+    </div>
+    <div class="sheet-body" id="sheet-body"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

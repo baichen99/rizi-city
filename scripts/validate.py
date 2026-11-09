@@ -199,6 +199,12 @@ def check_living(r, lv):
         r.warn(w, "needs_human 为 true，但没写 needs_human_reason")
     if lv.get("access_blocked") and not lv.get("needs_human"):
         r.err(w, "access_blocked 为 true 时 needs_human 也必须为 true")
+    nf = lv.get("needs_human_fields") or []
+    allowed = ("rent_avg_per_sqm", "consumption_per_capita", "income_per_capita")
+    if not isinstance(nf, list) or any(x not in allowed for x in nf):
+        r.err(f"{w}.needs_human_fields", f"只能列出 {', '.join(allowed)} 中的字段")
+    elif nf and not lv.get("needs_human"):
+        r.err(w, "写了 needs_human_fields，但 needs_human 不是 true")
 
 
 def _num(r, w, sec, keys):
@@ -354,6 +360,32 @@ def validate_file(path: Path, is_template=False) -> Report:
     return r
 
 
+def validate_national() -> Report:
+    """data/national.yaml：国家层面的通用规则（目前只有考公应届认定）。"""
+    p = CITIES_DIR.parent / "national.yaml"
+    r = Report("national.yaml")
+    if not p.exists():
+        r.err("national.yaml", "文件不存在")
+        return r
+    d = load_yaml(p) or {}
+    cs = d.get("civil_service") or {}
+    fg = cs.get("fresh_grad") or {}
+    for k in ("current_class", "choose_job_years", "rule"):
+        if not fg.get(k):
+            r.err("civil_service.fresh_grad", f"缺少 {k}")
+    if not isinstance(fg.get("current_class"), int):
+        r.err("civil_service.fresh_grad.current_class", "应为届别年份（整数）")
+    yrs = fg.get("choose_job_years")
+    if not (isinstance(yrs, list) and yrs and all(isinstance(y, int) for y in yrs)):
+        r.err("civil_service.fresh_grad.choose_job_years", "应为届别年份列表")
+    if not is_gov_url(cs.get("source_url")):
+        r.err("civil_service.source_url", f"必须是政府官网：{cs.get('source_url')}")
+    check_date(r, "civil_service.verified_at", cs.get("verified_at"))
+    if not cs.get("verified_at"):
+        r.err("civil_service", "缺少 verified_at")
+    return r
+
+
 def main(argv):
     strict = "--strict" in argv
     names = [a for a in argv if not a.startswith("-")]
@@ -364,6 +396,7 @@ def main(argv):
             print(f"✗ 找不到 {p}")
             return 1
         reports.append(validate_file(p))
+    reports.append(validate_national())
 
     n_err = n_warn = 0
     for r in reports:
@@ -375,7 +408,7 @@ def main(argv):
             print(f"    error   {e}")
         for w in r.warnings:
             print(f"    warning {w}")
-    print(f"\n{len(reports) - 1} 座城市，{n_err} 个错误，{n_warn} 个警告")
+    print(f"\n{len(reports) - 2} 座城市，{n_err} 个错误，{n_warn} 个警告")
     return 1 if n_err or (strict and n_warn) else 0
 
 

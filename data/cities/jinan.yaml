@@ -93,6 +93,7 @@ living:
   verified_at: 2026-11-09
   needs_human: true
   needs_human_reason: 2025 年公报正文未列城镇居民人均消费支出（疑在图表中），需人工补。
+  needs_human_fields: [consumption_per_capita]
   access_blocked: false
 
 flexible_employment:

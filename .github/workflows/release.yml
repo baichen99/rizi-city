@@ -1,0 +1,24 @@
+name: release
+
+# 发布 Release 时，生成内联数据的单文件离线版并作为附件上传。
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python3 scripts/build.py
+      - name: 上传离线版
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ github.event.release.tag_name }}" dist/rizi-city-offline.html --clobber
