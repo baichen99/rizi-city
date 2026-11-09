@@ -27,6 +27,11 @@ hukou:                     # 应届生落户
     bachelor: null
     master: null
     phd: null
+  tier_by_degree:          # 落户难度分档：direct（不要求先就业即可落户）| job（落实工作/缴社保即可）| quota（单位指标、积分等）| null
+    associate: null
+    bachelor: null
+    master: null
+    phd: null
   age_max_by_degree:       # 年龄上限（周岁，含义照原文）；不限写 0；不确定留 null
     associate: null
     bachelor: null
@@ -96,6 +101,44 @@ living:
   needs_human: false
   needs_human_reason: null
   access_blocked: false
+
+flexible_employment:       # 灵活就业（个体、自由职业）自己交社保
+  pension_base_min: null   # 养老保险个人缴费基数下限，元/月
+  pension_rate: null       # 个人缴费比例（%），如 20
+  pension_year: null       # 基数适用年度
+  medical_monthly_min: null  # 职工医保（灵活就业）每月最低自缴，元；原文按年给就留空并写进 medical_note
+  medical_note: null       # 医保口径说明，如"按上年平均工资 60% 的 x% 缴纳"
+  monthly_total_min: null  # 每月最少自缴合计（养老 + 医保），只用本节官方数据计算
+  calc: null               # monthly_total_min 的算法，如"5122×20% + 医保 xxx"
+  hukou_restriction: null  # 外地户籍能否参保、需要什么条件（如居住证）
+  nonlocal_allowed: null   # true / false / null：外地户籍能否以灵活就业身份参保职工养老
+  apply_channel: null      # 办理渠道
+  source_url: null         # 养老基数、比例的来源
+  medical_source_url: null # 医保来源（不同就留空则视为同一来源）
+  hukou_source_url: null   # 户籍限制的来源
+  verified_at: null
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+civil_service:             # 考公考编（多数规则在省级，按所属省份填写；国家规则见 data/national.yaml）
+  fresh_grad_rule: null    # 本省对"应届毕业生"的认定口径与国家规则的差异；无差异写"同国家规则"
+  exam_schedule: null      # 最近一次省考的报名和笔试时间
+  announcement_url: null   # 省考或事业单位招聘公告的官方入口
+  source_url: null
+  verified_at: null
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+commute:                   # 日子指数会用到
+  avg_commute_minutes: null  # 平均单程通勤时间（分钟）
+  year: null               # 报告年份
+  report: null             # 报告名称与发布机构
+  source_url: null
+  verified_at: null
+  needs_human: false
+  needs_human_reason: null
 
 pitfalls:                  # 不知道就吃亏的坑，每条附来源
   - text: null

@@ -1,6 +1,319 @@
 {
- "latest_verified": null,
- "city_count": 0,
+ "latest_verified": "2026-11-09",
+ "city_count": 1,
  "disclaimer": "仅供参考，申请前以官方页面为准。",
- "cities": []
+ "cities": [
+  {
+   "city": "杭州",
+   "province": "浙江",
+   "maintainers": [],
+   "last_patrol": "2026-11-09",
+   "hukou": {
+    "summary": "全日制大专及以上在杭落实就业即可落户市区；本科毕业两年内、45 周岁以下硕士、55 周岁以下博士可\"先落户后就业\"",
+    "education_min": "全日制普通高校大专",
+    "age_limit": "大专 35 周岁以下、本科 45 周岁以下、硕士 50 周岁以下、博士 55 周岁以下（不含本数）",
+    "requires_job_or_social_security": null,
+    "eligible_by_degree": {
+     "associate": true,
+     "bachelor": true,
+     "master": true,
+     "phd": true
+    },
+    "tier_by_degree": {
+     "associate": "job",
+     "bachelor": "direct",
+     "master": "direct",
+     "phd": "direct"
+    },
+    "age_max_by_degree": {
+     "associate": 35,
+     "bachelor": 45,
+     "master": 50,
+     "phd": 55
+    },
+    "conditions": [
+     "本科\"先落户后就业\"仅限毕业两年内；毕业两年以上的本科需在杭落实就业",
+     "硕士 45—50 周岁需在杭落实就业；45 周岁以下可先落户后就业",
+     "2017 年以后录取的符合条件的非全日制研究生参照全日制政策"
+    ],
+    "apply_window": "常态办理",
+    "policy_name": "杭州市公安局关于市政协十二届四次会议第255号提案的答复（2025-09-05）；依据《关于进一步深化户籍制度改革的实施意见》杭政办函〔2023〕33号",
+    "source_url": "https://police.hangzhou.gov.cn/art/2025/9/5/art_1229456313_4401129.html",
+    "source_date": "2025-09-05",
+    "valid_until": null,
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false,
+    "lead": null,
+    "lead_url": null
+   },
+   "subsidies": [
+    {
+     "name": "应届大学生生活补贴",
+     "type": "living",
+     "amount": "本科 1 万元、硕士 3 万元、博士 10 万元；分两笔各 50%，连续参保满 6 个月发第一笔、满 12 个月发第二笔",
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": 10000,
+      "master": 30000,
+      "phd": 100000
+     },
+     "period": "once",
+     "periods_max": 1,
+     "payout": "一次性额度，分两笔发放",
+     "target": "来杭工作的全球本科及以上学历应届毕业生（含毕业 5 年内回国留学人员、外国人才）",
+     "conditions": [
+      "在杭连续参保（不含补缴）满 6 个月、12 个月分别申领",
+      "在富阳、临安、桐庐、淳安、建德工作满 3 年后可再领一次相同额度"
+     ],
+     "deadline_rule": null,
+     "policy_name": "杭向未来·大学生创新创业三年行动计划（2023—2025年），杭政办函〔2023〕45号",
+     "source_url": "https://zfgb.hangzhou.gov.cn/upload/default/bigfile/2025/06/03/20250603_562deab400886218555373e97529e338.pdf",
+     "source_date": "2023-06",
+     "valid_until": "2025-12-31",
+     "verified_at": "2026-11-09",
+     "needs_human": true,
+     "needs_human_reason": "该行动计划有效期至 2025-12-31，已到期。截至 2026-11-09 在杭州市政府、人社局、政府公报网站未检索到 2026 年接替文件；需人工确认 2026 年是否仍在发放、口径是否变化（可致电 12345 或查\"杭州人才码\"申报页）。",
+     "access_blocked": false,
+     "lead": "媒体（杭州本地宝等）2026 年页面仍按本科 1 万、硕士 3 万、博士 10 万描述，但未注明 2026 年依据文件",
+     "lead_url": "https://hz.bendibao.com/live/2026319/169317.shtm"
+    },
+    {
+     "name": "新引进应届大学生租房补贴",
+     "type": "rent",
+     "amount": "每户每年 1 万元，发放 3 年；期满后收入低于城镇居民人均可支配收入的可继续享受，累计最长不超过 6 年；每年分两笔各 50%",
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": 10000,
+      "master": 10000,
+      "phd": 10000
+     },
+     "period": "year",
+     "periods_max": 3,
+     "payout": "按年发放，每年两笔",
+     "target": "在杭无房且未享受公租房、人才租赁房等住房优惠的新引进应届全日制本科及以上毕业生",
+     "conditions": [
+      "在杭用人单位就业或自主创业，在杭连续缴纳社保（不含补缴）6 个月",
+      "与公租房货币补贴只能二选一"
+     ],
+     "deadline_rule": "首次申请须在毕业后 2 年内；毕业后 1 年半内需有符合连续参保时长的记录，且连续参保首月在毕业后 1 年内",
+     "policy_name": "杭政办函〔2023〕45号；市住保房管局《留杭工作应届大学生，这笔补贴别忘了申请》（2025-03-10）",
+     "source_url": "https://fgj.hangzhou.gov.cn/art/2025/3/10/art_1229265015_58878510.html",
+     "source_date": "2025-03-10",
+     "valid_until": "2025-12-31",
+     "verified_at": "2026-11-09",
+     "needs_human": true,
+     "needs_human_reason": "上位文件杭政办函〔2023〕45号已于 2025-12-31 到期，未检索到 2026 年接替文件。市住保房管局 2025-12-11 仍在宣传申领（经杭州发布转载），但无法确认 2026 年新毕业生是否适用。",
+     "access_blocked": false,
+     "lead": "杭州发布 2025-12-11 转载市住保房管局申领指南，口径与 2025 年一致",
+     "lead_url": "https://hwyst.hangzhou.com.cn/mtld/content/2025-12/11/content_9141763.htm"
+    }
+   ],
+   "social_security": {
+    "base_min": 5122,
+    "base_max": 25611,
+    "year": 2026,
+    "scope": "浙江全省（个人缴费基数）",
+    "source_url": "https://rlsbt.zj.gov.cn/col/col1229101513/art/2026/art_e8b496ab59834390884b8d375cff1651.html",
+    "source_type": "gov",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "living": {
+    "rent_avg_per_sqm": 48.31,
+    "rent_period": "2026-09",
+    "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
+    "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
+    "consumption_per_capita": 59484,
+    "income_per_capita": 86640,
+    "stats_year": 2025,
+    "stats_source_url": "https://tjj.hangzhou.gov.cn/col/col1229279682/art/2026/art_472899eb52594d469a47ce451ebdcb74.html",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "flexible_employment": {
+    "pension_base_min": 5122,
+    "pension_rate": 20,
+    "pension_year": 2026,
+    "medical_monthly_min": 473.67,
+    "medical_note": "杭州职工医保（灵活就业）2026 年缴费基数 4986 元/月 × 9.5% = 473.67 元/月（含生育保险）",
+    "monthly_total_min": 1498.07,
+    "calc": "养老 5122 × 20% = 1024.40；医保 473.67；合计 1498.07 元/月（不含失业、工伤）",
+    "hukou_restriction": "浙江自 2021-12-01 起放开灵活就业人员在就业地参加职工养老的户籍限制；非杭州市区户籍在市区办理灵活就业登记后即可参保。医保参保条件需另行咨询医保经办机构。",
+    "nonlocal_allowed": true,
+    "apply_channel": "浙里办 / 社保经办窗口（养老）；医保经办机构（医保）",
+    "source_url": "https://rlsbt.zj.gov.cn/col/col1229101513/art/2026/art_e8b496ab59834390884b8d375cff1651.html",
+    "medical_source_url": "https://www.hangzhou.gov.cn/col/col1229779704/art/2025/art_1f16b45e4148401d8af8acc39c909849.html",
+    "hukou_source_url": "https://sgb.hangzhou.gov.cn/art/2024/8/15/art_1695175_58873742.html",
+    "verified_at": "2026-11-09",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "civil_service": {
+    "fresh_grad_rule": null,
+    "exam_schedule": null,
+    "announcement_url": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
+   },
+   "commute": {
+    "avg_commute_minutes": null,
+    "year": null,
+    "report": null,
+    "source_url": null,
+    "verified_at": null,
+    "needs_human": true,
+    "needs_human_reason": "待确定通勤数据口径（中规院《中国主要城市通勤监测报告》2025 年版的发布方原文未找到）"
+   },
+   "pitfalls": [
+    {
+     "text": "杭州市公安局 2025 年答复中明确表示\"先落户后就业\"政策\"已不合时宜且存在较大政策风险\"，未来可能收紧，打算靠它落户的尽早办理并以户政窗口答复为准。",
+     "source_url": "https://police.hangzhou.gov.cn/art/2025/9/5/art_1229456313_4401129.html"
+    },
+    {
+     "text": "新引进应届大学生租房补贴和公租房货币补贴只能申请其一；首次申请必须在毕业后 2 年内。",
+     "source_url": "https://fgj.hangzhou.gov.cn/art/2025/3/10/art_1229265015_58878510.html"
+    }
+   ],
+   "changelog": [
+    {
+     "date": "2026-11-09",
+     "field": "全部",
+     "old": null,
+     "new": "首次采集",
+     "basis": "杭政办函〔2023〕45号原文、市公安局 2025-09-05 答复、浙人社发〔2026〕52号及解读、杭州医保 2026 通告、杭州统计局 2025 人民生活公报、中指研究院 2026 年 9 月租金"
+    }
+   ],
+   "id": "hangzhou",
+   "status": {
+    "hukou": "verified",
+    "living_subsidy": "lead",
+    "rent_subsidy": "lead",
+    "rent": "verified",
+    "social_security": "verified",
+    "cost": "verified"
+   },
+   "by_degree": {
+    "associate": {
+     "hukou_eligible": true,
+     "hukou_age_max": 35,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "应届大学生生活补贴",
+       "type": "living",
+       "per": null,
+       "period": "once",
+       "total": null,
+       "reason": "政策已于 2025-12-31 到期，接替文件待核实"
+      },
+      {
+       "index": 1,
+       "name": "新引进应届大学生租房补贴",
+       "type": "rent",
+       "per": null,
+       "period": "year",
+       "total": null,
+       "reason": "政策已于 2025-12-31 到期，接替文件待核实"
+      }
+     ]
+    },
+    "bachelor": {
+     "hukou_eligible": true,
+     "hukou_age_max": 45,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "应届大学生生活补贴",
+       "type": "living",
+       "per": 10000,
+       "period": "once",
+       "total": 10000,
+       "reason": "政策已于 2025-12-31 到期，接替文件待核实"
+      },
+      {
+       "index": 1,
+       "name": "新引进应届大学生租房补贴",
+       "type": "rent",
+       "per": 10000,
+       "period": "year",
+       "total": 30000,
+       "reason": "政策已于 2025-12-31 到期，接替文件待核实"
+      }
+     ]
+    },
+    "master": {
+     "hukou_eligible": true,
+     "hukou_age_max": 50,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "应届大学生生活补贴",
+       "type": "living",
+       "per": 30000,
+       "period": "once",
+       "total": 30000,
+       "reason": "政策已于 2025-12-31 到期，接替文件待核实"
+      },
+      {
+       "index": 1,
+       "name": "新引进应届大学生租房补贴",
+       "type": "rent",
+       "per": 10000,
+       "period": "year",
+       "total": 30000,
+       "reason": "政策已于 2025-12-31 到期，接替文件待核实"
+      }
+     ]
+    },
+    "phd": {
+     "hukou_eligible": true,
+     "hukou_age_max": 55,
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "counted": [],
+     "excluded": [
+      {
+       "index": 0,
+       "name": "应届大学生生活补贴",
+       "type": "living",
+       "per": 100000,
+       "period": "once",
+       "total": 100000,
+       "reason": "政策已于 2025-12-31 到期，接替文件待核实"
+      },
+      {
+       "index": 1,
+       "name": "新引进应届大学生租房补贴",
+       "type": "rent",
+       "per": 10000,
+       "period": "year",
+       "total": 30000,
+       "reason": "政策已于 2025-12-31 到期，接替文件待核实"
+      }
+     ]
+    }
+   },
+   "latest_verified": "2026-11-09",
+   "needs_human_count": 2
+  }
+ ]
 }

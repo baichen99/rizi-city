@@ -99,7 +99,7 @@ def usable(section: dict) -> bool:
 
 
 HUKOU_FACTS = ("summary", "education_min", "age_limit", "requires_job_or_social_security",
-               "eligible_by_degree", "age_max_by_degree", "conditions", "apply_window")
+               "eligible_by_degree", "tier_by_degree", "age_max_by_degree", "conditions", "apply_window")
 SUBSIDY_FACTS = ("amount", "amount_by_degree", "period", "periods_max", "payout", "target",
                  "conditions", "deadline_rule")
 

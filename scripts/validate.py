@@ -25,7 +25,8 @@ from common import (  # noqa: E402
 )
 
 TOP_KEYS = ("city", "province", "maintainers", "last_patrol", "hukou", "subsidies",
-            "social_security", "living", "pitfalls", "changelog")
+            "social_security", "living", "flexible_employment", "civil_service", "commute",
+            "pitfalls", "changelog")
 SUBSIDY_TYPES = {"living", "rent", "housing_purchase", "other"}
 PERIODS = {"once", "month", "year"}
 SOURCE_TYPES = {"gov", "gov_account", "media"}
@@ -90,6 +91,8 @@ def check_degree_map(r, where, m, kind):
             continue
         if kind == "bool" and not isinstance(v, bool):
             r.err(f"{where}.{k}", f"应为 true/false/null，实际为 {v!r}")
+        if kind == "tier" and v not in ("direct", "job", "quota"):
+            r.err(f"{where}.{k}", f"应为 direct/job/quota/null，实际为 {v!r}")
         if kind == "int" and (isinstance(v, bool) or not isinstance(v, int) or v < 0):
             r.err(f"{where}.{k}", f"应为非负整数（元或周岁），实际为 {v!r}")
 
@@ -101,6 +104,7 @@ def check_hukou(r, h):
     facts = any(not is_empty(h.get(k)) for k in HUKOU_FACTS)
     check_common(r, "hukou", h, facts, require_gov=True)
     check_degree_map(r, "hukou.eligible_by_degree", h.get("eligible_by_degree"), "bool")
+    check_degree_map(r, "hukou.tier_by_degree", h.get("tier_by_degree"), "tier")
     check_degree_map(r, "hukou.age_max_by_degree", h.get("age_max_by_degree"), "int")
     if facts and not h.get("policy_name"):
         r.warn("hukou", "有内容但没写 policy_name（文件名和文号）")
@@ -197,6 +201,74 @@ def check_living(r, lv):
         r.err(w, "access_blocked 为 true 时 needs_human 也必须为 true")
 
 
+def _num(r, w, sec, keys):
+    for k in keys:
+        v = sec.get(k)
+        if v is not None and (isinstance(v, bool) or not isinstance(v, (int, float))):
+            r.err(f"{w}.{k}", f"应为数字，实际为 {v!r}")
+
+
+def _flags(r, w, sec):
+    check_date(r, f"{w}.verified_at", sec.get("verified_at"))
+    if sec.get("needs_human") and not sec.get("needs_human_reason"):
+        r.warn(w, "needs_human 为 true，但没写 needs_human_reason")
+    if sec.get("access_blocked") and not sec.get("needs_human"):
+        r.err(w, "access_blocked 为 true 时 needs_human 也必须为 true")
+
+
+def check_flexible(r, fe):
+    w = "flexible_employment"
+    if not isinstance(fe, dict):
+        r.err(w, "缺失或不是映射")
+        return
+    _num(r, w, fe, ("pension_base_min", "pension_rate", "medical_monthly_min", "monthly_total_min"))
+    _flags(r, w, fe)
+    if fe.get("nonlocal_allowed") is not None and not isinstance(fe["nonlocal_allowed"], bool):
+        r.err(w, "nonlocal_allowed 应为 true/false/null")
+    if fe.get("pension_base_min") is not None or fe.get("pension_rate") is not None:
+        for k in ("source_url", "verified_at", "pension_year"):
+            if not fe.get(k):
+                r.err(w, f"有养老基数/比例但没有 {k}")
+    if fe.get("medical_monthly_min") is not None and not (fe.get("medical_source_url") or fe.get("source_url")):
+        r.err(w, "有医保金额但没有来源")
+    if fe.get("monthly_total_min") is not None:
+        if not fe.get("calc"):
+            r.err(w, "monthly_total_min 必须写明算法 calc")
+        if fe.get("pension_base_min") is None or fe.get("pension_rate") is None or fe.get("medical_monthly_min") is None:
+            r.err(w, "monthly_total_min 只能由本节已填的养老基数、比例和医保金额算出")
+    if (fe.get("hukou_restriction") or fe.get("nonlocal_allowed") is not None) \
+            and not (fe.get("hukou_source_url") or fe.get("source_url")):
+        r.err(w, "写了户籍限制但没有来源")
+
+
+def check_civil(r, cs):
+    w = "civil_service"
+    if not isinstance(cs, dict):
+        r.err(w, "缺失或不是映射")
+        return
+    _flags(r, w, cs)
+    if any(cs.get(k) for k in ("fresh_grad_rule", "exam_schedule")):
+        if not cs.get("source_url"):
+            r.err(w, "有内容但没有 source_url")
+        elif not is_gov_url(cs["source_url"]):
+            r.err(w, f"考公口径必须来自政府官网：{cs['source_url']}")
+        if not cs.get("verified_at"):
+            r.err(w, "有内容但没有 verified_at")
+
+
+def check_commute(r, cm):
+    w = "commute"
+    if not isinstance(cm, dict):
+        r.err(w, "缺失或不是映射")
+        return
+    _num(r, w, cm, ("avg_commute_minutes",))
+    _flags(r, w, cm)
+    if cm.get("avg_commute_minutes") is not None:
+        for k in ("year", "report", "source_url", "verified_at"):
+            if not cm.get(k):
+                r.err(w, f"有通勤时间但没有 {k}")
+
+
 def check_pitfalls(r, pits):
     if pits is None:
         return
@@ -254,6 +326,9 @@ def validate_file(path: Path, is_template=False) -> Report:
     check_subsidies(r, d.get("subsidies"))
     check_social_security(r, d.get("social_security"))
     check_living(r, d.get("living"))
+    check_flexible(r, d.get("flexible_employment"))
+    check_civil(r, d.get("civil_service"))
+    check_commute(r, d.get("commute"))
     check_pitfalls(r, d.get("pitfalls"))
     check_changelog(r, d.get("changelog"))
     return r
