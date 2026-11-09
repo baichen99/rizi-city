@@ -85,19 +85,19 @@ flexible_employment:
   pension_base_min: 4699
   pension_rate: 20
   pension_year: 2026
-  medical_monthly_min: null
-  medical_note: 2026 年四川灵活就业人员职工医保以 7831 元/月为依据执行（川人社办发〔2026〕50号），成都 2026 年具体缴费比例与月缴额未找到官方原文
-  monthly_total_min: null
-  calc: null
+  medical_monthly_min: 595.18
+  medical_note: 成都市医保局口径（成医保办〔2026〕14号，2026 年 10 月属期起）：统账结合方式（基本医保+生育+大病医疗互助补充）缴费基数 6265 元/月（全省平均工资 7831 元的 80%），费率合计 9.5%（基本医保 8.75% + 大病互助 0.75%），月缴 595.18 元；单建统筹方式基数 7831 元/月、费率 4%（源自《成都市城镇职工基本医疗保险办法》旧表述与现行执行标准转述，成都市级官方页面未逐字核到），月缴约 313.24 元（无个人账户）；medical_monthly_min 取已核实的统账结合口径
+  monthly_total_min: 1534.98
+  calc: 养老 4699 × 20% = 939.80（2026）；医保 595.18（统账结合，2026 年 10 月属期起）；合计 1534.98 元/月
   hukou_restriction: 成都允许户籍在外地、符合条件的灵活就业人员在成都参加基本养老保险（中国政府网转载人民日报 2025-01-08 报道，引成都市社保局负责人）
   nonlocal_allowed: true
   apply_channel: 国家社会保险公共服务平台、掌上 12333、社保经办窗口；四川省电子税务局缴费
   source_url: https://rst.sc.gov.cn/rst/gsgg/2026/9/7/8b8edb37d4cd43ed995a0055f46b7705.shtml
-  medical_source_url: null
+  medical_source_url: https://rst.sc.gov.cn/rst/zdmsxxzccs/2026/9/7/59ef71878a0c49f3b477d110ac35df6a.shtml
   hukou_source_url: https://www.gov.cn/lianbo/difang/202501/content_6996923.htm
   verified_at: 2026-11-09
-  needs_human: true
-  needs_human_reason: 养老基数 4699 来自川人社办发〔2026〕50号，缴费比例 20% 见四川省政府网转载的四川税务说明（https://www.sc.gov.cn/10462/10778/10876/2024/6/28/858a61a0e7df4df3ad2fdc3a0a4f6f60.shtml）；成都灵活就业医保 2026 月缴额缺官方原文，无法算出每月最少合计。
+  needs_human: false
+  needs_human_reason: null
   access_blocked: false
 
 civil_service:
@@ -144,6 +144,11 @@ changelog:
     old: null
     new: living_none=true, rent_none=true
     basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）
+  - date: 2026-11-09
+    field: flexible_employment.medical_monthly_min/monthly_total_min
+    old: null
+    new: 医保月缴 595.18（统账结合）、每月合计最低 1534.98
+    basis: 成医保办〔2026〕14号（成都市医保局、财政局、市税务局）：灵活就业统账结合基数 6265 元/月（7831 的 80%），2026 年 10 月属期起；费率 9.5% 依《成都市城镇职工基本医疗保险办法》（市政府令第 154 号），构成 8.75%+0.75%；7831 依据为川人社办发〔2026〕50号（四川省人社厅官网）。单建统筹费率依据较旧，已在 medical_note 注明，故最低额取统账结合口径
   - date: '2026-11-09'
     field: civil_service.exam_schedule
     old: null
