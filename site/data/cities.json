@@ -874,9 +874,9 @@
      "reason": "通勤指标暂停用"
     },
     "social": {
-     "value": null,
-     "ok": false,
-     "reason": "人均可支配收入未核实"
+     "value": 0.3095,
+     "ok": true,
+     "reason": null
     }
    },
    "floor": {
