@@ -2,13 +2,19 @@
 
 > 不卷了，找一座能好好过日子的城市。
 
-一本给应届生和想换城市的年轻人的「活手册」：**落户、人才补贴、租房补贴、房租、社保、生活成本**，一城一份。
+落户、人才补贴、租房补贴、房租、社保、生活成本，一城一份。**每个数字都带官方来源和核验日期**，由 AI agent 定期对照政府官网巡检，所有改动由人工合并。找不到原文的，老实写「待核实」。
 
-和普通攻略不一样的地方：**每个数字都带官方来源和核验日期**，由 AI agent 定期对照政府官网巡检，政策一变就自动开 PR。找不到原文的地方，我们老老实实写「待核实」，不猜。
+<!-- BADGES:START -->
+[![城市](https://img.shields.io/badge/%E5%9F%8E%E5%B8%82-20_%E5%BA%A7-d9653b)](data/cities/) [![最近核验](https://img.shields.io/badge/%E6%9C%80%E8%BF%91%E6%A0%B8%E9%AA%8C-2026--11--09-3e8e63)](docs/leaderboard.md) [![数据](https://img.shields.io/badge/%E6%95%B0%E6%8D%AE-CC_BY--SA_4.0-6b6157)](LICENSE-CONTENT) [![代码](https://img.shields.io/badge/%E4%BB%A3%E7%A0%81-MIT-6b6157)](LICENSE)
+<!-- BADGES:END -->
+
+<p align="center">
+  <img src="docs/assets/screen-index.png" width="260" alt="日子指数：权重自己调">
+  <img src="docs/assets/screen-grad.png" width="260" alt="应届生：能落户吗、能领多少">
+  <img src="docs/assets/share-top5.png" width="260" alt="分享图：我的日子指数 Top 5">
+</p>
 
 > ⚠️ **仅供参考，申请前以官方页面为准。** 本项目不是任何政府部门的官方渠道。
->
-> 🤖 本仓库由 AI 助手协助维护，所有合并由人工完成。
 
 ## 从这里开始
 
@@ -21,6 +27,8 @@
 | 📝 **[我在考公考编](https://baichen99.github.io/rizi-city/#civil)** | 应届身份自查、各省考试入口、各城市待遇参考 |
 | 💻 **[我是自由职业 / 灵活就业](https://baichen99.github.io/rizi-city/#free)** | 自己交社保每月最少多少、外地户籍能不能交、在哪生活最划算 |
 
+更习惯问 AI？装上 [rizi-city skill](skill/)，直接问 Claude Code 或 Codex「我硕士毕业，去杭州和成都哪个领得多」，回答里每个数字都带来源。
+
 ## 城市速览
 
 <!-- CITY_TABLE:START -->
@@ -32,7 +40,7 @@
 | [苏州](data/cities/suzhou.yaml) | 1.92 万 | 2.4 万 | 3.6 万 | ✅ | ✅无 | ✅ | ✅ | ✅ | ✅ |
 | [长沙](data/cities/changsha.yaml) | 1.2 万 | 2 万 | 3 万 | ✅ | ✅ | ✅无 | ✅ | ✅ | ✅ |
 | [北京](data/cities/beijing.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
-| [成都](data/cities/chengdu.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ✅无 | ✅无 | ✅ | ✅ | ❌ |
+| [成都](data/cities/chengdu.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
 | [重庆](data/cities/chongqing.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
 | [广州](data/cities/guangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ✅无 | ✅ | ❌ | ✅ |
 | [杭州](data/cities/hangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ | ✅ |
@@ -60,23 +68,29 @@
 5. **很多"补贴"其实是住进指定房源才有的折扣，不是现金。** 例：武汉人才租赁房、西安大学生保租房、上海新就业青年安居服务。
 6. **政策有有效期。** 杭州 2023—2025 三年行动计划已到期；苏州、广州现行落户办法 2026-12-31 到期；成都落户办法 2027-02-19 到期。每座城市的有效期都写在数据文件的 `valid_until` 里。
 
-## 数据怎么来的
+## 数据怎么维护：agent 巡检，人工合并
 
-- 落户、补贴：只认政府官网原文（`*.gov.cn`）。媒体报道只当线索。
-- 社保基数：优先官网；暂时只有媒体报道的标 ⚠️。
-- 房租：权威监测数据，注明统计月份和口径。
-- 收入、消费：各市统计局公报。
-- 政策写了有效期的都记 `valid_until`，过期了会标出来并去找接替文件。
+```mermaid
+flowchart LR
+    A["你的 agent<br/>读 agent/patrol.md"] --> B["打开政府官网<br/>逐项对照"]
+    B --> C{"能用终端和 GitHub？"}
+    C -- 能 --> D["开 PR"]
+    C -- 只有浏览器 --> E["预填链接<br/>提交巡检 Issue"]
+    C -- 都不行 --> F["报告发给主人<br/>复制进 Issue"]
+    D --> G["Action 校验<br/>格式、来源域名、打标签"]
+    E --> G
+    F --> G
+    G --> H["维护者抽查原文<br/>人工合并"]
+    H --> I["build.py 更新<br/>网页、速览表、巡检榜"]
+```
+
+- 落户、补贴只认政府官网原文（`*.gov.cn`），媒体报道只当线索。
+- 社保基数优先官网；房租用权威监测数据，注明月份和口径；收入、消费用各市统计公报。
+- 政策写了有效期的都记 `valid_until`，过期就标出来，再去找接替文件。
+- 遇到验证码、登录墙、反爬，不绕过，标 🔒 等有浏览器的人来补。
+- Action 只校验，不合并。**所有改动都由人工合并。**
 
 每座城市的数据在 [`data/cities/`](data/cities/)，字段说明见 [`_template.yaml`](data/cities/_template.yaml)。
-
-## 本地运行
-
-```bash
-pip install -r requirements.txt   # 或者直接用 uv run
-python3 scripts/validate.py       # 校验数据
-python3 scripts/build.py          # 生成网页 JSON 和上面的速览表
-```
 
 ## 🤖 让你的 Muse / dots / Grok Bot 来维护
 
@@ -92,22 +106,33 @@ python3 scripts/build.py          # 生成网页 JSON 和上面的速览表
 
 每份巡检都会署上 agent 的名字，进入 [🏅 巡检榜](docs/leaderboard.md)。看看谁家的 agent 最勤快、最准。
 
-**想认领一座城市？** 在 Issues 里提交[「认领城市」](https://github.com/baichen99/rizi-city/issues/new?template=claim-city.yml)。合肥、南京的官网拦截了自动访问，最需要有浏览器的朋友。发现数据错了？[报告数据错误](https://github.com/baichen99/rizi-city/issues/new?template=data-error.yml)时请附上官方链接。
-
-更多见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [MAINTAINING.md](MAINTAINING.md)。
+**想认领一座城市？** 提交[「认领城市」](https://github.com/baichen99/rizi-city/issues/new?template=claim-city.yml)。合肥、南京的部分官网拦截了自动访问，最需要有浏览器的朋友。发现数据错了？[报告数据错误](https://github.com/baichen99/rizi-city/issues/new?template=data-error.yml)时请附上官方链接。更多见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [MAINTAINING.md](MAINTAINING.md)。
 
 ## Roadmap
 
-- **第一版**：应届生、考公考编、自由职业三个入口，加日子指数
+- **第一版**（现在）：应届生、考公考编、自由职业三个入口，加日子指数
 - **第二版**（每上线一个入口单独发一轮）：
   - 🏡 回老家或去小城
   - 💍 准备成家（公积金、购房、育儿补贴）
   - 🛟 刚被裁（失业金标准）
 
+## 本地运行
+
+```bash
+pip install -r requirements.txt   # 或者直接用 uv run
+python3 scripts/validate.py       # 校验数据
+python3 scripts/build.py          # 生成网页数据、README 速览表和徽章、离线单文件
+cd site && python3 -m http.server # 本地预览网页
+```
+
 ## 许可
 
 数据与文字 [CC BY-SA 4.0](LICENSE-CONTENT)，代码 [MIT](LICENSE)。
 
+## 免责声明
+
+本项目整理的信息仅供参考，可能滞后或有错。申请落户、补贴前，请以当地政府官方页面和窗口答复为准。本仓库由 AI 助手协助维护，所有合并由人工完成。
+
 ---
 
-**免责声明**：本项目整理的信息仅供参考，可能存在滞后或错误。申请落户、补贴前，请以当地政府官方页面和窗口答复为准。
+如果它帮你少踩了一个坑，点个 ⭐ 吧。star 越多，越多人能在毕业前看到这些坑。也欢迎把网页转给正在找城市的朋友。
