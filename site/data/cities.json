@@ -3122,11 +3122,11 @@
     "verified_at": "2026-11-09"
    },
    "social_security": {
-    "base_min": 4504,
-    "base_max": 22518,
-    "year": "2025（2025-01-01 至 2025-12-31；2026 年度山东标准截至 2026-11-09 未见公布）",
-    "scope": "山东全省（养老、医疗、工伤、失业）",
-    "source_url": "http://hrss.shandong.gov.cn/articles/ch07931/202512/3ad6c431-8dbf-4ec8-b576-19e35c6ba8d3.shtml",
+    "base_min": 4573,
+    "base_max": 22863,
+    "year": "2026（2026 年度，鲁人社字〔2026〕75号）",
+    "scope": "山东全省（养老、医疗、长期护理、工伤、失业）",
+    "source_url": "https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html",
     "source_type": "gov",
     "verified_at": "2026-11-09",
     "needs_human": false,
@@ -3149,22 +3149,22 @@
     "access_blocked": false
    },
    "flexible_employment": {
-    "pension_base_min": null,
-    "pension_rate": null,
-    "pension_year": null,
+    "pension_base_min": 4573,
+    "pension_rate": 20,
+    "pension_year": 2026,
     "medical_monthly_min": null,
-    "medical_note": "青岛市医保局《社会医疗保险政策简表（2026）》为表格附件，正文未能提取",
+    "medical_note": "山东省统一规则（鲁政字〔2023〕184号）：灵活就业医保可按 7%（不建个人账户）或 9%（含 2% 入个人账户）缴纳，基数不低于全省平均工资 60%；青岛市级官方页面未明示本市 2026 年执行档位（青岛日报转述市医保局指南称为 9% 单档，未在官网核实），故月缴额暂不填报",
     "monthly_total_min": null,
     "calc": null,
     "hukou_restriction": null,
     "nonlocal_allowed": null,
     "apply_channel": null,
-    "source_url": null,
+    "source_url": "https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html",
     "medical_source_url": null,
     "hukou_source_url": null,
-    "verified_at": null,
+    "verified_at": "2026-11-09",
     "needs_human": true,
-    "needs_human_reason": "山东 2026 年度基数未公布；青岛 2026 灵活就业医保标准在 http://ybj.qingdao.gov.cn/gg_117/202602/t20260204_10502903.shtml 的表格里，需人工读取。",
+    "needs_human_reason": "青岛灵活就业医保执行档位（省级规则 7%/9% 两档，媒体称青岛为 9% 单档）未在市级官方页面核实，月缴额与每月合计暂缺；外地户籍参保条件未核实。养老部分已按鲁人社字〔2026〕75号补齐。",
     "access_blocked": false
    },
    "civil_service": {
@@ -3213,6 +3213,20 @@
      "old": null,
      "new": "living_none=true, rent_none=false",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "social_security.base_min/base_max",
+     "old": "4504 / 22518（2025 年度）",
+     "new": "4573 / 22863（2026 年度）",
+     "basis": "鲁人社字〔2026〕75号（2026-08-14 印发，受文对象含青岛市税务局，济南市政府网转载全文），原文同济南条目"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "flexible_employment.pension_base_min/pension_rate",
+     "old": null,
+     "new": "4573 / 20%（2026 年度）",
+     "basis": "养老基数同鲁人社字〔2026〕75号（山东全省统一）；医保档位未在青岛市级官方页面核实，medical_note 已记录省级规则与媒体线索，月缴额仍留空"
     }
    ],
    "id": "qingdao",
