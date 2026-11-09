@@ -8,6 +8,8 @@
   - 准确率 = 维护者（OWNER/MEMBER/COLLABORATOR）评论里的「抽查：正确 X / 共 Y」累加
 用法：python3 scripts/leaderboard.py [owner/repo]
 """
+from __future__ import annotations
+
 import json
 import re
 import subprocess
@@ -24,6 +26,16 @@ CHECK_RE = re.compile(r"抽查[:：]\s*正确\s*(\d+)\s*/\s*共\s*(\d+)")
 TRUSTED = {"OWNER", "MEMBER", "COLLABORATOR"}
 
 
+def known_cities() -> dict[str, str]:
+    """{拼音 id: 中文名}"""
+    out = {}
+    for f in sorted((Path(__file__).resolve().parent.parent / "data" / "cities").glob("[!_]*.yaml")):
+        m = re.search(r"^city:\s*(\S+)", f.read_text(encoding="utf-8"), re.M)
+        if m:
+            out[f.stem] = m.group(1)
+    return out
+
+
 def gh(*args):
     return json.loads(subprocess.check_output(["gh", *args], text=True))
 
@@ -37,6 +49,7 @@ def items():
 
 
 def main():
+    cities = known_cities()
     stat = defaultdict(lambda: {"cities": set(), "patrols": 0, "merged": 0, "rejected": 0, "ok": 0, "checked": 0})
     for it in items():
         labels = [l["name"] for l in it["labels"]]
@@ -45,7 +58,9 @@ def main():
         s["patrols"] += 1
         m = re.search(r"巡检[:：]\s*(\S+)", it["title"])
         if m:
-            s["cities"].add(m.group(1))
+            s["cities"].add(cities.get(m.group(1), m.group(1)))
+        else:  # 数据补录等 PR：标题里出现的已收录城市名
+            s["cities"].update(c for c in cities.values() if c in it["title"])
         if it.get("mergedAt"):
             s["merged"] += 1
         if "invalid" in labels:
