@@ -6381,14 +6381,14 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
-    "access_blocked": false
+    "fresh_grad_rule": "河南2026事业单位联考（仅该批次）将“择业期内高校毕业生”定义为2024、2025、2026年毕业生，条件说明本条未加未就业要求，仍须符合具体岗位条件。省考应届身份的择业期、就业等认定未核实，不据此套用省考；2026省考普通高校当年应届生须2026-07-31前取得毕业证/学位证并以即将获得的最高学历报考。 事业单位来源：https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html",
+    "exam_schedule": "河南2026省考（历史批次已结束）：报名2026-01-06 09:00至01-12 17:00；行测2026-03-14 09:00—11:00，申论14:00—16:30，公安专业科目2026-03-15 09:00—11:00。未核实到2027正式省考公告。 事业单位：报名2026-04-24 09:00至04-30 17:00；笔试2026-05-30 09:00—10:30职业能力测验，14:00—15:30公共基础知识/教育类专业知识/卫生类专业知识。均已结束。 来源：https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html",
+    "announcement_url": "https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html",
+    "source_url": "https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "省考完整应届认定报考指南尚未核实，不能把事业单位“择业期内”口径套用省考；2027正式省考/事业单位联考公告未核实。南阳市城管局转载页返回403，未绕过；已从济源政府独立公开转载页核实2026公告。",
+    "access_blocked": true
    },
    "commute": {
     "avg_commute_minutes": null,
@@ -6414,6 +6414,62 @@
      "old": null,
      "new": "living_none=false, rent_none=true",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "河南2026事业单位联考（仅该批次）将“择业期内高校毕业生”定义为2024、2025、2026年毕业生，条件说明本条未加未就业要求，仍须符合具体岗位条件。省考应届身份的择业期、就业等认定未核实，不据此套用省考；2026省考普通高校当年应届生须2026-07-31前取得毕业证/学位证并以即将获得的最高学历报考。 事业单位来源：https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "河南2026省考（历史批次已结束）：报名2026-01-06 09:00至01-12 17:00；行测2026-03-14 09:00—11:00，申论14:00—16:30，公安专业科目2026-03-15 09:00—11:00。未核实到2027正式省考公告。 事业单位：报名2026-04-24 09:00至04-30 17:00；笔试2026-05-30 09:00—10:30职业能力测验，14:00—15:30公共基础知识/教育类专业知识/卫生类专业知识。均已结束。 来源：https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "省考完整应届认定报考指南尚未核实，不能把事业单位“择业期内”口径套用省考；2027正式省考/事业单位联考公告未核实。南阳市城管局转载页返回403，未绕过；已从济源政府独立公开转载页核实2026公告。",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.access_blocked",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1000920.html；官方公告或报考指南 https://www.jiyuan.gov.cn/zwgk/jczwgk/rsxx/gwyzk/t994646.html"
     }
    ],
    "id": "zhengzhou",
