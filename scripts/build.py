@@ -26,6 +26,7 @@ from common import (  # noqa: E402
 )
 from life_data import build_life  # noqa: E402
 from life_modules import build_modules  # noqa: E402
+from resident_statistics import validate_metadata  # noqa: E402
 
 OUT_JSON = ROOT / "site" / "data" / "cities.json"
 NATIONAL = ROOT / "data" / "national.yaml"
@@ -220,6 +221,9 @@ def build():
     modules = build_modules(city_ids)
     for p in files:
         d = load_yaml(p)
+        metadata_errors = validate_metadata(d.get("living", {}))
+        if metadata_errors:
+            raise ValueError(f"{p.name}: invalid resident statistics metadata: " + "; ".join(metadata_errors))
         d["id"] = p.stem
         d["status"] = dimension_status(d)
         d["by_degree"] = summarize(d)
