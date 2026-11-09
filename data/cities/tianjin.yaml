@@ -1,0 +1,102 @@
+city: 天津
+province: 天津
+maintainers: []
+last_patrol: 2026-11-09
+
+hukou:
+  summary: 学历型人才可直接落户：全日制本科一般不超过 40 周岁、硕士一般不超过 45 周岁、博士不限年龄；无就业单位的可在中国北方人才市场人才集体户落户（先落户后就业）
+  education_min: 普通高校全日制本科
+  age_limit: 本科一般不超过 40 周岁；硕士一般不超过 45 周岁；博士不限
+  requires_job_or_social_security: false
+  eligible_by_degree: {associate: null, bachelor: true, master: true, phd: true}
+  tier_by_degree: {associate: null, bachelor: direct, master: direct, phd: direct}
+  age_max_by_degree: {associate: null, bachelor: 40, master: 45, phd: 0}
+  conditions:
+    - 通过"天津公安"APP 在线申请，3 个工作日内反馈
+    - 专科须走技能型人才通道（在津就业并满足职业资格等条件），不在学历型范围
+  apply_window: 常态办理；应届生可在毕业学年集中申请（每年 6 月、12 月两批）
+  policy_name: 天津市引进人才落户实施办法，津人社规字〔2018〕11号（现行有效）
+  source_url: https://hrss.tj.gov.cn/zhengwugongkai/zhengcezhinan/zxwjnew/202301/t20230104_6068698.html
+  source_date: 2018-05-11
+  valid_until: null
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+  lead: null
+  lead_url: null
+
+subsidies: []
+
+social_security:
+  base_min: 5180
+  base_max: 25902
+  year: 2026 年度
+  scope: 天津市（养老、医疗含生育、失业、工伤）
+  source_url: https://www.tj.gov.cn/sy/tjxw/202608/t20260823_7356881.html
+  source_type: gov
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+living:
+  rent_avg_per_sqm: 29.11
+  rent_period: 2026-09
+  rent_source: 中指研究院 50 城住宅租赁价格指数（元/㎡/月）
+  rent_source_url: https://m.cih-index.com/news/2026-10-16/55166711.html
+  consumption_per_capita: null
+  income_per_capita: 60099
+  stats_year: 2025
+  stats_source_url: https://www.tj.gov.cn/sq/tjgb/202603/t20260327_7271193.html
+  verified_at: 2026-11-09
+  needs_human: true
+  needs_human_reason: 2025 年公报正文未列城镇居民人均消费支出总额，需人工从统计年鉴或统计局数据补。
+  access_blocked: false
+
+flexible_employment:
+  pension_base_min: 5180
+  pension_rate: 20
+  pension_year: 2026 年度
+  medical_monthly_min: 440.3
+  medical_note: 灵活就业人员职工医保（含生育）基数 5180 元，缴费比例 8.5%；另需缴大额救助和长期护理保险（标准另定，未计入）
+  monthly_total_min: 1476.3
+  calc: 养老 5180 × 20% = 1036；医保 5180 × 8.5% = 440.30；合计 1476.30 元/月（不含大额救助、长护险）
+  hukou_restriction: 参加天津职工医保须有本市户籍或持《天津市居住证》等有效证件；养老方面，天津市社保中心负责人称灵活就业人员参保"没有户籍限制"（中国政府网转载人民日报 2025-01-08）
+  nonlocal_allowed: true
+  apply_channel: 可按月、按季或按年缴纳
+  source_url: https://www.tj.gov.cn/sy/tjxw/202608/t20260823_7356881.html
+  medical_source_url: https://www.tj.gov.cn/zwgk/szfgb/xqk/2026/12/bmgfxwj/202607/t20260703_7329216.html
+  hukou_source_url: https://www.gov.cn/lianbo/difang/202501/content_6996923.htm
+  verified_at: 2026-11-09
+  needs_human: false
+  needs_human_reason: 养老缴费比例 20% 取自中国政府网全国通行说明（https://www.gov.cn/yaowen/liebiao/202305/content_6855917.htm）
+  access_blocked: false
+
+civil_service:
+  fresh_grad_rule: null
+  exam_schedule: null
+  announcement_url: null
+  source_url: null
+  verified_at: null
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
+
+commute:
+  avg_commute_minutes: null
+  year: null
+  report: null
+  source_url: null
+  verified_at: null
+  needs_human: true
+  needs_human_reason: 待确定通勤数据口径
+
+pitfalls: []
+
+changelog:
+  - date: 2026-11-09
+    field: 全部
+    old: null
+    new: 首次采集
+    basis: 津人社规字〔2018〕11号、天津 2025 年度职工平均工资及 2026 社保基数公布、市医保局灵活就业医保通知（2026 第 12 期公报）、天津 2025 统计公报、中指研究院 2026 年 9 月租金
