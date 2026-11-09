@@ -2691,6 +2691,32 @@
       "notes": "指数不是元/㎡房价，也不是涨跌百分比。2026年起使用2025对比基期及新权数；不跨基期拼接。",
       "points": [
        {
+        "id": "guangzhou-housing_new_yoy_index-2026-05",
+        "metric": "housing_new_yoy_index",
+        "label": "新建商品住宅销售价格同比指数",
+        "value": 96.7,
+        "unit": "上年同月=100",
+        "period": "2026-05",
+        "population_scope": "新建商品住宅网签交易",
+        "geographic_scope": "广州市辖区（不含县）",
+        "source_id": "nbs-house-202605",
+        "review_status": "verified",
+        "missing_reason": null,
+        "verified_at": "2026-11-09",
+        "comparability_key": "guangzhou|housing_new_yoy_index|上年同月=100|新建商品住宅网签交易|广州市辖区（不含县）|{'statistic': 'index', 'price_basis': 'index', 'market_segment': 'new', 'base_period': '2025', 'comparison': 'year_on_year'}",
+        "statistic": "index",
+        "price_basis": "index",
+        "market_segment": "new",
+        "base_period": "2025",
+        "comparison": "year_on_year",
+        "cross_city_comparability_key": "nbs-new-yoy-2025-city-districts",
+        "geographic_scope_type": "city_districts_excluding_counties",
+        "evidence_locator": "Table I，Guangzhou行，Y/Y列（the Same Month Last Year=100）；附注1、2、5",
+        "source_url": "https://www.stats.gov.cn/english/PressRelease/202606/t20260616_1963956.html",
+        "source_title": "2026年5月份70城商品住宅销售价格变动情况（国家统计局英文原表）",
+        "attribution": "引自国家统计局网站（www.stats.gov.cn）"
+       },
+       {
         "id": "guangzhou-housing_new_yoy_index-2026-06",
         "metric": "housing_new_yoy_index",
         "label": "新建商品住宅销售价格同比指数",
@@ -2795,9 +2821,9 @@
         "attribution": "引自国家统计局网站（www.stats.gov.cn）"
        }
       ],
-      "coverage_start": "2026-06",
+      "coverage_start": "2026-05",
       "coverage_end": "2026-09",
-      "verified_points": 4
+      "verified_points": 5
      },
      {
       "id": "wage_nonprivate_mean",
@@ -3233,6 +3259,23 @@
       "license_url": "https://tjj.gz.gov.cn/syys/db/wzsm/content/post_2787847.html",
       "publication_basis": "已读网站声明：禁止商业性原版原式转载及歪曲；本项目只摘录每年两个客观统计数，保留口径与出处，不复制文章或整张表，不对第三方来源授予许可。",
       "attribution": "引自广州市统计局",
+      "review_due": "2027-02-09"
+     },
+     {
+      "id": "nbs-house-202605",
+      "title": "2026年5月份70城商品住宅销售价格变动情况（国家统计局英文原表）",
+      "url": "https://www.stats.gov.cn/english/PressRelease/202606/t20260616_1963956.html",
+      "publisher": "国家统计局网站（www.stats.gov.cn）",
+      "published_at": "2026-06-16",
+      "retrieved_at": "2026-11-09",
+      "verified_at": "2026-11-09",
+      "review_status": "verified",
+      "access_method": "manual_primary_page",
+      "redistribution": "fact_extract",
+      "bulk_redistribution": false,
+      "license_url": "https://www.stats.gov.cn/wzgl/202302/t20230217_1912857.html",
+      "publication_basis": "重新核读国家统计局服务条款：免费资料性合理引用需署名，不得擅自再许可。本批仅逐城摘录北京、上海、广州各一项同比指数，不复制整表；英文原表Table I与附注1、2、5已完整核实，未声称中文超时页面已读。",
+      "attribution": "引自国家统计局网站（www.stats.gov.cn）",
       "review_due": "2027-02-09"
      },
      {
