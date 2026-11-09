@@ -313,6 +313,27 @@
       return { cls: "maybe", head: "说不准，以招考公告为准", why: fg.social_security_note + " 没签劳动合同、档案也在学校或人才机构，按原文条件看是符合的，但社保记录可能在资格审查时被问到。" };
     return { cls: "yes", head: "按国家规则，你大概率还算应届", why: "没签劳动合同、没缴职工社保、档案在学校或人才机构，符合原文「未落实工作单位」的条件。" };
   }
+  const civilHasFacts = (cs) => Boolean(cs && (cs.fresh_grad_rule || cs.exam_schedule || cs.treatment));
+  function civilCity(c) {
+    const cs = c.civil_service || {};
+    const facts = civilHasFacts(cs);
+    const pending = cs.needs_human || cs.access_blocked || !cs.verified_at;
+    const row = (label, value) => `<li><span class="lbl">${label}</span><br>${esc(value || "尚未核实，不代表没有相关政策或公告。")}</li>`;
+    return `<details class="city" data-civil-city="${esc(c.id)}"><summary>
+      <div class="city-top"><span class="city-name">${esc(c.city)}</span><span class="badge ${pending || !facts ? "b-warn" : "b-good"}">${!facts ? "待采集" : pending ? "已收录 · 部分待核实" : "已收录"}</span></div>
+      <p class="small">${verifiedLine(cs)} · 应届口径${cs.fresh_grad_rule ? "已收录" : "待核实"} · 考试安排${cs.exam_schedule ? "已收录" : "待核实"}</p>
+      <div class="more">展开看批次、适用范围和官方来源 ↓</div>
+      </summary><div class="city-body" style="overflow-wrap:anywhere">
+      <ul class="src">
+        ${row("应届认定（按各考试、各批次原文）", cs.fresh_grad_rule)}
+        ${row("考试安排（含历史批次，不代表正在报名）", cs.exam_schedule)}
+        ${cs.treatment ? row("待遇（仅限原文适用范围）", cs.treatment) : ""}
+        <li>${cs.announcement_url ? link(cs.announcement_url, "招考公告") : "公告链接待核实"}${cs.source_url ? " · " + link(cs.source_url, "规则原文 / 来源") : ""}<br><span class="d">${verifiedLine(cs)}；核验日期不是报名截止日期。</span></li>
+        ${cs.needs_human || cs.needs_human_reason ? row("⚠️ 待人工核实", cs.needs_human_reason || "仍有内容需要人工核实。") : ""}
+        ${cs.access_blocked ? "<li>🔒 部分官网访问受限；只展示已收录内容，不能据此判断公告未发布。</li>" : ""}
+        <li>${link(yamlUrl(c), "查看这座城市的数据记录")}</li>
+      </ul></div></details>`;
+  }
   function renderCivil() {
     const el = $("#tab-civil");
     const cs = D.national.civil_service;
@@ -328,7 +349,7 @@
       </div>
       <div class="card">
         <div class="q"><span>1. 你是哪一届毕业的？</span><div class="row">
-          ${opt("year", String(fg.current_class), `${fg.current_class} 届（还没毕业）`)}
+          ${opt("year", String(fg.current_class), `${fg.current_class} 届（该批次应届）`)}
           ${prev.slice().reverse().map((y) => opt("year", String(y), `${y} 届`)).join("")}
           ${opt("year", String(Math.min(...prev) - 1), `${Math.min(...prev) - 1} 届或更早`)}
         </div></div>
@@ -353,9 +374,11 @@
       </div>
       <p class="note">⚠️ 这是国考口径。各省省考、事业单位招聘对应届的认定可能不同（比如有的省明确写了社保怎么算），<strong>以招考公告为准</strong>。</p>
       <div class="card">
-        <h3>各省考试时间和公告入口</h3>
-        <p class="small">还在采集中（0 / ${D.city_count} 座城市）。省考口径只认省级人社或组织部门官网。想帮忙？<a href="${REPO}/blob/main/agent/patrol.md" target="_blank" rel="noopener">看巡检说明</a>，或者直接<a href="${REPO}/issues/new?template=claim-city.yml" target="_blank" rel="noopener">认领一座城市</a>。</p>
-      </div>`;
+        <h3>各城市考试安排与应届口径</h3>
+        <p class="small">已收录 ${D.cities.filter((c) => civilHasFacts(c.civil_service)).length} / ${D.cities.length} 座城市的部分信息；应届口径 ${D.cities.filter((c) => c.civil_service?.fresh_grad_rule).length} 座，考试安排 ${D.cities.filter((c) => c.civil_service?.exam_schedule).length} 座。收录不等于全部核实或当前可报名。</p>
+        <p class="note">国考、省考（含直辖市市考）和事业单位招聘分别适用各自公告，不能互相套用。以下保留原文的年份与适用范围；历史批次不是可报名机会，缴费、准考证打印和笔试日期也不是报名窗口。缺失信息不等于没有政策或公告。</p>
+      </div>
+      <div class="cities">${D.cities.map(civilCity).join("")}</div>`;
   }
 
   // ---------- 自由职业 ----------
