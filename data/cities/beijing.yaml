@@ -106,13 +106,13 @@ flexible_employment:
 
 civil_service:
   fresh_grad_rule: null
-  exam_schedule: null
-  announcement_url: null
-  source_url: null
-  verified_at: null
-  needs_human: false
-  needs_human_reason: null
-  access_blocked: false
+  exam_schedule: 仅2026年度北京市第二次事业单位公开招聘统一考试（历史批次）：报名2026-08-10 09:00至08-14 17:00，统一考试2026-09-05上午。仅本市部分事业单位参加，具体招聘要求按单位公告；截至巡查均已结束。 2027京考日程尚未核实。
+  announcement_url: https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html
+  source_url: https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html
+  verified_at: '2026-11-09'
+  needs_human: true
+  needs_human_reason: 2027京考公告搜索可见，但公告正文访问返回403，停止该页面访问；省考日程和应届认定保留null。待人工核对 https://www.beijing.gov.cn/gongkai/rsxx/gwyzk/202611/t20261109_4938196.html 。2026第二次事业单位统考已核实（历史批次已结束），各单位招聘口径不可推广为全市统一应届规则。
+  access_blocked: true
 
 commute:
   avg_commute_minutes: null
@@ -140,3 +140,38 @@ changelog:
     old: null
     new: living_none=true, rent_none=true
     basis: 已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）
+  - date: '2026-11-09'
+    field: civil_service.exam_schedule
+    old: null
+    new: 仅2026年度北京市第二次事业单位公开招聘统一考试（历史批次）：报名2026-08-10 09:00至08-14 17:00，统一考试2026-09-05上午。仅本市部分事业单位参加，具体招聘要求按单位公告；截至巡查均已结束。 2027京考日程尚未核实。
+    basis: 考公考编专项巡检；官方公告或报考指南 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html；事业单位应届口径样本，仅北京市民政局所属单位 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260804_4808187.html
+  - date: '2026-11-09'
+    field: civil_service.announcement_url
+    old: null
+    new: https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html
+    basis: 考公考编专项巡检；官方公告或报考指南 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html；事业单位应届口径样本，仅北京市民政局所属单位 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260804_4808187.html
+  - date: '2026-11-09'
+    field: civil_service.source_url
+    old: null
+    new: https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html
+    basis: 考公考编专项巡检；官方公告或报考指南 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html；事业单位应届口径样本，仅北京市民政局所属单位 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260804_4808187.html
+  - date: '2026-11-09'
+    field: civil_service.verified_at
+    old: null
+    new: '2026-11-09'
+    basis: 考公考编专项巡检；官方公告或报考指南 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html；事业单位应届口径样本，仅北京市民政局所属单位 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260804_4808187.html
+  - date: '2026-11-09'
+    field: civil_service.needs_human
+    old: false
+    new: true
+    basis: 考公考编专项巡检；官方公告或报考指南 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html；事业单位应届口径样本，仅北京市民政局所属单位 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260804_4808187.html
+  - date: '2026-11-09'
+    field: civil_service.needs_human_reason
+    old: null
+    new: 2027京考公告搜索可见，但公告正文访问返回403，停止该页面访问；省考日程和应届认定保留null。待人工核对 https://www.beijing.gov.cn/gongkai/rsxx/gwyzk/202611/t20261109_4938196.html 。2026第二次事业单位统考已核实（历史批次已结束），各单位招聘口径不可推广为全市统一应届规则。
+    basis: 考公考编专项巡检；官方公告或报考指南 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html；事业单位应届口径样本，仅北京市民政局所属单位 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260804_4808187.html
+  - date: '2026-11-09'
+    field: civil_service.access_blocked
+    old: false
+    new: true
+    basis: 考公考编专项巡检；官方公告或报考指南 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html；事业单位应届口径样本，仅北京市民政局所属单位 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260804_4808187.html
