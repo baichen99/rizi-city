@@ -14,7 +14,7 @@
 
 city: 示例市
 province: 示例省
-maintainers: []            # GitHub 用户名，如 [someone]
+maintainers: []            # 活跃共同维护者的 GitHub 用户名，可多人；分工见登记 Issue，不授予权限或独占权
 last_patrol: null          # 最近一次完整巡检日期
 
 hukou:                     # 应届生落户

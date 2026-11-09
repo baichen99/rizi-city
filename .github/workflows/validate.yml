@@ -23,8 +23,10 @@ jobs:
       - name: 防泄露检查
         run: bash scripts/check-no-private.sh --all
       - run: python3 scripts/validate.py
-      - name: 居民概况和生活模块单元测试
-        run: python3 -m unittest discover -s tests -p 'test_*.py' -v
+      - name: 数据与巡检协作脚本测试
+        run: |
+          bash -n scripts/patrol.sh
+          python3 -m unittest discover -s tests -p 'test_*.py' -v
       - uses: actions/setup-node@v4
         with:
           node-version: "22"

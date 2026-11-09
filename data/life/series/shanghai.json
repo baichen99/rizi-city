@@ -61,14 +61,14 @@
           "id": "shanghai-housing_new_yoy_index-2026-08",
           "metric": "housing_new_yoy_index",
           "label": "新建商品住宅销售价格同比指数",
-          "value": null,
+          "value": 103.0,
           "unit": "上年同月=100",
           "period": "2026-08",
           "population_scope": "新建商品住宅网签交易",
           "geographic_scope": "上海市辖区（不含县）",
-          "source_id": null,
-          "review_status": "missing",
-          "missing_reason": "本次读取8月原文超时，尚未核实，不插值。",
+          "source_id": "nbs-house-202608",
+          "review_status": "verified",
+          "missing_reason": null,
           "verified_at": "2026-11-09",
           "comparability_key": "shanghai|housing_new_yoy_index|上年同月=100|新建商品住宅网签交易|上海市辖区（不含县）|{'statistic': 'index', 'price_basis': 'index', 'market_segment': 'new', 'base_period': '2025', 'comparison': 'year_on_year'}",
           "statistic": "index",
@@ -78,7 +78,7 @@
           "comparison": "year_on_year",
           "cross_city_comparability_key": "nbs-new-yoy-2025-city-districts",
           "geographic_scope_type": "city_districts_excluding_counties",
-          "evidence_locator": null
+          "evidence_locator": "Table I，上海/Shanghai行，Y/Y列（the Same Month Last Year=100）；附注1、2、5"
         },
         {
           "id": "shanghai-housing_new_yoy_index-2026-09",

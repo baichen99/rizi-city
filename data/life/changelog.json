@@ -142,5 +142,23 @@
     "old": null,
     "new": 97.7,
     "basis": "https://www.stats.gov.cn/english/PressRelease/202609/t20260915_1965314.html；Table I，北京/Beijing行，Y/Y列（the Same Month Last Year=100）；附注1、2、5"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "shanghai",
+    "record_id": "shanghai-housing_new_yoy_index-2026-08",
+    "field": "life.housing_new_yoy_index.2026-08.value",
+    "old": null,
+    "new": 103.0,
+    "basis": "https://www.stats.gov.cn/english/PressRelease/202609/t20260915_1965314.html；Table I，上海/Shanghai行，Y/Y列（the Same Month Last Year=100）；附注1、2、5"
+  },
+  {
+    "date": "2026-11-09",
+    "city_id": "guangzhou",
+    "record_id": "guangzhou-housing_new_yoy_index-2026-08",
+    "field": "life.housing_new_yoy_index.2026-08.value",
+    "old": null,
+    "new": 98.1,
+    "basis": "https://www.stats.gov.cn/english/PressRelease/202609/t20260915_1965314.html；Table I，广州/Guangzhou行，Y/Y列（the Same Month Last Year=100）；附注1、2、5"
   }
 ]
