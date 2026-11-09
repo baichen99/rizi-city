@@ -9,6 +9,8 @@ import http.server
 import json
 from pathlib import Path
 import threading
+import time
+from urllib.request import urlopen
 
 from playwright.sync_api import sync_playwright
 
@@ -66,6 +68,17 @@ def run(base_url, out):
                         assert label_size >= 12, (width, label_size)
                     chart.locator('..').screenshot(path=str(out / f'resident-history-{width}.png'))
                     check_page(page, 'resident-history')
+                    lifespan = page.locator('#life-history article').filter(has=page.get_by_role('heading', name='出生时预期寿命', exact=True))
+                    life_chart = lifespan.locator('.history-chart:visible')
+                    assert life_chart.locator('circle').count() == 2
+                    assert life_chart.locator('polyline').count() == 1
+                    assert life_chart.locator('text').all_text_contents()[-2:] == ['2020', '2025']
+                    lifespan.locator('summary').click()
+                    for year in range(2022, 2026):
+                        row = lifespan.locator('tbody tr').filter(has=page.get_by_role('rowheader', name=str(year), exact=True))
+                        assert row.locator('td').first.inner_text() == '—'
+                    lifespan.screenshot(path=str(out / f'beijing-life-history-{width}.png'))
+                    check_page(page, 'beijing-life-gaps')
                     page.locator('[data-jump="policies"]').click()
                     page.select_option('#policy-topic', 'social')
                     assert page.locator('#policy-topic').input_value() == 'social'
@@ -113,6 +126,14 @@ def run(base_url, out):
                     assert page.locator('#tab-index').is_visible()
                     page.go_forward()
                     assert page.locator('#tab-civil').is_visible()
+            page.goto(base_url + '#resident&city=guangzhou')
+            page.locator('#resident-city').wait_for()
+            page.locator('[data-jump="daily"]').click()
+            for title in ('水费', '燃气'):
+                card = page.locator('#life-daily article').filter(has=page.get_by_role('heading', name=title, exact=False))
+                assert card.count() == 1, title
+                card.screenshot(path=str(out / f'guangzhou-{title}-{width}.png'))
+            check_page(page, 'guangzhou-utility-links')
             assert not errors, (width, errors)
             context.close()
         dark = browser.new_page(viewport={'width':390,'height':800},color_scheme='dark')
@@ -138,6 +159,18 @@ if __name__ == '__main__':
         server = http.server.ThreadingHTTPServer(('127.0.0.1', 0), handler)
         threading.Thread(target=server.serve_forever, daemon=True).start()
     try:
+        if args.base_url:
+            # Pages may be briefly cached after deploy. Verify the exact tested assets first.
+            for attempt in range(12):
+                try:
+                    for name in ('app.js', 'style.css', 'index.html'):
+                        with urlopen(args.base_url + name + '?mobile-check=' + str(time.time()), timeout=20) as response:
+                            assert response.read() == (ROOT / 'site' / name).read_bytes(), name
+                    break
+                except (AssertionError, OSError):
+                    if attempt == 11:
+                        raise
+                    time.sleep(10)
         run(args.base_url or f'http://127.0.0.1:{server.server_port}/', out)
     finally:
         if server:
