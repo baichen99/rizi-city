@@ -20,6 +20,7 @@
 | [长沙](data/cities/changsha.yaml) | 1.2 万 | 2 万 | 3 万 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ |
 | [北京](data/cities/beijing.yaml) | — | — | — | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
 | [成都](data/cities/chengdu.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ❌ | ❌ | ⚠️ | ✅ | ❌ |
+| [重庆](data/cities/chongqing.yaml) | — | — | — | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
 | [广州](data/cities/guangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ❌ | ✅ | ❌ | ✅ |
 | [杭州](data/cities/hangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ | ✅ |
 | [合肥](data/cities/hefei.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | 🔒 | ❌ | 🔒 | ⚠️ | ⚠️ | 🔒 |
