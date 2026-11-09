@@ -52,14 +52,14 @@ living:
   rent_period: 2026-09
   rent_source: 中指研究院 50 城住宅租赁价格指数（元/㎡/月）
   rent_source_url: https://m.cih-index.com/news/2026-10-16/55166711.html
-  consumption_per_capita: null
+  consumption_per_capita: 39693
   income_per_capita: 60099
   stats_year: 2025
-  stats_source_url: https://www.tj.gov.cn/sq/tjgb/202603/t20260327_7271193.html
+  stats_source_url: http://tjzd.stats.gov.cn/system/2026/01/20/030241179.shtml
   verified_at: 2026-11-09
-  needs_human: true
-  needs_human_reason: 2025 年公报正文未列城镇居民人均消费支出总额，需人工从统计年鉴或统计局数据补。
-  needs_human_fields: [consumption_per_capita]
+  needs_human: false
+  needs_human_reason: null
+  needs_human_fields: []
   access_blocked: false
 
 flexible_employment:
@@ -108,6 +108,11 @@ changelog:
     old: null
     new: 首次采集
     basis: 津人社规字〔2018〕11号、天津 2025 年度职工平均工资及 2026 社保基数公布、市医保局灵活就业医保通知（2026 第 12 期公报）、天津 2025 统计公报、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: living.consumption_per_capita
+    old: null
+    new: 39693
+    basis: 国家统计局天津调查总队《数据：2025年天津居民收入和消费支出情况》原文「城镇居民人均消费支出39693元，增长3.6%」；2025 年统计公报未公布该指标。同页城镇居民人均可支配收入 60099 与原收入值一致，stats_source_url 一并改为该数据发布页
   - date: 2026-11-09
     field: subsidy_scan
     old: null
