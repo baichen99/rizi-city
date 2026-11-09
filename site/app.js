@@ -205,7 +205,7 @@
   function renderCompare() {
     const a = D.cities.find(c=>c.id===state.compareA), b = D.cities.find(c=>c.id===state.compareB);
     const rows = a && b && a !== b ? lifeRecords(a).map(r=>[r, lifeRecords(b).find(s=>s.metric===r.metric)]).filter(([r,s])=>comparable(r,s)) : [];
-    $("#tab-compare").innerHTML = `<h2>我在选城市</h2><p class="sub">先并排看事实，再决定什么对你重要。不合并不同口径，不做全能排名。</p><div class="card compare-pickers"><label>第一座城市<select id="compare-a">${cityOptions(state.compareA)}</select></label><label>第二座城市<select id="compare-b">${cityOptions(state.compareB)}</select></label></div>${a && b ? a===b ? '<p class="note">请选择两座不同的城市。</p>' : `<div class="row"><a class="btn ghost" href="#resident&city=${encodeURIComponent(a.id)}">${esc(a.city)}生活页 →</a><a class="btn ghost" href="#resident&city=${encodeURIComponent(b.id)}">${esc(b.city)}生活页 →</a></div>${rows.length ? `<div class="card table-scroll"><table><caption>同指标、单位、期间和统计对象的资料对照，不作高低排名</caption><thead><tr><th scope="col">指标 / 期间</th><th scope="col">${esc(a.city)}</th><th scope="col">${esc(b.city)}</th></tr></thead><tbody>${rows.map(([r,s])=>`<tr><th scope="row">${esc(r.label)}<br><span class="small">${esc(r.period)} · ${esc(r.unit)}</span></th><td>${lifeValue(r)}<details><summary>口径与来源</summary>${recordDetails(a,r)}</details></td><td>${lifeValue(s)}<details><summary>口径与来源</summary>${recordDetails(b,s)}</details></td></tr>`).join("")}</tbody></table></div>` : '<p class="note">暂未找到两城同期间、同口径且已核实的指标。请分别打开城市页，不将缺失值拿来排名。</p>'}<p class="small">其余指标因缺失、待核实或口径不同，未放入对照表。</p>` : '<p class="note">选择两座候选城市开始比较。数据不足时会明确提示。</p>'}<div class="card"><h3>保留你熟悉的专题工具</h3><p>日子指数使用本科落户、补贴和灵活就业等特定条件，不是适用于所有居民的城市评分。</p><div class="row"><a href="#index">日子指数与权重 →</a><a href="#grad">应届生 →</a><a href="#civil">考公考编 →</a><a href="#free">自由职业 →</a></div><p>${link(METHOD_URL,"了解指数方法")}</p></div>`;
+    $("#tab-compare").innerHTML = `<h2>我在选城市</h2><p class="sub">先并排看事实，再决定什么对你重要。不合并不同口径，不做全能排名。</p><div class="card compare-pickers"><label>第一座城市<select id="compare-a">${cityOptions(state.compareA)}</select></label><label>第二座城市<select id="compare-b">${cityOptions(state.compareB)}</select></label></div>${a && b ? a===b ? '<p class="note">请选择两座不同的城市。</p>' : `<div class="row"><a class="btn ghost" href="#resident&city=${encodeURIComponent(a.id)}">${esc(a.city)}生活页 →</a><a class="btn ghost" href="#resident&city=${encodeURIComponent(b.id)}">${esc(b.city)}生活页 →</a></div>${rows.length ? `<div class="card table-scroll compare-table"><table role="table"><caption>同指标、单位、期间和统计对象的资料对照，不作高低排名</caption><thead role="rowgroup"><tr role="row"><th scope="col">指标 / 期间</th><th scope="col">${esc(a.city)}</th><th scope="col">${esc(b.city)}</th></tr></thead><tbody>${rows.map(([r,s])=>`<tr role="row"><th scope="row" role="rowheader">${esc(r.label)}<br><span class="small">${esc(r.period)} · ${esc(r.unit)}</span></th><td role="cell"><span class="compare-city-label">${esc(a.city)}</span><strong class="compare-value">${lifeValue(r)}</strong><details><summary>口径与来源</summary>${recordDetails(a,r)}</details></td><td role="cell"><span class="compare-city-label">${esc(b.city)}</span><strong class="compare-value">${lifeValue(s)}</strong><details><summary>口径与来源</summary>${recordDetails(b,s)}</details></td></tr>`).join("")}</tbody></table></div>` : '<p class="note">暂未找到两城同期间、同口径且已核实的指标。请分别打开城市页，不将缺失值拿来排名。</p>'}<p class="small">其余指标因缺失、待核实或口径不同，未放入对照表。</p>` : '<p class="note">选择两座候选城市开始比较。数据不足时会明确提示。</p>'}<div class="card"><h3>保留你熟悉的专题工具</h3><p>日子指数使用本科落户、补贴和灵活就业等特定条件，不是适用于所有居民的城市评分。</p><div class="row"><a href="#index">日子指数与权重 →</a><a href="#grad">应届生 →</a><a href="#civil">考公考编 →</a><a href="#free">自由职业 →</a></div><p>${link(METHOD_URL,"了解指数方法")}</p></div>`;
   }
 
   // ---------- 日子指数 ----------
@@ -689,11 +689,13 @@
   // ---------- 渲染与事件 ----------
   const RENDER = { resident: renderResident, compare: renderCompare, index: renderIndex, grad: renderGrad, civil: renderCivil, free: renderFree };
   function show(tab, push = false) {
+    const changed = state.tab !== tab;
     state.tab = tab;
     document.querySelectorAll(".tabs button").forEach((b) => { b.setAttribute("aria-selected", String(b.dataset.tab === tab)); b.tabIndex = b.dataset.tab === tab ? 0 : -1; b.id = "nav-" + b.dataset.tab; b.setAttribute("aria-controls", "tab-" + b.dataset.tab); $("#tab-" + b.dataset.tab).setAttribute("aria-labelledby", b.id); });
     for (const k of Object.keys(RENDER)) $("#tab-" + k).hidden = k !== tab;
     RENDER[tab]();
     writeHash(push);
+    if (push && changed) $("#main-content").scrollIntoView({ block: "start" });
   }
   function rerenderKeepOpen() {
     const panel = $("#tab-" + state.tab);
@@ -705,7 +707,7 @@
   function toast(msg) {
     const t = document.createElement("div");
     t.textContent = msg;
-    t.style.cssText = "position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#2b2620;color:#fff;padding:8px 14px;border-radius:999px;font-size:14px;z-index:30";
+    t.style.cssText = "position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom));max-width:calc(100vw - 32px);width:max-content;overflow-wrap:anywhere;text-align:center;transform:translateX(-50%);background:#2b2620;color:#fff;padding:8px 14px;border-radius:999px;font-size:14px;z-index:30";
     document.body.appendChild(t); setTimeout(() => t.remove(), 1600);
   }
   async function copyLink() {

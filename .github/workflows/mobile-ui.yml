@@ -1,0 +1,28 @@
+name: mobile-ui
+on:
+  pull_request:
+    paths: ['site/**', 'tests/mobile_browser.py', '.github/workflows/mobile-ui.yml']
+  push:
+    branches: [main]
+    paths: ['site/**', 'tests/mobile_browser.py', '.github/workflows/mobile-ui.yml']
+permissions:
+  contents: read
+jobs:
+  responsive-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright==1.56.0
+      - run: playwright install --with-deps chromium
+      - name: Mobile widths, touch targets, evidence, navigation and modal regression
+        run: python3 tests/mobile_browser.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mobile-ui-screenshots
+          path: artifacts/mobile/
+          retention-days: 14
