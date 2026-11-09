@@ -3680,12 +3680,12 @@
    },
    "civil_service": {
     "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
-    "needs_human": false,
-    "needs_human_reason": null,
+    "exam_schedule": "2026年度辽宁省考（历史批次，报名和笔试均已结束）：报名2026-01-30 09:00至02-03 24:00；行测2026-03-14 09:00—11:00，申论14:00—16:30；公安专业科目2026-03-15 09:00—11:00。未核实到2027年度正式省考公告。 事业单位：报名2026-02-06 09:00至02-12 12:00；A类笔试2026-03-28 08:30—12:00；B/C/D/E类及综合行政执法类2026-03-29 08:30—12:00。报名及考试均已结束。 来源：https://rsj.fuxin.gov.cn/content/2026/1039920.html",
+    "announcement_url": "https://www.fuxin.gov.cn/content/2026/1038905.html",
+    "source_url": "https://www.fuxin.gov.cn/content/2026/1038905.html",
+    "verified_at": "2026-11-09",
+    "needs_human": true,
+    "needs_human_reason": "2026省考报考指南关于择业期、留学和服务基层人员等应届认定未核实，fresh_grad_rule留null；未核实2027正式省考/事业单位统招公告。2026事业单位统招仅核实公告正文，应聘指南附件尚未完整解析。",
     "access_blocked": false
    },
    "commute": {
@@ -3724,6 +3724,48 @@
      "old": null,
      "new": 44505,
      "basis": "《2025年沈阳市国民经济和社会发展统计公报》（同上，原文为「人均生活消费支出」44505 元，市政府站部门动态稿同数字作「城镇居民人均消费支出」）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2026年度辽宁省考（历史批次，报名和笔试均已结束）：报名2026-01-30 09:00至02-03 24:00；行测2026-03-14 09:00—11:00，申论14:00—16:30；公安专业科目2026-03-15 09:00—11:00。未核实到2027年度正式省考公告。 事业单位：报名2026-02-06 09:00至02-12 12:00；A类笔试2026-03-28 08:30—12:00；B/C/D/E类及综合行政执法类2026-03-29 08:30—12:00。报名及考试均已结束。 来源：https://rsj.fuxin.gov.cn/content/2026/1039920.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.fuxin.gov.cn/content/2026/1038905.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://www.fuxin.gov.cn/content/2026/1038905.html",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human",
+     "old": false,
+     "new": true,
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.needs_human_reason",
+     "old": null,
+     "new": "2026省考报考指南关于择业期、留学和服务基层人员等应届认定未核实，fresh_grad_rule留null；未核实2027正式省考/事业单位统招公告。2026事业单位统招仅核实公告正文，应聘指南附件尚未完整解析。",
+     "basis": "考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html"
     }
    ],
    "id": "shenyang",
