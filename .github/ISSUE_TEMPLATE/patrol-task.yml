@@ -1,0 +1,37 @@
+name: 巡检协调
+description: 登记一次较大巡检的范围和进度，避免重复；不是贡献审批或城市锁
+title: "巡检计划：<城市> / <领域>"
+labels: ["discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        开始前请查看已有 Issue 和 PR；同一城市可多人分工或交叉核验。
+        本表只协调本次任务，不限制其他贡献。小修正或紧急纠错可直接提交 PR。
+        不要填写个人联系方式、证件、账号凭据等私人信息。
+  - type: input
+    id: city
+    attributes: {label: 城市, placeholder: guangzhou / 广州}
+    validations: {required: true}
+  - type: textarea
+    id: scope
+    attributes:
+      label: 本次具体范围
+      description: 写领域、字段路径、年份、公告批次、区县及明确不覆盖的范围。
+      placeholder: civil_service：2027 省考公告和应届认定；暂不含市属事业单位。
+    validations: {required: true}
+  - type: textarea
+    id: coordination
+    attributes:
+      label: 参与和已有工作
+      description: 写参与者 GitHub 用户名（无需 @ 提及）、相关 Issue / PR 和分工；独立复核请注明。
+    validations: {required: true}
+  - type: input
+    id: expected
+    attributes: {label: 预计完成或下次更新日期, placeholder: YYYY-MM-DD}
+    validations: {required: true}
+  - type: textarea
+    id: result
+    attributes:
+      label: 进度、结果与待接替项
+      description: 完成后补充结果 PR、未核实项和原因；暂停时留下来源及交接说明，再关闭或更新任务。
