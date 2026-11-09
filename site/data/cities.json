@@ -4567,11 +4567,11 @@
     "access_blocked": false
    },
    "civil_service": {
-    "fresh_grad_rule": null,
-    "exam_schedule": null,
-    "announcement_url": null,
-    "source_url": null,
-    "verified_at": null,
+    "fresh_grad_rule": "2027苏州公务员：2027应届本科生以本科学历、应届研究生以研究生学历报一般岗位不限生源；应届研究生用本科学历限苏州生源或户籍，社会人员用本科学历限苏州户籍。应届专岗60—69为2027普通高校应届及简章第2—4项特定群体；研究生学历及相应学位不限生源，本科限江苏生源，不能用以前学历或非普通高校学历报该专岗。 另：2026省属事业统招允许2024、2025普通高校毕业生报名时无工作单位者报2026毕业生岗（历史批次）。来源：https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html",
+    "exam_schedule": "2027省考：报名2026-11-03 09:00至11-09 16:00；公共科目笔试2026-12-06，公安专业科目12-05。报名已结束，时间均为北京时间。",
+    "announcement_url": "https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml",
+    "source_url": "https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml",
+    "verified_at": "2026-11-09",
     "needs_human": false,
     "needs_human_reason": null,
     "access_blocked": false
@@ -4605,6 +4605,41 @@
      "old": null,
      "new": "living_none=true, rent_none=false",
      "basis": "已核实无面向普通应届生的市级现金补贴（区级、限行业的不计）"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.fresh_grad_rule",
+     "old": null,
+     "new": "2027苏州公务员：2027应届本科生以本科学历、应届研究生以研究生学历报一般岗位不限生源；应届研究生用本科学历限苏州生源或户籍，社会人员用本科学历限苏州户籍。应届专岗60—69为2027普通高校应届及简章第2—4项特定群体；研究生学历及相应学位不限生源，本科限江苏生源，不能用以前学历或非普通高校学历报该专岗。 另：2026省属事业统招允许2024、2025普通高校毕业生报名时无工作单位者报2026毕业生岗（历史批次）。来源：https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；苏州市2027年度考试录用公务员简章 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml；苏州市2027年度考试录用公务员报考指南 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/60a550973c154da484a714dc3d7dc6ac.shtml；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.exam_schedule",
+     "old": null,
+     "new": "2027省考：报名2026-11-03 09:00至11-09 16:00；公共科目笔试2026-12-06，公安专业科目12-05。报名已结束，时间均为北京时间。",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；苏州市2027年度考试录用公务员简章 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml；苏州市2027年度考试录用公务员报考指南 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/60a550973c154da484a714dc3d7dc6ac.shtml；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.announcement_url",
+     "old": null,
+     "new": "https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；苏州市2027年度考试录用公务员简章 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml；苏州市2027年度考试录用公务员报考指南 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/60a550973c154da484a714dc3d7dc6ac.shtml；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.source_url",
+     "old": null,
+     "new": "https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；苏州市2027年度考试录用公务员简章 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml；苏州市2027年度考试录用公务员报考指南 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/60a550973c154da484a714dc3d7dc6ac.shtml；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "civil_service.verified_at",
+     "old": null,
+     "new": "2026-11-09",
+     "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；苏州市2027年度考试录用公务员简章 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml；苏州市2027年度考试录用公务员报考指南 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/60a550973c154da484a714dc3d7dc6ac.shtml；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
     }
    ],
    "id": "suzhou",
