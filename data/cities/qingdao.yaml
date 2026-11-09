@@ -97,14 +97,14 @@ living:
   rent_period: 2026-09
   rent_source: 中指研究院 50 城住宅租赁价格指数（元/㎡/月）
   rent_source_url: https://m.cih-index.com/news/2026-10-16/55166711.html
-  consumption_per_capita: null
+  consumption_per_capita: 42391
   income_per_capita: 71703
   stats_year: 2025
-  stats_source_url: http://www.qingdao.gov.cn/zwgk/xxgk/tjj/gkml/tjjd/202601/t20260129_10493547.shtml
+  stats_source_url: http://qdtj.qingdao.gov.cn/tongjisj/tjsj_42452/tjj_tjsj_shms/csjmszqk/202602/t20260205_10503883.shtml
   verified_at: 2026-11-09
-  needs_human: true
-  needs_human_reason: 收入取自青岛市统计局《2025 年全市经济运行情况》；2025 年统计公报（http://qdtj.qingdao.gov.cn/tongjisj/tjsj_tjgb/202604/t20260408_10556209.shtml）正文未能提取（疑似图片或附件），城镇居民人均消费支出需人工补。
-  needs_human_fields: [consumption_per_capita]
+  needs_human: false
+  needs_human_reason: null
+  needs_human_fields: []
   access_blocked: false
 
 flexible_employment:
@@ -155,6 +155,11 @@ changelog:
     old: null
     new: 首次采集
     basis: 青人社发〔2024〕6号、青人社发〔2026〕3号、青岛市公安局 2025-06-20 问答、山东 2025 年度社保基数通知、青岛统计局 2025 经济运行情况、中指研究院 2026 年 9 月租金
+  - date: 2026-11-09
+    field: living.consumption_per_capita
+    old: null
+    new: 42391
+    basis: 青岛市统计局官网数据页《城镇居民收支情况2025年1-4季度》（数据来自国家统计局青岛调查队）；同表人均可支配收入 71703 与原收入来源一致，stats_source_url 一并改为该数据页
   - date: 2026-11-09
     field: subsidy_scan
     old: null
