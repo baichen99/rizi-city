@@ -155,5 +155,23 @@ class LifeDataTests(unittest.TestCase):
             self.assertEqual(point['geographic_scope_type'], 'city_districts_excluding_counties')
             self.assertEqual(point['cross_city_comparability_key'], 'nbs-new-yoy-2025-city-districts')
 
+    def test_shanghai_housing_2026_january_to_may_facts(self):
+        city = build_life(['shanghai'])['shanghai']
+        series = next(s for s in city['series'] if s['id'] == 'housing_new_yoy_index')
+        points = {p['period']: p for p in series['points']}
+        self.assertEqual(series['coverage_start'], '2026-01')
+        self.assertEqual(series['coverage_end'], '2026-09')
+        self.assertEqual(series['verified_points'], 9)
+        expected = [104.2, 104.2, 103.7, 103.7, 103.2]
+        for month, value in enumerate(expected, 1):
+            point = points[f'2026-{month:02d}']
+            self.assertEqual(point['value'], value)
+            self.assertEqual(point['source_id'], f'nbs-house-2026{month:02d}')
+            self.assertEqual(point['unit'], '上年同月=100')
+            self.assertEqual(point['comparison'], 'year_on_year')
+            self.assertEqual(point['base_period'], '2025')
+            self.assertEqual(point['geographic_scope_type'], 'city_districts_excluding_counties')
+            self.assertEqual(point['cross_city_comparability_key'], 'nbs-new-yoy-2025-city-districts')
+
 if __name__ == '__main__':
     unittest.main()
