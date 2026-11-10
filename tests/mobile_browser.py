@@ -69,8 +69,19 @@ def run(base_url, out):
                         assert card.locator('.utility-evidence').get_attribute('open') is not None
                         check_page(page, 'beijing-utility-expanded')
                         card.locator('summary').click()
-                    for module in ('power', 'gas'):
-                        assert not daily.locator(f'[data-module="{module}"] .utility-rates').count()
+                    for module, values, boundaries in (
+                        ('power', ['0.4883', '0.5383', '0.7883'], ('不满1千伏', '5人及以下', '2880', '4800', '不是每月重置')),
+                        ('gas', ['2.61', '2.83', '4.23'], ('炊事', '生活热水', '5人及以下', '350', '500', '不按月重置')),
+                    ):
+                        card = daily.locator(f'[data-module="{module}"]')
+                        assert card.locator('.utility-rates strong').all_text_contents() == values
+                        assert all(text in card.inner_text() for text in boundaries)
+                        assert card.locator('.utility-rates').is_visible()
+                        assert not card.locator('.utility-evidence').get_attribute('open')
+                        card.locator('summary').click()
+                        assert card.locator('.utility-evidence').get_attribute('open') is not None
+                        check_page(page, f'beijing-{module}-expanded')
+                        card.locator('summary').click()
                     check_page(page, 'beijing-utility-rates')
                     daily.screenshot(path=str(out / f'beijing-utility-rates-{width}.png'))
                     page.locator('[data-jump="overview"]').click()
