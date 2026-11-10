@@ -118,9 +118,9 @@ living:
   access_blocked: false
 
 flexible_employment:
-  pension_base_min: null
+  pension_base_min: 5521
   pension_rate: 20
-  pension_year: 2026
+  pension_year: 2026 年度（2026-07-01 起）
   medical_monthly_min: 538.16
   medical_note: 2026 年深圳职工医保缴费基数下限 6727 元，灵活就业人员费率自 2026-01-01 由 7% 恢复为 8%，按下限计 538.16 元/月（旧口径显示非深户另有 0.2% 地方补充医疗，未计）
   monthly_total_min: null
@@ -131,9 +131,9 @@ flexible_employment:
   source_url: https://hrss.sz.gov.cn/szsi/sbjxxgk/gzdt/content/post_12956467.html
   medical_source_url: https://hsa.sz.gov.cn/fzlm/znts/cnyc/content/post_12568243.html
   hukou_source_url: https://hrss.sz.gov.cn/szsi/sbjxxgk/gzdt/content/post_12956467.html
-  verified_at: 2026-11-09
+  verified_at: 2026-11-10
   needs_human: true
-  needs_human_reason: 深圳社保局说明灵活就业养老基数下限为"深圳市现行养老保险缴费基数下限"，但未给出金额，无法算出每月最少合计。
+  needs_human_reason: 灵活就业养老基数下限 5521 元已按粤人社发〔2026〕24号补齐；每月最少合计暂缺：养老费率深户 21%、非深户 20%，合计因户籍而异，未填单一值。
   access_blocked: false
 
 civil_service:
@@ -207,3 +207,18 @@ changelog:
     old: null
     new: 仅完成省级口径核实；2026事业单位集中招聘公告仅载3月笔试，后续具体日期尚未读到。广州、深圳各自独立事业单位批次不由省级内容替代。
     basis: 考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx
+  - date: '2026-11-10'
+    field: flexible_employment.pension_base_min
+    old: null
+    new: 5521
+    basis: 深圳市社保局页面 https://hrss.sz.gov.cn/szsi/sbjxxgk/gzdt/content/post_12956467.html（灵活就业养老保险缴费基数在“深圳市现行养老保险缴费基数下限”至广东省全口径上年度在岗职工月平均工资 300% 之间自行确定；深户 21%、非深户 20%）；广东省人社厅等 粤人社发〔2026〕24号 https://hrss.gd.gov.cn/zwgk/gsgg/content/post_4957552.html（自 2026-07-01 起全省企业职工基本养老保险缴费基数下限 5521 元，深圳遵照省定标准执行，见 social_security）
+  - date: '2026-11-10'
+    field: flexible_employment.pension_year
+    old: 2026
+    new: 2026 年度（2026-07-01 起）
+    basis: 粤人社发〔2026〕24号 https://hrss.gd.gov.cn/zwgk/gsgg/content/post_4957552.html（下限 5521 元自 2026-07-01 起执行）
+  - date: '2026-11-10'
+    field: flexible_employment.needs_human_reason
+    old: 深圳社保局说明灵活就业养老基数下限为"深圳市现行养老保险缴费基数下限"，但未给出金额，无法算出每月最少合计。
+    new: 灵活就业养老基数下限 5521 元已按粤人社发〔2026〕24号补齐；每月最少合计暂缺：养老费率深户 21%、非深户 20%，合计因户籍而异，未填单一值。
+    basis: 粤人社发〔2026〕24号 https://hrss.gd.gov.cn/zwgk/gsgg/content/post_4957552.html；深圳市社保局页面 https://hrss.sz.gov.cn/szsi/sbjxxgk/gzdt/content/post_12956467.html
