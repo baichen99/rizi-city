@@ -18,3 +18,9 @@ GitHub Pages 网页（纯静态单页，没有构建步骤）。
 - 外链需要联网。离线版不是实时资料；资料期、逐项核验日期、不可用原因应保留。
 
 - 月消费参照与个人预算的口径、缺失处理和隐私边界见 [`docs/living-budget-method.md`](../docs/living-budget-method.md)。
+
+## 城市下拉交互回归
+
+- 居民页和两城比较页保留原生 `select` 节点，只更新其旁边的内容；不要在 `change` 后移除控件再强制聚焦新控件，以免打断 iOS 原生选择器。
+- `python3 tests/city_select_browser.py` 覆盖 Chromium / WebKit 的移动和桌面视口：一次选值、连续切换、清空、同城比较、返回/前进、记住城市，以及 DOM 连续连接和无额外 focus。先运行 `playwright install chromium webkit`。
+- 此回归使用浏览器 `select_option` 发出 input/change，并非操作 iOS 系统滚轮。发布后仍应在真实 iPhone Safari 上检查：打开城市选择器、选城市并确认一次、重开换城、取消、比较页左右切换。不得将 WebKit 模拟写成 iPhone 实机验证。
