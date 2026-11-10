@@ -53,7 +53,7 @@
 | [苏州](data/cities/suzhou.yaml) | 1.92 万 | 2.4 万 | 3.6 万 | ✅ | ✅无 | ✅ | ✅ | ✅ | ✅ |
 | [长沙](data/cities/changsha.yaml) | 1.2 万 | 2 万 | 3 万 | ✅ | ✅ | ✅无 | ✅ | ✅ | ✅ |
 | [北京](data/cities/beijing.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
-| [成都](data/cities/chengdu.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
+| [成都](data/cities/chengdu.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
 | [重庆](data/cities/chongqing.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
 | [广州](data/cities/guangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ✅无 | ✅ | ✅ | ✅ |
 | [杭州](data/cities/hangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ | ✅ |
