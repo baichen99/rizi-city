@@ -101,14 +101,14 @@ flexible_employment:
   pension_rate: 20
   pension_year: 2026
   medical_monthly_min: 330.11
-  medical_note: 济南市医保局口径（2026 年度，2026-09-01 起）：缴费基数固定按下限 4573 元，不建立个人账户费率 7% + 职工大额医疗费 10 元 = 330.11 元/月；建立个人账户费率 9% 为 411.57 元/月
+  medical_note: 济南市医保局口径（2026 年度，2026-09-01 起）：缴费基数固定按下限 4573 元，不建立个人账户费率 7% + 职工大额医疗费 10 元 = 330.11 元/月；建立个人账户费率9%为411.57元/月，10元大额医疗费由个人账户代扣，实际划入账户4573×2%−10=81.46元，不再额外加10元（济医保发〔2025〕20号，2025-12-01起）。医保基数自2026-09-01调整，此前已完成缴费月份无需补差
   monthly_total_min: 1244.71
-  calc: 养老 4573 × 20% = 914.60；医保 330.11（7% 档）；合计 1244.71 元/月
-  hukou_restriction: 养老、医保均不受户籍限制（养老可在就业地参保，外地户籍办理参保登记不需居住证；医保线上登记即可，线下可凭身份证、户口簿或居住证在户口或居住证所在地街道办理）
+  calc: 养老 4573 × 20% = 914.60；医保 330.11（7% 档）；2026-09-01起按下限合计1244.71元/月（不建医保个人账户档）
+  hukou_restriction: 养老、医保均不受户籍限制（养老可在就业地参保，外地户籍办理参保登记不需居住证；医保可线上登记；线下需身份证及户口簿（居住证）原件，到户口或居住证所在地街道办理）
   nonlocal_allowed: true
   apply_channel: 养老：线上参保登记或持身份证到就近街道便民服务中心；医保：「济南医保」微信/支付宝小程序【灵活就业】模块参保登记，或到街道（镇）便民服务机构办理
   source_url: https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html
-  medical_source_url: http://ybj.jinan.gov.cn/col/col116777/art/2026/art_d23ae2576b954cefa27abf820b467a04.html
+  medical_source_url: https://ybj.jinan.gov.cn/col/col116777/art/2026/art_d23ae2576b954cefa27abf820b467a04.html
   hukou_source_url: https://jnhrss.jinan.gov.cn/col/col40157/art/2026/art_d3927161b26c48a4aa5210159e6c2e3f.html
   verified_at: 2026-11-10
   needs_human: false
@@ -186,4 +186,9 @@ changelog:
     field: flexible_employment.hukou_restriction/nonlocal_allowed/apply_channel
     old: null（未核实）
     new: 养老、医保均不受户籍限制，外地户籍可参保；养老不需居住证，医保线下可凭居住证在居住地街道办理
-    basis: 济南市人社局《参保篇》（2026）原文「参保不受户籍限制，可以在就业地办理参保」https://jnhrss.jinan.gov.cn/col/col40157/art/2026/art_d3927161b26c48a4aa5210159e6c2e3f.html；济南市医保局官网页引市医保中心处长原话「我市灵活就业人员参加济南市职工医保不受户籍限制」http://ybj.jinan.gov.cn/col/col116777/art/2026/art_d23ae2576b954cefa27abf820b467a04.html
+    basis: 济南市人社局《参保篇》（2026）原文「参保不受户籍限制，可以在就业地办理参保」https://jnhrss.jinan.gov.cn/col/col40157/art/2026/art_d3927161b26c48a4aa5210159e6c2e3f.html；济南市医保局官网页引市医保中心处长原话「我市灵活就业人员参加济南市职工医保不受户籍限制」https://ybj.jinan.gov.cn/col/col116777/art/2026/art_d23ae2576b954cefa27abf820b467a04.html
+  - date: '2026-11-10'
+    field: flexible_employment.medical_note/calc/hukou_restriction
+    old: 9%档未说明10元扣款方式，线下材料简写为任选一项
+    new: 7%档另缴10元，9%档由个人账户代扣10元，不重复加收；线下为身份证加户口簿（居住证）原件
+    basis: 济南市税务局2025-12-03问答 https://www.jinan.gov.cn/col/col118356/art/2026/art_b9e4482eed044c0cbd39068fa064956b.html 引济医保发〔2025〕20号；医保官网2026-10-13转载 https://ybj.jinan.gov.cn/col/col116777/art/2026/art_d23ae2576b954cefa27abf820b467a04.html 明确2026-09-01起4573基数及330.11/411.57两档；2026-09-09办事问答 https://ybj.jinan.gov.cn/col/col119535/art/2026/art_a9024e0b65de45b7a956f9fd2c44f5c9.html 核线上线下材料；养老身份证即可见2026-09-28社保问答 https://www.jinan.gov.cn/col/col118356/art/2026/art_d1effb4d6cce420489efa158edd6a909.html 。
