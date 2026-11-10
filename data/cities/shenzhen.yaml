@@ -121,6 +121,8 @@ flexible_employment:
   pension_base_min: 5521
   pension_rate: 20
   pension_year: 2026 年度（2026-07-01 起）
+  pension_note: 20% 为基本养老比例；深圳户籍养老合计比例为 21%，非深户为 20%，不能将此行作为深户养老总额。5521 元下限自 2026-07-01 起执行，同期上限 27603 元；2026 年 1—6 月下限为 5510 元。
+  pension_base_source_url: https://hrss.gd.gov.cn/zwgk/gsgg/content/post_4957552.html
   medical_monthly_min: 538.16
   medical_note: 2026 年深圳职工医保缴费基数下限 6727 元，灵活就业人员费率自 2026-01-01 由 7% 恢复为 8%，按下限计 538.16 元/月（旧口径显示非深户另有 0.2% 地方补充医疗，未计）
   monthly_total_min: null
@@ -222,3 +224,8 @@ changelog:
     old: 深圳社保局说明灵活就业养老基数下限为"深圳市现行养老保险缴费基数下限"，但未给出金额，无法算出每月最少合计。
     new: 灵活就业养老基数下限 5521 元已按粤人社发〔2026〕24号补齐；每月最少合计暂缺：养老费率深户 21%、非深户 20%，合计因户籍而异，未填单一值。
     basis: 粤人社发〔2026〕24号 https://hrss.gd.gov.cn/zwgk/gsgg/content/post_4957552.html；深圳市社保局页面 https://hrss.sz.gov.cn/szsi/sbjxxgk/gzdt/content/post_12956467.html
+  - date: '2026-11-10'
+    field: flexible_employment.pension_note/pension_base_source_url
+    old: null
+    new: 养老行就近说明基本养老20%、深户合计21%及基数生效时间；增加基数依据链接。
+    basis: 粤人社规〔2026〕14号第六、七条（灵活就业采用参保地企业养老上下限、基本养老20%） https://guangdong.chinatax.gov.cn/gdsw/ssfggds/2026-05/06/content_45505ebfc8f54089ae9bd6300fd49138.shtml；粤人社发〔2026〕24号（2026年1月起下限5510元、7月起5521元和上限27603元） https://hrss.gd.gov.cn/zwgk/gsgg/content/post_4957552.html；深圳社保局户籍费率说明 https://hrss.sz.gov.cn/szsi/sbjxxgk/gzdt/content/post_12956467.html

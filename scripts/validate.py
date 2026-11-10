@@ -232,6 +232,12 @@ def check_flexible(r, fe):
         r.err(w, "缺失或不是映射")
         return
     _num(r, w, fe, ("pension_base_min", "pension_rate", "medical_monthly_min", "monthly_total_min"))
+    if fe.get("pension_note") is not None and not isinstance(fe["pension_note"], str):
+        r.err(w, "pension_note 应为文字或 null")
+    base_source = fe.get("pension_base_source_url")
+    if base_source is not None and not (isinstance(base_source, str)
+            and base_source.startswith(("https://", "http://")) and is_gov_url(base_source)):
+        r.err(w, "pension_base_source_url 必须是政府官网的 HTTP(S) 链接")
     _flags(r, w, fe)
     if fe.get("nonlocal_allowed") is not None and not isinstance(fe["nonlocal_allowed"], bool):
         r.err(w, "nonlocal_allowed 应为 true/false/null")

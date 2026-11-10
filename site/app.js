@@ -680,7 +680,7 @@
     const fe = c.flexible_employment || {}, lv = c.living || {};
     const items = [];
     if (fe.monthly_total_min != null) items.push(`<li><span class="lbl">${c.floor.social == null ? "⚠️ " : ""}每月最少自缴</span>：${money(fe.monthly_total_min)} 元<br><span class="d">算法：${esc(fe.calc || "")}</span></li>`);
-    if (fe.pension_base_min != null) items.push(`<li><span class="lbl">养老</span>：基数下限 ${money(fe.pension_base_min)} 元/月 × ${esc(fe.pension_rate)}%（${esc(fe.pension_year || "")}）<br><span class="d">${link(fe.source_url, "来源")} · ${verifiedLine(fe)}</span></li>`);
+    if (fe.pension_base_min != null) items.push(`<li><span class="lbl">养老</span>：基数下限 ${money(fe.pension_base_min)} 元/月 × ${esc(fe.pension_rate)}%（${esc(fe.pension_year || "")}）${fe.pension_note ? `<br><span class="d">${esc(fe.pension_note)}</span>` : ""}<br><span class="d">${link(fe.source_url, "来源")}${fe.pension_base_source_url ? ` · ${link(fe.pension_base_source_url, "基数依据")}` : ""} · ${verifiedLine(fe)}</span></li>`);
     if (fe.medical_monthly_min != null || fe.medical_note) items.push(`<li><span class="lbl">医保</span>：${fe.medical_monthly_min != null ? money(fe.medical_monthly_min) + " 元/月" : ""}${fe.medical_note ? `<br><span class="d">${esc(fe.medical_note)}</span>` : ""}${fe.medical_source_url ? `<br><span class="d">${link(fe.medical_source_url, "来源")}</span>` : ""}</li>`);
     if (fe.hukou_restriction) items.push(`<li><span class="lbl">户籍限制</span>：${esc(fe.hukou_restriction)} ${link(fe.hukou_source_url || fe.source_url, "依据")}</li>`);
     if (fe.apply_channel) items.push(`<li><span class="lbl">去哪办</span>：${esc(fe.apply_channel)}</li>`);
