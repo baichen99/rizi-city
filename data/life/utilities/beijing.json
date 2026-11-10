@@ -1,33 +1,71 @@
 [
   {
-    "schema_version": 1,
+    "schema_version": 2,
     "city_id": "beijing",
     "id": "water",
     "title": "水费",
-    "status": "link_only",
-    "summary": "先确认账单的供应企业、居民或非居民类别及独立表/合表，再在官方目录查对应文件。",
+    "status": "reference_values",
+    "summary": "抄表到户居民按每户全年用量分三档。无法分表且家庭人口6人及以上的，可凭户口簿或实际居住证明向供水企业申请调整阶梯水量；未抄表到户的合表用户不能直接套用三档。",
     "links": [
       {
-        "label": "北京水费标准查询",
-        "url": "https://www.beijing.gov.cn/fwcj/jiage/ggfw1/661ccdcc81e5641581784c4f.html"
+        "label": "北京2026年水价结构通知及销售价表",
+        "url": "https://fgw.beijing.gov.cn/fgwzwgk/2024zcwj/bwqtwj/202602/t20260211_4508850.htm"
+      },
+      {
+        "label": "居民阶梯水价原始规则（年度、多人户及合表）",
+        "url": "https://swj.beijing.gov.cn/bmxx/sjxx/201912/t20191219_1311050.html"
       }
     ],
-    "coverage": "北京居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
-    "verified_at": "2026-11-09",
-    "verified_by": "assistant-source-text-review",
+    "coverage": "北京市抄表到户的居民自来水用户，未申请多人口增量的普通阶梯；非居民、合表和特殊供水条件须另查",
+    "verified_at": "2026-11-10",
+    "verified_by": "assistant-source-text-review + independent-beijing-utility-source-review",
     "next_review_at": "2027-02-09",
-    "source_date": null,
-    "reference_period": "查询页未单列完整适用期",
-    "effective_from": null,
+    "source_date": "2026-02-11",
+    "reference_period": "居民阶梯规则自2014-05-01执行；2026年结构通知成文/实施2026-01-21、发布2026-02-11，保持终端综合水价不变。未列失效日，后续调整仍须复核。",
+    "effective_from": "2014-05-01",
     "effective_to": null,
-    "evidence_locator": "居民、非居民水价表及注释",
-    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
-    "redistribution_status": "link_only",
+    "evidence_locator": "京发改〔2026〕150号正文及附件居民自来水三行；2014年通知第一至四、八条（官网转载页2018-01-01）",
+    "verification_scope": "2026-11-10两次独立打开2026年通知与居民阶梯原文，核对综合水价、年度档位及范围；检查现行价格目录及后续调整线索，未发现替代本范围居民价的正式通知，非穷尽性保证",
+    "redistribution_status": "fact_extract",
     "license_id": null,
-    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
-    "review_status": "pending_independent_review",
-    "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
-    "calculator_enabled": false
+    "license_note": "仅摘录少量客观单价、档位和日期，以项目原创文字说明并注明官方来源；不转载全文、整表、图片或附件，不将来源内容按项目开源许可再授权。",
+    "review_status": "reviewed",
+    "reason": "5/7/9元是终端综合水价，已包含水费、水资源费改税及污水处理费，不再重复叠加这些项目。这里不计算实际账单，也不套用非居民或合表价。",
+    "calculator_enabled": false,
+    "rate_reference": {
+      "scope": "北京居民自来水 · 抄表到户 · 普通年度阶梯",
+      "period": "按每户全年用水量分档，不按月重置；2026年通知确认综合水价结构",
+      "note": "综合水价已含水费、水资源费改税及污水处理费，勿再重复加收。多人户增量、合表及特殊供水条件另查。",
+      "source_url": "https://fgw.beijing.gov.cn/fgwzwgk/2024zcwj/bwqtwj/202602/t20260211_4508850.htm",
+      "source_label": "北京市发改委 · 京发改〔2026〕150号",
+      "source_date": "2026-02-11",
+      "evidence_locator": "正文及附件居民自来水三档（户年用水量、水价列）",
+      "reuse_basis": "仅摘录少量客观单价、档位和日期，以项目原创文字说明并注明官方来源；不转载全文、整表、图片或附件，不将来源内容按项目开源许可再授权。",
+      "bulk_redistribution": false,
+      "items": [
+        {
+          "label": "第一阶梯",
+          "value": 5,
+          "unit": "元/立方米",
+          "basis": "每户全年0—180立方米（含）",
+          "approximate": false
+        },
+        {
+          "label": "第二阶梯",
+          "value": 7,
+          "unit": "元/立方米",
+          "basis": "每户全年181—260立方米（含）",
+          "approximate": false
+        },
+        {
+          "label": "第三阶梯",
+          "value": 9,
+          "unit": "元/立方米",
+          "basis": "每户全年260立方米以上",
+          "approximate": false
+        }
+      ]
+    }
   },
   {
     "schema_version": 1,
@@ -90,33 +128,68 @@
     "calculator_enabled": false
   },
   {
-    "schema_version": 1,
+    "schema_version": 2,
     "city_id": "beijing",
     "id": "heating",
     "title": "取暖",
-    "status": "link_only",
-    "summary": "官方查询区分热源和计价方式。先核对合同、建筑面积与是否按热计量，不能把采暖季费用当作每月费用。",
+    "status": "reference_values",
+    "summary": "仅列居民按建筑面积收费的两类热源参考。市热力集团中心大网与燃气、燃油、电锅炉适用不同单价；按热计量、燃煤、停供、超高等情形另查。",
     "links": [
       {
-        "label": "北京取暖标准查询",
-        "url": "https://www.beijing.gov.cn/fwcj/jiage/ggfw1/6aeaade0f88cdc0a5ef2d77e.html"
+        "label": "北京2026—2027采暖季 · 集中供热收费问答",
+        "url": "https://www.beijing.gov.cn/fuwu/bmfw/bmzt/2023gn/cjwt/cnsf/cnsf/202311/t20231107_3296630.html"
+      },
+      {
+        "label": "北京市发改委供热价格表（明确建筑面积及每采暖季）",
+        "url": "https://fgw.beijing.gov.cn/bmcx/djcx/jzldj/202003/t20200331_1752799.htm"
+      },
+      {
+        "label": "北京2026—2027年度冬季供暖官方专题",
+        "url": "https://www.beijing.gov.cn/fuwu/bmfw/bmzt/2023gn/"
       }
     ],
-    "coverage": "北京居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
-    "verified_at": "2026-11-09",
-    "verified_by": "assistant-source-text-review",
+    "coverage": "北京居民集中供热按建筑面积收费：市热力集团中心大网，或燃气、燃油、电锅炉；不是全市所有热源及计费方式统一价格",
+    "verified_at": "2026-11-10",
+    "verified_by": "assistant-source-text-review + independent-beijing-utility-source-review",
     "next_review_at": "2027-02-09",
-    "source_date": null,
-    "reference_period": "查询页未单列完整适用期",
+    "source_date": "2026-10-28",
+    "reference_period": "2026-10-28市城市管理委官方问答重申价格；2019-11-15市发改委价表补充元/建筑平方米·采暖季口径。原价格依据为京价（商）字〔2001〕372号，不以网页日期冒充首次生效日期。",
     "effective_from": null,
     "effective_to": null,
-    "evidence_locator": "集中供热价格标准表及来源依据",
-    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
-    "redistribution_status": "link_only",
+    "evidence_locator": "2026-10-28问答开头及（1）按面积收费居民段；发改委价表表头和居民按面积收费对应两行",
+    "verification_scope": "2026-11-10两次独立核对官方问答、发改委价表及2026—2027供暖专题，确认热源、建筑面积与每采暖季口径；未据此认定具体合同或个人应缴金额",
+    "redistribution_status": "fact_extract",
     "license_id": null,
-    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
-    "review_status": "pending_independent_review",
-    "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
-    "calculator_enabled": false
+    "license_note": "仅摘录少量客观单价、档位和日期，以项目原创文字说明并注明官方来源；不转载全文、整表、图片或附件，不将来源内容按项目开源许可再授权。",
+    "review_status": "reviewed",
+    "reason": "这是每采暖季单价，不是每月费用；建筑面积不是套内使用面积。热计量采用另一套计价，超高、停供及合同其他费用未覆盖，不计算完整账单。",
+    "calculator_enabled": false,
+    "rate_reference": {
+      "scope": "北京居民集中供热 · 按建筑面积收费 · 指定两类热源",
+      "period": "每个采暖季；2026-10-28官方问答确认，非每月",
+      "note": "先确认合同热源和计费方式，使用建筑面积。热计量、燃煤、停供及超高等另查，不能将单价当完整账单。",
+      "source_url": "https://www.beijing.gov.cn/fuwu/bmfw/bmzt/2023gn/cjwt/cnsf/cnsf/202311/t20231107_3296630.html",
+      "source_label": "北京市政府 · 来源：市城市管理委",
+      "source_date": "2026-10-28",
+      "evidence_locator": "（1）按面积收费居民段；每采暖季单位由所列市发改委价表表头补证",
+      "reuse_basis": "仅摘录少量客观单价、档位和日期，以项目原创文字说明并注明官方来源；不转载全文、整表、图片或附件，不将来源内容按项目开源许可再授权。",
+      "bulk_redistribution": false,
+      "items": [
+        {
+          "label": "市热力集团中心大网",
+          "value": 24,
+          "unit": "元/建筑平方米·采暖季",
+          "basis": "居民按建筑面积收费；不是月费或热计量基本热价",
+          "approximate": false
+        },
+        {
+          "label": "燃气、燃油、电锅炉",
+          "value": 30,
+          "unit": "元/建筑平方米·采暖季",
+          "basis": "居民按建筑面积收费；不是月费或热计量基本热价",
+          "approximate": false
+        }
+      ]
+    }
   }
 ]

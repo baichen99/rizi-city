@@ -123,7 +123,9 @@ def validate_modules(data_dir=DATA_DIR) -> list[str]:
                 value = rate.get('value')
                 if type(value) not in (int, float) or not math.isfinite(value) or value < 0:
                     errors.append(f'{label}: rate value must be finite and nonnegative')
-                if rate.get('unit') not in ('元/立方米', '元/千瓦时'):
+                expected_unit = {'water': '元/立方米', 'gas': '元/立方米',
+                                 'power': '元/千瓦时', 'heating': '元/建筑平方米·采暖季'}.get(row.get('id'))
+                if expected_unit is None or rate.get('unit') != expected_unit:
                     errors.append(f'{label}: invalid rate unit')
                 if type(rate.get('approximate')) is not bool:
                     errors.append(f'{label}: rate precision must be explicit')
