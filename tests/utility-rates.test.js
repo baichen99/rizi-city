@@ -109,3 +109,24 @@ test('Beijing power and gas render exact annual references and suppress unsafe d
     }
   }
 });
+
+
+test('Shanghai municipal water shows annual comprehensive rates with no calculator',()=>{
+  const shanghai=JSON.parse(fs.readFileSync('data/life/utilities/shanghai.json','utf8'));
+  const water=shanghai.find(m=>m.id==='water'), html=moduleCard(water);
+  assert.deepEqual(water.rate_reference.items.map(i=>i.value),[4.05,5.8,8.79]);
+  for(const item of water.rate_reference.items) {
+    assert.ok(html.includes(`<strong>${item.value}</strong>`));
+    assert.ok(html.includes(esc(item.basis)));
+    assert.ok(html.includes(esc(item.unit)));
+  }
+  for(const phrase of ['市属供排水企业服务区域','一户一表','不按月重置','综合水价已含污水处理费','新户未满年','2021-10-22']) assert.ok(html.includes(phrase));
+  assert.ok(html.includes(water.rate_reference.source_url));
+  assert.match(html,/不提供费用 \/ 待遇计算/);
+  assert.equal(water.calculator_enabled,false);
+  for(const date of ['2026-11-09','2027-02-10']) assert.equal(currentLifeModule(water,date).rate_reference,null);
+  const expired={...water,effective_to:'2026-11-09'};
+  assert.equal(currentLifeModule(expired,'2026-11-10').rate_reference,null);
+  assert.equal(currentLifeModule(expired,'2026-11-10').calculator_enabled,false);
+  for(const id of ['power','gas']) assert.ok(!moduleCard(shanghai.find(m=>m.id===id)).includes('utility-rates'));
+});

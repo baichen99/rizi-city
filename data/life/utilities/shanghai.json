@@ -1,33 +1,79 @@
 [
   {
-    "schema_version": 1,
+    "schema_version": 2,
     "city_id": "shanghai",
     "id": "water",
     "title": "水费",
-    "status": "link_only",
-    "summary": "官方实施细则区分居民、非居民和特种用水。此处链接制度文件，不代表任何具体供水企业的当前水价。",
+    "status": "reference_values",
+    "summary": "仅市属供排水企业服务区域普通一户一表居民，按户年用水量分档。多人户可申请增量或改按平均价格，须按较新的常住人口认定政策办理；合表及特殊对象不能直接套用三档。",
     "links": [
       {
-        "label": "上海城镇供水价格管理实施细则",
-        "url": "https://fgw.sh.gov.cn/fgw_gfxwj/20230118/0edaa28f4a5442a2aebbf06c08586ee3.html"
+        "label": "上海市发改委 · 市属供区居民水价正式复函（2021年）",
+        "url": "https://www.shanghai.gov.cn/gwk/search/content/1de7be7e5608458eaa4ba880ea435e94"
+      },
+      {
+        "label": "上海市发改委 · 市属供区居民水价便民表",
+        "url": "https://fgw.sh.gov.cn/wx_gysy/20200727/e3833116ef7747dcb45c2bb01b5cb670.html"
+      },
+      {
+        "label": "上海市水务局 · 按账单企业确认市属供区",
+        "url": "https://swj.sh.gov.cn/swj-jmyhsjgg/20250913/55865cf68d8c4bf5b52115728ac284da.html"
+      },
+      {
+        "label": "上海市发改委 · 一户多人口范围修订（2020年）",
+        "url": "https://fgw.sh.gov.cn/fgw_zdjc/20211210/75e32ec084754a1a87d092c0b1d66478.html"
       }
     ],
-    "coverage": "上海居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
-    "verified_at": "2026-11-09",
-    "verified_by": "assistant-source-text-review",
+    "coverage": "仅上海市属供排水企业服务区域的一户一表普通居民全年阶梯；通过账单企业确认，不覆盖全部行政区或区属供水企业",
+    "verified_at": "2026-11-10",
+    "verified_by": "assistant-source-text-review + independent-shanghai-utility-source-review",
     "next_review_at": "2027-02-09",
-    "source_date": "2023-01-18",
-    "reference_period": "2023年文件，仅制度导航",
-    "effective_from": null,
+    "source_date": "2021-10-22",
+    "reference_period": "沪发改价管〔2021〕49号：2021-10-21印发，2021-10-22发布，2021-11-01实施；2022年起按年度分档。便民表无明确发布日期，不能以URL日期推断。",
+    "effective_from": "2021-11-01",
     "effective_to": null,
-    "evidence_locator": "第三章第十五、十六条",
-    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
-    "redistribution_status": "link_only",
+    "evidence_locator": "2021复函第一条、第二条及第三条第3项；便民表一户一表三行与注释；2020多人户通知第一、四条；水务局供区问答",
+    "verification_scope": "2026-11-10两次独立打开正式复函、便民表、供区问答及多人户修订；核对单位、综合水价、年度阶梯和排除对象。查阅最新价格目录并检索后续居民水价调整线索，未发现替代本范围的正式通知，非穷尽性保证；独立复核确认上述有限参考，不认定个人适用性。",
+    "redistribution_status": "fact_extract",
     "license_id": null,
-    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
-    "review_status": "pending_independent_review",
-    "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
-    "calculator_enabled": false
+    "license_note": "仅摘录少量客观单价、档位和日期，以项目原创文字说明并署名直链；未取得来源全文、整表、图片或附件的开放许可，不转载这些内容，不将来源内容按项目开源许可再授权。",
+    "review_status": "reviewed",
+    "reason": "综合水价已包含按用水量90%计征的污水处理费，不再叠加。仅普通全年阶梯单价参考；区属供区、合表、已获多人户优惠、未满年度新户及特殊对象另查，不能据此计算实际账单。",
+    "calculator_enabled": false,
+    "rate_reference": {
+      "scope": "上海市属供排水企业服务区域 · 一户一表 · 未调整多人户档位的普通全年阶梯",
+      "period": "2021-11-01实施；此处采用2022年起的户年档位，不按月重置",
+      "note": "综合水价已含污水处理费，不重复加收；不是全上海统一水价。新户未满年、合表、多人户优惠与特殊对象不套用此参考。",
+      "source_url": "https://www.shanghai.gov.cn/gwk/search/content/1de7be7e5608458eaa4ba880ea435e94",
+      "source_label": "上海市发改委 · 沪发改价管〔2021〕49号",
+      "source_date": "2021-10-22",
+      "evidence_locator": "第一条居民阶梯水价表综合水价列；第二条第4项年度周期",
+      "reuse_basis": "仅摘录少量客观单价、档位和日期，以项目原创文字说明并署名直链；未取得来源全文、整表、图片或附件的开放许可，不转载这些内容，不将来源内容按项目开源许可再授权。",
+      "bulk_redistribution": false,
+      "items": [
+        {
+          "label": "第一阶梯",
+          "value": 4.05,
+          "unit": "元/立方米",
+          "basis": "每户每年0—220立方米（含）部分",
+          "approximate": false
+        },
+        {
+          "label": "第二阶梯",
+          "value": 5.8,
+          "unit": "元/立方米",
+          "basis": "每户每年超过220至300立方米（含）部分",
+          "approximate": false
+        },
+        {
+          "label": "第三阶梯",
+          "value": 8.79,
+          "unit": "元/立方米",
+          "basis": "每户每年超过300立方米部分",
+          "approximate": false
+        }
+      ]
+    }
   },
   {
     "schema_version": 1,
@@ -35,28 +81,32 @@
     "id": "power",
     "title": "电费",
     "status": "link_only",
-    "summary": "历史方案说明年累计阶梯与月抄表的区别。峰谷、多人户、新装表和后续修订尚需一并核验，不能直接套用历史单价。",
+    "summary": "原方案按年累计、按月抄表；一户一表、峰谷和未分时各有口径。多人户认定已由2020年通知扩展，不能只沿用2012年户籍限制。",
     "links": [
       {
         "label": "上海居民阶梯电价原始方案（历史文件）",
         "url": "https://fgw.sh.gov.cn/ys-szgyjcssfw-1.7.1-h5/20240819/b2cb5b1cde014210841ed62c91aa9e39.html"
+      },
+      {
+        "label": "一户多人口范围修订（2020年；不限原方案所列户籍人口）",
+        "url": "https://fgw.sh.gov.cn/fgw_zdjc/20211210/75e32ec084754a1a87d092c0b1d66478.html"
       }
     ],
     "coverage": "上海居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
-    "verified_at": "2026-11-09",
+    "verified_at": "2026-11-10",
     "verified_by": "assistant-source-text-review",
     "next_review_at": "2027-02-09",
     "source_date": null,
     "reference_period": "2012年原始方案；不是2024年新政策",
     "effective_from": null,
     "effective_to": null,
-    "evidence_locator": "第二部分（二）、第四部分、末段实施安排",
-    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "evidence_locator": "2012原方案第二部分（二）、第四、五部分、末段实施安排及附表；2020通知第一、四条",
+    "verification_scope": "2026-11-10打开2012原方案及2020多人户修订，核对年累计与月抄表、峰谷、合表、新装表和低保等边界；尚未完成现行居民电价修订链和独立复核，不发布单价。",
     "redistribution_status": "link_only",
     "license_id": null,
     "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
     "review_status": "pending_independent_review",
-    "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+    "reason": "原方案有分时/未分时、临界月峰谷加价、新装或合表改造后剩余月份及特殊对象规则；当前修订链未核齐，继续仅链接，不提供金额计算。",
     "calculator_enabled": false
   },
   {
@@ -65,28 +115,36 @@
     "id": "gas",
     "title": "燃气",
     "status": "link_only",
-    "summary": "先确认账单的供应企业、居民或非居民类别及独立表/合表，再在官方目录查对应文件。",
+    "summary": "居民管道天然气原方案按每年9月1日至次年8月31日累计，不按自然年或月重置。人工煤气、瓶装液化气及非居民天然气另有规则，不能混用。",
     "links": [
       {
-        "label": "上海价格政策官方目录",
+        "label": "居民管道燃气价格原始复函（2014年）",
+        "url": "https://fgw.sh.gov.cn/fgw_gzzcbc/20241011/c65c5f3a96644de6bee855755094ebf9.html"
+      },
+      {
+        "label": "一户多人口范围修订（2020年）",
+        "url": "https://fgw.sh.gov.cn/fgw_zdjc/20211210/75e32ec084754a1a87d092c0b1d66478.html"
+      },
+      {
+        "label": "上海价格政策官方目录（区分居民管道气与其他气源）",
         "url": "https://fgw.sh.gov.cn/fgw_jggl/"
       }
     ],
     "coverage": "上海居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
-    "verified_at": "2026-11-09",
+    "verified_at": "2026-11-10",
     "verified_by": "assistant-source-text-review",
     "next_review_at": "2027-02-09",
     "source_date": null,
-    "reference_period": "动态目录，非价格适用期",
+    "reference_period": "2014年管道燃气原方案及2020年多人户范围修订，仅政策导航；2024网页路径不是新政策日期",
     "effective_from": null,
     "effective_to": null,
-    "evidence_locator": "价格政策栏目目录",
-    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "evidence_locator": "2014复函第一条第1至4项、第二条、第四条；2020通知第一、四条；2026年价格管理目录",
+    "verification_scope": "2026-11-10打开居民管道气原方案、多人户修订及最新目录。原方案网页发布日与正文落款相差一天，source_date暂留null；未核齐当前供应企业实施细则、新户和合表等完整规则，不发布单价。",
     "redistribution_status": "link_only",
     "license_id": null,
     "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
     "review_status": "pending_independent_review",
-    "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+    "reason": "已读原方案周期、IC卡计量与多人户例外，但当前完整实施细则及独立复核未齐；目录中的非居民天然气和居民瓶装液化气调整不能代替居民管道气，不提供金额计算。",
     "calculator_enabled": false
   },
   {
