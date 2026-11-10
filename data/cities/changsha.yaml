@@ -78,6 +78,51 @@ living:
   income_per_capita: 72117
   stats_year: 2025
   stats_source_url: https://tjj.hunan.gov.cn/hntj/tjfx/tjgb/szgb/zss_1/202605/t20260512_33975356.html
+  statistical_metadata:
+    income_per_capita:
+      source_value: 72117
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计，不按户籍）
+      population_scope_type: urban_residents
+      geographic_scope: 长沙市全市行政范围内的城镇居民，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+      methodology_note: 长沙市公报列全年全市城镇居民收支；国家统计局统一住户调查说明以常住地纳入，采用记账与问卷及加权汇总，含现金和实物。未取得长沙2025专项方法附件，不将全国或分省样本误差当成本市误差。可支配收入包括工资、经营、财产和转移净收入，不是个人工资。
+      cross_city_comparability_key: resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://tjj.hunan.gov.cn/hntj/tjfx/tjgb/szgb/zss_1/202605/t20260512_33975356.html
+      source_date: '2026-04-21'
+      publisher: 湖南省统计局（转载长沙市统计局）
+      verified_at: '2026-11-10'
+      review_due: '2027-02-10'
+      review_status: verified
+      evidence_locator: 第十二节人民生活和社会保障：全年城镇居民人均可支配收入72117元；文末仅注明部分数据为初步数，未单列该指标是否初步或最终。
+      data_status: not_specified
+    consumption_per_capita:
+      source_value: 48547
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计，不按户籍）
+      population_scope_type: urban_residents
+      geographic_scope: 长沙市全市行政范围内的城镇居民，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+      methodology_note: 长沙市公报列全年全市城镇居民收支；国家统计局统一住户调查说明以常住地纳入，采用记账与问卷及加权汇总，含现金和实物。未取得长沙2025专项方法附件，不将全国或分省样本误差当成本市误差。公报消费分类包含居住等支出，不是单身现金生活预算。
+      cross_city_comparability_key: resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://tjj.hunan.gov.cn/hntj/tjfx/tjgb/szgb/zss_1/202605/t20260512_33975356.html
+      source_date: '2026-04-21'
+      publisher: 湖南省统计局（转载长沙市统计局）
+      verified_at: '2026-11-10'
+      review_due: '2027-02-10'
+      review_status: verified
+      evidence_locator: 第十二节人民生活和社会保障：全年城镇居民人均消费支出48547元；文末仅注明部分数据为初步数，未单列该指标是否初步或最终。
+      data_status: not_specified
   verified_at: 2026-11-09
   needs_human: false
   needs_human_reason: null
@@ -171,3 +216,55 @@ changelog:
     old: null
     new: 2027省考公告未核实，保留2026历史信息。省直事业单位第四次招聘各岗位毕业年限与应届限制须核附件岗位表；长沙市属招聘未在本轮逐项核实。
     basis: 考公考编专项巡检；省考公告 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff.shtml；省考指南 https://www.jh.gov.cn/jh/tzgg/202601/62b7bb05d9434f0b935c30544b51ebff/files/a44b472af7b54d1391abe5a3aea94046.docx；事业单位公告 https://lyj.hunan.gov.cn/lyj/xxgk_71167/rsxx/202609/t20260909_34059723.html
+  - date: '2026-11-10'
+    field: living.statistical_metadata.income_per_capita
+    old: null
+    new:
+      source_value: 72117
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计，不按户籍）
+      population_scope_type: urban_residents
+      geographic_scope: 长沙市全市行政范围内的城镇居民，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+      methodology_note: 长沙市公报列全年全市城镇居民收支；国家统计局统一住户调查说明以常住地纳入，采用记账与问卷及加权汇总，含现金和实物。未取得长沙2025专项方法附件，不将全国或分省样本误差当成本市误差。可支配收入包括工资、经营、财产和转移净收入，不是个人工资。
+      cross_city_comparability_key: resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://tjj.hunan.gov.cn/hntj/tjfx/tjgb/szgb/zss_1/202605/t20260512_33975356.html
+      source_date: '2026-04-21'
+      publisher: 湖南省统计局（转载长沙市统计局）
+      verified_at: '2026-11-10'
+      review_due: '2027-02-10'
+      review_status: verified
+      evidence_locator: 第十二节人民生活和社会保障：全年城镇居民人均可支配收入72117元；文末仅注明部分数据为初步数，未单列该指标是否初步或最终。
+      data_status: not_specified
+    basis: 直接核验湖南省统计局转载的长沙2025统计公报第十二节及实际发布日期2026-04-21：https://tjj.hunan.gov.cn/hntj/tjfx/tjgb/szgb/zss_1/202605/t20260512_33975356.html；常住地及调查方法依据国家统计局2025-01-22说明：https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html。原数值、城市完整巡检日期和指数不变。
+  - date: '2026-11-10'
+    field: living.statistical_metadata.consumption_per_capita
+    old: null
+    new:
+      source_value: 48547
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计，不按户籍）
+      population_scope_type: urban_residents
+      geographic_scope: 长沙市全市行政范围内的城镇居民，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+      methodology_note: 长沙市公报列全年全市城镇居民收支；国家统计局统一住户调查说明以常住地纳入，采用记账与问卷及加权汇总，含现金和实物。未取得长沙2025专项方法附件，不将全国或分省样本误差当成本市误差。公报消费分类包含居住等支出，不是单身现金生活预算。
+      cross_city_comparability_key: resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://tjj.hunan.gov.cn/hntj/tjfx/tjgb/szgb/zss_1/202605/t20260512_33975356.html
+      source_date: '2026-04-21'
+      publisher: 湖南省统计局（转载长沙市统计局）
+      verified_at: '2026-11-10'
+      review_due: '2027-02-10'
+      review_status: verified
+      evidence_locator: 第十二节人民生活和社会保障：全年城镇居民人均消费支出48547元；文末仅注明部分数据为初步数，未单列该指标是否初步或最终。
+      data_status: not_specified
+    basis: 直接核验湖南省统计局转载的长沙2025统计公报第十二节及实际发布日期2026-04-21：https://tjj.hunan.gov.cn/hntj/tjfx/tjgb/szgb/zss_1/202605/t20260512_33975356.html；常住地及调查方法依据国家统计局2025-01-22说明：https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html。原数值、城市完整巡检日期和指数不变。
