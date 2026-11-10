@@ -269,5 +269,14 @@
     "old": null,
     "new": 82.47,
     "basis": "https://wjw.beijing.gov.cn/sjfb/bjstjgb/bjstjgb2021/202306/t20230614_3133800.html；主要健康指标正文第一段；年龄0定义 https://tjj.beijing.gov.cn/zwgkai/tjzd_31386/cgdczd/2020nb2021db_48964/jctjbbzd_48966/qt_48970/202101/P020210108400516156330.pdf 印刷页14；时期定义 https://tjj.beijing.gov.cn/zwgkai/tjzd_31386/cgdczd/2023nb2024db/bmsjgxzd_2023/202402/P020240229355849034522.pdf 印刷页105"
+  },
+  {
+    "date": "2026-11-10",
+    "city_id": "beijing",
+    "record_id": "beijing-life_expectancy-2023",
+    "field": "life.life_expectancy.2023.value",
+    "old": null,
+    "new": 82.51,
+    "basis": "https://www.beijing.gov.cn/shipin/Interviewlive/1090.html；黄若刚“三、慢性病综合防控成效明显”段；https://tjj.beijing.gov.cn/zwgkai/tjzd_31386/cgdczd/2023nb2024db/bmsjgxzd_2023/202402/P020240229355849034522.pdf 印刷页64、105（2023年报户籍总体及出生时时期定义）；2022、2024、2025继续为null，不跨缺口连线。"
   }
 ]

@@ -86,6 +86,9 @@ def run(base_url, out):
                     daily.screenshot(path=str(out / f'beijing-utility-rates-{width}.png'))
                     page.locator('[data-jump="overview"]').click()
                     assert page.locator('#life-overview').bounding_box()['y'] >= page.locator('.tabs').bounding_box()['height']
+                    life_overview = page.locator('#life-overview [data-metric="life_expectancy"]')
+                    assert life_overview.locator('.metric-original strong').inner_text() == '—'
+                    assert '82.51' not in life_overview.inner_text()
                     page.locator('#life-overview details:not(.metric-explainer) summary').first.click()
                     house = page.locator('#life-overview [data-metric="housing_new_yoy_index"]')
                     assert '低 2.7%' in house.locator('.metric-reading').inner_text()
@@ -106,11 +109,21 @@ def run(base_url, out):
                     check_page(page, 'resident-history')
                     lifespan = page.locator('#life-history article').filter(has=page.get_by_role('heading', name='出生时预期寿命', exact=True))
                     life_chart = lifespan.locator('.history-chart:visible')
-                    assert life_chart.locator('circle').count() == 2
+                    assert life_chart.locator('circle').count() == 3
                     assert life_chart.locator('polyline').count() == 1
+                    points = life_chart.locator('circle')
+                    assert [point.get_attribute('aria-label').split('，')[0] for point in points.all()] == ['2020', '2021', '2023']
+                    assert '82.51 岁' in points.nth(2).get_attribute('aria-label')
+                    # One line alone is insufficient: it must stop at 2021 and exclude the 2023 singleton.
+                    connected = life_chart.locator('polyline').get_attribute('points').split()
+                    coordinates = [f"{point.get_attribute('cx')},{point.get_attribute('cy')}" for point in points.all()]
+                    assert connected == coordinates[:2]
+                    assert coordinates[2] not in connected
                     assert life_chart.locator('text').all_text_contents()[-2:] == ['2020', '2025']
                     lifespan.locator('summary').click()
-                    for year in range(2022, 2026):
+                    row_2023 = lifespan.locator('tbody tr').filter(has=page.get_by_role('rowheader', name='2023', exact=True))
+                    assert row_2023.locator('td').first.inner_text().strip() == ('82.51 岁' if width <= 600 else '82.51')
+                    for year in (2022, 2024, 2025):
                         row = lifespan.locator('tbody tr').filter(has=page.get_by_role('rowheader', name=str(year), exact=True))
                         assert row.locator('td').first.inner_text().strip().startswith('—')
                     if width <= 600:

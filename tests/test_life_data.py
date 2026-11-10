@@ -23,7 +23,11 @@ class LifeDataTests(unittest.TestCase):
         city = build_life(['beijing'])['beijing']
         series = next(s for s in city['series'] if s['id'] == 'life_expectancy')
         self.assertEqual([p['period'] for p in series['points']], [str(y) for y in range(2020, 2026)])
-        self.assertEqual([p['value'] for p in series['points']], [82.43, 82.47, None, None, None, None])
+        self.assertEqual([p['value'] for p in series['points']], [82.43, 82.47, None, 82.51, None, None])
+        point_2023 = next(p for p in series['points'] if p['period'] == '2023')
+        self.assertEqual(point_2023['source_id'], 'bj-health-life-2023')
+        self.assertEqual(point_2023['review_status'], 'verified')
+        self.assertEqual(point_2023['verified_at'], '2026-11-10')
         self.assertTrue(all('户籍' in p['population_scope'] and p['age'] == 0 and p['sex'] == 'all' for p in series['points']))
         self.assertTrue(all(not p.get('cross_city_comparability_key') for p in series['points']))
         latest = next(p for p in city['overview'] if p['metric'] == 'life_expectancy')
