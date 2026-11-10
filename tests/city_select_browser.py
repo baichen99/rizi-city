@@ -76,10 +76,15 @@ def exercise(browser, base_url, mobile):
     page.locator('[data-remember]').click()
     page.reload()
     assert page.locator('#resident-city').input_value() == 'guangzhou'
+    # A city-free entry proves this comes from opt-in storage, not the URL.
+    page.goto(base_url)
+    assert page.locator('#resident-city').input_value() == 'guangzhou'
     commit_city(page, '#resident-city', '', '#resident')
     assert page.locator('.resident-empty').is_visible()
     assert page.locator('[data-remember]').is_disabled()
     page.locator('[data-forget]').click()
+    page.goto(base_url)
+    assert page.locator('#resident-city').input_value() == ''
 
     page.locator('[data-tab="compare"]').click()
     commit_city(page, '#compare-a', 'beijing', '#compare&a=beijing')

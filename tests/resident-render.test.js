@@ -10,13 +10,31 @@ const end = source.indexOf('  // ---------- 日子指数 ----------', start);
 assert.ok(start > 0 && end > start);
 function renderer(payload = data) {
   const elements = {};
+  const controls = ['#resident-city', '#compare-a', '#compare-b'];
+  function element(selector) {
+    if (controls.includes(selector)) return elements[selector] || null;
+    if (!elements[selector]) {
+      let html = '';
+      elements[selector] = {
+        get innerHTML() { return html; },
+        set innerHTML(value) {
+          html = value;
+          // Only model shell creation. Real DOM continuity belongs to browser QA.
+          for (const id of controls) if (html.includes(`id="${id.slice(1)}"`)) {
+            elements[id] ||= {innerHTML: '', value: ''};
+          }
+        },
+      };
+    }
+    return elements[selector];
+  }
   const state = {residentCity: '', compareA: '', compareB: '', policyTopic: 'all'};
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const context = {D: payload, state, Date, Number, String, Set, Map, JSON, URL,
     REPO: 'https://github.com/baichen99/rizi-city', METHOD_URL: 'https://example.org/method',
     esc, link: (url,label) => `<a href="${esc(url)}">${esc(label)}</a>`,
     yamlUrl: c => `https://example.org/${c.id}.yaml`,
-    $: selector => elements[selector] ||= {innerHTML:''},
+    $: element,
     localStorage: {getItem: () => null},
   };
   vm.createContext(context);
