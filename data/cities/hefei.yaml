@@ -53,12 +53,12 @@ social_security:
   base_min: 4354
   base_max: 21772
   year: 2026（2026-01-01 至 2026-12-31）
-  scope: 安徽全省（个人缴费基数）
-  source_url: https://m.jiemian.com/article/15059098.html
-  source_type: media
-  verified_at: 2026-11-09
-  needs_human: true
-  needs_human_reason: 只找到界面新闻转载的安徽省人社厅等部门通知，未在 hrss.ah.gov.cn 检索到原文，需人工替换为官网链接。
+  scope: 安徽全省（企业职工基本养老保险、职工基本医疗保险、工伤保险、失业保险个人缴费基数）
+  source_url: https://rsj.huaibei.gov.cn/gzdt/gfxwj/58052711.html
+  source_type: gov
+  verified_at: 2026-11-10
+  needs_human: false
+  needs_human_reason: null
   access_blocked: false
 
 living:
@@ -76,22 +76,24 @@ living:
   access_blocked: true
 
 flexible_employment:
-  pension_base_min: null
-  pension_rate: null
-  pension_year: null
+  pension_base_min: 4354
+  pension_rate: 20
+  pension_year: 2026（2026-01-01至2026-12-31）
+  pension_base_source_url: https://rsj.huaibei.gov.cn/gzdt/gfxwj/58052711.html
+  pension_note: 灵活就业养老可在2026年4354–21772元区间自选，20%比例按下限计算870.80元/月；不要将养老金额误作医保已核实。
   medical_monthly_min: null
-  medical_note: 媒体转载的安徽 2026 通知称灵活就业人员参加职工医保和生育保险统一以下限 4354 元为基数，费率未知，且未见官网原文
+  medical_note: 官方2026省级通知确认灵活就业职工医保统一按下限4354元为基数。中国就业网2021-11-24政策报道载明2022起基本医保6%、不建个人账户且不再单独征收职工医疗救助保险费；按这项既有规则计算的261.24元仅为待核参考，尚未完整核读2024修订现行条文及2026全部缴费口径，医保月缴与合计暂留空，不将未知附加费当作已有收费。2027-01-01才施行的新省方案不提前套用。
   monthly_total_min: null
   calc: null
   hukou_restriction: null
   nonlocal_allowed: null
   apply_channel: null
-  source_url: null
-  medical_source_url: null
+  source_url: https://chinajob.mohrss.gov.cn/c/2021-12-07/334418.shtml
+  medical_source_url: https://chinajob.mohrss.gov.cn/h5/c/2021-11-24/332111.shtml
   hukou_source_url: null
-  verified_at: null
+  verified_at: 2026-11-10
   needs_human: true
-  needs_human_reason: 安徽 2026 社保基数官网原文未找到，合肥医保与户籍限制页面无法访问。
+  needs_human_reason: 养老基数与20%比例已核；2026医保现行修订原文、全部缴费口径及外地户籍最新办理条件未完整核实，医保月缴和每月最低合计保留缺口。
   access_blocked: false
 
 civil_service:
@@ -156,6 +158,16 @@ changelog:
     old: false
     new: true
     basis: 考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html
+  - date: 2026-11-10
+    field: social_security（官方来源与核验状态）
+    old: 界面新闻转载（media），数字待人工换官网链接
+    new: 安徽省五部门《关于发布2026年社会保险缴费基数上下限的通知》官方全文（淮北市人社局官网转发），数字 4354/21772 与原文一致
+    basis: 转发页原文「我省2026年社会保险个人缴费基数上限为21772元/月，下限为4354元/月。执行时间为2026年1月1日至12月31日」；原媒体记录的数字无误，仅来源升级为 gov 原文
+  - date: 2026-11-10
+    field: flexible_employment（养老及医保待核说明）
+    old: 整段缺口，仅有媒体基数线索
+    new: 官方基数4354与养老20%补齐，按下限养老870.80元；医保月缴与每月合计仍为null
+    basis: 2026安徽省五部门通知 https://rsj.huaibei.gov.cn/gzdt/gfxwj/58052711.html 确认2026全年基数4354–21772及灵活就业医保按下限；养老20%见官方中国就业网 https://chinajob.mohrss.gov.cn/c/2021-12-07/334418.shtml 。医保6%及取消单独医疗救助费为中国就业网2021-11-24政策报道 https://chinajob.mohrss.gov.cn/h5/c/2021-11-24/332111.shtml ，不是已核2026现行原文；2024修订原文与完整缴费口径未闭环，261.24及1132.04不写入确认月缴字段。2027新省方案 https://ybj.huaibei.gov.cn/zcwj/zcwj/58046066.html 自2027-01-01才施行。
   - date: 2026-11-10
     field: subsidies（新落户人才租房补贴线索 → 重点单位高校毕业生租房保障）
     old: 仅有旧线索、金额未核实
