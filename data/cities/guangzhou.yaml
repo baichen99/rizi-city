@@ -130,17 +130,19 @@ living:
 flexible_employment:
   pension_base_min: 5521
   pension_rate: 20
-  pension_year: 2026 年度（2026-07-01 起）
+  pension_year: 2026 社保年度（2026-07-01 至 2027-06-30）
+  pension_note: 5521元下限自2026-07-01起执行，上限27603元；2026年1—6月下限5510元。20%为符合条件灵活就业人员的养老费率。
+  pension_base_source_url: https://zhsi.zhuhai.gov.cn/zcfg/content/post_3949111.html
   medical_monthly_min: 498.72
-  medical_note: 广州市口径：灵活就业职工医保费率 8%（穗医保规字〔2022〕1号，现行有效；2024-03 至 2025-12 曾阶段性降至 6.5%，2026-01-01 起恢复 8%），缴费基数下限为上上年度全口径城镇单位就业人员月平均工资的 60%，2026 自然年度为 6234 元（广州市税务局 2026 年度公告口径，与本仓库 social_security 段已记录的医保基数口径一致；该年度公告未在政府网页版逐字核到）。职工大额医疗费用补助从统筹基金列支，个人不另缴。按下限测算 6234×8% = 498.72 元/月。注：穗医保规字〔2026〕4号为简易修改、2027-01-01 才施行，费率与基数规则不变
+  medical_note: 2026-01-01 至 2026-12-31，广州12345官方公开答复直接列明职工医保基数 6234–31170 元/月，2024年全口径月均工资10390元；该答复未标发布日期，核验于2026-11-10，并非税务年度公告。灵活就业费率8%、大额医疗补助不另缴依据穗医保规字〔2022〕1号（有效至2026-12-31，https://www.gz.gov.cn/gfxwj/sbmgfxwj/gzsylbzj/content/post_8689834.html）；2024-03至2025-12的6.5%阶段性降费已到期。按下限计算6234×8%=498.72元/月，仅为缴费参考，不含个人具体补缴。
   monthly_total_min: 1602.92
-  calc: 养老 5521 × 20% = 1104.20（2026 社保年度）；医保 498.72（6234 × 8%，2026 自然年度）；合计 1602.92 元/月
-  hukou_restriction: 非本市户籍可凭本人有效身份证件和就业登记证明在就业地参保（养老、医保同口径，不受户籍限制）
+  calc: 仅适用2026-07-01至2026-12-31的共同有效期间：养老5521×20%=1104.20；医保6234×8%=498.72；合计1602.92元/月。2026年上半年养老下限不同，2027医保标准须另核，不跨期沿用本合计。
+  hukou_restriction: 法定劳动年龄内符合条件的非本地户籍灵活就业人员，可凭有效身份证件和广东就业登记证明在就业地参保；港澳台居民、无雇工个体工商户等按相应证件路径办理。养老首次跨省参保等另有账户规定，不等同于退休待遇领取资格。
   nonlocal_allowed: true
   apply_channel: 「粤税通」「粤省事」小程序线上办理缴费登记，或办税服务厅同城通办
   source_url: https://guangdong.chinatax.gov.cn/gdsw/ssfggds/2026-05/06/content_45505ebfc8f54089ae9bd6300fd49138.shtml
-  medical_source_url: https://www.gz.gov.cn/gfxwj/sbmgfxwj/gzsylbzj/content/post_8689834.html
-  hukou_source_url: https://guangdong.chinatax.gov.cn/gdsw/gzswlhjyrysyxxgl/2026-05/14/content_8dac78be3a604391a74b90bdd4104042.shtml
+  medical_source_url: https://wx12345.gzonline.gov.cn/km/showMsg?id=BEAFDBCFD
+  hukou_source_url: https://guangdong.chinatax.gov.cn/gdsw/ssfggds/2022-01/29/content_651e1cba3b6c4b4a8f27b463b184e599.shtml
   verified_at: 2026-11-10
   needs_human: false
   needs_human_reason: null
@@ -275,5 +277,5 @@ changelog:
   - date: 2026-11-10
     field: flexible_employment（整段）
     old: null
-    new: 养老基数下限 5521、医保月缴 498.72（测算）、每月合计最低 1602.92
-    basis: 养老据《广东省灵活就业人员参加企业职工基本养老保险办法》（2026-05-01 起施行，广东省税务局官网）第六、七条（基数在参保地职工养老上下限内自选、比例 20%）与粤人社发〔2026〕24号（2026-07-01 起下限 5521）；医保费率 8% 与基数规则据穗医保规字〔2022〕1号（广州政府网，现行有效），2026 年度基数下限 6234 为广州市税务局公告口径（与 social_security 段已记录口径一致，年度公告未在政府网页版逐字核到，已在 medical_note 注明）；户籍与渠道据粤医保规〔2022〕2号与广州市税务局办理指南
+    new: 养老基数下限5521、医保月缴498.72（公式计算）、2026-07至12每月最低合计1602.92
+    basis: 养老20%据粤人社规〔2026〕14号第六、七条（2026-05-01施行），https://guangdong.chinatax.gov.cn/gdsw/ssfggds/2026-05/06/content_45505ebfc8f54089ae9bd6300fd49138.shtml；养老基数据粤人社发〔2026〕24号全文（2026-09-17成文，2026-07-01起5521），https://zhsi.zhuhai.gov.cn/zcfg/content/post_3949111.html；医保6234–31170及2026自然年度由广州12345官方公开答复直接列明，https://wx12345.gzonline.gov.cn/km/showMsg?id=BEAFDBCFD（无发布日期，不冒称税务年度公告）；8%与大额医疗不另缴据穗医保规字〔2022〕1号，https://www.gz.gov.cn/gfxwj/sbmgfxwj/gzsylbzj/content/post_8689834.html；阶段性6.5%到2025-12-31据https://guangdong.chinatax.gov.cn/gdsw/gzswwwsbfyhzc/2024-02/29/content_9e708f1c2b204599b6fcd7081ceac0f6.shtml；医保参保范围据粤医保规〔2022〕2号及粤医保规〔2025〕1号（延续至2030-01-31），https://guangdong.chinatax.gov.cn/gdsw/ssfggds/2025-03/27/content_0c2337b4c93a49909ec972ae4fc90ac9.shtml；渠道据广州市税务局办理指南https://guangdong.chinatax.gov.cn/gdsw/gzswlhjyrysyxxgl/2026-05/14/content_8dac78be3a604391a74b90bdd4104042.shtml。合计仅在养老与医保口径重叠的2026-07至12使用，删除未独立核实的2027新文件附注。
