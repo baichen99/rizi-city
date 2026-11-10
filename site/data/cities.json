@@ -680,7 +680,7 @@
       "unit": "岁",
       "frequency": "annual",
       "comparability_key": "beijing|life_expectancy|岁|全市户籍居民（男女合计）|北京市|{'statistic': 'life_expectancy_at_birth', 'sex': 'all', 'age': 0}",
-      "notes": "仅补2020–2021户籍居民出生时寿命历史，两年由2021年公报直接比较。2022–2025未取得相同总体与方法的已核验原数，保持缺口，概况不回退到旧年。群体时期寿命不是个人寿命预测，不与常住人口或其他城市混比；详细算法版本尚未核定，不承诺跨城可比。年龄0定义见北京市区级社会综合统计报表制度（2020年年报）印刷页14，时期定义见2024年部门数据共享制度印刷页105。",
+      "notes": "2020–2021户籍居民历史由2021年公报直接比较；2023年单点来自官方发布会，明确本市户籍居民。2022、2024、2025仍缺失，不跨缺口连线，概况不回退到旧年。群体时期寿命不是个人寿命预测；详细算法版本尚未核定，不与常住人口或其他城市混比，不承诺跨城可比。2023年报部门数据共享制度印刷页64明确户籍总体，印刷页105按当前死亡率推算0岁人口，支持出生时时期定义。",
       "points": [
        {
         "id": "beijing-life_expectancy-2020",
@@ -752,23 +752,23 @@
         "id": "beijing-life_expectancy-2023",
         "metric": "life_expectancy",
         "label": "出生时预期寿命",
-        "value": null,
+        "value": 82.51,
         "unit": "岁",
         "period": "2023",
         "population_scope": "全市户籍居民（男女合计）",
         "geographic_scope": "北京市",
-        "source_id": null,
-        "review_status": "missing",
-        "missing_reason": "尚未取得2023年北京市户籍居民出生时预期寿命的已核验同口径原数，保留缺口，不以其他年份或未明确总体的报道代替。",
-        "verified_at": "2026-11-09",
+        "source_id": "bj-health-life-2023",
+        "review_status": "verified",
+        "missing_reason": null,
+        "verified_at": "2026-11-10",
         "comparability_key": "beijing|life_expectancy|岁|全市户籍居民（男女合计）|北京市|{'statistic': 'life_expectancy_at_birth', 'sex': 'all', 'age': 0}",
         "statistic": "life_expectancy_at_birth",
         "sex": "all",
         "age": 0,
-        "evidence_locator": null,
-        "source_url": null,
-        "source_title": null,
-        "attribution": null
+        "evidence_locator": "发布会文字实录：北京市疾控局局长黄若刚“三、慢性病综合防控成效明显”段，明确2023年本市户籍居民；2024年部门数据共享制度BMZ05-043-101表（2023年报，印刷页64）及人均期望寿命定义（印刷页105）。",
+        "source_url": "https://www.beijing.gov.cn/shipin/Interviewlive/1090.html",
+        "source_title": "北京卫生健康事业发展成效专场新闻发布会文字实录（2024年8月22日）",
+        "attribution": "来源：北京市人民政府网站（首都之窗）；北京市疾控局黄若刚发布"
        },
        {
         "id": "beijing-life_expectancy-2024",
@@ -817,7 +817,7 @@
       ],
       "coverage_start": "2020",
       "coverage_end": "2025",
-      "verified_points": 2
+      "verified_points": 3
      }
     ],
     "overview": [
@@ -974,6 +974,23 @@
       "publication_basis": "已直接打开公报及卫健委法律声明：使用或转载须注明来源，不得曲解修改；只摘录一个全市户籍居民寿命事实，不复制全文、图片或整表，不对来源材料再许可。",
       "attribution": "引自北京市卫生健康委员会（北京市卫生健康大数据与政策研究中心）",
       "review_due": "2027-02-09"
+     },
+     {
+      "id": "bj-health-life-2023",
+      "title": "北京卫生健康事业发展成效专场新闻发布会文字实录（2024年8月22日）",
+      "url": "https://www.beijing.gov.cn/shipin/Interviewlive/1090.html",
+      "publisher": "北京市人民政府网站（首都之窗）",
+      "published_at": "2024-08-22",
+      "retrieved_at": "2026-11-10",
+      "verified_at": "2026-11-10",
+      "review_status": "verified",
+      "access_method": "manual_primary_page",
+      "redistribution": "fact_extract",
+      "bulk_redistribution": false,
+      "license_url": "https://www.beijing.gov.cn/shouye/zdxx/202512/t20251226_4365275.html",
+      "publication_basis": "实际打开原文及2026-10-15版网站声明；第二条允许资料性公共免费信息目的的合理、善意引用并要求署名，不得商用、歪曲或搭建镜像。仅摘录一个户籍居民寿命事实并自行说明，不复制实录、图片或表格，不将来源内容再许可。",
+      "attribution": "来源：北京市人民政府网站（首都之窗）；北京市疾控局黄若刚发布",
+      "review_due": "2027-02-10"
      },
      {
       "id": "nbs-house-202606",
