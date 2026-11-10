@@ -4150,43 +4150,47 @@
    },
    "subsidies": [
     {
-     "name": "新落户人才租房补贴",
+     "name": "重点单位高校毕业生租房保障（住房租赁补贴）",
      "type": "rent",
-     "amount": null,
+     "amount": "博士每年 3.6 万元、硕士每年 2 万元、本科每年 1.5 万元，3 年内分期发放；也可选择免费租住国有租赁公司房源 3 年（二选一）",
      "amount_by_degree": {
       "associate": null,
-      "bachelor": null,
-      "master": null,
-      "phd": null
+      "bachelor": 15000,
+      "master": 20000,
+      "phd": 36000
      },
-     "period": null,
-     "periods_max": null,
-     "payout": null,
-     "target": null,
-     "conditions": [],
+     "period": "year",
+     "periods_max": 3,
+     "payout": "分期发放（3 年内）",
+     "target": "仅限产业及相关领域重点单位的新来肥就业人才：35周岁以下的博士研究生、硕士研究生、普通高校本科毕业生，通过工作单位在肥缴纳社会保险且在肥无自有住房；现金租赁补贴需在肥自行租住。不是所有同学历毕业生均可领取。",
+     "conditions": [
+      "适用单位仅包括重点产业链入库企业、国家专精特新“小巨人”企业、安徽省专精特新冠军企业、总部经济企业、新型研发机构、科技成果转化企业、科技招商企业、高端生产性服务机构；须属于政策规定的重点单位范围",
+      "金额为符合单位、学历、年龄、就业、参保和住房条件后的政策上限；申请批次、首次来肥认定、连续参保要求和兑现规则尚未核到完整申报指南，以主管部门现行申报指南为准",
+      "本条已核政策要点未列大专现金租赁补贴档，不据此推断其他人才或住房政策不存在"
+     ],
      "deadline_rule": null,
-     "policy_name": null,
-     "source_url": null,
-     "source_date": null,
-     "valid_until": null,
-     "verified_at": null,
+     "policy_name": "《合肥市服务人才发展若干政策（修订版）》政策要点，产业及相关领域重点单位人才服务保障部分",
+     "source_url": "https://www.hfxf.gov.cn/rsks/ysfwsc/18854737.html",
+     "source_date": "2025-06-18",
+     "valid_until": "2026-12-31",
+     "verified_at": "2026-11-10",
      "needs_human": true,
-     "needs_human_reason": "官方页面无法访问（同上，HTTP 521）。需人工打开 https://zwgk.hefei.gov.cn/public/17501/105005659.html 与 http://rsj.hefei.gov.cn/zxzx/tzgg/14666151.html 核对现行标准与有效期。",
-     "access_blocked": true,
-     "lead": "搜索摘要显示合肥市住房保障和房产管理局文件：新落户、无自有住房的博士每年 2 万、硕士 1.5 万、本科 1 万、大专 0.6 万，按月发放、累计不超过 36 个月；本科、大专要求 35 岁以下且毕业 3 年内；不含党政机关、国有企事业单位人员（未能打开原文核实，年份可能较旧）",
-     "lead_url": "https://zwgk.hefei.gov.cn/public/17501/105005659.html"
+     "needs_human_reason": "已核官方政策要点的金额、重点单位范围、基本对象和有效期；完整申报指南、首次来肥认定、连续参保及申请批次未核，不计入可领总额或排行，不能据此判断个人符合条件。",
+     "access_blocked": false,
+     "lead": null,
+     "lead_url": null
     }
    ],
    "social_security": {
     "base_min": 4354,
     "base_max": 21772,
     "year": "2026（2026-01-01 至 2026-12-31）",
-    "scope": "安徽全省（个人缴费基数）",
-    "source_url": "https://m.jiemian.com/article/15059098.html",
-    "source_type": "media",
-    "verified_at": "2026-11-09",
-    "needs_human": true,
-    "needs_human_reason": "只找到界面新闻转载的安徽省人社厅等部门通知，未在 hrss.ah.gov.cn 检索到原文，需人工替换为官网链接。",
+    "scope": "安徽全省（企业职工基本养老保险、职工基本医疗保险、工伤保险、失业保险个人缴费基数）",
+    "source_url": "https://rsj.huaibei.gov.cn/gzdt/gfxwj/58052711.html",
+    "source_type": "gov",
+    "verified_at": "2026-11-10",
+    "needs_human": false,
+    "needs_human_reason": null,
     "access_blocked": false
    },
    "living": {
@@ -4204,22 +4208,24 @@
     "access_blocked": true
    },
    "flexible_employment": {
-    "pension_base_min": null,
-    "pension_rate": null,
-    "pension_year": null,
+    "pension_base_min": 4354,
+    "pension_rate": 20,
+    "pension_year": "2026（2026-01-01至2026-12-31）",
+    "pension_base_source_url": "https://rsj.huaibei.gov.cn/gzdt/gfxwj/58052711.html",
+    "pension_note": "灵活就业养老可在2026年4354–21772元区间自选，20%比例按下限计算870.80元/月；不要将养老金额误作医保已核实。",
     "medical_monthly_min": null,
-    "medical_note": "媒体转载的安徽 2026 通知称灵活就业人员参加职工医保和生育保险统一以下限 4354 元为基数，费率未知，且未见官网原文",
+    "medical_note": "官方2026省级通知确认灵活就业职工医保统一按下限4354元为基数。中国就业网2021-11-24政策报道载明2022起基本医保6%、不建个人账户且不再单独征收职工医疗救助保险费；按这项既有规则计算的261.24元仅为待核参考，尚未完整核读2024修订现行条文及2026全部缴费口径，医保月缴与合计暂留空，不将未知附加费当作已有收费。2027-01-01才施行的新省方案不提前套用。",
     "monthly_total_min": null,
     "calc": null,
     "hukou_restriction": null,
     "nonlocal_allowed": null,
     "apply_channel": null,
-    "source_url": null,
-    "medical_source_url": null,
+    "source_url": "https://chinajob.mohrss.gov.cn/c/2021-12-07/334418.shtml",
+    "medical_source_url": "https://chinajob.mohrss.gov.cn/h5/c/2021-11-24/332111.shtml",
     "hukou_source_url": null,
-    "verified_at": null,
+    "verified_at": "2026-11-10",
     "needs_human": true,
-    "needs_human_reason": "安徽 2026 社保基数官网原文未找到，合肥医保与户籍限制页面无法访问。",
+    "needs_human_reason": "养老基数与20%比例已核；2026医保现行修订原文、全部缴费口径及外地户籍最新办理条件未完整核实，医保月缴和每月最低合计保留缺口。",
     "access_blocked": false
    },
    "civil_service": {
@@ -4298,15 +4304,36 @@
      "old": false,
      "new": true,
      "basis": "考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "social_security（官方来源与核验状态）",
+     "old": "界面新闻转载（media），数字待人工换官网链接",
+     "new": "安徽省五部门《关于发布2026年社会保险缴费基数上下限的通知》官方全文（淮北市人社局官网转发），数字 4354/21772 与原文一致",
+     "basis": "转发页原文「我省2026年社会保险个人缴费基数上限为21772元/月，下限为4354元/月。执行时间为2026年1月1日至12月31日」；原媒体记录的数字无误，仅来源升级为 gov 原文"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment（养老及医保待核说明）",
+     "old": "整段缺口，仅有媒体基数线索",
+     "new": "官方基数4354与养老20%补齐，按下限养老870.80元；医保月缴与每月合计仍为null",
+     "basis": "2026安徽省五部门通知 https://rsj.huaibei.gov.cn/gzdt/gfxwj/58052711.html 确认2026全年基数4354–21772及灵活就业医保按下限；养老20%见官方中国就业网 https://chinajob.mohrss.gov.cn/c/2021-12-07/334418.shtml 。医保6%及取消单独医疗救助费为中国就业网2021-11-24政策报道 https://chinajob.mohrss.gov.cn/h5/c/2021-11-24/332111.shtml ，不是已核2026现行原文；2024修订原文与完整缴费口径未闭环，261.24及1132.04不写入确认月缴字段。2027新省方案 https://ybj.huaibei.gov.cn/zcwj/zcwj/58046066.html 自2027-01-01才施行。"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "subsidies（新落户人才租房补贴线索 → 重点单位高校毕业生租房保障）",
+     "old": "仅有旧线索、金额未核实",
+     "new": "官方政策要点确认特定重点单位人才博士36000、硕士20000、本科15000元/年，3年内分期；完整申报指南未核，保留needs_human，不纳入可领合计",
+     "basis": "合肥先锋网（合肥市委组织部主办），2025-06-18政策要点 https://www.hfxf.gov.cn/rsks/ysfwsc/18854737.html ，信息来源市委人才工作局，有效至2026-12-31；按产业及相关领域重点单位部分限定八类单位，新来肥、单位参保、35岁以下且无房，自行租房与免费租住国有房源为两种选择。未独立核实的旧政策停施及文号引用叙述不采用。"
     }
    ],
    "id": "hefei",
    "status": {
     "hukou": "blocked",
     "living_subsidy": "missing",
-    "rent_subsidy": "blocked",
+    "rent_subsidy": "lead",
     "rent": "verified",
-    "social_security": "lead",
+    "social_security": "verified",
     "cost": "blocked"
    },
    "by_degree": {
@@ -4320,12 +4347,12 @@
      "excluded": [
       {
        "index": 0,
-       "name": "新落户人才租房补贴",
+       "name": "重点单位高校毕业生租房保障（住房租赁补贴）",
        "type": "rent",
        "per": null,
-       "period": null,
+       "period": "year",
        "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "reason": "已核官方政策要点的金额、重点单位范围、基本对象和有效期；完整申报指南、首次来肥认定、连续参保及申请批次未核，不计入可领总额或排行，不能据此判断个人符合条件。"
       }
      ]
     },
@@ -4339,12 +4366,12 @@
      "excluded": [
       {
        "index": 0,
-       "name": "新落户人才租房补贴",
+       "name": "重点单位高校毕业生租房保障（住房租赁补贴）",
        "type": "rent",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "per": 15000,
+       "period": "year",
+       "total": 45000,
+       "reason": "已核官方政策要点的金额、重点单位范围、基本对象和有效期；完整申报指南、首次来肥认定、连续参保及申请批次未核，不计入可领总额或排行，不能据此判断个人符合条件。"
       }
      ]
     },
@@ -4358,12 +4385,12 @@
      "excluded": [
       {
        "index": 0,
-       "name": "新落户人才租房补贴",
+       "name": "重点单位高校毕业生租房保障（住房租赁补贴）",
        "type": "rent",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "per": 20000,
+       "period": "year",
+       "total": 60000,
+       "reason": "已核官方政策要点的金额、重点单位范围、基本对象和有效期；完整申报指南、首次来肥认定、连续参保及申请批次未核，不计入可领总额或排行，不能据此判断个人符合条件。"
       }
      ]
     },
@@ -4377,18 +4404,18 @@
      "excluded": [
       {
        "index": 0,
-       "name": "新落户人才租房补贴",
+       "name": "重点单位高校毕业生租房保障（住房租赁补贴）",
        "type": "rent",
-       "per": null,
-       "period": null,
-       "total": null,
-       "reason": "官网无法访问，待人工核实"
+       "per": 36000,
+       "period": "year",
+       "total": 108000,
+       "reason": "已核官方政策要点的金额、重点单位范围、基本对象和有效期；完整申报指南、首次来肥认定、连续参保及申请批次未核，不计入可领总额或排行，不能据此判断个人符合条件。"
       }
      ]
     }
    },
-   "latest_verified": "2026-11-09",
-   "needs_human_count": 4,
+   "latest_verified": "2026-11-10",
+   "needs_human_count": 3,
    "index": {
     "rent": {
      "value": null,
@@ -4408,7 +4435,7 @@
     "subsidy": {
      "value": null,
      "ok": false,
-     "reason": "有补贴待核实：新落户人才租房补贴"
+     "reason": "有补贴待核实：重点单位高校毕业生租房保障（住房租赁补贴）"
     },
     "commute": {
      "value": null,
@@ -4573,18 +4600,18 @@
     "pension_rate": 20,
     "pension_year": 2026,
     "medical_monthly_min": 330.11,
-    "medical_note": "济南市医保局口径（2026 年度，2026-09-01 起）：缴费基数固定按下限 4573 元，不建立个人账户费率 7% + 职工大额医疗费 10 元 = 330.11 元/月；建立个人账户费率 9% 为 411.57 元/月",
+    "medical_note": "济南市医保局口径（2026 年度，2026-09-01 起）：缴费基数固定按下限 4573 元，不建立个人账户费率 7% + 职工大额医疗费 10 元 = 330.11 元/月；建立个人账户费率9%为411.57元/月，10元大额医疗费由个人账户代扣，实际划入账户4573×2%−10=81.46元，不再额外加10元（济医保发〔2025〕20号，2025-12-01起）。医保基数自2026-09-01调整，此前已完成缴费月份无需补差",
     "monthly_total_min": 1244.71,
-    "calc": "养老 4573 × 20% = 914.60；医保 330.11（7% 档）；合计 1244.71 元/月",
-    "hukou_restriction": null,
-    "nonlocal_allowed": null,
-    "apply_channel": null,
+    "calc": "养老 4573 × 20% = 914.60；医保 330.11（7% 档）；2026-09-01起按下限合计1244.71元/月（不建医保个人账户档）",
+    "hukou_restriction": "养老、医保均不受户籍限制（养老可在就业地参保，外地户籍办理参保登记不需居住证；医保可线上登记；线下需身份证及户口簿（居住证）原件，到户口或居住证所在地街道办理）",
+    "nonlocal_allowed": true,
+    "apply_channel": "养老：线上参保登记或持身份证到就近街道便民服务中心；医保：「济南医保」微信/支付宝小程序【灵活就业】模块参保登记，或到街道（镇）便民服务机构办理",
     "source_url": "https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html",
-    "medical_source_url": "http://ybj.jinan.gov.cn/col/col116777/art/2026/art_d23ae2576b954cefa27abf820b467a04.html",
-    "hukou_source_url": null,
-    "verified_at": "2026-11-09",
-    "needs_human": true,
-    "needs_human_reason": "外地户籍能否以灵活就业身份在济南参保（养老、医保）尚未核实；其余字段已按鲁人社字〔2026〕75号与济南市医保局 2026 年口径补齐。",
+    "medical_source_url": "https://ybj.jinan.gov.cn/col/col116777/art/2026/art_d23ae2576b954cefa27abf820b467a04.html",
+    "hukou_source_url": "https://jnhrss.jinan.gov.cn/col/col40157/art/2026/art_d3927161b26c48a4aa5210159e6c2e3f.html",
+    "verified_at": "2026-11-10",
+    "needs_human": false,
+    "needs_human_reason": null,
     "access_blocked": false
    },
    "civil_service": {
@@ -4670,6 +4697,20 @@
      "old": null,
      "new": "未核实山东省级及济南、青岛2027报考指南的完整应届认定，fresh_grad_rule留空。烟台指南仅适用烟台，不能直接套用。青岛市级公告及2026省属事业统招应聘须知仍待核实。",
      "basis": "考公考编专项巡检；2027年度山东省省级机关及其直属机构考试录用公务员公告（重庆市委党校官方转载） https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html；2027年度济南市各级机关考试录用公务员公告发布 https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html；2027年度烟台市各级机关考试录用公务员报考指南 https://www.yantai.gov.cn/col/col51398/art/2026/art_24a0d55c1f9c4466be3149929429d2a7.html；2026事业单位招聘公告（历史批次） https://www.jinan.gov.cn/zt/2025nzt/yhyshj/rcbf/qzzp/art/2026/art_01d480a8b56929600263bed5185da7eb.html"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment.hukou_restriction/nonlocal_allowed/apply_channel",
+     "old": "null（未核实）",
+     "new": "养老、医保均不受户籍限制，外地户籍可参保；养老不需居住证，医保线下可凭居住证在居住地街道办理",
+     "basis": "济南市人社局《参保篇》（2026）原文「参保不受户籍限制，可以在就业地办理参保」https://jnhrss.jinan.gov.cn/col/col40157/art/2026/art_d3927161b26c48a4aa5210159e6c2e3f.html；济南市医保局官网页引市医保中心处长原话「我市灵活就业人员参加济南市职工医保不受户籍限制」https://ybj.jinan.gov.cn/col/col116777/art/2026/art_d23ae2576b954cefa27abf820b467a04.html"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment.medical_note/calc/hukou_restriction",
+     "old": "9%档未说明10元扣款方式，线下材料简写为任选一项",
+     "new": "7%档另缴10元，9%档由个人账户代扣10元，不重复加收；线下为身份证加户口簿（居住证）原件",
+     "basis": "济南市税务局2025-12-03问答 https://www.jinan.gov.cn/col/col118356/art/2026/art_b9e4482eed044c0cbd39068fa064956b.html 引济医保发〔2025〕20号；医保官网2026-10-13转载 https://ybj.jinan.gov.cn/col/col116777/art/2026/art_d23ae2576b954cefa27abf820b467a04.html 明确2026-09-01起4573基数及330.11/411.57两档；2026-09-09办事问答 https://ybj.jinan.gov.cn/col/col119535/art/2026/art_a9024e0b65de45b7a956f9fd2c44f5c9.html 核线上线下材料；养老身份证即可见2026-09-28社保问答 https://www.jinan.gov.cn/col/col118356/art/2026/art_d1effb4d6cce420489efa158edd6a909.html 。"
     }
    ],
    "id": "jinan",
@@ -4784,15 +4825,15 @@
      "reason": "通勤指标暂停用"
     },
     "social": {
-     "value": null,
-     "ok": false,
-     "reason": "灵活就业最少自缴额未核实"
+     "value": 0.2192,
+     "ok": true,
+     "reason": null
     }
    },
    "floor": {
     "rent": 701,
-    "social": null,
-    "total": null
+    "social": 1244.71,
+    "total": 1946
    },
    "life": {
     "schema_version": 1,
@@ -9966,6 +10007,54 @@
     "income_per_capita": 52413,
     "stats_year": 2025,
     "stats_source_url": "https://tjj.zhengzhou.gov.cn/tjgb/10017864.jhtml",
+    "statistical_metadata": {
+     "income_per_capita": {
+      "source_value": 52413,
+      "period": "2025",
+      "unit": "元/年",
+      "statistic": "mean",
+      "price_basis": "nominal",
+      "population_scope": "城镇常住居民（常住属性依据国家统一住户调查方案）",
+      "population_scope_type": "urban_residents",
+      "geographic_scope": "郑州市全市行政区域内的城镇地区",
+      "geographic_scope_type": "city_administrative_area",
+      "methodology_key": "household_income_expenditure_survey",
+      "methodology_source_url": "https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html",
+      "methodology_note": "2025公报由市统计局与郑州调查队联合发布；常住属性由国家统一住户调查方案补证，不声称公报原文写明。当地2023至2027周期执行佐证 https://tjj.zhengzhou.gov.cn/xqxx/6682116.jhtml 只用于证实执行统一住户制度，不把巩义或新郑样本数、误差推广为全市；未取得市级2025专项方法附件。日记账与问卷、现金实物及加权人均数，年度均值不是工资或中位数。",
+      "cross_city_comparability_key": "resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey",
+      "source_url": "https://tjj.zhengzhou.gov.cn/tjgb/10017864.jhtml",
+      "source_date": "2026-04-24",
+      "publisher": "郑州市统计局、国家统计局郑州调查队",
+      "verified_at": "2026-11-09",
+      "review_due": "2027-02-09",
+      "review_status": "verified",
+      "evidence_locator": "第九节首段：全年全市，城镇居民收入52413元；注1为初步统计结果",
+      "data_status": "preliminary"
+     },
+     "consumption_per_capita": {
+      "source_value": 35131,
+      "period": "2025",
+      "unit": "元/年",
+      "statistic": "mean",
+      "price_basis": "nominal",
+      "population_scope": "城镇常住居民（常住属性依据国家统一住户调查方案）",
+      "population_scope_type": "urban_residents",
+      "geographic_scope": "郑州市全市行政区域内的城镇地区",
+      "geographic_scope_type": "city_administrative_area",
+      "methodology_key": "household_income_expenditure_survey",
+      "methodology_source_url": "https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html",
+      "methodology_note": "2025公报由市统计局与郑州调查队联合发布；常住属性由国家统一住户调查方案补证，不声称公报原文写明。当地2023至2027周期执行佐证 https://tjj.zhengzhou.gov.cn/xqxx/6682116.jhtml 只用于证实执行统一住户制度，不把巩义或新郑样本数、误差推广为全市；未取得市级2025专项方法附件。日记账与问卷、现金实物及加权人均数，年度均值不是工资或中位数。",
+      "cross_city_comparability_key": "resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey",
+      "source_url": "https://tjj.zhengzhou.gov.cn/tjgb/10017864.jhtml",
+      "source_date": "2026-04-24",
+      "publisher": "郑州市统计局、国家统计局郑州调查队",
+      "verified_at": "2026-11-09",
+      "review_due": "2027-02-09",
+      "review_status": "verified",
+      "evidence_locator": "第九节第二段：全年全市，城镇居民生活消费支出35131元；注1为初步统计结果；后段社保的不含航空港区条件不套用于本项",
+      "data_status": "preliminary"
+     }
+    },
     "verified_at": "2026-11-09",
     "needs_human": false,
     "needs_human_reason": null,
@@ -10087,6 +10176,64 @@
      "old": "郑州灵活就业职工医保月缴额未找到官方原文",
      "new": "记录已核实的计费规则与不填报原因",
      "basis": "《郑州市职工基本医疗保险办法》第九条（郑州市政府官网）确认基数规则（上年度在岗职工月平均工资 80%）与费率 10%、生育 1%（2024-01-01 起）；市政府问答示例数字未标注年度、市医保局 2026 年工作要点称继续阶段性降费，故不推算现行月缴额"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "living.statistical_metadata.income_per_capita",
+     "old": null,
+     "new": {
+      "source_value": 52413,
+      "period": "2025",
+      "unit": "元/年",
+      "statistic": "mean",
+      "price_basis": "nominal",
+      "population_scope": "城镇常住居民（常住属性依据国家统一住户调查方案）",
+      "population_scope_type": "urban_residents",
+      "geographic_scope": "郑州市全市行政区域内的城镇地区",
+      "geographic_scope_type": "city_administrative_area",
+      "methodology_key": "household_income_expenditure_survey",
+      "methodology_source_url": "https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html",
+      "methodology_note": "2025公报由市统计局与郑州调查队联合发布；常住属性由国家统一住户调查方案补证，不声称公报原文写明。当地2023至2027周期执行佐证 https://tjj.zhengzhou.gov.cn/xqxx/6682116.jhtml 只用于证实执行统一住户制度，不把巩义或新郑样本数、误差推广为全市；未取得市级2025专项方法附件。日记账与问卷、现金实物及加权人均数，年度均值不是工资或中位数。",
+      "cross_city_comparability_key": "resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey",
+      "source_url": "https://tjj.zhengzhou.gov.cn/tjgb/10017864.jhtml",
+      "source_date": "2026-04-24",
+      "publisher": "郑州市统计局、国家统计局郑州调查队",
+      "verified_at": "2026-11-09",
+      "review_due": "2027-02-09",
+      "review_status": "verified",
+      "evidence_locator": "第九节首段：全年全市，城镇居民收入52413元；注1为初步统计结果",
+      "data_status": "preliminary"
+     },
+     "basis": "https://tjj.zhengzhou.gov.cn/tjgb/10017864.jhtml；第九节首段：全年全市，城镇居民收入52413元；注1为初步统计结果；方法 https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html"
+    },
+    {
+     "date": "2026-11-09",
+     "field": "living.statistical_metadata.consumption_per_capita",
+     "old": null,
+     "new": {
+      "source_value": 35131,
+      "period": "2025",
+      "unit": "元/年",
+      "statistic": "mean",
+      "price_basis": "nominal",
+      "population_scope": "城镇常住居民（常住属性依据国家统一住户调查方案）",
+      "population_scope_type": "urban_residents",
+      "geographic_scope": "郑州市全市行政区域内的城镇地区",
+      "geographic_scope_type": "city_administrative_area",
+      "methodology_key": "household_income_expenditure_survey",
+      "methodology_source_url": "https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html",
+      "methodology_note": "2025公报由市统计局与郑州调查队联合发布；常住属性由国家统一住户调查方案补证，不声称公报原文写明。当地2023至2027周期执行佐证 https://tjj.zhengzhou.gov.cn/xqxx/6682116.jhtml 只用于证实执行统一住户制度，不把巩义或新郑样本数、误差推广为全市；未取得市级2025专项方法附件。日记账与问卷、现金实物及加权人均数，年度均值不是工资或中位数。",
+      "cross_city_comparability_key": "resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey",
+      "source_url": "https://tjj.zhengzhou.gov.cn/tjgb/10017864.jhtml",
+      "source_date": "2026-04-24",
+      "publisher": "郑州市统计局、国家统计局郑州调查队",
+      "verified_at": "2026-11-09",
+      "review_due": "2027-02-09",
+      "review_status": "verified",
+      "evidence_locator": "第九节第二段：全年全市，城镇居民生活消费支出35131元；注1为初步统计结果；后段社保的不含航空港区条件不套用于本项",
+      "data_status": "preliminary"
+     },
+     "basis": "https://tjj.zhengzhou.gov.cn/tjgb/10017864.jhtml；第九节第二段：全年全市，城镇居民生活消费支出35131元；注1为初步统计结果；后段社保的不含航空港区条件不套用于本项；方法 https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html"
     }
    ],
    "id": "zhengzhou",
