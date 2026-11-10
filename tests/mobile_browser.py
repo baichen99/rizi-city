@@ -93,6 +93,22 @@ def run(base_url, out):
                     page.select_option('#policy-topic', 'social')
                     assert page.locator('#policy-topic').input_value() == 'social'
                     check_page(page, 'resident-policy')
+                    page.select_option('#resident-city', 'guangzhou')
+                    daily = page.locator('#life-daily')
+                    assert daily.bounding_box()['y'] < page.locator('#life-budget').bounding_box()['y']
+                    assert page.locator('.life-jumps button').first.get_attribute('data-jump') == 'daily'
+                    for module, value in [('water', '2.55'), ('power', '约 0.589'), ('gas', '3.45')]:
+                        card = daily.locator(f'[data-module="{module}"]')
+                        assert value in card.locator('.utility-rates').inner_text()
+                        assert card.locator('.utility-rates').is_visible()
+                        assert not card.locator('.utility-evidence').get_attribute('open')
+                        card.locator('summary').click()
+                        assert card.locator('.utility-evidence').get_attribute('open') is not None
+                        card.locator('summary').click()
+                    assert '每年' in daily.locator('[data-module="gas"]').inner_text()
+                    assert '尚未覆盖' in daily.locator('[data-module="heating"]').inner_text()
+                    check_page(page, 'guangzhou-utility-rates')
+                    daily.screenshot(path=str(out / f'guangzhou-utility-rates-{width}.png'))
                 if name == 'compare':
                     assert page.locator('.comparison-card').count() == 8
                     assert page.locator('.comparison-card[data-comparable="true"]').count() >= 2
