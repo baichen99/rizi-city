@@ -111,12 +111,63 @@ class NavigationTests(unittest.TestCase):
             self.assertEqual(card['status'], 'reference_values')
             self.assertFalse(card['calculator_enabled'])
             self.assertFalse(card['usable'])
-        for key in ('power', 'gas'):
-            self.assertEqual(cards[key]['status'], 'link_only')
-            self.assertNotIn('rate_reference', cards[key])
         for on in (dt.date(2026,11,9), dt.date(2027,2,10)):
             for card in build_modules(['beijing'], on=on)['beijing']:
                 self.assertNotIn('rate_reference', card)
+
+    def test_beijing_power_and_gas_keep_annual_scope_and_exact_rates(self):
+        cards = {r['id']: r for r in build_modules(['beijing'], on=dt.date(2026,11,10))['beijing']}
+        expected = {
+            'power': ([0.4883, 0.5383, 0.7883], '元/千瓦时', ['2880', '4800'],
+                      ['北京电网', '不满1千伏', '一户一表', '5人及以下', '非峰谷']),
+            'gas': ([2.61, 2.83, 4.23], '元/立方米', ['350', '500'],
+                    ['北京市管道天然气', '独立居民户', '5人及以下', '炊事', '生活热水']),
+        }
+        for key, (values, unit, thresholds, scope) in expected.items():
+            with self.subTest(module=key):
+                card = cards[key]
+                ref = card['rate_reference']
+                self.assertEqual([i['value'] for i in ref['items']], values)
+                self.assertTrue(all(i['unit'] == unit and i['approximate'] is False for i in ref['items']))
+                for threshold in thresholds:
+                    self.assertIn(threshold, ref['items'][1]['basis'])
+                for condition in scope:
+                    self.assertIn(condition, ref['scope'])
+                self.assertIn('1月1日至12月31日', ref['period'])
+                self.assertIn('不是每月重置' if key == 'power' else '不按月重置', ref['period'])
+                self.assertEqual(card['status'], 'reference_values')
+                self.assertEqual(card['review_status'], 'reviewed')
+                self.assertEqual(card['redistribution_status'], 'fact_extract')
+                self.assertFalse(ref['bulk_redistribution'])
+                self.assertFalse(card['calculator_enabled'])
+                self.assertFalse(card['usable'])
+                self.assertIn(ref['source_url'], [link['url'] for link in card['links']])
+        self.assertEqual(cards['power']['source_date'], '2026-07-22')
+        self.assertIsNone(cards['power']['effective_from'])
+        self.assertEqual(cards['gas']['source_date'], '2019-11-07')
+        self.assertEqual(cards['gas']['effective_from'], '2019-11-15')
+        self.assertIn('已含', cards['power']['reason'])
+        self.assertIn('采暖', cards['gas']['rate_reference']['note'])
+        self.assertIn('不跨年结转', cards['gas']['rate_reference']['period'])
+
+    def test_beijing_power_and_gas_fail_closed_without_review_or_valid_dates(self):
+        originals = json.loads((DATA_DIR/'utilities/beijing.json').read_text())
+        for original in (r for r in originals if r['id'] in ('power', 'gas')):
+            for patch, status in [({'effective_to':'2026-11-09'}, 'expired'),
+                                  ({'effective_from':'2026-11-11'}, 'pending_review'),
+                                  ({'verified_at':'2026-11-11'}, 'pending_review'),
+                                  ({'next_review_at':'2026-11-09', 'verified_at':'2026-11-09'}, 'pending_review')]:
+                with self.subTest(module=original['id'], patch=patch):
+                    directory = self.fixture({**original, **patch})
+                    card = build_modules(['beijing'], data_dir=directory, on=dt.date(2026,11,10))['beijing'][0]
+                    self.assertEqual(card['status'], status)
+                    self.assertNotIn('rate_reference', card)
+                    self.assertFalse(card['calculator_enabled'])
+                    self.assertFalse(card['usable'])
+            directory = self.fixture({**original, 'review_status':'pending_independent_review'})
+            self.assertTrue(any('independent review' in e for e in validate_modules(directory)))
+            with self.assertRaises(ValueError):
+                build_modules(['beijing'], data_dir=directory, on=dt.date(2026,11,10))
 
     def test_rate_units_must_match_the_module(self):
         for module, unit in [('water', '元/建筑平方米·采暖季'),
