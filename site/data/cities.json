@@ -4470,13 +4470,41 @@
     "rent_source": "中指研究院 50 城住宅租赁价格指数（元/㎡/月）",
     "rent_source_url": "https://m.cih-index.com/news/2026-10-16/55166711.html",
     "consumption_per_capita": null,
-    "income_per_capita": null,
-    "stats_year": null,
-    "stats_source_url": null,
-    "verified_at": "2026-11-09",
+    "income_per_capita": 65568,
+    "stats_year": 2025,
+    "stats_source_url": "https://tjj.huainan.gov.cn/tjsj/ydjjyxjc/551857046.html",
+    "statistical_metadata": {
+     "income_per_capita": {
+      "source_value": 65568,
+      "period": "2025",
+      "unit": "元/年",
+      "statistic": "mean",
+      "price_basis": "nominal",
+      "population_scope": "城镇常住居民（统计表明确列示）",
+      "population_scope_type": "urban_residents",
+      "geographic_scope": "合肥市全市行政区域内的城镇地区（全省各市统计表的合肥市行）",
+      "geographic_scope_type": "city_administrative_area",
+      "methodology_key": "household_income_expenditure_survey",
+      "methodology_source_url": "https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html",
+      "methodology_note": "国家统计局2025-01-22《居民人均可支配收入的基础数据来源》说明各调查总队按统一住户收支调查方案组织实施，按常住地纳入，以日记账和问卷采集现金、实物收支并加权汇总。此为全国通用方法，不是合肥2025专项样本说明，不将全国或省级误差当成本市参数。淮南市统计局公开汇编列示合肥市数据，但该表未单列合肥原始调查机构；不将汇编中淮南本地数据来源说明外推为合肥调查机构。年度人均收入不是工资或中位数。",
+      "cross_city_comparability_key": "resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey",
+      "source_url": "https://tjj.huainan.gov.cn/tjsj/ydjjyxjc/551857046.html",
+      "source_date": "2026-03-25",
+      "publisher": "淮南市统计局（公开汇编发布机构）",
+      "verified_at": "2026-11-10",
+      "review_due": "2027-02-10",
+      "review_status": "verified",
+      "evidence_locator": "发布页实际日期2026-03-25 11:19；附件rB40qWnDU_SAY8CaALPJeI9k7n0815.pdf第40页（印刷页码同为40）“全省各市城镇常住居民人均可支配收入”，单位元，数据列表头2025年，合肥市65568；并非封面2026年1—2月累计值。第2页说明季度数据延后刊发。表中未明示初步或最终数。",
+      "data_status": "not_specified"
+     }
+    },
+    "verified_at": "2026-11-10",
     "needs_human": true,
-    "needs_human_reason": "合肥市统计局（tjj.hefei.gov.cn）返回 HTTP 521（JS 反爬校验），未绕过；需人工取 2025 年统计公报城镇居民人均可支配收入与消费支出。",
-    "access_blocked": true
+    "needs_human_reason": "2025年城镇常住居民人均可支配收入65568元已由淮南市统计局公开汇编核实；城镇居民人均消费支出仍缺可读取的官方正文，保持null。此前合肥市统计局来源记录为HTTP 521，本次未重试；瑶海区托管2024公报PDF首次读取返回403，已停止且未绕过。当前收入来源可读取，不代表原受限来源已恢复。",
+    "needs_human_fields": [
+     "consumption_per_capita"
+    ],
+    "access_blocked": false
    },
    "flexible_employment": {
     "pension_base_min": 4354,
@@ -4596,6 +4624,41 @@
      "old": "仅有旧线索、金额未核实",
      "new": "官方政策要点确认特定重点单位人才博士36000、硕士20000、本科15000元/年，3年内分期；完整申报指南未核，保留needs_human，不纳入可领合计",
      "basis": "合肥先锋网（合肥市委组织部主办），2025-06-18政策要点 https://www.hfxf.gov.cn/rsks/ysfwsc/18854737.html ，信息来源市委人才工作局，有效至2026-12-31；按产业及相关领域重点单位部分限定八类单位，新来肥、单位参保、35岁以下且无房，自行租房与免费租住国有房源为两种选择。未独立核实的旧政策停施及文号引用叙述不采用。"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "living.income_per_capita",
+     "old": null,
+     "new": 65568,
+     "basis": "淮南市统计局公开《月度经济运行监测(202602)》附件第40页列2025年合肥市城镇常住居民人均可支配收入65568元；单位元，表头为2025年，不是2026年1—2月值。发布页 https://tjj.huainan.gov.cn/tjsj/ydjjyxjc/551857046.html ，附件 https://tjj.huainan.gov.cn/group4/M00/11/5F/rB40qWnDU_SAY8CaALPJeI9k7n0815.pdf 。消费未获可读取官方正文，保留null。"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "living.stats_year",
+     "old": null,
+     "new": 2025,
+     "basis": "同一官方附件第40页数据列表头明确为2025年；封面2026年1—2月是刊期，第2页说明季度指标延后刊发，不用刊期替代统计年度。"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "living（统计来源链接）",
+     "old": null,
+     "new": "https://tjj.huainan.gov.cn/tjsj/ydjjyxjc/551857046.html",
+     "basis": "淮南市统计局公开发布页实际日期为2026-03-25 11:19，链接附件可直接下载读取；仅用其合肥城镇常住居民收入表，不将汇编发布者误写为合肥原始调查机构。"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "living.statistical_metadata.income_per_capita",
+     "old": null,
+     "new": "已核实2025年合肥市城镇常住居民收入口径、全国住户调查通用方法及显式跨城键；数据修订状态未说明",
+     "basis": "官方汇编第40页确认年度、人口、地域及收入值；国家统计局方法页 https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html 实际发布2025-01-22，确认常住地调查、日记账与问卷、样本加权；未取得合肥专项样本参数，不推定初步数或最终数，不补消费元数据。"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "living（核验状态与消费缺口）",
+     "old": "收入和消费均缺失，原来源521，整段待核",
+     "new": "收入由可读取官方汇编核实，needs_human_fields仅标消费；消费保持null，last_patrol不变",
+     "basis": "当前收入来源可读取，access_blocked改为false不表示原受限站点恢复；保留原统计局521及本次瑶海区2024公报PDF403的事实，不重试或绕过。消费缺少合格证据，仍需人工补齐。旧有非空数值、房租及其他领域不变。"
     }
    ],
    "id": "hefei",
@@ -4605,7 +4668,7 @@
     "rent_subsidy": "lead",
     "rent": "verified",
     "social_security": "verified",
-    "cost": "blocked"
+    "cost": "lead"
    },
    "by_degree": {
     "associate": {
@@ -4689,9 +4752,9 @@
    "needs_human_count": 3,
    "index": {
     "rent": {
-     "value": null,
-     "ok": false,
-     "reason": "人均可支配收入未核实"
+     "value": 0.1366,
+     "ok": true,
+     "reason": null
     },
     "cost": {
      "value": null,
