@@ -75,6 +75,51 @@ living:
   income_per_capita: 51854
   stats_year: 2025
   stats_source_url: https://www.cq.gov.cn/zwgk/zfxxgkzl/fdzdgknr/tjxx/tjgb/202603/t20260326_15568523.html
+  statistical_metadata:
+    income_per_capita:
+      source_value: 51854
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计，不按户籍）
+      population_scope_type: urban_residents
+      geographic_scope: 重庆市全市行政范围内的城镇居民（含各区县），不是仅主城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+      methodology_note: 重庆2025公报第九节按全市及常住地分城乡列示；国家统计局统一住户调查说明按常住地纳入，使用日记账、问卷和加权汇总，含现金及实物。未取得重庆2025专项方法附件，不将全国或分省抽样误差当作本项实际误差。可支配收入包括工资、经营、财产和转移净收入，不是个人工资。
+      cross_city_comparability_key: resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://tjj.cq.gov.cn/zwgk_233/fdzdgknr/tjxx/sjjd_55469/202603/t20260326_15568538.html
+      source_date: '2026-03-26'
+      publisher: 重庆市统计局
+      verified_at: '2026-11-10'
+      review_due: '2027-02-10'
+      review_status: verified
+      evidence_locator: 第九节居民收入消费和社会保障：按常住地分，城镇居民人均可支配收入51854元；注释1明确2025数据均为初步统计数。
+      data_status: preliminary
+    consumption_per_capita:
+      source_value: 32764
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计，不按户籍）
+      population_scope_type: urban_residents
+      geographic_scope: 重庆市全市行政范围内的城镇居民（含各区县），不是仅主城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+      methodology_note: 重庆2025公报第九节按全市及常住地分城乡列示；国家统计局统一住户调查说明按常住地纳入，使用日记账、问卷和加权汇总，含现金及实物。未取得重庆2025专项方法附件，不将全国或分省抽样误差当作本项实际误差。消费不是个人最低生活费或单身现金预算。
+      cross_city_comparability_key: resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://tjj.cq.gov.cn/zwgk_233/fdzdgknr/tjxx/sjjd_55469/202603/t20260326_15568538.html
+      source_date: '2026-03-26'
+      publisher: 重庆市统计局
+      verified_at: '2026-11-10'
+      review_due: '2027-02-10'
+      review_status: verified
+      evidence_locator: 第九节居民收入消费和社会保障：按常住地分，城镇居民人均消费支出32764元；注释1明确2025数据均为初步统计数。
+      data_status: preliminary
   verified_at: 2026-11-09
   needs_human: false
   needs_human_reason: null
@@ -143,3 +188,13 @@ changelog:
     old: null
     new: 公务员2026公告、区县事业单位2026第三季度公告及政府转载页均超时，未读到正文；搜索摘要仅线索，不填写事实字段。不确定是否存在访问拦截，access_blocked=false仅指未观察到403/412/521或验证码。
     basis: 考公考编专项巡检；官网正文读取失败，未将搜索摘要写为事实。https://rlsbj.cq.gov.cn/ztzl/zqs2020ndkslygwyzl/gwyks2026/202601/t20260115_15323576.html；https://www.cqyz.gov.cn/zwgk_229/fdzdgknr/zkly_31707/zklm/202601/t20260121_15342499.html；https://jgswj.cq.gov.cn/zfxxgkzl/zfxxgkml/gwyzlxx/202603/t20260309_15511195_wap.html；https://tyj.cq.gov.cn/zwgk_253/fdzdgknr/gwyzl/202601/t20260116_15325273_wap.html；https://rlsbj.cq.gov.cn/zwxx_182/sydw/sydwgkzp2026/202608/t20260828_15993554.html；https://www.cq.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zkly/zkgg/202608/t20260828_15999996.html
+  - date: '2026-11-10'
+    field: living.statistical_metadata.income_per_capita
+    old: null
+    new: 补充2025全年城镇常住居民口径（51854元），初步数；原值不变，范围为全市而非主城区。
+    basis: 重庆2025统计公报第九节、注释1及数据来源说明 https://tjj.cq.gov.cn/zwgk_233/fdzdgknr/tjxx/sjjd_55469/202603/t20260326_15568538.html；国家统计局统一住户调查方法 https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
+  - date: '2026-11-10'
+    field: living.statistical_metadata.consumption_per_capita
+    old: null
+    new: 补充2025全年城镇常住居民口径（32764元），初步数；原值不变，范围为全市而非主城区。
+    basis: 重庆2025统计公报第九节、注释1及数据来源说明 https://tjj.cq.gov.cn/zwgk_233/fdzdgknr/tjxx/sjjd_55469/202603/t20260326_15568538.html；国家统计局统一住户调查方法 https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html
