@@ -25,26 +25,29 @@ hukou:
   lead_url: null
 
 subsidies:
-  - name: 新落户人才租房补贴
+  - name: 重点单位高校毕业生租房保障（住房租赁补贴）
     type: rent
-    amount: null
-    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
-    period: null
-    periods_max: null
-    payout: null
-    target: null
-    conditions: []
+    amount: 博士每年 3.6 万元、硕士每年 2 万元、本科每年 1.5 万元，3 年内分期发放；也可选择免费租住国有租赁公司房源 3 年（二选一）
+    amount_by_degree: {associate: null, bachelor: 15000, master: 20000, phd: 36000}
+    period: year
+    periods_max: 3
+    payout: 分期发放（3 年内）
+    target: 仅限产业及相关领域重点单位的新来肥就业人才：35周岁以下的博士研究生、硕士研究生、普通高校本科毕业生，通过工作单位在肥缴纳社会保险且在肥无自有住房；现金租赁补贴需在肥自行租住。不是所有同学历毕业生均可领取。
+    conditions:
+      - 适用单位仅包括重点产业链入库企业、国家专精特新“小巨人”企业、安徽省专精特新冠军企业、总部经济企业、新型研发机构、科技成果转化企业、科技招商企业、高端生产性服务机构；须属于政策规定的重点单位范围
+      - 金额为符合单位、学历、年龄、就业、参保和住房条件后的政策上限；申请批次、首次来肥认定、连续参保要求和兑现规则尚未核到完整申报指南，以主管部门现行申报指南为准
+      - 本条已核政策要点未列大专现金租赁补贴档，不据此推断其他人才或住房政策不存在
     deadline_rule: null
-    policy_name: null
-    source_url: null
-    source_date: null
-    valid_until: null
-    verified_at: null
+    policy_name: 《合肥市服务人才发展若干政策（修订版）》政策要点，产业及相关领域重点单位人才服务保障部分
+    source_url: https://www.hfxf.gov.cn/rsks/ysfwsc/18854737.html
+    source_date: 2025-06-18
+    valid_until: 2026-12-31
+    verified_at: 2026-11-10
     needs_human: true
-    needs_human_reason: 官方页面无法访问（同上，HTTP 521）。需人工打开 https://zwgk.hefei.gov.cn/public/17501/105005659.html 与 http://rsj.hefei.gov.cn/zxzx/tzgg/14666151.html 核对现行标准与有效期。
-    access_blocked: true
-    lead: 搜索摘要显示合肥市住房保障和房产管理局文件：新落户、无自有住房的博士每年 2 万、硕士 1.5 万、本科 1 万、大专 0.6 万，按月发放、累计不超过 36 个月；本科、大专要求 35 岁以下且毕业 3 年内；不含党政机关、国有企事业单位人员（未能打开原文核实，年份可能较旧）
-    lead_url: https://zwgk.hefei.gov.cn/public/17501/105005659.html
+    needs_human_reason: 已核官方政策要点的金额、重点单位范围、基本对象和有效期；完整申报指南、首次来肥认定、连续参保及申请批次未核，不计入可领总额或排行，不能据此判断个人符合条件。
+    access_blocked: false
+    lead: null
+    lead_url: null
 
 social_security:
   base_min: 4354
@@ -75,20 +78,22 @@ living:
 flexible_employment:
   pension_base_min: 4354
   pension_rate: 20
-  pension_year: 2026
-  medical_monthly_min: 261.24
-  medical_note: 安徽省统一口径（2026 年度）：灵活就业人员参加职工医保（生育保险）统一以缴费基数下限 4354 元为基数（省五部门 2026 年基数通知原文），费率 6%（《合肥市基本医疗保险办法》合肥市人民政府令第 213 号第九条：以省平均工资的 60% 为基数、按 6% 缴纳，不建个人账户）；月额为基数×费率计算 4354×6% = 261.24 元。大额医疗费用补助的合肥金额未在官方页面查到，未计入
-  monthly_total_min: 1132.04
-  calc: 养老 4354 × 20% = 870.80；医保 261.24（4354 × 6%）；合计 1132.04 元/月
+  pension_year: 2026（2026-01-01至2026-12-31）
+  pension_base_source_url: https://rsj.huaibei.gov.cn/gzdt/gfxwj/58052711.html
+  pension_note: 灵活就业养老可在2026年4354–21772元区间自选，20%比例按下限计算870.80元/月；不要将养老金额误作医保已核实。
+  medical_monthly_min: null
+  medical_note: 官方2026省级通知确认灵活就业职工医保统一按下限4354元为基数。中国就业网2021-11-24政策报道载明2022起基本医保6%、不建个人账户且不再单独征收职工医疗救助保险费；按这项既有规则计算的261.24元仅为待核参考，尚未完整核读2024修订现行条文及2026全部缴费口径，医保月缴与合计暂留空，不将未知附加费当作已有收费。2027-01-01才施行的新省方案不提前套用。
+  monthly_total_min: null
+  calc: null
   hukou_restriction: null
   nonlocal_allowed: null
   apply_channel: null
-  source_url: https://rsj.huaibei.gov.cn/gzdt/gfxwj/58052711.html
-  medical_source_url: null
+  source_url: https://chinajob.mohrss.gov.cn/c/2021-12-07/334418.shtml
+  medical_source_url: https://chinajob.mohrss.gov.cn/h5/c/2021-11-24/332111.shtml
   hukou_source_url: null
   verified_at: 2026-11-10
   needs_human: true
-  needs_human_reason: 外地户籍能否以灵活就业身份在合肥参保（养老、医保）尚未核实；医保大额补助金额未核实（见 medical_note）。养老与医保月缴额已按官方原文补齐。
+  needs_human_reason: 养老基数与20%比例已核；2026医保现行修订原文、全部缴费口径及外地户籍最新办理条件未完整核实，医保月缴和每月最低合计保留缺口。
   access_blocked: false
 
 civil_service:
@@ -159,7 +164,12 @@ changelog:
     new: 安徽省五部门《关于发布2026年社会保险缴费基数上下限的通知》官方全文（淮北市人社局官网转发），数字 4354/21772 与原文一致
     basis: 转发页原文「我省2026年社会保险个人缴费基数上限为21772元/月，下限为4354元/月。执行时间为2026年1月1日至12月31日」；原媒体记录的数字无误，仅来源升级为 gov 原文
   - date: 2026-11-10
-    field: flexible_employment（养老基数、医保月缴、每月合计）
-    old: null
-    new: 养老基数下限 4354、医保月缴 261.24（基数×费率计算）、每月合计最低 1132.04
-    basis: 基数同上省通知（灵活就业医保统一按下限为基数亦出自该通知原文）；医保费率 6% 据《合肥市基本医疗保险办法》（市政府令第 213 号）第九条
+    field: flexible_employment（养老及医保待核说明）
+    old: 整段缺口，仅有媒体基数线索
+    new: 官方基数4354与养老20%补齐，按下限养老870.80元；医保月缴与每月合计仍为null
+    basis: 2026安徽省五部门通知 https://rsj.huaibei.gov.cn/gzdt/gfxwj/58052711.html 确认2026全年基数4354–21772及灵活就业医保按下限；养老20%见官方中国就业网 https://chinajob.mohrss.gov.cn/c/2021-12-07/334418.shtml 。医保6%及取消单独医疗救助费为中国就业网2021-11-24政策报道 https://chinajob.mohrss.gov.cn/h5/c/2021-11-24/332111.shtml ，不是已核2026现行原文；2024修订原文与完整缴费口径未闭环，261.24及1132.04不写入确认月缴字段。2027新省方案 https://ybj.huaibei.gov.cn/zcwj/zcwj/58046066.html 自2027-01-01才施行。
+  - date: 2026-11-10
+    field: subsidies（新落户人才租房补贴线索 → 重点单位高校毕业生租房保障）
+    old: 仅有旧线索、金额未核实
+    new: 官方政策要点确认特定重点单位人才博士36000、硕士20000、本科15000元/年，3年内分期；完整申报指南未核，保留needs_human，不纳入可领合计
+    basis: 合肥先锋网（合肥市委组织部主办），2025-06-18政策要点 https://www.hfxf.gov.cn/rsks/ysfwsc/18854737.html ，信息来源市委人才工作局，有效至2026-12-31；按产业及相关领域重点单位部分限定八类单位，新来肥、单位参保、35岁以下且无房，自行租房与免费租住国有房源为两种选择。未独立核实的旧政策停施及文号引用叙述不采用。

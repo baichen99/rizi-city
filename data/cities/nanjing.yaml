@@ -97,23 +97,23 @@ living:
   access_blocked: false
 
 flexible_employment:
-  pension_base_min: null
-  pension_rate: null
-  pension_year: null
-  medical_monthly_min: null
-  medical_note: null
-  monthly_total_min: null
-  calc: null
-  hukou_restriction: null
-  nonlocal_allowed: null
-  apply_channel: null
-  source_url: null
-  medical_source_url: null
-  hukou_source_url: null
-  verified_at: null
-  needs_human: true
-  needs_human_reason: 南京医保局、人社局网站被拦截，灵活就业医保月缴额与户籍限制无法核实（江苏养老基数下限 5025 见 social_security）。
-  access_blocked: true
+  pension_base_min: 5025
+  pension_rate: 20
+  pension_year: 2026
+  medical_monthly_min: 412
+  medical_note: 南京市口径（2026 年度）：灵活就业职工医保与养老同基数区间 5025–25127 元/月、自主选档，费率 8%（宁医发〔2023〕41号，2023-04-01 起执行，江苏省税务局 2025 年南京市征收标准表仍按 8% 列示）；另缴大病医疗救助费 10 元/月。按下限测算 5025×8%+10 = 412 元/月（官方未直接给 2026 年月额；测算方法与南京市医保局 2023 年发布会口径一致）
+  monthly_total_min: 1417
+  calc: 养老 5025 × 20% = 1005；医保 412（5025 × 8% + 大病医疗救助费 10 元）；合计 1417 元/月
+  hukou_restriction: 养老保险已放开户籍限制，可在就业登记地参保；职工医保外地户籍须持南京市居住证（含港澳台居民居住证）
+  nonlocal_allowed: true
+  apply_channel: 先办就业登记、再办社保登记（江苏人社网上办事服务大厅、「江苏智慧人社」APP、「我的南京」APP 或各区经办机构）；医保登记经「南京医保」公众号、「我的南京」App
+  source_url: https://jshrss.jiangsu.gov.cn/art/2026/10/8/art_77277_11838872.html
+  medical_source_url: https://jiangsu.chinatax.gov.cn/art/2025/3/5/art_8539_372078.html
+  hukou_source_url: https://www.nanjing.gov.cn/hdjl/hygq/202407/t20240723_4719893.html
+  verified_at: 2026-11-10
+  needs_human: false
+  needs_human_reason: null
+  access_blocked: false
 
 civil_service:
   fresh_grad_rule: 2027南京公务员：一般职位不限生源/户籍，特殊职位另定。应届专岗60—69仅2027普通高校应届及指南列明特定退役、留学、基层服务群体；研究生取得相应学位者不限生源，其他须江苏生源，不能将此限制套给全部岗位。以以前学历或非普通高校学历报考不按应届身份。 另：2026省属事业统招允许2024、2025普通高校毕业生报名时无工作单位者报2026毕业生岗（历史批次）。来源：https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html
@@ -187,3 +187,8 @@ changelog:
     old: null
     new: '2026-11-09'
     basis: 考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；南京市2027年度考试录用公务员简章 https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html；南京市2027年度考试录用公务员报考指南 https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html
+  - date: 2026-11-10
+    field: flexible_employment（整段）
+    old: null
+    new: 养老基数下限 5025、医保月缴 412（测算）、每月合计最低 1417
+    basis: 养老基数与医保基数区间据苏人社发〔2026〕30号（江苏省人社厅官网原文，2026 年度 5025–25127）；比例 20% 与医保费率 8%、大病医疗救助费 10 元/月据江苏省税务局《南京市基金（费）征收标准一览表》及宁医发〔2023〕41号（南京市税务局转发全文）；月额为按下限测算，方法与南京市医保局 2023 年发布会口径一致；户籍与渠道据南京市政府网与区政府页面（市人社局、医保局官网对自动抓取拦截，改用省站与市政府网核对）

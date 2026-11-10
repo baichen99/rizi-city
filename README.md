@@ -57,7 +57,7 @@
 | [重庆](data/cities/chongqing.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
 | [广州](data/cities/guangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ✅无 | ✅ | ✅ | ✅ |
 | [杭州](data/cities/hangzhou.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ | ✅ |
-| [合肥](data/cities/hefei.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | 🔒 | ❌ | 🔒 | ✅ | ✅ | 🔒 |
+| [合肥](data/cities/hefei.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | 🔒 | ❌ | ⚠️ | ✅ | ✅ | 🔒 |
 | [上海](data/cities/shanghai.yaml) | — | — | — | ✅ | ✅无 | ✅无 | ✅ | ✅ | ✅ |
 | [沈阳](data/cities/shenyang.yaml) | — ⚠️ | — ⚠️ | — ⚠️ | ✅ | ⚠️ | ❌ | ✅ | ✅ | ✅ |
 | [深圳](data/cities/shenzhen.yaml) | — ⚠️ | — ⚠️ | 10 万 ⚠️ | ✅ | ✅ | ⚠️ | ✅ | ✅ | ✅ |
@@ -121,6 +121,8 @@ flowchart LR
 **想加入城市维护？** 提交[「加入城市维护」](https://github.com/baichen99/rizi-city/issues/new?template=claim-city.yml)，按「城市 + 领域」分工，一城可多人共管，未登记也欢迎贡献。较大的单次巡检可先[登记工作范围](https://github.com/baichen99/rizi-city/issues/new?template=patrol-task.yml)，避免重复；维护者可以暂停或交接。发现数据错了？[报告数据错误](https://github.com/baichen99/rizi-city/issues/new?template=data-error.yml)时请附上官方链接。更多见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [MAINTAINING.md](MAINTAINING.md)。
 
 ## Roadmap
+
+生活数据下一步怎么做，见 [更贴近日常生活的数据建设方案](docs/everyday-life-data-plan.md)（提案，先评审；不代表已经采集或上线）。
 
 - **第一版**（现在）：应届生、考公考编、自由职业三个入口，加日子指数
 - **第二版**（每上线一个入口单独发一轮）：
