@@ -98,6 +98,51 @@ living:
   income_per_capita: 90125
   stats_year: 2025
   stats_source_url: https://tjj.suzhou.gov.cn/sztjj/tjgb/202604/3dc4b574cabd4e86b36ec5d3280e927c.shtml
+  statistical_metadata:
+    income_per_capita:
+      source_value: 90125
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计，不按户籍）
+      population_scope_type: urban_residents
+      geographic_scope: 苏州市全市行政范围内的城镇居民，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://tjj.suzhou.gov.cn/sztjj/tjzd/202602/2f90dbeed41a4d46b74a0f74dd6e9eae.shtml
+      methodology_note: 苏州市统计局2026-02-03发布的《住户收支与生活状况调查方案（2025年统计年报和2026年定期报表）》附件总说明（二）（三）（六）（八）规定不分户籍按常住地调查、以市为总体组织分市住户调查、日记账与问卷结合及加权汇总。该附件是国家统一方案，不是苏州实际样本量或误差报告。可支配收入含工资、经营、财产和转移净收入，不是个人工资。
+      cross_city_comparability_key: resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://tjj.suzhou.gov.cn/sztjj/tjgb/202604/3dc4b574cabd4e86b36ec5d3280e927c.shtml
+      source_date: '2026-04-30'
+      publisher: 苏州市统计局、国家统计局苏州调查队
+      verified_at: '2026-11-10'
+      review_due: '2027-02-10'
+      review_status: verified
+      evidence_locator: 第十一节人口、人民生活和社会保障：全年城镇居民人均可支配收入90125元，列于全体居民收支的城乡分组；注释[1]全部为初步统计数，[2]除特殊说明外按现价计算。全市地域口径结合公报全市统计范围与住户调查方案以市为总体的规定核实，不套用同文市区消费价格范围。
+      data_status: preliminary
+    consumption_per_capita:
+      source_value: 54897
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计，不按户籍）
+      population_scope_type: urban_residents
+      geographic_scope: 苏州市全市行政范围内的城镇居民，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://tjj.suzhou.gov.cn/sztjj/tjzd/202602/2f90dbeed41a4d46b74a0f74dd6e9eae.shtml
+      methodology_note: 苏州市统计局2026-02-03发布的《住户收支与生活状况调查方案（2025年统计年报和2026年定期报表）》附件总说明（二）（三）（六）（八）规定不分户籍按常住地调查、以市为总体组织分市住户调查、日记账与问卷结合及加权汇总。该附件是国家统一方案，不是苏州实际样本量或误差报告。消费含居住等现金和实物支出，不是单身现金生活预算。
+      cross_city_comparability_key: resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://tjj.suzhou.gov.cn/sztjj/tjgb/202604/3dc4b574cabd4e86b36ec5d3280e927c.shtml
+      source_date: '2026-04-30'
+      publisher: 苏州市统计局、国家统计局苏州调查队
+      verified_at: '2026-11-10'
+      review_due: '2027-02-10'
+      review_status: verified
+      evidence_locator: 第十一节人口、人民生活和社会保障：全年城镇居民人均消费支出54897元，列于全体居民收支的城乡分组；注释[1]全部为初步统计数，[2]除特殊说明外按现价计算。全市地域口径结合公报全市统计范围与住户调查方案以市为总体的规定核实，不套用同文市区消费价格范围。
+      data_status: preliminary
   verified_at: 2026-11-09
   needs_human: false
   needs_human_reason: null
@@ -258,3 +303,13 @@ changelog:
     old: 苏州官方页面的养老各档次缴费额是图片，未能读出；缴费比例 20% 取自中国政府网全国通行说明（https://www.gov.cn/yaowen/liebiao/202305/content_6855917.htm）。外地户籍能否以灵活就业身份参保，未找到苏州官方表述。
     new: null
     basis: 苏州市政府 2026-10-26 公告 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml；已直接查看官方缴费表图片 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429/images/bba713b505384fb6af8ad2753c75ed57.png；苏州市人社局费率问答（页面更新时间 2026-09-22）https://www.suzhou.gov.cn/szsrmzf/lhjycjwt/202505/9e5f041a073a440a96a3cf25f7176f5f.shtml；苏医保待医〔2023〕37号 https://www.suzhou.gov.cn/szsrmzf/bmwj/202312/520891b6afe947829a4fd939c7f82fa7.shtml；苏州市人社局 2026-04-03 参保问答 https://www.suzhou.gov.cn/szsrmzf/rdwd/202604/f952560756ed46cc8536f830bcdb243e.shtml；苏州市医保局 2026-05-27 医保参保指南 https://ybj.suzhou.gov.cn/szybj/lhjyry/202605/63b99e21e78049228946feae762fdd47.shtml；综合入口 https://www.suzhou.gov.cn/szsrmzf/lhjydj/lhjydj.shtml 仅作参保对象及手续依据，金额和费率使用前述专项公告
+  - date: '2026-11-10'
+    field: living.statistical_metadata.income_per_capita
+    old: null
+    new: 补充2025年苏州全市城镇常住居民人均可支配收入90125元的统计口径，原值不变；现价、初步统计数。
+    basis: https://tjj.suzhou.gov.cn/sztjj/tjgb/202604/3dc4b574cabd4e86b36ec5d3280e927c.shtml 第十一节、注释[1][2]；https://tjj.suzhou.gov.cn/sztjj/tjzd/202602/2f90dbeed41a4d46b74a0f74dd6e9eae.shtml（发布2026-02-03）附件 https://tjj.suzhou.gov.cn/sztjj/tjzd/202602/2f90dbeed41a4d46b74a0f74dd6e9eae/files/ecb2f6dff406415da6f69742dcc15117.doc 总说明（二）（三）（六）（八），按常住地、以市为总体、记账问卷及加权汇总；未取得苏州实际样本量与误差报告。
+  - date: '2026-11-10'
+    field: living.statistical_metadata.consumption_per_capita
+    old: null
+    new: 补充2025年苏州全市城镇常住居民人均消费支出54897元的统计口径，原值不变；现价、初步统计数。
+    basis: https://tjj.suzhou.gov.cn/sztjj/tjgb/202604/3dc4b574cabd4e86b36ec5d3280e927c.shtml 第十一节、注释[1][2]；https://tjj.suzhou.gov.cn/sztjj/tjzd/202602/2f90dbeed41a4d46b74a0f74dd6e9eae.shtml（发布2026-02-03）附件 https://tjj.suzhou.gov.cn/sztjj/tjzd/202602/2f90dbeed41a4d46b74a0f74dd6e9eae/files/ecb2f6dff406415da6f69742dcc15117.doc 总说明（二）（三）（六）（八），按常住地、以市为总体、记账问卷及加权汇总；未取得苏州实际样本量与误差报告。
