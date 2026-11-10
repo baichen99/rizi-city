@@ -1886,7 +1886,7 @@
      "date": "2026-11-10",
      "field": "subsidies.青年人才驿站（过渡性住宿）.lead/needs_human_reason",
      "old": "只有保租房办法的原则性条文和创业住宿优惠媒体线索",
-     "new": "补充政府网站转载报道的直接链接及覆盖范围，明确完整资格和办理细则仍待核实；amount、target、source_url、verified_at 保持 null，conditions 保持空列表，needs_human 保持 true",
+     "new": "补充政府网站转载报道的直接链接及覆盖范围，明确完整资格和办理细则仍待核实；待遇、对象、正式来源与核验日期保持空值，条件保持空列表，仍标为待核实",
      "basis": "中国就业网《四川：成渝CP，携手出“圈”聚才》（2026-06-02）https://chinajob.mohrss.gov.cn/h5/c/2026-06-02/550812.shtml 与《四川成都：出台十条措施全周期支持人才发展》（2025-10-15）https://chinajob.mohrss.gov.cn/h5/c/2025-10-15/455200.shtml；两页均注明来源为人民网，已核正文但仅作报道线索，不替代政府实施细则"
     }
    ],
