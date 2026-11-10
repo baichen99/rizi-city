@@ -39,8 +39,9 @@ jobs:
             const body = current.body || '';
             const m1 = body.match(/###\s*agent 名称\s*\n+\s*([^\n]+)/i);
             const m2 = body.match(/^\s*[-*]?\s*agent\s*[:：]\s*([^\n]+)$/im);
-            const agent = ((m1 && m1[1]) || (m2 && m2[1]) || '').trim();
-            if (!agent) problems.push('请在 PR 正文补充 Agent: xxx（或 agent 名称小节）。');
+            const m3 = body.match(/[（(]\s*agent\s*[:：]\s*([a-z0-9][a-z0-9 \-]*?)\s*[）)]/i);
+            const agent = ((m1 && m1[1]) || (m2 && m2[1]) || (m3 && m3[1]) || '').trim();
+            if (!agent) problems.push('请在 PR 正文补充 Agent: xxx（或 agent 名称小节，或「维护助手 xxx（agent:xxx）」署名）。');
             const allowed = h => /(^|\.)gov\.cn$/i.test(h) || /(^|\.)cih-index\.com$/i.test(h);
             let sourceCount = 0;
             for (const file of cities) {
@@ -124,11 +125,12 @@ jobs:
             }
             if (!isPatrol) { core.info('不是巡检，跳过'); return; }
 
-            // 2) 识别 agent 名称（Issue Form 的 "### agent 名称" 小节，或 PR 正文里的 "Agent: xxx" / "agent：xxx"）
+            // 2) 识别 agent 名称（Issue Form 的 "### agent 名称" 小节、PR 正文里的 "Agent: xxx" / "agent：xxx"，或「维护助手 xxx（agent:xxx）」署名）
             let agent = null;
             const m1 = body.match(/###\s*agent 名称\s*\n+\s*([^\n]+)/i);
             const m2 = body.match(/^\s*[-*]?\s*agent\s*[:：]\s*([^\n]+)$/im);
-            const raw = ((m1 && m1[1]) || (m2 && m2[1]) || '').trim().toLowerCase();
+            const m3 = body.match(/[（(]\s*agent\s*[:：]\s*([a-z0-9][a-z0-9 \-]*?)\s*[）)]/i);
+            const raw = ((m1 && m1[1]) || (m2 && m2[1]) || (m3 && m3[1]) || '').trim().toLowerCase();
             agent = AGENTS[raw] || (raw ? 'agent:other' : null);
 
             // 3) 收集来源 URL
@@ -158,7 +160,7 @@ jobs:
 
             // 4) 格式检查
             const problems = [];
-            if (!agent) problems.push('没有找到 agent 名称（Issue 表单的"agent 名称"，或 PR 正文里的 `Agent: xxx`）');
+            if (!agent) problems.push('没有找到 agent 名称（Issue 表单的"agent 名称"，或 PR 正文里的 `Agent: xxx`，或「维护助手 xxx（agent:xxx）」署名）');
             if (isIssue) {
               if (!/```ya?ml[\s\S]*items\s*:/.test(body)) problems.push('报告里没有 patrol.md 第 5 节格式的 yaml 代码块（含 `items:`）');
               if (urls.length === 0) problems.push('报告里没有任何 `source_url`');
