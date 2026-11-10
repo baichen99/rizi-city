@@ -19,6 +19,12 @@ GitHub Pages 网页（纯静态单页，没有构建步骤）。
 
 - 月消费参照与个人预算的口径、缺失处理和隐私边界见 [`docs/living-budget-method.md`](../docs/living-budget-method.md)。
 
+## 按居民需求查政策
+
+- 本城页日常生活内容之后，可按补贴、住房、医保、就业、水电气暖、家庭和养老需求查政策。关键词只在当前主题的已收录资料中本地检索，不上传、不保存。
+- 本城政策与全国官方导航分开，保留适用对象、有效期未知/过期状态、核验日和官方来源。没有收录不表示没有政策。
+- 全国目录原始数据为 `data/resident-services.json`；边界、来源核验和维护方法见 [`docs/resident-services.md`](../docs/resident-services.md)。
+
 ## 城市下拉交互回归
 
 - 居民页和两城比较页保留原生 `select` 节点，只更新其旁边的内容；不要在 `change` 后移除控件再强制聚焦新控件，以免打断 iOS 原生选择器。

@@ -51,6 +51,7 @@ test('all 20 resident pages and policy filters render with original scope warnin
       r.state.policyTopic = topic; r.run('renderResident');
       const html = r.html();
       assert.ok(html.includes(city.city), city.id);
+      assert.ok(html.indexOf('id="life-daily"') < html.indexOf('id="resident-services"'), 'Daily life stays above policy discovery');
       assert.ok(html.includes('不是全体居民政策库'), city.id);
       assert.ok(html.includes('政策原文不等于申办页面') || html.includes('该主题尚未覆盖已核实事项'), city.id);
       assert.ok(!html.includes('NaN') && !html.includes('undefined'), city.id);
