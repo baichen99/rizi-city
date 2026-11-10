@@ -128,22 +128,22 @@ living:
   access_blocked: false
 
 flexible_employment:
-  pension_base_min: null
-  pension_rate: null
-  pension_year: null
-  medical_monthly_min: null
-  medical_note: null
-  monthly_total_min: null
-  calc: null
-  hukou_restriction: null
-  nonlocal_allowed: null
-  apply_channel: null
-  source_url: null
-  medical_source_url: null
-  hukou_source_url: null
-  verified_at: null
-  needs_human: true
-  needs_human_reason: 广州 2026 年养老基数下限、灵活就业医保月缴额（2026 年筹资标准通知标注"尚未施行"）均未核实。
+  pension_base_min: 5521
+  pension_rate: 20
+  pension_year: 2026 年度（2026-07-01 起）
+  medical_monthly_min: 498.72
+  medical_note: 广州市口径：灵活就业职工医保费率 8%（穗医保规字〔2022〕1号，现行有效；2024-03 至 2025-12 曾阶段性降至 6.5%，2026-01-01 起恢复 8%），缴费基数下限为上上年度全口径城镇单位就业人员月平均工资的 60%，2026 自然年度为 6234 元（广州市税务局 2026 年度公告口径，与本仓库 social_security 段已记录的医保基数口径一致；该年度公告未在政府网页版逐字核到）。职工大额医疗费用补助从统筹基金列支，个人不另缴。按下限测算 6234×8% = 498.72 元/月。注：穗医保规字〔2026〕4号为简易修改、2027-01-01 才施行，费率与基数规则不变
+  monthly_total_min: 1602.92
+  calc: 养老 5521 × 20% = 1104.20（2026 社保年度）；医保 498.72（6234 × 8%，2026 自然年度）；合计 1602.92 元/月
+  hukou_restriction: 非本市户籍可凭本人有效身份证件和就业登记证明在就业地参保（养老、医保同口径，不受户籍限制）
+  nonlocal_allowed: true
+  apply_channel: 「粤税通」「粤省事」小程序线上办理缴费登记，或办税服务厅同城通办
+  source_url: https://guangdong.chinatax.gov.cn/gdsw/ssfggds/2026-05/06/content_45505ebfc8f54089ae9bd6300fd49138.shtml
+  medical_source_url: https://www.gz.gov.cn/gfxwj/sbmgfxwj/gzsylbzj/content/post_8689834.html
+  hukou_source_url: https://guangdong.chinatax.gov.cn/gdsw/gzswlhjyrysyxxgl/2026-05/14/content_8dac78be3a604391a74b90bdd4104042.shtml
+  verified_at: 2026-11-10
+  needs_human: false
+  needs_human_reason: null
   access_blocked: false
 
 civil_service:
@@ -272,3 +272,8 @@ changelog:
       evidence_locator: 第九节人民生活和社会保障：消费段城镇居民51860元；注1为2025快报统计数
       data_status: preliminary
     basis: https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html；第九节人民生活和社会保障：消费段城镇居民51860元；注1为2025快报统计数；方法 https://tjj.gz.gov.cn/datav/admin/home/www_nj/2024/directory/08/08%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html
+  - date: 2026-11-10
+    field: flexible_employment（整段）
+    old: null
+    new: 养老基数下限 5521、医保月缴 498.72（测算）、每月合计最低 1602.92
+    basis: 养老据《广东省灵活就业人员参加企业职工基本养老保险办法》（2026-05-01 起施行，广东省税务局官网）第六、七条（基数在参保地职工养老上下限内自选、比例 20%）与粤人社发〔2026〕24号（2026-07-01 起下限 5521）；医保费率 8% 与基数规则据穗医保规字〔2022〕1号（广州政府网，现行有效），2026 年度基数下限 6234 为广州市税务局公告口径（与 social_security 段已记录口径一致，年度公告未在政府网页版逐字核到，已在 medical_note 注明）；户籍与渠道据粤医保规〔2022〕2号与广州市税务局办理指南
