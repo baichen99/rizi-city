@@ -5733,20 +5733,21 @@
     "pension_base_min": 4573,
     "pension_rate": 20,
     "pension_year": 2026,
+    "pension_base_source_url": "https://qingdao.chinatax.gov.cn/xxgk2019/tztg/202608/t20260825_107402.html",
     "medical_monthly_min": null,
-    "medical_note": "山东省统一规则（鲁政字〔2023〕184号）：灵活就业医保可按 7%（不建个人账户）或 9%（含 2% 入个人账户）缴纳，基数不低于全省平均工资 60%；青岛市级官方页面未明示本市 2026 年执行档位（青岛日报转述市医保局指南称为 9% 单档，未在官网核实），故月缴额暂不填报",
+    "medical_note": "青岛政务网2026-06-08问答官方搜索正文明确普通灵活就业人员医保费率9%；未将只出现9%视为所有特殊情形均为单档。青岛税务官网2026-08-25发布省四部门通知，2026年缴费基数下限4573元。两项相乘411.57元、加养老914.60元得1326.17元仅为公式参考；青岛当年医保基数具体起算月份及完整办理条件尚未核读，确认月缴与合计留空，不将4573假定为1月起全年标准。医保原站证书异常未绕过，政务问答直接读取遇重定向循环，未冒称已直读明白纸或政策简表。",
     "monthly_total_min": null,
     "calc": null,
     "hukou_restriction": null,
     "nonlocal_allowed": null,
     "apply_channel": null,
     "source_url": "https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html",
-    "medical_source_url": null,
+    "medical_source_url": "https://www.qingdao.gov.cn/ywdt/zwzl/zxwdpt_00/zxwdpt_31/202606/t20260608_10629499.shtml",
     "hukou_source_url": null,
-    "verified_at": "2026-11-09",
+    "verified_at": "2026-11-10",
     "needs_human": true,
-    "needs_human_reason": "青岛灵活就业医保执行档位（省级规则 7%/9% 两档，媒体称青岛为 9% 单档）未在市级官方页面核实，月缴额与每月合计暂缺；外地户籍参保条件未核实。养老部分已按鲁人社字〔2026〕75号补齐。",
-    "access_blocked": false
+    "needs_human_reason": "普通灵活就业医保9%已有官方索引，2026省基数4573已读税务官网；青岛医保当年基数执行起算月份、最新完整参保条件与材料待核，医保月缴和合计不作为已确认数值。2026-11-03官方索引支持医保不受户籍地限制，但不代替完整经办条件。",
+    "access_blocked": true
    },
    "civil_service": {
     "fresh_grad_rule": null,
@@ -5850,6 +5851,13 @@
      "old": null,
      "new": "未核实山东省级及济南、青岛2027报考指南的完整应届认定，fresh_grad_rule留空。烟台指南仅适用烟台，不能直接套用。青岛市级公告及2026省属事业统招应聘须知仍待核实。",
      "basis": "考公考编专项巡检；2027年度山东省省级机关及其直属机构考试录用公务员公告（重庆市委党校官方转载） https://www.cqdx.gov.cn/web/article/1568321483530772480/web/content_1568321483530772480.html；2027年度济南市各级机关考试录用公务员公告发布 https://jnhrss.jinan.gov.cn/col/col18309/art/2026/art_c9023da22f034149aa512e23fd1fc7ec.html；2027年度烟台市各级机关考试录用公务员报考指南 https://www.yantai.gov.cn/col/col51398/art/2026/art_24a0d55c1f9c4466be3149929429d2a7.html；2026事业单位招聘公告（历史批次） https://www.jinan.gov.cn/zt/2025nzt/yhyshj/rcbf/qzzp/art/2026/art_01d480a8b56929600263bed5185da7eb.html"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment（医保来源及缺口说明）",
+     "old": "省级7%/9%框架与媒体9%线索，市级口径待核",
+     "new": "记录青岛官方9%问答和2026省基数直接原文；当年执行月份和完整办理材料未核，月缴与合计继续null",
+     "basis": "青岛政务网2026-06-08问答 https://www.qingdao.gov.cn/ywdt/zwzl/zxwdpt_00/zxwdpt_31/202606/t20260608_10629499.shtml 官方搜索正文列9%，直接请求重定向循环；青岛税务官网2026-08-25发布省四部门通知 https://qingdao.chinatax.gov.cn/xxgk2019/tztg/202608/t20260825_107402.html 直接核到2026年4573–22863，落款2026-08-14；医保不受户籍地限制见2026-11-03官方索引 https://www.qingdao.gov.cn/zwgk/xxgk/rlshbz/gkml/gwfg/202611/t20261103_10767701.shtml 。不以媒体转载替代医保局明白纸直读，不绕过证书警告，不在未核起算月份时发布全年月缴或最低合计。"
     }
    ],
    "id": "qingdao",
