@@ -2451,22 +2451,24 @@
     "access_blocked": false
    },
    "flexible_employment": {
-    "pension_base_min": null,
-    "pension_rate": null,
-    "pension_year": null,
-    "medical_monthly_min": null,
-    "medical_note": null,
-    "monthly_total_min": null,
-    "calc": null,
-    "hukou_restriction": null,
-    "nonlocal_allowed": null,
-    "apply_channel": null,
-    "source_url": null,
-    "medical_source_url": null,
-    "hukou_source_url": null,
-    "verified_at": null,
-    "needs_human": true,
-    "needs_human_reason": "广州 2026 年养老基数下限、灵活就业医保月缴额（2026 年筹资标准通知标注\"尚未施行\"）均未核实。",
+    "pension_base_min": 5521,
+    "pension_rate": 20,
+    "pension_year": "2026 社保年度（2026-07-01 至 2027-06-30）",
+    "pension_note": "5521元下限自2026-07-01起执行，上限27603元；2026年1—6月下限5510元。20%为符合条件灵活就业人员的养老费率。",
+    "pension_base_source_url": "https://zhsi.zhuhai.gov.cn/zcfg/content/post_3949111.html",
+    "medical_monthly_min": 498.72,
+    "medical_note": "2026-01-01 至 2026-12-31，广州12345官方公开答复直接列明职工医保基数 6234–31170 元/月，2024年全口径月均工资10390元；该答复未标发布日期，核验于2026-11-10，并非税务年度公告。灵活就业费率8%、大额医疗补助不另缴依据穗医保规字〔2022〕1号（有效至2026-12-31，https://www.gz.gov.cn/gfxwj/sbmgfxwj/gzsylbzj/content/post_8689834.html）；2024-03至2025-12的6.5%阶段性降费已到期。按下限计算6234×8%=498.72元/月，仅为缴费参考，不含个人具体补缴。",
+    "monthly_total_min": 1602.92,
+    "calc": "仅适用2026-07-01至2026-12-31的共同有效期间：养老5521×20%=1104.20；医保6234×8%=498.72；合计1602.92元/月。2026年上半年养老下限不同，2027医保标准须另核，不跨期沿用本合计。",
+    "hukou_restriction": "法定劳动年龄内符合条件的非本地户籍灵活就业人员，可凭有效身份证件和广东就业登记证明在就业地参保；港澳台居民、无雇工个体工商户等按相应证件路径办理。养老首次跨省参保等另有账户规定，不等同于退休待遇领取资格。",
+    "nonlocal_allowed": true,
+    "apply_channel": "「粤税通」「粤省事」小程序线上办理缴费登记，或办税服务厅同城通办",
+    "source_url": "https://guangdong.chinatax.gov.cn/gdsw/ssfggds/2026-05/06/content_45505ebfc8f54089ae9bd6300fd49138.shtml",
+    "medical_source_url": "https://wx12345.gzonline.gov.cn/km/showMsg?id=BEAFDBCFD",
+    "hukou_source_url": "https://guangdong.chinatax.gov.cn/gdsw/ssfggds/2022-01/29/content_651e1cba3b6c4b4a8f27b463b184e599.shtml",
+    "verified_at": "2026-11-10",
+    "needs_human": false,
+    "needs_human_reason": null,
     "access_blocked": false
    },
    "civil_service": {
@@ -2622,6 +2624,13 @@
       "data_status": "preliminary"
      },
      "basis": "https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html；第九节人民生活和社会保障：消费段城镇居民51860元；注1为2025快报统计数；方法 https://tjj.gz.gov.cn/datav/admin/home/www_nj/2024/directory/08/08%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment（整段）",
+     "old": null,
+     "new": "养老基数下限5521、医保月缴498.72（公式计算）、2026-07至12每月最低合计1602.92",
+     "basis": "养老20%据粤人社规〔2026〕14号第六、七条（2026-05-01施行），https://guangdong.chinatax.gov.cn/gdsw/ssfggds/2026-05/06/content_45505ebfc8f54089ae9bd6300fd49138.shtml；养老基数据粤人社发〔2026〕24号全文（2026-09-17成文，2026-07-01起5521），https://zhsi.zhuhai.gov.cn/zcfg/content/post_3949111.html；医保6234–31170及2026自然年度由广州12345官方公开答复直接列明，https://wx12345.gzonline.gov.cn/km/showMsg?id=BEAFDBCFD（无发布日期，不冒称税务年度公告）；8%与大额医疗不另缴据穗医保规字〔2022〕1号，https://www.gz.gov.cn/gfxwj/sbmgfxwj/gzsylbzj/content/post_8689834.html；阶段性6.5%到2025-12-31据https://guangdong.chinatax.gov.cn/gdsw/gzswwwsbfyhzc/2024-02/29/content_9e708f1c2b204599b6fcd7081ceac0f6.shtml；医保参保范围据粤医保规〔2022〕2号及粤医保规〔2025〕1号（延续至2030-01-31），https://guangdong.chinatax.gov.cn/gdsw/ssfggds/2025-03/27/content_0c2337b4c93a49909ec972ae4fc90ac9.shtml；渠道据广州市税务局办理指南https://guangdong.chinatax.gov.cn/gdsw/gzswlhjyrysyxxgl/2026-05/14/content_8dac78be3a604391a74b90bdd4104042.shtml。合计仅在养老与医保口径重叠的2026-07至12使用，删除未独立核实的2027新文件附注。"
     }
    ],
    "id": "guangzhou",
@@ -2740,15 +2749,15 @@
      "reason": "通勤指标暂停用"
     },
     "social": {
-     "value": null,
-     "ok": false,
-     "reason": "灵活就业最少自缴额未核实"
+     "value": 0.2235,
+     "ok": true,
+     "reason": null
     }
    },
    "floor": {
     "rent": 1424,
-    "social": null,
-    "total": null
+    "social": 1602.92,
+    "total": 3027
    },
    "life": {
     "schema_version": 1,
@@ -4141,7 +4150,7 @@
    },
    "subsidies": [
     {
-     "name": "高校毕业生租房保障（住房租赁补贴）",
+     "name": "重点单位高校毕业生租房保障（住房租赁补贴）",
      "type": "rent",
      "amount": "博士每年 3.6 万元、硕士每年 2 万元、本科每年 1.5 万元，3 年内分期发放；也可选择免费租住国有租赁公司房源 3 年（二选一）",
      "amount_by_degree": {
@@ -4153,19 +4162,20 @@
      "period": "year",
      "periods_max": 3,
      "payout": "分期发放（3 年内）",
-     "target": "35 周岁以下的博士研究生、硕士研究生、普通高校本科毕业生，通过工作单位在肥缴纳社会保险，新来我市就业且在肥无自有住房（该条款位于政策「产业及相关领域重点单位人才服务保障」部分，适用单位范围见原文）",
+     "target": "仅限产业及相关领域重点单位的新来肥就业人才：35周岁以下的博士研究生、硕士研究生、普通高校本科毕业生，通过工作单位在肥缴纳社会保险且在肥无自有住房；现金租赁补贴需在肥自行租住。不是所有同学历毕业生均可领取。",
      "conditions": [
-      "本条为《合肥市服务人才发展若干政策（修订版）》政策要点页口径，具体申报条件、兑现规定以申报指南为准",
-      "原 2018 年《新落户人才租房补贴发放实施细则》（合人才〔2018〕5号，博士 2 万/年、硕士 1.5 万/年、本科 1 万/年、大专 0.6 万/年）有效期 3 年、已停止实施，不再适用；现行政策无大专档"
+      "适用单位仅包括重点产业链入库企业、国家专精特新“小巨人”企业、安徽省专精特新冠军企业、总部经济企业、新型研发机构、科技成果转化企业、科技招商企业、高端生产性服务机构；须属于政策规定的重点单位范围",
+      "金额为符合单位、学历、年龄、就业、参保和住房条件后的政策上限；申请批次、首次来肥认定、连续参保要求和兑现规则尚未核到完整申报指南，以主管部门现行申报指南为准",
+      "本条已核政策要点未列大专现金租赁补贴档，不据此推断其他人才或住房政策不存在"
      ],
      "deadline_rule": null,
-     "policy_name": "《合肥市服务人才发展若干政策（修订版）》（文号合人才〔2024〕1号，据安徽省人社厅与合肥经开区管委会官网页面引用；带文号的红头原件未在可访问渠道打开）",
+     "policy_name": "《合肥市服务人才发展若干政策（修订版）》政策要点，产业及相关领域重点单位人才服务保障部分",
      "source_url": "https://www.hfxf.gov.cn/rsks/ysfwsc/18854737.html",
      "source_date": "2025-06-18",
      "valid_until": "2026-12-31",
      "verified_at": "2026-11-10",
-     "needs_human": false,
-     "needs_human_reason": null,
+     "needs_human": true,
+     "needs_human_reason": "已核官方政策要点的金额、重点单位范围、基本对象和有效期；完整申报指南、首次来肥认定、连续参保及申请批次未核，不计入可领总额或排行，不能据此判断个人符合条件。",
      "access_blocked": false,
      "lead": null,
      "lead_url": null
@@ -4295,17 +4305,17 @@
     },
     {
      "date": "2026-11-10",
-     "field": "subsidies（新落户人才租房补贴 → 高校毕业生租房保障）",
-     "old": "仅有 2018 年旧细则线索、金额未核实",
-     "new": "按现行《合肥市服务人才发展若干政策（修订版）》重写：博士 3.6 万/年、硕士 2 万/年、本科 1.5 万/年，3 年分期（或免费租住 3 年二选一）",
-     "basis": "合肥先锋网（合肥市委组织部主办）修订版政策要点页逐字核对（2025-06-18 发布，信息来源市委人才工作局，政策有效期至 2026-12-31）；旧细则合人才〔2018〕5号有效期 3 年、已停施（合肥市住房保障和房产管理局政务回复），原线索数字（2 万/1.5 万/1 万/0.6 万）为旧标准，已废弃；修订版文号合人才〔2024〕1号据安徽省人社厅与合肥经开区管委会官网引用，红头原件未打开，已在 policy_name 注明"
+     "field": "subsidies（新落户人才租房补贴线索 → 重点单位高校毕业生租房保障）",
+     "old": "仅有旧线索、金额未核实",
+     "new": "官方政策要点确认特定重点单位人才博士36000、硕士20000、本科15000元/年，3年内分期；完整申报指南未核，保留needs_human，不纳入可领合计",
+     "basis": "合肥先锋网（合肥市委组织部主办），2025-06-18政策要点 https://www.hfxf.gov.cn/rsks/ysfwsc/18854737.html ，信息来源市委人才工作局，有效至2026-12-31；按产业及相关领域重点单位部分限定八类单位，新来肥、单位参保、35岁以下且无房，自行租房与免费租住国有房源为两种选择。未独立核实的旧政策停施及文号引用叙述不采用。"
     }
    ],
    "id": "hefei",
    "status": {
     "hukou": "blocked",
     "living_subsidy": "missing",
-    "rent_subsidy": "verified",
+    "rent_subsidy": "lead",
     "rent": "verified",
     "social_security": "lead",
     "cost": "blocked"
@@ -4318,65 +4328,78 @@
      "rent_subsidy_per_year": null,
      "first_year": 0,
      "counted": [],
-     "excluded": []
+     "excluded": [
+      {
+       "index": 0,
+       "name": "重点单位高校毕业生租房保障（住房租赁补贴）",
+       "type": "rent",
+       "per": null,
+       "period": "year",
+       "total": null,
+       "reason": "已核官方政策要点的金额、重点单位范围、基本对象和有效期；完整申报指南、首次来肥认定、连续参保及申请批次未核，不计入可领总额或排行，不能据此判断个人符合条件。"
+      }
+     ]
     },
     "bachelor": {
      "hukou_eligible": null,
      "hukou_age_max": null,
-     "total": 45000,
-     "rent_subsidy_per_year": 15000,
-     "first_year": 15000,
-     "counted": [
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "first_year": 0,
+     "counted": [],
+     "excluded": [
       {
        "index": 0,
-       "name": "高校毕业生租房保障（住房租赁补贴）",
+       "name": "重点单位高校毕业生租房保障（住房租赁补贴）",
        "type": "rent",
        "per": 15000,
        "period": "year",
-       "total": 45000
+       "total": 45000,
+       "reason": "已核官方政策要点的金额、重点单位范围、基本对象和有效期；完整申报指南、首次来肥认定、连续参保及申请批次未核，不计入可领总额或排行，不能据此判断个人符合条件。"
       }
-     ],
-     "excluded": []
+     ]
     },
     "master": {
      "hukou_eligible": null,
      "hukou_age_max": null,
-     "total": 60000,
-     "rent_subsidy_per_year": 20000,
-     "first_year": 20000,
-     "counted": [
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "first_year": 0,
+     "counted": [],
+     "excluded": [
       {
        "index": 0,
-       "name": "高校毕业生租房保障（住房租赁补贴）",
+       "name": "重点单位高校毕业生租房保障（住房租赁补贴）",
        "type": "rent",
        "per": 20000,
        "period": "year",
-       "total": 60000
+       "total": 60000,
+       "reason": "已核官方政策要点的金额、重点单位范围、基本对象和有效期；完整申报指南、首次来肥认定、连续参保及申请批次未核，不计入可领总额或排行，不能据此判断个人符合条件。"
       }
-     ],
-     "excluded": []
+     ]
     },
     "phd": {
      "hukou_eligible": null,
      "hukou_age_max": null,
-     "total": 108000,
-     "rent_subsidy_per_year": 36000,
-     "first_year": 36000,
-     "counted": [
+     "total": 0,
+     "rent_subsidy_per_year": null,
+     "first_year": 0,
+     "counted": [],
+     "excluded": [
       {
        "index": 0,
-       "name": "高校毕业生租房保障（住房租赁补贴）",
+       "name": "重点单位高校毕业生租房保障（住房租赁补贴）",
        "type": "rent",
        "per": 36000,
        "period": "year",
-       "total": 108000
+       "total": 108000,
+       "reason": "已核官方政策要点的金额、重点单位范围、基本对象和有效期；完整申报指南、首次来肥认定、连续参保及申请批次未核，不计入可领总额或排行，不能据此判断个人符合条件。"
       }
-     ],
-     "excluded": []
+     ]
     }
    },
    "latest_verified": "2026-11-10",
-   "needs_human_count": 3,
+   "needs_human_count": 4,
    "index": {
     "rent": {
      "value": null,
@@ -4396,7 +4419,7 @@
     "subsidy": {
      "value": null,
      "ok": false,
-     "reason": "有补贴待核实：生活补贴"
+     "reason": "有补贴待核实：重点单位高校毕业生租房保障（住房租赁补贴）"
     },
     "commute": {
      "value": null,
@@ -4922,23 +4945,23 @@
     "access_blocked": false
    },
    "flexible_employment": {
-    "pension_base_min": null,
-    "pension_rate": null,
-    "pension_year": null,
-    "medical_monthly_min": null,
-    "medical_note": null,
-    "monthly_total_min": null,
-    "calc": null,
-    "hukou_restriction": null,
-    "nonlocal_allowed": null,
-    "apply_channel": null,
-    "source_url": null,
-    "medical_source_url": null,
-    "hukou_source_url": null,
-    "verified_at": null,
-    "needs_human": true,
-    "needs_human_reason": "南京医保局、人社局网站被拦截，灵活就业医保月缴额与户籍限制无法核实（江苏养老基数下限 5025 见 social_security）。",
-    "access_blocked": true
+    "pension_base_min": 5025,
+    "pension_rate": 20,
+    "pension_year": 2026,
+    "medical_monthly_min": 412,
+    "medical_note": "南京市口径（2026 年度）：灵活就业职工医保与养老同基数区间 5025–25127 元/月、自主选档，费率 8%（宁医发〔2023〕41号，2023-04-01 起执行，江苏省税务局 2025 年南京市征收标准表仍按 8% 列示）；另缴大病医疗救助费 10 元/月。按下限测算 5025×8%+10 = 412 元/月（官方未直接给 2026 年月额；测算方法与南京市医保局 2023 年发布会口径一致）",
+    "monthly_total_min": 1417,
+    "calc": "养老 5025 × 20% = 1005；医保 412（5025 × 8% + 大病医疗救助费 10 元）；合计 1417 元/月",
+    "hukou_restriction": "养老保险已放开户籍限制，可在就业登记地参保；职工医保外地户籍须持南京市居住证（含港澳台居民居住证）",
+    "nonlocal_allowed": true,
+    "apply_channel": "先办就业登记、再办社保登记（江苏人社网上办事服务大厅、「江苏智慧人社」APP、「我的南京」APP 或各区经办机构）；医保登记经「南京医保」公众号、「我的南京」App",
+    "source_url": "https://jshrss.jiangsu.gov.cn/art/2026/10/8/art_77277_11838872.html",
+    "medical_source_url": "https://jiangsu.chinatax.gov.cn/art/2025/3/5/art_8539_372078.html",
+    "hukou_source_url": "https://www.nanjing.gov.cn/hdjl/hygq/202407/t20240723_4719893.html",
+    "verified_at": "2026-11-10",
+    "needs_human": false,
+    "needs_human_reason": null,
+    "access_blocked": false
    },
    "civil_service": {
     "fresh_grad_rule": "2027南京公务员：一般职位不限生源/户籍，特殊职位另定。应届专岗60—69仅2027普通高校应届及指南列明特定退役、留学、基层服务群体；研究生取得相应学位者不限生源，其他须江苏生源，不能将此限制套给全部岗位。以以前学历或非普通高校学历报考不按应届身份。 另：2026省属事业统招允许2024、2025普通高校毕业生报名时无工作单位者报2026毕业生岗（历史批次）。来源：https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html",
@@ -5030,6 +5053,13 @@
      "old": null,
      "new": "2026-11-09",
      "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；南京市2027年度考试录用公务员简章 https://zzb.nanjing.gov.cn/gwygz/202610/t20261030_6029496.html；南京市2027年度考试录用公务员报考指南 https://zzb.nanjing.gov.cn/njdjsjb/gwygz_70229/gwygl_70230/njgwyklzt/202610/t20261030_6029495.html；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment（整段）",
+     "old": null,
+     "new": "养老基数下限 5025、医保月缴 412（测算）、每月合计最低 1417",
+     "basis": "养老基数与医保基数区间据苏人社发〔2026〕30号（江苏省人社厅官网原文，2026 年度 5025–25127）；比例 20% 与医保费率 8%、大病医疗救助费 10 元/月据江苏省税务局《南京市基金（费）征收标准一览表》及宁医发〔2023〕41号（南京市税务局转发全文）；月额为按下限测算，方法与南京市医保局 2023 年发布会口径一致；户籍与渠道据南京市政府网与区政府页面（市人社局、医保局官网对自动抓取拦截，改用省站与市政府网核对）"
     }
    ],
    "id": "nanjing",
@@ -5159,15 +5189,15 @@
      "reason": "通勤指标暂停用"
     },
     "social": {
-     "value": null,
-     "ok": false,
-     "reason": "灵活就业最少自缴额未核实"
+     "value": 0.197,
+     "ok": true,
+     "reason": null
     }
    },
    "floor": {
     "rent": 1070,
-    "social": null,
-    "total": null
+    "social": 1417,
+    "total": 2487
    },
    "life": {
     "schema_version": 1,
