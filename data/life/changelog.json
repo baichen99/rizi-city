@@ -368,5 +368,50 @@
     "old": null,
     "new": 103.2,
     "basis": "https://www.stats.gov.cn/english/PressRelease/202606/t20260616_1963956.html；Table I，上海/Shanghai行，Y/Y列（the Same Month Last Year=100），不是Average in Jan列；Annotations 1、2、5"
+  },
+  {
+    "date": "2026-11-10",
+    "city_id": "guangzhou",
+    "record_id": "guangzhou-housing_new_yoy_index-2026-01",
+    "field": "life.housing_new_yoy_index.2026-01.value",
+    "old": null,
+    "new": 94.7,
+    "basis": "https://www.stats.gov.cn/sj/zxfb/202602/t20260213_1962617.html；表1，广州行，同比列（上年同月=100）；附注1、2、5"
+  },
+  {
+    "date": "2026-11-10",
+    "city_id": "guangzhou",
+    "record_id": "guangzhou-housing_new_yoy_index-2026-02",
+    "field": "life.housing_new_yoy_index.2026-02.value",
+    "old": null,
+    "new": 94.9,
+    "basis": "https://www.stats.gov.cn/english/PressRelease/202604/t20260417_1963357.html；Table I，广州/Guangzhou行，Y/Y列（the Same Month Last Year=100），不是Average in Jan列；Annotations 1、2、5"
+  },
+  {
+    "date": "2026-11-10",
+    "city_id": "guangzhou",
+    "record_id": "guangzhou-housing_new_yoy_index-2026-03",
+    "field": "life.housing_new_yoy_index.2026-03.value",
+    "old": null,
+    "new": 95.3,
+    "basis": "https://www.stats.gov.cn/english/PressRelease/202604/t20260417_1963354.html；Table I，广州/Guangzhou行，Y/Y列（the Same Month Last Year=100），不是Average in Jan列；Annotations 1、2、5"
+  },
+  {
+    "date": "2026-11-10",
+    "city_id": "guangzhou",
+    "record_id": "guangzhou-housing_new_yoy_index-2026-04",
+    "field": "life.housing_new_yoy_index.2026-04.value",
+    "old": null,
+    "new": 95.6,
+    "basis": "https://www.stats.gov.cn/english/PressRelease/202605/t20260518_1963733.html；Table I，广州/Guangzhou行，Y/Y列（the Same Month Last Year=100），不是Average in Jan列；Annotations 1、2、5"
+  },
+  {
+    "date": "2026-11-10",
+    "city_id": "guangzhou",
+    "record_id": "guangzhou-housing_new_yoy_index-2026-05",
+    "field": "life.housing_new_yoy_index.2026-05.value",
+    "old": null,
+    "new": 96.7,
+    "basis": "https://www.stats.gov.cn/english/PressRelease/202606/t20260616_1963956.html；Table I，广州/Guangzhou行，Y/Y列（the Same Month Last Year=100），不是Average in Jan列；Annotations 1、2、5"
   }
 ]
