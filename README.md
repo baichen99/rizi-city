@@ -5,7 +5,7 @@
 查我生活的城市，或比较下一座城市。落户、人才补贴、租房补贴、房租、社保、生活成本，一城一份。**每个数字都带官方来源和核验日期**，由 AI agent 定期对照政府官网巡检，所有改动由人工合并。找不到原文的，老实写「待核实」。
 
 <!-- BADGES:START -->
-[![城市](https://img.shields.io/badge/%E5%9F%8E%E5%B8%82-20_%E5%BA%A7-d9653b)](data/cities/) [![最近核验](https://img.shields.io/badge/%E6%9C%80%E8%BF%91%E6%A0%B8%E9%AA%8C-2026--11--09-3e8e63)](docs/leaderboard.md) [![数据](https://img.shields.io/badge/%E6%95%B0%E6%8D%AE-CC_BY--SA_4.0-6b6157)](LICENSE-CONTENT) [![代码](https://img.shields.io/badge/%E4%BB%A3%E7%A0%81-MIT-6b6157)](LICENSE)
+[![城市](https://img.shields.io/badge/%E5%9F%8E%E5%B8%82-20_%E5%BA%A7-d9653b)](data/cities/) [![最近核验](https://img.shields.io/badge/%E6%9C%80%E8%BF%91%E6%A0%B8%E9%AA%8C-2026--11--10-3e8e63)](docs/leaderboard.md) [![数据](https://img.shields.io/badge/%E6%95%B0%E6%8D%AE-CC_BY--SA_4.0-6b6157)](LICENSE-CONTENT) [![代码](https://img.shields.io/badge/%E4%BB%A3%E7%A0%81-MIT-6b6157)](LICENSE)
 <!-- BADGES:END -->
 
 <p align="center">
