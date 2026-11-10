@@ -169,6 +169,43 @@ class NavigationTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 build_modules(['beijing'], data_dir=directory, on=dt.date(2026,11,10))
 
+    def test_shanghai_water_keeps_municipal_scope_and_annual_comprehensive_rates(self):
+        cards = {r['id']: r for r in build_modules(['shanghai'], on=dt.date(2026,11,10))['shanghai']}
+        water = cards['water']
+        reference = water['rate_reference']
+        self.assertEqual([i['value'] for i in reference['items']], [4.05,5.80,8.79])
+        self.assertTrue(all(i['unit']=='元/立方米' and not i['approximate'] for i in reference['items']))
+        self.assertIn('市属', reference['scope'])
+        self.assertIn('一户一表', reference['scope'])
+        self.assertIn('区属', water['coverage'])
+        self.assertIn('不按月重置', reference['period'])
+        self.assertIn('每户每年0—220', reference['items'][0]['basis'])
+        self.assertIn('超过220至300', reference['items'][1]['basis'])
+        self.assertIn('超过300', reference['items'][2]['basis'])
+        self.assertIn('综合水价已含污水处理费', reference['note'])
+        self.assertIn('新户未满年', reference['note'])
+        self.assertEqual(water['source_date'], '2021-10-22')
+        self.assertEqual(water['effective_from'], '2021-11-01')
+        self.assertEqual(water['review_status'], 'reviewed')
+        self.assertFalse(water['usable'])
+        self.assertFalse(water['calculator_enabled'])
+        for key in ('power', 'gas'):
+            self.assertEqual(cards[key]['status'], 'link_only')
+            self.assertNotIn('rate_reference', cards[key])
+        for on in (dt.date(2026,11,9), dt.date(2027,2,10)):
+            for card in build_modules(['shanghai'], on=on)['shanghai']:
+                self.assertNotIn('rate_reference', card)
+        with tempfile.TemporaryDirectory() as directory:
+            dest = Path(directory)/'utilities'
+            dest.mkdir()
+            expired = copy.deepcopy(json.loads((DATA_DIR/'utilities/shanghai.json').read_text())[0])
+            expired['effective_to'] = '2026-11-09'
+            (dest/'shanghai.json').write_text(json.dumps([expired]))
+            card = build_modules(['shanghai'], data_dir=Path(directory), on=dt.date(2026,11,10))['shanghai'][0]
+            self.assertEqual(card['status'], 'expired')
+            self.assertNotIn('rate_reference', card)
+            self.assertFalse(card['calculator_enabled'])
+
     def test_rate_units_must_match_the_module(self):
         for module, unit in [('water', '元/建筑平方米·采暖季'),
                              ('water', '元/千瓦时'), ('heating', '元/立方米'),

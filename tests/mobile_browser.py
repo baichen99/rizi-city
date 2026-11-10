@@ -138,6 +138,55 @@ def run(base_url, out):
                     assert '尚未覆盖' in daily.locator('[data-module="heating"]').inner_text()
                     check_page(page, 'guangzhou-utility-rates')
                     daily.screenshot(path=str(out / f'guangzhou-utility-rates-{width}.png'))
+                    page.select_option('#resident-city', 'shanghai')
+                    assert page.locator('#resident-city').input_value() == 'shanghai'
+                    daily = page.locator('#life-daily')
+                    water = daily.locator('[data-module="water"]')
+                    rates = water.locator('.utility-rates')
+                    assert rates.is_visible()
+                    assert rates.locator('strong').all_text_contents() == ['4.05', '5.8', '8.79']
+                    assert rates.locator('dd > span').all_text_contents() == ['元/立方米'] * 3
+                    assert rates.locator('small').all_text_contents() == [
+                        '每户每年0—220立方米（含）部分',
+                        '每户每年超过220至300立方米（含）部分',
+                        '每户每年超过300立方米部分',
+                    ]
+                    assert all(text in water.inner_text() for text in (
+                        '市属供排水企业服务区域', '一户一表', '2022年起的户年档位',
+                        '不按月重置', '综合水价已含污水处理费', '不重复加收', '不是全上海统一水价',
+                    ))
+                    evidence = water.locator('.utility-evidence')
+                    assert evidence.get_attribute('open') is None
+                    check_page(page, 'shanghai-utility-rates')
+                    daily.screenshot(path=str(out / f'shanghai-utility-rates-{width}.png'))
+                    # Expanding and closing twice must preserve the same rates and scope.
+                    for _ in range(2):
+                        evidence.locator('summary').click()
+                        assert evidence.get_attribute('open') is not None
+                        assert all(text in evidence.inner_text() for text in (
+                            '按用水量90%计征的污水处理费', '不再叠加',
+                            '通过账单企业确认', '不覆盖全部行政区或区属供水企业',
+                        ))
+                        for link in evidence.locator('a').all():
+                            assert '.gov.cn/' in link.get_attribute('href')
+                            assert link.get_attribute('rel') == 'noopener'
+                        check_page(page, 'shanghai-water-expanded')
+                        water.screenshot(path=str(out / f'shanghai-water-expanded-{width}.png'))
+                        evidence.locator('summary').click()
+                        assert evidence.get_attribute('open') is None
+                        assert rates.locator('strong').all_text_contents() == ['4.05', '5.8', '8.79']
+                    for module in ('power', 'gas'):
+                        card = daily.locator(f'[data-module="{module}"]')
+                        assert card.locator('.utility-rates').count() == 0
+                        evidence = card.locator('.utility-evidence')
+                        assert evidence.get_attribute('open') is None
+                        evidence.locator('summary').click()
+                        assert evidence.get_attribute('open') is not None
+                        assert card.locator('.utility-rates').count() == 0
+                        check_page(page, f'shanghai-{module}-expanded')
+                        evidence.locator('summary').click()
+                        assert evidence.get_attribute('open') is None
+                    check_page(page, 'shanghai-utility-collapsed')
                 if name == 'compare':
                     assert page.locator('.comparison-card').count() == 8
                     assert page.locator('.comparison-card[data-comparable="true"]').count() >= 2
