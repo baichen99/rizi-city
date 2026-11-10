@@ -55,6 +55,24 @@ def run(base_url, out):
                 report.append({'width': width, 'page': name, **check_page(page, name)})
                 page.screenshot(path=str(out / f'{name}-{width}.png'))
                 if name == 'resident':
+                    daily = page.locator('#life-daily')
+                    water = daily.locator('[data-module="water"]')
+                    heating = daily.locator('[data-module="heating"]')
+                    assert water.locator('.utility-rates strong').all_text_contents() == ['5', '7', '9']
+                    assert heating.locator('.utility-rates strong').all_text_contents() == ['24', '30']
+                    assert '综合水价已含' in water.inner_text() and '不按月重置' in water.inner_text()
+                    assert '元/建筑平方米·采暖季' in heating.inner_text() and '非每月' in heating.inner_text()
+                    for card in (water, heating):
+                        assert card.locator('.utility-rates').is_visible()
+                        assert not card.locator('.utility-evidence').get_attribute('open')
+                        card.locator('summary').click()
+                        assert card.locator('.utility-evidence').get_attribute('open') is not None
+                        check_page(page, 'beijing-utility-expanded')
+                        card.locator('summary').click()
+                    for module in ('power', 'gas'):
+                        assert not daily.locator(f'[data-module="{module}"] .utility-rates').count()
+                    check_page(page, 'beijing-utility-rates')
+                    daily.screenshot(path=str(out / f'beijing-utility-rates-{width}.png'))
                     page.locator('[data-jump="overview"]').click()
                     assert page.locator('#life-overview').bounding_box()['y'] >= page.locator('.tabs').bounding_box()['height']
                     page.locator('#life-overview details:not(.metric-explainer) summary').first.click()

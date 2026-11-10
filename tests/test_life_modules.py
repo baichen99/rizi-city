@@ -91,6 +91,42 @@ class NavigationTests(unittest.TestCase):
         self.assertEqual(cards['heating']['status'], 'missing')
         self.assertNotIn('rate_reference', cards['heating'])
 
+    def test_beijing_water_and_heating_facts_keep_distinct_billing_units(self):
+        cards = {r['id']: r for r in build_modules(['beijing'], on=dt.date(2026,11,10))['beijing']}
+        water, heating = cards['water'], cards['heating']
+        self.assertEqual([i['value'] for i in water['rate_reference']['items']], [5,7,9])
+        self.assertEqual([i['value'] for i in heating['rate_reference']['items']], [24,30])
+        self.assertIn('全年', water['rate_reference']['period'])
+        self.assertIn('已含', water['rate_reference']['note'])
+        self.assertIn('污水处理费', water['rate_reference']['note'])
+        self.assertIn('181—260', water['rate_reference']['items'][1]['basis'])
+        self.assertEqual(water['source_date'], '2026-02-11')
+        self.assertEqual(water['effective_from'], '2014-05-01')
+        self.assertEqual(heating['source_date'], '2026-10-28')
+        self.assertIsNone(heating['effective_from'])
+        self.assertTrue(all(i['unit']=='元/建筑平方米·采暖季' for i in heating['rate_reference']['items']))
+        self.assertIn('热计量', heating['rate_reference']['note'])
+        self.assertIn('超高', heating['rate_reference']['note'])
+        for card in (water, heating):
+            self.assertEqual(card['status'], 'reference_values')
+            self.assertFalse(card['calculator_enabled'])
+            self.assertFalse(card['usable'])
+        for key in ('power', 'gas'):
+            self.assertEqual(cards[key]['status'], 'link_only')
+            self.assertNotIn('rate_reference', cards[key])
+        for on in (dt.date(2026,11,9), dt.date(2027,2,10)):
+            for card in build_modules(['beijing'], on=on)['beijing']:
+                self.assertNotIn('rate_reference', card)
+
+    def test_rate_units_must_match_the_module(self):
+        for module, unit in [('water', '元/建筑平方米·采暖季'),
+                             ('water', '元/千瓦时'), ('heating', '元/立方米'),
+                             ('climate', '元/立方米')]:
+            def patch(row):
+                row['id'] = module
+                row['rate_reference']['items'][0]['unit'] = unit
+            self.assertTrue(validate_modules(self.rate_fixture(patch)))
+
     def test_rate_facts_are_suppressed_outside_review_window(self):
         for on in (dt.date(2026,11,9), dt.date(2027,2,10)):
             cards = build_modules(['guangzhou'], on=on)['guangzhou']

@@ -54,3 +54,28 @@ test('daily life is first in navigation and before the budget',()=>{
   assert.match(resident,/\[\["daily","日常生活"\]/);
   assert.ok(resident.indexOf('${renderDaily(c)}') < resident.indexOf('${renderBudget(c)}'));
 });
+
+test('Beijing references distinguish annual comprehensive water and seasonal building-area heating',()=>{
+  const beijing=JSON.parse(fs.readFileSync('data/life/utilities/beijing.json','utf8'));
+  const water=beijing.find(m=>m.id==='water'), heating=beijing.find(m=>m.id==='heating');
+  for(const card of [water,heating]) {
+    const html=moduleCard(card);
+    assert.match(html,/官方单价参考/);
+    for(const item of card.rate_reference.items) {
+      assert.ok(html.includes(`<strong>${item.value}</strong>`));
+      assert.ok(html.includes(esc(item.unit)));
+      assert.ok(html.includes(esc(item.basis)));
+    }
+    assert.ok(html.includes(card.rate_reference.source_url));
+    assert.ok(html.includes(card.rate_reference.source_date));
+    assert.match(html,/不提供费用 \/ 待遇计算/);
+    for(const date of ['2026-11-09','2027-02-10']) {
+      assert.equal(currentLifeModule(card,date).rate_reference,null);
+    }
+  }
+  assert.match(moduleCard(water),/综合水价已含/);
+  assert.match(moduleCard(water),/不按月重置/);
+  assert.match(moduleCard(heating),/元\/建筑平方米·采暖季/);
+  assert.match(moduleCard(heating),/非每月/);
+  for(const id of ['power','gas']) assert.ok(!moduleCard(beijing.find(m=>m.id===id)).includes('utility-rates'));
+});
