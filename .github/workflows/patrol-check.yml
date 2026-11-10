@@ -39,8 +39,24 @@ jobs:
             const body = current.body || '';
             const m1 = body.match(/###\s*agent 名称\s*\n+\s*([^\n]+)/i);
             const m2 = body.match(/^\s*[-*]?\s*agent\s*[:：]\s*([^\n]+)$/im);
-            const m3 = body.match(/[（(]\s*agent\s*[:：]\s*([a-z0-9][a-z0-9 \-]*?)\s*[）)]/i);
-            const agent = ((m1 && m1[1]) || (m2 && m2[1]) || (m3 && m3[1]) || '').trim();
+            // A bracketed mention is not a signature. Ignore fenced examples and quoted lines.
+            // This is format metadata only, never proof of identity or merge authorization.
+            const parentheticalAgent = (() => {
+              let fence = null;
+              for (const line of body.split(/\r?\n/)) {
+                const marker = line.match(/^ {0,3}((?:(?:[-+*]|\d{1,9}[.)])[ \t]+)?)(`{3,}|~{3,})(.*)$/);
+                if (marker) {
+                  if (!fence) fence = { character: marker[2][0], length: marker[2].length };
+                  else if (!marker[1] && marker[2][0] === fence.character && marker[2].length >= fence.length && !marker[3].trim()) fence = null;
+                  continue;
+                }
+                if (fence) continue;
+                const match = line.match(/^ {0,3}(?:[-*][ \t]+)?维护助手[ \t]*[:：]?[ \t]*[^ \t（）()\r\n:：][^（）()\r\n]*?(?:（[ \t]*agent[ \t]*[:：][ \t]*([a-z0-9][a-z0-9 -]*?)[ \t]*）|\([ \t]*agent[ \t]*[:：][ \t]*([a-z0-9][a-z0-9 -]*?)[ \t]*\))/i);
+                if (match) return match[1] || match[2];
+              }
+              return null;
+            })();
+            const agent = ((m1 && m1[1]) || (m2 && m2[1]) || parentheticalAgent || '').trim();
             if (!agent) problems.push('请在 PR 正文补充 Agent: xxx（或 agent 名称小节，或「维护助手 xxx（agent:xxx）」署名）。');
             const allowed = h => /(^|\.)gov\.cn$/i.test(h) || /(^|\.)cih-index\.com$/i.test(h);
             let sourceCount = 0;
@@ -129,8 +145,24 @@ jobs:
             let agent = null;
             const m1 = body.match(/###\s*agent 名称\s*\n+\s*([^\n]+)/i);
             const m2 = body.match(/^\s*[-*]?\s*agent\s*[:：]\s*([^\n]+)$/im);
-            const m3 = body.match(/[（(]\s*agent\s*[:：]\s*([a-z0-9][a-z0-9 \-]*?)\s*[）)]/i);
-            const raw = ((m1 && m1[1]) || (m2 && m2[1]) || (m3 && m3[1]) || '').trim().toLowerCase();
+            // A bracketed mention is not a signature. Ignore fenced examples and quoted lines.
+            // This is format metadata only, never proof of identity or merge authorization.
+            const parentheticalAgent = (() => {
+              let fence = null;
+              for (const line of body.split(/\r?\n/)) {
+                const marker = line.match(/^ {0,3}((?:(?:[-+*]|\d{1,9}[.)])[ \t]+)?)(`{3,}|~{3,})(.*)$/);
+                if (marker) {
+                  if (!fence) fence = { character: marker[2][0], length: marker[2].length };
+                  else if (!marker[1] && marker[2][0] === fence.character && marker[2].length >= fence.length && !marker[3].trim()) fence = null;
+                  continue;
+                }
+                if (fence) continue;
+                const match = line.match(/^ {0,3}(?:[-*][ \t]+)?维护助手[ \t]*[:：]?[ \t]*[^ \t（）()\r\n:：][^（）()\r\n]*?(?:（[ \t]*agent[ \t]*[:：][ \t]*([a-z0-9][a-z0-9 -]*?)[ \t]*）|\([ \t]*agent[ \t]*[:：][ \t]*([a-z0-9][a-z0-9 -]*?)[ \t]*\))/i);
+                if (match) return match[1] || match[2];
+              }
+              return null;
+            })();
+            const raw = ((m1 && m1[1]) || (m2 && m2[1]) || parentheticalAgent || '').trim().toLowerCase();
             agent = AGENTS[raw] || (raw ? 'agent:other' : null);
 
             // 3) 收集来源 URL
