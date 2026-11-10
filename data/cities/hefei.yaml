@@ -50,12 +50,12 @@ social_security:
   base_min: 4354
   base_max: 21772
   year: 2026（2026-01-01 至 2026-12-31）
-  scope: 安徽全省（个人缴费基数）
-  source_url: https://m.jiemian.com/article/15059098.html
-  source_type: media
-  verified_at: 2026-11-09
-  needs_human: true
-  needs_human_reason: 只找到界面新闻转载的安徽省人社厅等部门通知，未在 hrss.ah.gov.cn 检索到原文，需人工替换为官网链接。
+  scope: 安徽全省（企业职工基本养老保险、职工基本医疗保险、工伤保险、失业保险个人缴费基数）
+  source_url: https://rsj.huaibei.gov.cn/gzdt/gfxwj/58052711.html
+  source_type: gov
+  verified_at: 2026-11-10
+  needs_human: false
+  needs_human_reason: null
   access_blocked: false
 
 living:
@@ -73,22 +73,22 @@ living:
   access_blocked: true
 
 flexible_employment:
-  pension_base_min: null
-  pension_rate: null
-  pension_year: null
-  medical_monthly_min: null
-  medical_note: 媒体转载的安徽 2026 通知称灵活就业人员参加职工医保和生育保险统一以下限 4354 元为基数，费率未知，且未见官网原文
-  monthly_total_min: null
-  calc: null
+  pension_base_min: 4354
+  pension_rate: 20
+  pension_year: 2026
+  medical_monthly_min: 261.24
+  medical_note: 安徽省统一口径（2026 年度）：灵活就业人员参加职工医保（生育保险）统一以缴费基数下限 4354 元为基数（省五部门 2026 年基数通知原文），费率 6%（《合肥市基本医疗保险办法》合肥市人民政府令第 213 号第九条：以省平均工资的 60% 为基数、按 6% 缴纳，不建个人账户）；月额为基数×费率计算 4354×6% = 261.24 元。大额医疗费用补助的合肥金额未在官方页面查到，未计入
+  monthly_total_min: 1132.04
+  calc: 养老 4354 × 20% = 870.80；医保 261.24（4354 × 6%）；合计 1132.04 元/月
   hukou_restriction: null
   nonlocal_allowed: null
   apply_channel: null
-  source_url: null
+  source_url: https://rsj.huaibei.gov.cn/gzdt/gfxwj/58052711.html
   medical_source_url: null
   hukou_source_url: null
-  verified_at: null
+  verified_at: 2026-11-10
   needs_human: true
-  needs_human_reason: 安徽 2026 社保基数官网原文未找到，合肥医保与户籍限制页面无法访问。
+  needs_human_reason: 外地户籍能否以灵活就业身份在合肥参保（养老、医保）尚未核实；医保大额补助金额未核实（见 medical_note）。养老与医保月缴额已按官方原文补齐。
   access_blocked: false
 
 civil_service:
@@ -153,3 +153,13 @@ changelog:
     old: false
     new: true
     basis: 考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html
+  - date: 2026-11-10
+    field: social_security.source_url/source_type
+    old: 界面新闻转载（media），数字待人工换官网链接
+    new: 安徽省五部门《关于发布2026年社会保险缴费基数上下限的通知》官方全文（淮北市人社局官网转发），数字 4354/21772 与原文一致
+    basis: 转发页原文「我省2026年社会保险个人缴费基数上限为21772元/月，下限为4354元/月。执行时间为2026年1月1日至12月31日」；原媒体记录的数字无误，仅来源升级为 gov 原文
+  - date: 2026-11-10
+    field: flexible_employment（养老基数、医保月缴、每月合计）
+    old: null
+    new: 养老基数下限 4354、医保月缴 261.24（基数×费率计算）、每月合计最低 1132.04
+    basis: 基数同上省通知（灵活就业医保统一按下限为基数亦出自该通知原文）；医保费率 6% 据《合肥市基本医疗保险办法》（市政府令第 213 号）第九条
