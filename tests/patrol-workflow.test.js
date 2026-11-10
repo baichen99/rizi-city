@@ -65,3 +65,63 @@ test('label update during check fails', async () => assert.match((await check({l
 test('label reordering is not a change', async () => assert.equal((await check({pr:{labels:[{name:'x'},{name:'y'}]},latest:{labels:[{name:'y'},{name:'x'}]}})).failure,undefined));
 test('valid deletion explicitly requires human verification in summary', async () => assert.equal((await check({files:[{filename:'data/cities/x.yaml',patch:'@@ -1 +0,0 @@\n-source_url: https://gov.cn',additions:0,deletions:1}],expectSummary:/未发现新增来源 URL，仍需人工核实/})).failure,undefined));
 test('rename without patch fails for manual review', async () => assert.match((await check({files:[{filename:'data/cities/new.yaml',previous_filename:'data/cities/old.yaml',status:'renamed',additions:0,deletions:0}]})).failure,/人工复核/));
+
+
+const signedBodies = [
+  ['维护助手 Muse（agent:muse）补录。', 'agent:muse'],
+  ['维护助手：Muse（agent：muse）', 'agent:muse'],
+  ['维护助手 dots (agent: dots)', 'agent:dots'],
+  ['- 维护助手 Claude Code (agent: claude code)', 'agent:claude-code'],
+  ['正文\n维护助手 Muse（AGENT: MUSE）\n其他内容', 'agent:muse'],
+  ['维护助手 Other（agent:new-helper）', 'agent:other'],
+];
+const unsignedBodies = [
+  '正文讨论（agent:muse）格式，并非署名。',
+  '请参考维护助手 Muse（agent:muse）的历史提交。',
+  '> 维护助手 Muse（agent:muse）补录。',
+  '`维护助手 Muse（agent:muse）`',
+  '```text\n维护助手 Muse（agent:muse）\n```',
+  '~~~text\n维护助手 Muse（agent:muse）\n~~~',
+  '````text\n```\n维护助手 Muse（agent:muse）\n````',
+  '- ```text\n  维护助手 Muse（agent:muse）\n  ```',
+  '1. ```text\n   维护助手 Muse（agent:muse）\n   ```',
+  '```text\n- ```\n维护助手 Muse（agent:muse）\n```',
+  '    维护助手 Muse（agent:muse）',
+  '维护助手 Muse（agent:muse)',
+  '维护助手 Muse(agent:muse）',
+  '维护助手 Muse（agent:\nmuse）',
+  '维护助手 Muse（agent:）',
+  '维护助手（agent:muse）',
+];
+for (const [body, label] of signedBodies) {
+  test('explicit parenthetical signature works in PR and Issue: ' + body, async () => {
+    assert.equal((await check({pr:{body}})).failure, undefined);
+    const result = await issueCheck(body + '\n```yaml\nitems:\n  source_url: https://city.gov.cn/a\n```');
+    assert.deepEqual(result.labels, [['agent-patrol', label]]);
+    assert.equal(result.comments.length, 0);
+  });
+}
+for (const body of unsignedBodies) {
+  test('parenthetical mention is not a signature in PR or Issue: ' + body, async () => {
+    assert.match((await check({pr:{body}})).failure, /Agent/);
+    const result = await issueCheck(body + '\n```yaml\nitems:\n  source_url: https://city.gov.cn/a\n```');
+    assert.ok(result.labels[0].includes('needs-source'));
+    assert.ok(!result.labels[0].some(label => label.startsWith('agent:')));
+    assert.match(result.comments[0], /agent 名称/);
+  });
+}
+test('parenthetical signature does not override explicit Agent field', async () => {
+  const result = await issueCheck('Agent: dots\n维护助手 Muse（agent:muse）\n```yaml\nitems:\n  source_url: https://city.gov.cn/a\n```');
+  assert.deepEqual(result.labels, [['agent-patrol', 'agent:dots']]);
+});
+test('signature after a fenced example is still read', async () => {
+  const body = '```text\n维护助手 Other（agent:other）\n```\n维护助手 Muse（agent:muse）';
+  const result = await issueCheck(body + '\n```yaml\nitems:\n  source_url: https://city.gov.cn/a\n```');
+  assert.deepEqual(result.labels, [['agent-patrol', 'agent:muse']]);
+});
+
+test('signature after a list fenced example is still read', async () => {
+  const body = '- ```text\n  维护助手 Other（agent:other）\n  ```\n维护助手 Muse（agent:muse）';
+  const result = await issueCheck(body + '\n```yaml\nitems:\n  source_url: https://city.gov.cn/a\n```');
+  assert.deepEqual(result.labels, [['agent-patrol', 'agent:muse']]);
+});
