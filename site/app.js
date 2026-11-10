@@ -309,7 +309,7 @@
   function renderResident() {
     const c = D.cities.find(c => c.id === state.residentCity);
     const saved = rememberedCity();
-    $("#tab-resident").innerHTML = `<div class="resident-intro"><p class="kicker">把日子过在这里</p><h2>${c ? esc(c.city) + "，生活概况" : "先看看你生活的城市"}</h2><p class="sub">看懂公开数据，找到政策原文。没有全体居民的城市总分，也不用填写个人收入或身份信息。</p></div><div class="card city-picker"><label for="resident-city">我住在</label><select id="resident-city">${cityOptions(state.residentCity)}</select><div class="row"><button class="btn ghost" data-remember ${!c ? "disabled" : ""}>在本机记住这座城</button><button class="btn ghost" data-forget ${!saved ? "disabled" : ""}>清除记住的城市</button>${c ? '<button class="btn ghost" data-copy>分享城市页</button>' : ""}</div><p class="small">${saved ? "已记住：" + esc(D.cities.find(x=>x.id===saved)?.city || saved) + "。" : "默认不保存。"}仅在此浏览器保存城市；分享链接不含个人条件。</p></div>${!c ? `<div class="resident-empty"><span aria-hidden="true">⌂</span><h3>一城一份，慢慢看清楚</h3><p>选择城市后查看概况、历史观测、政策和生活入口。未覆盖的数据会明确留空。</p><p><a href="#compare">还在考虑搬家？比较两座城市 →</a></p></div>` : `<nav class="life-jumps" aria-label="本城内容">${[["overview","概况"],["history","历史走势"],["policies","政策"],["daily","日常生活"],["sources","来源与更新"]].map(([id,l])=>`<button class="chip" data-jump="${id}">${l}</button>`).join("")}</nav><section id="life-overview"><h2>生活的几个侧面</h2><p class="sub">数字的时间和对象可能不同，请展开查看。没有值不代表为 0。</p><div class="metric-grid">${lifeRecords(c).map(r=>metricCard(c,r)).join("")}</div></section><section id="life-history"><h2>沿着时间看变化</h2><p class="sub">每张图独立呈现同一可比序列。历史数据不冒充现状。</p><div class="life-stack">${(c.life?.series || []).map((s,i)=>historyChart(c,s,i)).join("") || '<p class="note">尚未收录满足同口径要求的历史序列，暂不绘图。</p>'}</div></section><div id="life-policies">${policyCards(c)}</div><section id="life-daily"><h2>日常生活入口</h2><p class="sub">先找到可信的入口。不把官方单价当平均账单，也不估算个人费用。</p><div class="metric-grid">${(c.life?.modules || []).map(moduleCard).join("") || '<p class="note">本城账单、气候、就医、菜篮子与街区导航尚未覆盖；不提供未经核实的价格。</p>'}</div></section><section id="life-sources"><h2>来源与资料更新</h2><p class="sub">重新核验不等于政策发生变化。目前未建立独立的政策生效变更流，请以原文为准。</p><div class="card"><h3>资料核验</h3><p>本城最近核验：${esc(c.latest_verified || "未提供")}。统计年份请查看各指标。</p><details><summary>全部新增数据来源（${(c.life?.sources || []).length}）</summary><ul>${(c.life?.sources || []).map(s=>`<li>${safeLink(s.url || s.source_url, s.title || s.id)} <span class="small">${esc(s.verified_at || "")}</span></li>`).join("")}</ul></details><p>${link(yamlUrl(c),"查看城市数据与维护记录")} · ${link(REPO + "/issues/new?template=data-error.yml", "报告数据问题")}</p></div></section>`}`;
+    $("#tab-resident").innerHTML = `<div class="resident-intro"><p class="kicker">把日子过在这里</p><h2>${c ? esc(c.city) + "，生活概况" : "先看看你生活的城市"}</h2><p class="sub">看懂公开数据，找到政策原文。先看月开支和生活水平，再查政策与原文。</p></div><div class="card city-picker"><label for="resident-city">我住在</label><select id="resident-city">${cityOptions(state.residentCity)}</select><div class="row"><button class="btn ghost" data-remember ${!c ? "disabled" : ""}>在本机记住这座城</button><button class="btn ghost" data-forget ${!saved ? "disabled" : ""}>清除记住的城市</button>${c ? '<button class="btn ghost" data-copy>分享城市页</button>' : ""}</div><p class="small">${saved ? "已记住：" + esc(D.cities.find(x=>x.id===saved)?.city || saved) + "。" : "默认不保存。"}仅在此浏览器保存城市；分享链接不含个人条件。</p></div>${!c ? `<div class="resident-empty"><span aria-hidden="true">⌂</span><h3>一城一份，慢慢看清楚</h3><p>选择城市后查看概况、历史观测、政策和生活入口。未覆盖的数据会明确留空。</p><p><a href="#compare">还在考虑搬家？比较两座城市 →</a></p></div>` : `<nav class="life-jumps" aria-label="本城内容">${[["budget","月开支"],["overview","概况"],["history","历史走势"],["policies","政策"],["daily","日常生活"],["sources","来源与更新"]].map(([id,l])=>`<button class="chip" data-jump="${id}">${l}</button>`).join("")}</nav>${renderBudget(c)}<section id="life-overview"><h2>生活的几个侧面</h2><p class="sub">数字的时间和对象可能不同，请展开查看。没有值不代表为 0。</p><div class="metric-grid">${lifeRecords(c).map(r=>metricCard(c,r)).join("")}</div></section><section id="life-history"><h2>沿着时间看变化</h2><p class="sub">每张图独立呈现同一可比序列。历史数据不冒充现状。</p><div class="life-stack">${(c.life?.series || []).map((s,i)=>historyChart(c,s,i)).join("") || '<p class="note">尚未收录满足同口径要求的历史序列，暂不绘图。</p>'}</div></section><div id="life-policies">${policyCards(c)}</div><section id="life-daily"><h2>日常生活入口</h2><p class="sub">先找到可信的入口。不把官方单价当平均账单，也不估算个人费用。</p><div class="metric-grid">${(c.life?.modules || []).map(moduleCard).join("") || '<p class="note">本城账单、气候、就医、菜篮子与街区导航尚未覆盖；不提供未经核实的价格。</p>'}</div></section><section id="life-sources"><h2>来源与资料更新</h2><p class="sub">重新核验不等于政策发生变化。目前未建立独立的政策生效变更流，请以原文为准。</p><div class="card"><h3>资料核验</h3><p>本城最近核验：${esc(c.latest_verified || "未提供")}。统计年份请查看各指标。</p><details><summary>全部新增数据来源（${(c.life?.sources || []).length}）</summary><ul>${(c.life?.sources || []).map(s=>`<li>${safeLink(s.url || s.source_url, s.title || s.id)} <span class="small">${esc(s.verified_at || "")}</span></li>`).join("")}</ul></details><p>${link(yamlUrl(c),"查看城市数据与维护记录")} · ${link(REPO + "/issues/new?template=data-error.yml", "报告数据问题")}</p></div></section>`}`;
   }
   function comparisonRows(a, b) {
     const left = lifeRecords(a), right = lifeRecords(b);
@@ -344,6 +344,125 @@
     if (!["income", "consumption"].includes(r.metric)) return "";
     return checkedValue(r) ? ({urban_residents:"城镇常住居民",all_residents:"全体常住居民",rural_residents:"农村常住居民"})[r.population_scope_type] || "人口范围待核实" : "";
   }
+  // ---------- Living-cost reference and private, in-memory household plan ----------
+  const BUDGET_FIELDS = [
+    {key:"housing",label:"住房",hint:"整户房租、房贷及物业等"},
+    {key:"food",includedIn:["other"],label:"吃饭买菜",hint:"全家合计，含外食"},
+    {key:"water",includedIn:["housing","other"],label:"水费",hint:"填账单月均金额"},
+    {key:"power",includedIn:["housing","other"],label:"电费",hint:"含已用电支付的制冷、取暖"},
+    {key:"gas",includedIn:["housing","other"],label:"燃气",hint:"已含的取暖不重复填"},
+    {key:"heating",includedIn:["housing","power","gas","other"],label:"供暖费（全年）",hint:"单独付的全年费用，按12个月摊开",annual:true},
+    {key:"transport",includedIn:["other"],label:"交通",hint:"整户通勤、出行合计"},
+    {key:"social",includedIn:["other"],label:"另付税费、社保",hint:"只填尚未从可用收入扣除的部分"},
+    {key:"other",label:"其他开销",hint:"通讯、医疗、育儿、娱乐和其他债务等，不含储蓄"},
+  ];
+  function freshBudget() { return {mode:"total",people:"1",income:"",goal:"",total:"",amounts:{},included:{}}; }
+  function cityBudget(c) { state.budgets ||= {}; return state.budgets[c.id] ||= freshBudget(); }
+  function budgetAmount(raw) {
+    if (typeof raw !== "string" || raw.trim() === "") return null;
+    if (!/^\d+(?:\.\d{1,2})?$/.test(raw.trim())) return NaN;
+    const n = Number(raw); return Number.isFinite(n) && n <= 10000000 ? n : NaN;
+  }
+  function budgetResult(b) {
+    const people = typeof b.people === "string" && /^\d+$/.test(b.people) ? Number(b.people) : NaN;
+    const income = budgetAmount(b.income), goal = budgetAmount(b.goal);
+    const missing = [], invalid = [], entered = [], included = [];
+    let subtotal = 0;
+    if (!Number.isInteger(people) || people < 1 || people > 30) invalid.push("人数（1至30人）");
+    if (b.mode === "details") {
+      for (const f of BUDGET_FIELDS) {
+        const mode = b.included[f.key] || "separate";
+        if (mode === "none") { entered.push(f.key); continue; }
+        if ((f.includedIn || []).includes(mode)) { included.push([f,mode]); continue; }
+        if (mode !== "separate") { invalid.push(f.label + "计入方式"); continue; }
+        const value = budgetAmount(b.amounts[f.key] ?? "");
+        if (value === null) missing.push(f.label);
+        else if (!Number.isFinite(value)) invalid.push(f.label);
+        else { subtotal += f.annual ? value / 12 : value; entered.push(f.key); }
+      }
+      for (const [f,target] of included) {
+        const amount = budgetAmount(b.amounts[target] ?? "");
+        const targetLabel = BUDGET_FIELDS.find(item=>item.key === target).label;
+        if ((b.included[target] || "separate") !== "separate" || amount === null || !Number.isFinite(amount)) missing.push(`${f.label}所含的${targetLabel}金额`);
+        else entered.push(f.key);
+      }
+    } else if (b.mode === "total") {
+      const value = budgetAmount(b.total);
+      if (value === null) missing.push("整户月开支");
+      else if (!Number.isFinite(value)) invalid.push("整户月开支");
+      else { subtotal = value; entered.push("total"); }
+    } else invalid.push("填写方式");
+    if (income !== null && !Number.isFinite(income)) invalid.push("可用收入");
+    if (goal !== null && !Number.isFinite(goal)) invalid.push("储蓄目标");
+    // Round after summing, not each item's annual-to-monthly conversion.
+    subtotal = Math.round(subtotal * 100) / 100;
+    const complete = missing.length === 0 && invalid.length === 0;
+    const balance = complete && income !== null ? Math.round((income - subtotal) * 100) / 100 : null;
+    const afterGoal = balance !== null && goal !== null ? Math.round((balance - goal) * 100) / 100 : null;
+    return {people,income,goal,subtotal,missing,invalid,entered,complete,balance,afterGoal};
+  }
+  function budgetMoney(n) { return numberText(n, Math.abs(n) < 1 && n !== 0 ? 2 : 0); }
+  function budgetReading(r) {
+    if (r.invalid.length) return {title:"有几项需要改一下",detail:"请检查：" + r.invalid.join("、")};
+    if (!r.complete) return {title:r.entered.length ? `已填开销合计约 ${budgetMoney(r.subtotal)} 元/月` : "把你的月开支填进来",detail:"还没算：" + r.missing.join("、")};
+    if (r.balance === null) return {title:`整户每月预计花 ${budgetMoney(r.subtotal)} 元`,detail:"再填整户可用收入，就能看每月还能留下多少。"};
+    if (r.balance < 0) return {title:`按这份预算，每月还差约 ${budgetMoney(-r.balance)} 元`,detail:"目前填的开销超过了可用收入，可以调整开销或收入计划。"};
+    if (r.balance === 0 && (r.goal === null || r.goal === 0)) return {title:"按这份预算，收支刚好打平",detail:"每月可用收入与已填开销相同，暂时没有结余。"};
+    if (r.afterGoal !== null) {
+      if (r.afterGoal < 0) return {title:`离你的储蓄目标还差约 ${budgetMoney(-r.afterGoal)} 元/月`,detail:`支付这些开销后可留 ${budgetMoney(r.balance)} 元；你希望每月存 ${budgetMoney(r.goal)} 元。`};
+      if (r.afterGoal === 0) return {title:"付完开销，刚好够你的储蓄目标",detail:`每月存下 ${budgetMoney(r.goal)} 元后，没有额外余量。`};
+      return {title:`达到储蓄目标后，还能留约 ${budgetMoney(r.afterGoal)} 元/月`,detail:`已经预留每月 ${budgetMoney(r.goal)} 元储蓄。`};
+    }
+    return {title:`付完这些开销，每月还能留约 ${budgetMoney(r.balance)} 元`,detail:"可以再设一个储蓄目标，看看计划能否做到。"};
+  }
+  function verifiedResidentRecord(c, metric) {
+    const r = lifeRecords(c).find(r => r.metric === metric);
+    return r && checkedValue(r) && r.statistic === "mean" && r.price_basis === "nominal" && r.cross_city_comparability_key && r.metadata_source ? r : null;
+  }
+  function costReference(c) {
+    const r = verifiedResidentRecord(c,"consumption");
+    if (!r) return null;
+    const peers = D.cities.map(city => ({city,record:verifiedResidentRecord(city,"consumption")})).filter(p => p.record && comparable(r,p.record)).sort((a,b) => a.record.value-b.record.value || a.city.city.localeCompare(b.city.city,"zh"));
+    const rank = 1 + peers.filter(p=>p.record.value < r.value).length;
+    const ties = peers.filter(p=>p.record.value === r.value).length;
+    const place = ties === peers.length ? "消费均值相同" : r.value === peers[0]?.record.value ? `${ties > 1 ? "并列" : ""}最低` : r.value === peers[peers.length-1]?.record.value ? `${ties > 1 ? "并列" : ""}最高` : `${ties > 1 ? "并列" : ""}第${rank}低`;
+    const position = peers.length < 2 ? "同口径城市还在补齐" : `${peers.length}座同口径城市里${place}`;
+    const income = verifiedResidentRecord(c,"income");
+    const sameIncome = income && income.period === r.period && income.population_scope_type === r.population_scope_type && income.methodology_key === r.methodology_key && income.geographic_scope_type === r.geographic_scope_type;
+    return {record:r,monthly:r.value/12,peers,rank,position,income:sameIncome ? income : null};
+  }
+  function referenceMoney(n) { return n > 0 && n < 100 ? "不到100" : numberText(Math.round(n / 100) * 100,0); }
+  function costReferenceCard(c) {
+    const ref = costReference(c);
+    if (!ref) return `<div class="card cost-reference"><h3>${esc(c.city)}一个月的消费水平</h3><p class="cost-headline">整月开支的可比资料还没补齐</p><p>可以先用下面的预算，算自己的生活开销。</p></div>`;
+    const r = ref.record;
+    return `<div class="card cost-reference"><p class="kicker">${esc(c.city)} · 一个月的消费水平</p><h3 class="cost-headline">每人每月约 <strong>${referenceMoney(ref.monthly)}</strong> 元</h3><p class="cost-position">${esc(ref.position)}</p><p class="small">${esc(r.period)}年 · ${esc(populationLabel(r))}人均消费年数÷12${r.data_status === "preliminary" ? " · 初步数" : ""}。这是统计平均，不是每个人的实际账单。</p>${ref.income ? `<p class="cost-income">同一人群的可支配收入约 <strong>${referenceMoney(ref.income.value/12)}元/人/月</strong>。</p>` : ""}<details class="cost-evidence"><summary>看看参照城市和原始数据</summary><ul class="reference-cities">${ref.peers.map(p=>`<li><span>${esc(p.city.city)}</span><strong>约${referenceMoney(p.record.value/12)}元/人/月</strong></li>`).join("")}</ul><p>只比较上面这些同年、同人口口径城市，按未舍入的年值排序；不是全国排名。居民消费已包括居住、水电等，也可能含自有住房虚拟租金，不与下面的个人预算相加。</p><p>居民收入包含各类居民的收入，不是工资。工资平均数与中位数见生活概况。</p><p>原年消费：${lifeValue(r)}元；除12约${numberText(ref.monthly,0)}元/月。卡片取整到百元，便于看量级。</p>${recordDetails(c,r)}${ref.income ? `<p>原年可支配收入：${lifeValue(ref.income)}元。</p>${recordDetails(c,ref.income)}` : ""}</details></div>`;
+  }
+  function budgetOutput(b) {
+    const r = budgetResult(b), reading = budgetReading(r);
+    return `<div class="budget-output ${r.invalid.length || r.balance < 0 || r.afterGoal < 0 ? "budget-attention" : ""}" ><h4>${esc(reading.title)}</h4><p>${esc(reading.detail)}</p>${r.complete ? `<p class="small">整户计划月开支约 ${budgetMoney(r.subtotal)} 元 · ${r.people}人简单均摊约 ${budgetMoney(r.subtotal/r.people)} 元/人</p>` : `<p class="small">空白是待补，不按0算。填齐前不判断生活余量。</p>`}</div>`;
+  }
+  function budgetInput(key,label,value,hint="") {
+    return `<label class="budget-field"><span>${esc(label)}</span><input type="number" min="0" max="10000000" step="0.01" inputmode="decimal" data-budget="${key}" value="${esc(value)}" placeholder="先留空也可以">${hint ? `<small>${esc(hint)}</small>` : ""}</label>`;
+  }
+  function renderBudget(c) {
+    const b = cityBudget(c);
+    return `<section id="life-budget"><h2>一个月过日子，要花多少？</h2>${costReferenceCard(c)}<details class="card budget-planner"><summary>按我的情况算一算</summary><div class="budget-form"><p>填整户每月的计划金额，马上看还能留下多少。仅在当前页面计算，不保存、不放进分享链接。</p><div class="budget-basics"><label class="budget-field"><span>一起生活的人数</span><input type="number" min="1" max="30" step="1" inputmode="numeric" data-budget="people" value="${esc(b.people)}"></label>${budgetInput("income","整户月可用收入（元）",b.income,"已扣税、代扣社保和公积金后的金额")}${budgetInput("goal","每月想存下（元，可选）",b.goal,"储蓄另算，不放进下面的开销")}</div><div class="budget-modes" role="group" aria-label="预算填写方式"><button class="chip" data-budget-mode="total" aria-pressed="${b.mode === "total"}">直接填月总额</button><button class="chip" data-budget-mode="details" aria-pressed="${b.mode === "details"}">按项目拆开算</button></div>${b.mode === "total" ? budgetInput("total","整户每月计划开支（元）",b.total,"含住房、吃饭、水电、交通、另付社保与其他开销，不含储蓄") : `<p class="small">都是整户金额，不会再乘人数。包费项目选清楚含在哪一项，承接项要填金额；没有此项支出选“不适用”。</p><div class="budget-items">${BUDGET_FIELDS.map(f=>`<div class="budget-item"><label><span>${f.label}</span><input type="number" min="0" max="10000000" step="0.01" inputmode="decimal" data-budget-item="${f.key}" value="${esc(b.amounts[f.key] || "")}" ${b.included[f.key] && b.included[f.key] !== "separate" ? "disabled" : ""} placeholder="${f.annual ? "元/全年" : "元/月"}" aria-label="${f.label}金额"></label><select data-budget-included="${f.key}" aria-label="${f.label}如何计入">${[["separate","单独填写"],...(f.includedIn || []).map(key=>[key,"含在" + ({housing:"住房",power:"电费",gas:"燃气",other:"其他"})[key]]),["none","不适用"]].map(([value,label])=>`<option value="${value}" ${(b.included[f.key] || "separate") === value ? "selected" : ""}>${label}</option>`).join("")}</select><small>${f.hint}</small></div>`).join("")}</div>`}<div id="budget-result" role="status" aria-live="polite">${budgetOutput(b)}</div><button class="btn ghost" data-budget-reset>清空本城预算</button></div></details></section>`;
+  }
+  function updateBudgetOutput() {
+    const c = D.cities.find(c=>c.id === state.residentCity);
+    if (c && $("#budget-result")) $("#budget-result").innerHTML = budgetOutput(cityBudget(c));
+  }
+  function rerenderBudget(focusSelector) {
+    const c = D.cities.find(c=>c.id === state.residentCity);
+    if (!c) return;
+    const open = $(".budget-planner")?.open;
+    const section = $("#life-budget");
+    section.outerHTML = renderBudget(c);
+    $(".budget-planner").open = open;
+    $(focusSelector)?.focus();
+  }
+
   function comparisonCard(a, b, row) {
     const labels = {rent:"租房单价", housing_new_yoy_index:"新房价格变化", income:"居民可支配收入", consumption:"居民消费支出", wage_nonprivate_mean:"非私营单位工资", wage_private_mean:"私营单位工资", wage_median:"工资中位数", life_expectancy:"出生时预期寿命"};
     const statuses = {ready:"同口径可比", reference:"仅分别参考", missing:"数据待补"};
@@ -401,6 +520,10 @@
     if (metric.key === "subsidy") return `${numberText(input.value)}元`;
     return `${numberText(input.value * 100)}%`;
   }
+  function indexLifeReading(c) {
+    const ref = costReference(c);
+    return ref ? `居民月均消费约 <strong>${referenceMoney(ref.monthly)}元/人</strong>，${esc(ref.position)}。<br><span class="small">${esc(ref.record.period)}年 · ${esc(populationLabel(ref.record))}</span> <a href="#resident&city=${encodeURIComponent(c.id)}">算我的月开支 →</a>` : `整月开支的可比资料还在补齐。<a href="#resident&city=${encodeURIComponent(c.id)}">先算我的月开支 →</a>`;
+  }
   function renderIndex() {
     const el = $("#tab-index");
     const sumW = ACTIVE.reduce((a, m) => a + state.w[m.key], 0);
@@ -412,10 +535,10 @@
         <p class="sub">按你在乎的${ACTIVE.length}件事，把当前可排名的城市放在一起比。分数越高，只表示在这套条件和权重下更靠前。</p>
       </div>
       <div class="card index-guide">
-        <h3>80分是什么意思？</h3>
+        <h3>先看月开支，再看偏好排名</h3><p>每座城的消费量级放在分数旁边。选中城市，还能按自己的开销算每月结余。</p><details><summary>80分是什么意思？</summary>
         <p>是当前${ranked.length}座入榜城市之间的相对分，不是幸福概率，也不是城市综合体检。0分不等于差，100分不等于完美。</p>
         <p class="small">主要面向本科落户、补贴与灵活就业等特定条件；城市、数据或权重变了，分数也会变。</p>
-        <details><summary>看一个算分例子</summary><p>示意，不是城市数据：假设房租负担最低20%、最高40%，某城25%，这一项得75分。表示它在这组城市中相对靠前，不是房租便宜75%。</p><p>权重0：这一项不计入总分；有数据的项目中，3按三份、1按一份参与加权。缺1项按其余有数据项目重新加权；是否入榜仍按全部启用项目的数据完整性判断。</p></details>
+        <details><summary>看一个算分例子</summary><p>示意，不是城市数据：假设房租负担最低20%、最高40%，某城25%，这一项得75分。表示它在这组城市中相对靠前，不是房租便宜75%。</p><p>权重0：这一项不计入总分；有数据的项目中，3按三份、1按一份参与加权。缺1项按其余有数据项目重新加权；是否入榜仍按全部启用项目的数据完整性判断。</p></details></details>
       </div>
       <div class="card">
         <p class="small">滑块越大，这件事在你的总分里占得越重；0表示不计入总分。</p>
@@ -435,7 +558,7 @@
         ${ranked.map((r) => `
           <li>
             <div class="rank-head"><span class="rank-no">${r.rank}</span><a class="rank-name" href="#resident&city=${encodeURIComponent(r.c.id)}">${esc(r.c.city)}</a><span class="rank-score">${r.total == null ? "—" : r.total.toFixed(0)}</span></div>
-            <div class="bar"><i style="width:${(r.total || 0).toFixed(1)}%"></i></div>
+            <div class="bar"><i style="width:${(r.total || 0).toFixed(1)}%"></i></div><p class="rank-life">${indexLifeReading(r.c)}</p>
             <div class="parts">
               ${ACTIVE.map((m) => r.scores[m.key] == null
                 ? `<span class="miss" title="${esc(r.c.index[m.key].reason)}">${m.short} ⚠️缺</span>`
@@ -890,6 +1013,16 @@
     if (d.jump) { const section = $("#life-" + d.jump); section?.scrollIntoView({ block: "start" }); section?.setAttribute("tabindex", "-1"); section?.focus({ preventScroll: true }); return; }
     if ("remember" in d) { try { localStorage.setItem("rizi-resident-city", state.residentCity); toast("已在本机记住城市"); renderResident(); } catch (_) { toast("浏览器未允许保存，请使用城市链接"); } return; }
     if ("forget" in d) { try { localStorage.removeItem("rizi-resident-city"); toast("已清除记住的城市"); renderResident(); } catch (_) { toast("无法清除，请检查浏览器存储设置"); } return; }
+    if (d.budgetMode) {
+      const c = D.cities.find(c=>c.id === state.residentCity);
+      if (c && ["total","details"].includes(d.budgetMode)) { cityBudget(c).mode = d.budgetMode; rerenderBudget(`[data-budget-mode="${d.budgetMode}"]`); }
+      return;
+    }
+    if ("budgetReset" in d) {
+      const c = D.cities.find(c=>c.id === state.residentCity);
+      if (c) { state.budgets[c.id] = freshBudget(); rerenderBudget("[data-budget=people]"); }
+      return;
+    }
     if (d.preset != null) { state.w = { ...PRESETS[+d.preset].w }; return rerenderKeepOpen(); }
     if (d.deg) { state.deg = d.deg; return rerenderKeepOpen(); }
     if (d.gsort) { state.gradSort = d.gsort; return rerenderKeepOpen(); }
@@ -905,6 +1038,16 @@
   });
   document.addEventListener("input", (e) => {
     const t = e.target;
+    if (t.dataset.budget || t.dataset.budgetItem) {
+      const c = D.cities.find(c=>c.id === state.residentCity);
+      if (c) {
+        const b = cityBudget(c);
+        if (["people","income","goal","total"].includes(t.dataset.budget)) b[t.dataset.budget] = t.validity?.badInput ? "invalid" : t.value;
+        if (BUDGET_FIELDS.some(f=>f.key === t.dataset.budgetItem)) b.amounts[t.dataset.budgetItem] = t.validity?.badInput ? "invalid" : t.value;
+        updateBudgetOutput();
+      }
+      return;
+    }
     if (t.dataset.w) {
       state.w[t.dataset.w] = +t.value;
       t.nextElementSibling.textContent = t.value;
@@ -924,6 +1067,15 @@
     }
   });
   document.addEventListener("change", (e) => {
+    if (e.target.dataset.budgetIncluded) {
+      const key = e.target.dataset.budgetIncluded, c = D.cities.find(c=>c.id === state.residentCity);
+      const field = BUDGET_FIELDS.find(f=>f.key === key);
+      if (c && field && ["separate","none",...(field.includedIn || [])].includes(e.target.value)) {
+        cityBudget(c).included[key] = e.target.value;
+        rerenderBudget(`[data-budget-included="${key}"]`);
+      }
+      return;
+    }
     if (["resident-city", "compare-a", "compare-b"].includes(e.target.id)) { state[{"resident-city":"residentCity", "compare-a":"compareA", "compare-b":"compareB"}[e.target.id]] = e.target.value; show(state.tab, true); $("#" + e.target.id)?.focus(); }
     if (e.target.id === "policy-topic") { state.policyTopic = e.target.value; renderResident(); $("#policy-topic")?.focus(); }
     if (e.target.id === "my-city") { state.myCity = e.target.value || null; writeHash(); }

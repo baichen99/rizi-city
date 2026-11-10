@@ -374,3 +374,37 @@ input[type="range"] { min-height: 44px; }
 .comparison-number.missing { color: var(--ink-2); }
 
 .metric-scope { font-size: 13px; color: var(--ink-2); }
+
+/* A monthly spending reference stays separate from a private household plan. */
+.cost-reference { border-top: 4px solid var(--accent); }
+.cost-reference .cost-headline { font-size: 25px; line-height: 1.45; margin: 10px 0; }
+.cost-headline strong { font-variant-numeric: tabular-nums; color: var(--accent); }
+.cost-position { display: inline-block; background: var(--accent-soft); border-radius: 8px; padding: 7px 10px; margin: 4px 0 10px; font-weight: 600; }
+.cost-income { font-size: 14px; color: var(--ink-2); }
+.cost-evidence > summary, .budget-planner > summary { min-height: 44px; padding: 10px 0; cursor: pointer; color: var(--accent); }
+.cost-evidence { border-top: 1px solid var(--line); margin-top: 14px; font-size: 13px; }
+.reference-cities { padding: 0; list-style: none; }
+.reference-cities li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.budget-planner > summary { font-size: 18px; font-weight: 650; }
+.budget-form > p { font-size: 14px; color: var(--ink-2); }
+.budget-basics { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 16px 0; }
+.budget-field { display: flex; flex-direction: column; align-items: stretch; gap: 7px; font-size: 14px; }
+.budget-field input, .budget-item input, .budget-item select { width: 100%; min-width: 0; box-sizing: border-box; }
+.budget-field small, .budget-item small { font-size: 12px; line-height: 1.5; color: var(--ink-2); }
+.budget-modes { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+.budget-items { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+.budget-item { padding: 12px; background: var(--bg); border-radius: 10px; display: grid; grid-template-columns: minmax(0,1fr) minmax(110px,.8fr); align-items: end; gap: 8px; }
+.budget-item label { min-width: 0; display: grid; gap: 7px; font-size: 14px; }
+.budget-item small { grid-column: 1 / -1; }
+.budget-item input:disabled { opacity: .5; }
+.budget-output { background: var(--accent-soft); border-radius: 12px; padding: 16px; margin: 18px 0; overflow-wrap: anywhere; }
+.budget-output h4 { font-size: 20px; line-height: 1.5; margin: 0 0 8px; }
+.budget-output p { margin: 8px 0 0; font-size: 14px; }
+.budget-output .small { font-size: 12px; color: var(--ink-2); }
+.budget-output.budget-attention { background: var(--warn-soft); }
+.rank-life { font-size: 14px; line-height: 1.7; margin: 12px 0; }
+@media (max-width: 700px) {
+  .budget-basics, .budget-items { grid-template-columns: 1fr; }
+  .cost-reference .cost-headline { font-size: 22px; }
+  .budget-item { grid-template-columns: minmax(0,1fr) minmax(112px,.8fr); }
+}
