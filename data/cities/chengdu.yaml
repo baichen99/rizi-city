@@ -29,27 +29,24 @@ hukou:
 subsidies:
   - name: 青年人才驿站（过渡性住宿）
     type: other
-    amount: 免费入住（非现金补贴）：求职类单次最长7天6晚、可续住累计最长30天；创新创业类最长3个月免费入住，续住再享最长3个月房费减半
+    amount: null
     amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
     period: null
     periods_max: null
     payout: null
-    target: 求职类：全日制大专及以上学历（含在读）、求职应聘成都本地企事业单位的青年人才；创新创业类：年满18周岁、在蓉无自有住房的来蓉留蓉创新创业青年人才
-    conditions:
-      - 求职类单次入住最长7天6晚，由各区（市）县根据实际情况确定；续住按各区（市）县驿站规定继续申请，累计最长30天
-      - 创新创业类免费床位仅供本人使用，须提供身份证、学历证明及在蓉创业或就业佐证材料
-      - 创新创业类房费先缴后补，具体以所在区（市）县驿站操作细则为准
+    target: null
+    conditions: []
     deadline_rule: null
-    policy_name: 成都青年人才驿站《求职青年短期入住申请须知》《“三免三减”房源申请须知》（驿站官方平台 home.cdcyl.org.cn 公布，求职类 web-sys-inn、创业类 web-sys-smsj）
-    source_url: https://www.chinajob.mohrss.gov.cn/c/2024-12/2024-12-20/324747.shtml
+    policy_name: null
+    source_url: null
     source_date: null
     valid_until: null
-    verified_at: 2026-11-10
-    needs_human: false
-    needs_human_reason: null
+    verified_at: null
+    needs_human: true
+    needs_human_reason: 已核读中国就业网 2026-06-02 转载报道，提到来蓉求职青年最长 30 天免费入住及创新创业人才“3免3减半”，但报道不是实施细则，不能据此认定申请资格。单次上限、续住累计规则、创业企业及园区条件、法人或股权要求、本人及配偶住房和已享政策限制、费用结算与各区差异仍缺符合仓库要求的政府原文；待遇、对象和条件字段继续留空，不计入可领总额。
     access_blocked: false
-    lead: 成办规〔2026〕1号支持保租房用作青年人才驿站，并鼓励各区（市）县对人才承租人制定租金补贴、减免政策（区级标准各异）
-    lead_url: https://www.chengdu.gov.cn/gkml/uploadfiles/1607625235320909825/14638450314450042881.pdf
+    lead: 中国就业网《四川：成渝CP，携手出“圈”聚才》（2026-06-02，转载人民网）报道求职青年最长 30 天免费入住和创业人才“3免3减半”；仅作进一步查找细则的线索，不把政府域名转载报道当作完整政策依据，也不将非现金住宿优惠算作现金补贴
+    lead_url: https://chinajob.mohrss.gov.cn/h5/c/2026-06-02/550812.shtml
 
 subsidy_scan:
   living_none: true
@@ -183,7 +180,7 @@ changelog:
     new: 2027省考应届认定细则及成都本市公告未核实，fresh_grad_rule留null；2026事业单位仅核实省人大直属单位公告，不能代表全省或成都全部统招。
     basis: 考公考编专项巡检；四川省2027年度省级机关及其直属机构公开考试录用公务员公告 https://www.cqdx.gov.cn/web/article/1565419888768905216/web/content_1565419888768905216.html；四川省人大常委会办公厅关于直属事业单位2026年上半年公开考试招聘工作人员公告 https://www.scspc.gov.cn/tzgg/202603/156174.html
   - date: '2026-11-10'
-    field: subsidies.青年人才驿站（过渡性住宿）
-    old: needs_human（细则未核实）
-    new: 求职类对象为全日制大专及以上学历（含在读）、求职应聘成都本地企事业单位青年，单次最长7天6晚、可续住累计最长30天免费；创新创业类18周岁以上、在蓉无自有住房，最长3个月免费+3个月房费减半（先缴后补）
-    basis: 驿站官方平台（共青团成都市委主办）求职类说明页 https://home.cdcyl.org.cn/web-sys-inn 与创新创业类说明页 https://home.cdcyl.org.cn/web-sys-smsj 原文，2026-11-10 浏览器实地核读；30天上限另有人力资源社会保障部官网文件互证
+    field: subsidies.青年人才驿站（过渡性住宿）.lead/needs_human_reason
+    old: 只有保租房办法的原则性条文和创业住宿优惠媒体线索
+    new: 补充政府网站转载报道的直接链接及覆盖范围，明确完整资格和办理细则仍待核实；amount、target、source_url、verified_at 保持 null，conditions 保持空列表，needs_human 保持 true
+    basis: 中国就业网《四川：成渝CP，携手出“圈”聚才》（2026-06-02）https://chinajob.mohrss.gov.cn/h5/c/2026-06-02/550812.shtml 与《四川成都：出台十条措施全周期支持人才发展》（2025-10-15）https://chinajob.mohrss.gov.cn/h5/c/2025-10-15/455200.shtml；两页均注明来源为人民网，已核正文但仅作报道线索，不替代政府实施细则

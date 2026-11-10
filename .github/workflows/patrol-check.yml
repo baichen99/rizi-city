@@ -1,29 +1,124 @@
 name: patrol-check
 
-# 对巡检 PR 和巡检报告 Issue：校验格式、检查来源 URL 是否在白名单内、打 agent-patrol 和 agent 名称标签。
-#
-# 安全说明：
-# - PR 部分用 pull_request_target，是为了能给 fork 来的 PR 打标签、写评论。
-#   这里【不 checkout、不执行】PR 里的任何代码，只通过 API 读取 PR 正文和 diff 文本做字符串检查。
-#   PR 代码本身的校验（validate.py）在 validate.yml 里用 pull_request 触发，拿不到写权限和密钥。
-# - 只校验、打标签、留评论，不合并、不批准。所有合并由人工完成。
-
+# PR uses a read-only token; no checkout or execution of PR application code/scripts.
+# pull_request loads the merge-ref workflow: workflow edits still require human review.
+# Issue automation remains on the default branch. No pull_request_target or workflow_run.
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, edited, synchronize, reopened]
   issues:
     types: [opened, edited]
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   check:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      pull-requests: read
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const item = context.payload.pull_request;
+            const args = { owner: context.repo.owner, repo: context.repo.repo, pull_number: item.number };
+            const current = (await github.rest.pulls.get(args)).data;
+            if (current.head.sha !== item.head.sha) {
+              core.setFailed('PR 已更新，本次检查已过期，请检查最新提交。'); return;
+            }
+            const files = await github.paginate(github.rest.pulls.listFiles, { ...args, per_page: 100 });
+            const problems = [];
+            if (!Number.isInteger(current.changed_files) || current.changed_files > 3000 || files.length !== current.changed_files) {
+              core.setFailed('无法完整读取 PR 文件列表（分页缺失或超过 API 上限），需要人工复核。'); return;
+            }
+            const cities = files.filter(f => f.filename.startsWith('data/cities/') || (f.previous_filename || '').startsWith('data/cities/'));
+            const patrol = (current.labels || []).some(l => l.name === 'agent-patrol') || /^patrol\//.test(current.head.ref) || /巡检/.test(current.title || '');
+            if (!patrol && !cities.length) { core.info('不是巡检且未修改城市数据，跳过。'); return; }
+            const body = current.body || '';
+            const m1 = body.match(/###\s*agent 名称\s*\n+\s*([^\n]+)/i);
+            const m2 = body.match(/^\s*[-*]?\s*agent\s*[:：]\s*([^\n]+)$/im);
+            // A bracketed mention is not a signature. Ignore fenced examples and quoted lines.
+            // This is format metadata only, never proof of identity or merge authorization.
+            const parentheticalAgent = (() => {
+              let fence = null;
+              for (const line of body.split(/\r?\n/)) {
+                const marker = line.match(/^ {0,3}((?:(?:[-+*]|\d{1,9}[.)])[ \t]+)?)(`{3,}|~{3,})(.*)$/);
+                if (marker) {
+                  if (!fence) fence = { character: marker[2][0], length: marker[2].length };
+                  else if (!marker[1] && marker[2][0] === fence.character && marker[2].length >= fence.length && !marker[3].trim()) fence = null;
+                  continue;
+                }
+                if (fence) continue;
+                const match = line.match(/^ {0,3}(?:[-*][ \t]+)?维护助手[ \t]*[:：]?[ \t]*[^ \t（）()\r\n:：][^（）()\r\n]*?(?:（[ \t]*agent[ \t]*[:：][ \t]*([a-z0-9][a-z0-9 -]*?)[ \t]*）|\([ \t]*agent[ \t]*[:：][ \t]*([a-z0-9][a-z0-9 -]*?)[ \t]*\))/i);
+                if (match) return match[1] || match[2];
+              }
+              return null;
+            })();
+            const agent = ((m1 && m1[1]) || (m2 && m2[1]) || parentheticalAgent || '').trim();
+            if (!agent) problems.push('请在 PR 正文补充 Agent: xxx（或 agent 名称小节，或「维护助手 xxx（agent:xxx）」署名）。');
+            const allowed = h => /(^|\.)gov\.cn$/i.test(h) || /(^|\.)cih-index\.com$/i.test(h);
+            let sourceCount = 0;
+            for (const file of cities) {
+              if (typeof file.patch !== 'string' || !file.patch.trim()) {
+                problems.push('城市数据 diff 不可用，需要人工复核。'); continue;
+              }
+              // GitHub can omit or truncate patches. Verify every hunk's declared line counts.
+              const lines = file.patch.split('\n');
+              let oldLeft = 0, newLeft = 0, hunk = false;
+              let validPatch = true;
+              let added = 0, removed = 0;
+              for (const line of lines) {
+                const header = line.match(/^@@ -(\d+)(?:,(\d+))? \+(\d+)(?:,(\d+))? @@/);
+                if (header) {
+                  if (hunk && (oldLeft !== 0 || newLeft !== 0)) validPatch = false;
+                  hunk = true; oldLeft = Number(header[2] ?? 1); newLeft = Number(header[4] ?? 1); continue;
+                }
+                if (line.startsWith('\\ No newline')) continue;
+                if (!hunk) { validPatch = false; continue; }
+                if (line.startsWith('+')) { newLeft--; added++; }
+                else if (line.startsWith('-')) { oldLeft--; removed++; }
+                else if (line.startsWith(' ')) { oldLeft--; newLeft--; }
+                else if (line !== '') validPatch = false;
+                if (oldLeft < 0 || newLeft < 0) validPatch = false;
+                if (!line.startsWith('+')) continue;
+                const source = line.slice(1).match(/^\s*(?:-\s*)?["']?(?:[a-z_]*source_url)["']?\s*:\s*(.*)$/i);
+                if (!source) {
+                  if (/source_url/i.test(line)) problems.push('来源字段格式不支持自动检查，需要人工复核。');
+                  continue;
+                }
+                const urls = source[1].match(/https?:\/\/[^\s)'"<>\]},]+/g) || [];
+                if (!urls.length) { problems.push('新增来源字段缺少可检查的 http(s) URL。'); continue; }
+                for (const url of urls) {
+                  sourceCount++;
+                  try {
+                    const parsed = new URL(url);
+                    if (!allowed(parsed.hostname) || parsed.username || parsed.password) problems.push('新增来源不在官方域名白名单内或含 URL 凭据。');
+                  } catch { problems.push('新增来源 URL 无效。'); }
+                }
+              }
+              if (added !== file.additions || removed !== file.deletions) validPatch = false;
+              if (!hunk || oldLeft !== 0 || newLeft !== 0 || !validPatch) problems.push('城市数据 diff 不完整或格式异常，需要人工复核。');
+            }
+            const latest = (await github.rest.pulls.get(args)).data;
+            const labelSet = pr => JSON.stringify([...new Set((pr.labels || []).map(l => l.name))].sort());
+            if (latest.head.sha !== current.head.sha || latest.base.sha !== current.base.sha ||
+                latest.body !== current.body || latest.title !== current.title || labelSet(latest) !== labelSet(current)) {
+              problems.push('检查期间 PR 已更新，请重新运行检查。');
+            }
+            const unique = [...new Set(problems)];
+            await core.summary.addHeading('巡检来源检查').addRaw(
+              unique.length ? unique.map(p => '- ' + p).join('\n') :
+                sourceCount ? `已检查 Agent 信息和新增来源 URL 域名（${sourceCount} 个 URL）；不代表字段语法或来源真实性已验证。` :
+                '未发现新增来源 URL，仍需人工核实本次变更。'
+            ).addRaw('\n\n此检查不代表数据正确；官网核实、标签和评论由维护者（含授权助手）人工处理。').write();
+            if (unique.length) core.setFailed(unique.join(' | '));
+  issue-check:
+    if: github.event_name == 'issues'
+    runs-on: ubuntu-latest
+    permissions:
       issues: write
-      pull-requests: write
     steps:
       - uses: actions/github-script@v7
         with:
@@ -46,11 +141,28 @@ jobs:
             }
             if (!isPatrol) { core.info('不是巡检，跳过'); return; }
 
-            // 2) 识别 agent 名称（Issue Form 的 "### agent 名称" 小节，或 PR 正文里的 "Agent: xxx" / "agent：xxx"）
+            // 2) 识别 agent 名称（Issue Form 的 "### agent 名称" 小节、PR 正文里的 "Agent: xxx" / "agent：xxx"，或「维护助手 xxx（agent:xxx）」署名）
             let agent = null;
             const m1 = body.match(/###\s*agent 名称\s*\n+\s*([^\n]+)/i);
             const m2 = body.match(/^\s*[-*]?\s*agent\s*[:：]\s*([^\n]+)$/im);
-            const raw = ((m1 && m1[1]) || (m2 && m2[1]) || '').trim().toLowerCase();
+            // A bracketed mention is not a signature. Ignore fenced examples and quoted lines.
+            // This is format metadata only, never proof of identity or merge authorization.
+            const parentheticalAgent = (() => {
+              let fence = null;
+              for (const line of body.split(/\r?\n/)) {
+                const marker = line.match(/^ {0,3}((?:(?:[-+*]|\d{1,9}[.)])[ \t]+)?)(`{3,}|~{3,})(.*)$/);
+                if (marker) {
+                  if (!fence) fence = { character: marker[2][0], length: marker[2].length };
+                  else if (!marker[1] && marker[2][0] === fence.character && marker[2].length >= fence.length && !marker[3].trim()) fence = null;
+                  continue;
+                }
+                if (fence) continue;
+                const match = line.match(/^ {0,3}(?:[-*][ \t]+)?维护助手[ \t]*[:：]?[ \t]*[^ \t（）()\r\n:：][^（）()\r\n]*?(?:（[ \t]*agent[ \t]*[:：][ \t]*([a-z0-9][a-z0-9 -]*?)[ \t]*）|\([ \t]*agent[ \t]*[:：][ \t]*([a-z0-9][a-z0-9 -]*?)[ \t]*\))/i);
+                if (match) return match[1] || match[2];
+              }
+              return null;
+            })();
+            const raw = ((m1 && m1[1]) || (m2 && m2[1]) || parentheticalAgent || '').trim().toLowerCase();
             agent = AGENTS[raw] || (raw ? 'agent:other' : null);
 
             // 3) 收集来源 URL
@@ -80,7 +192,7 @@ jobs:
 
             // 4) 格式检查
             const problems = [];
-            if (!agent) problems.push('没有找到 agent 名称（Issue 表单的"agent 名称"，或 PR 正文里的 `Agent: xxx`）');
+            if (!agent) problems.push('没有找到 agent 名称（Issue 表单的"agent 名称"，或 PR 正文里的 `Agent: xxx`，或「维护助手 xxx（agent:xxx）」署名）');
             if (isIssue) {
               if (!/```ya?ml[\s\S]*items\s*:/.test(body)) problems.push('报告里没有 patrol.md 第 5 节格式的 yaml 代码块（含 `items:`）');
               if (urls.length === 0) problems.push('报告里没有任何 `source_url`');
