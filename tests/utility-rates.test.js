@@ -77,5 +77,35 @@ test('Beijing references distinguish annual comprehensive water and seasonal bui
   assert.match(moduleCard(water),/不按月重置/);
   assert.match(moduleCard(heating),/元\/建筑平方米·采暖季/);
   assert.match(moduleCard(heating),/非每月/);
-  for(const id of ['power','gas']) assert.ok(!moduleCard(beijing.find(m=>m.id===id)).includes('utility-rates'));
+});
+
+
+test('Beijing power and gas render exact annual references and suppress unsafe dates or review',()=>{
+  const beijing=JSON.parse(fs.readFileSync('data/life/utilities/beijing.json','utf8'));
+  for(const id of ['power','gas']) {
+    const card=beijing.find(m=>m.id===id), html=moduleCard(card);
+    assert.match(html,/官方单价参考/);
+    assert.ok(html.includes(esc(card.rate_reference.scope)));
+    assert.ok(html.includes(esc(card.rate_reference.period)));
+    assert.ok(html.includes(card.rate_reference.source_url));
+    assert.ok(html.includes(card.rate_reference.source_date));
+    assert.match(html,/不提供费用 \/ 待遇计算/);
+    for(const item of card.rate_reference.items) {
+      assert.equal(item.approximate,false);
+      assert.ok(html.includes(`<strong>${item.value}</strong>`));
+      assert.ok(html.includes(esc(item.unit)));
+      assert.ok(html.includes(esc(item.basis)));
+    }
+    for(const date of ['2026-11-09','2027-02-10']) {
+      assert.equal(currentLifeModule(card,date).rate_reference,null);
+    }
+    for(const patch of [{effective_to:'2026-11-09'}, {effective_from:'2026-11-11'},
+                        {review_status:'pending_independent_review'}]) {
+      const suppressed=currentLifeModule({...card,...patch},'2026-11-10');
+      assert.equal(suppressed.rate_reference,null);
+      assert.equal(suppressed.usable,false);
+      assert.equal(suppressed.calculator_enabled,false);
+      assert.ok(!moduleCard({...card,...patch}).includes('utility-rates'));
+    }
+  }
 });

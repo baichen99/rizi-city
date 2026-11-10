@@ -1115,65 +1115,161 @@
       "usable": false
      },
      {
-      "schema_version": 1,
+      "schema_version": 2,
       "city_id": "beijing",
       "id": "power",
       "title": "电费",
-      "status": "link_only",
-      "summary": "先确认账单的供应企业、居民或非居民类别及独立表/合表，再在官方目录查对应文件。",
+      "status": "reference_values",
+      "summary": "仅列不满1千伏、一户一表、5人及以下普通居民的三档单价。阶梯按日历年累计，不按月重置；合表、峰谷电采暖和多人户另查。",
       "links": [
        {
-        "label": "北京价格政策官方目录",
-        "url": "https://www.beijing.gov.cn/fwcj/jiage/index.html"
+        "label": "北京市发改委 · 居民生活用电电价表（2026-07-22）",
+        "url": "https://fgw.beijing.gov.cn/bmcx/djcx/jzldj/202110/t20211025_2520169.htm"
+       },
+       {
+        "label": "京发改〔2012〕831号 · 年阶梯及计量方式",
+        "url": "https://fgw.beijing.gov.cn/fgwzwgk/2024zcwj/bwqtwj/201912/t20191226_3725245.htm"
+       },
+       {
+        "label": "京发改〔2019〕1505号 · 一户多人口",
+        "url": "https://fgw.beijing.gov.cn/fgwzwgk/2024zcwj/bwqtwj/201912/t20191226_3726978.htm"
+       },
+       {
+        "label": "京发改〔2026〕1184号 · 居民继续执行目录价",
+        "url": "https://fgw.beijing.gov.cn/fgwzwgk/2024zcwj/bwqtwj/202607/t20260722_4777454.htm"
+       },
+       {
+        "label": "北京市发改委法律声明（限定免费参考引用）",
+        "url": "https://fgw.beijing.gov.cn/dbxx/flsm/"
        }
       ],
-      "coverage": "北京居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
-      "verified_at": "2026-11-09",
-      "verified_by": "assistant-source-text-review",
+      "coverage": "北京电网居民生活用电目录价；不满1千伏、一户一表、5人及以下、普通非峰谷阶梯用户；不覆盖租赁转供电结算",
+      "verified_at": "2026-11-10",
+      "verified_by": "assistant-source-text-review + independent-beijing-rate-source-review",
       "next_review_at": "2027-02-09",
-      "source_date": null,
-      "reference_period": "动态目录，非价格适用期",
+      "source_date": "2026-07-22",
+      "reference_period": "2026-07-22市发改委电价表确认单价；京发改〔2012〕831号自2012-07-01实施年阶梯，京发改〔2019〕1505号另设多人户档位。2026页面日期不是本组单价首次生效日。",
       "effective_from": null,
       "effective_to": null,
-      "evidence_locator": "价格政策栏目目录",
-      "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
-      "redistribution_status": "link_only",
+      "evidence_locator": "电价表居民一至三档不满1千伏行及注1—3；2012通知第二条、第五条；2019通知第一至三条；2026输配电价通知第二条",
+      "verification_scope": "2026-11-10实际读取价格表、2012年阶梯通知、2019多人户通知与2026第四监管周期通知；后者维持居民目录销售电价。已检索后续线索，未见替代该范围居民价的文件，非穷尽性保证；另由独立复核实际打开上述原文，对单价、档位、日期及适用边界完成100%复核。",
+      "redistribution_status": "fact_extract",
       "license_id": null,
-      "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
-      "review_status": "pending_independent_review",
-      "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+      "license_note": "仅为公共、免费资料性参考摘录三个客观单价及必要档位、日期，以项目原创文字说明并标明官方来源。依市发改委法律声明合理善意引用，不转载全文、整表、图片、附件或镜像，不按项目许可再授权；商业使用需另核书面许可。",
+      "review_status": "reviewed",
+      "reason": "单价已含价表所列政府性基金及附加，不再叠加。年内新装、过户或换表会影响档位周期；卡表可能按购电量累计。合表总表价不是到户价，峰谷、多人口、优惠及转供电均不代入，不计算账单。",
       "calculator_enabled": false,
+      "rate_reference": {
+       "scope": "北京电网 · 不满1千伏 · 一户一表 · 5人及以下 · 普通非峰谷",
+       "period": "完整日历年1月1日至12月31日累计；不是每月重置",
+       "note": "按全年正常账期展示基础年档位。非全年、新装、过户、换表、合表、多人户及峰谷电采暖不套用；不是完整账单。",
+       "source_url": "https://fgw.beijing.gov.cn/bmcx/djcx/jzldj/202110/t20211025_2520169.htm",
+       "source_label": "北京市发展和改革委员会 · 电价",
+       "source_date": "2026-07-22",
+       "evidence_locator": "居民生活用电表一至三档不满1千伏行；年度累计由2012通知第二条补证",
+       "reuse_basis": "仅为公共、免费资料性参考摘录三个客观单价及必要档位、日期，以项目原创文字说明并标明官方来源。依市发改委法律声明合理善意引用，不转载全文、整表、图片、附件或镜像，不按项目许可再授权；商业使用需另核书面许可。",
+       "bulk_redistribution": false,
+       "items": [
+        {
+         "label": "第一档",
+         "value": 0.4883,
+         "unit": "元/千瓦时",
+         "basis": "全年累计不超过2880千瓦时部分",
+         "approximate": false
+        },
+        {
+         "label": "第二档",
+         "value": 0.5383,
+         "unit": "元/千瓦时",
+         "basis": "全年累计超过2880至4800千瓦时部分",
+         "approximate": false
+        },
+        {
+         "label": "第三档",
+         "value": 0.7883,
+         "unit": "元/千瓦时",
+         "basis": "全年累计超过4800千瓦时部分",
+         "approximate": false
+        }
+       ]
+      },
       "usable": false
      },
      {
-      "schema_version": 1,
+      "schema_version": 2,
       "city_id": "beijing",
       "id": "gas",
       "title": "燃气",
-      "status": "link_only",
-      "summary": "先确认账单的供应企业、居民或非居民类别及独立表/合表，再在官方目录查对应文件。",
+      "status": "reference_values",
+      "summary": "仅列居民管道天然气普通炊事、生活热水的三档单价，适用于5人及以下基础档位。按日历年累计；采暖、多人户、合表及其他气源另查。",
       "links": [
        {
-        "label": "北京价格政策官方目录",
-        "url": "https://www.beijing.gov.cn/fwcj/jiage/index.html"
+        "label": "京发改〔2019〕1543号 · 居民管道气价",
+        "url": "https://fgw.beijing.gov.cn/fgwzwgk/2024zcwj/bwqtwj/201912/t20191226_3726976.htm"
+       },
+       {
+        "label": "京发改〔2015〕2521号 · 年度周期、供区及多人户规则",
+        "url": "https://fgw.beijing.gov.cn/fgwzwgk/2024zcwj/bwqtwj/201912/t20191226_3726004.htm"
+       },
+       {
+        "label": "北京市发改委 · 燃气价格（2025-11-15）",
+        "url": "https://fgw.beijing.gov.cn/bmcx/djcx/jzldj/202003/t20200331_1752797.htm"
+       },
+       {
+        "label": "北京市发改委法律声明（限定免费参考引用）",
+        "url": "https://fgw.beijing.gov.cn/dbxx/flsm/"
        }
       ],
-      "coverage": "北京居民查政策入口；实际以供应企业、计量方式及地址所属供区为准",
-      "verified_at": "2026-11-09",
-      "verified_by": "assistant-source-text-review",
+      "coverage": "北京市管道天然气居民用户；本参考只含独立居民户、5人及以下的一般生活用气（炊事、生活热水），不覆盖管道液化气或压缩天然气",
+      "verified_at": "2026-11-10",
+      "verified_by": "assistant-source-text-review + independent-beijing-rate-source-review",
       "next_review_at": "2027-02-09",
-      "source_date": null,
-      "reference_period": "动态目录，非价格适用期",
-      "effective_from": null,
+      "source_date": "2019-11-07",
+      "reference_period": "京发改〔2019〕1543号自2019-11-15执行，网页标注现行有效；2015制度保留年度周期及人口规则。2025-11-15市发改委现价页仍列该居民单价，非居民季节调价不套用。",
+      "effective_from": "2019-11-15",
       "effective_to": null,
-      "evidence_locator": "价格政策栏目目录",
-      "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
-      "redistribution_status": "link_only",
+      "evidence_locator": "2019通知第三条及附件一般生活用气列；2015制度第二至四、九条；2025-11-15燃气价格页居民表及文件依据",
+      "verification_scope": "2026-11-10实际读取2019调价通知、2015制度、当前燃气价表及2025非居民调价通知，核对年度周期、计量方式、人数与气源边界；检索后续线索未见替代该居民价的文件，非穷尽性保证；另由独立复核实际打开上述原文，对单价、档位、日期及适用边界完成100%复核。",
+      "redistribution_status": "fact_extract",
       "license_id": null,
-      "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
-      "review_status": "pending_independent_review",
-      "reason": "未完成现行费率、完整配套规则、独立复核与分发许可核准，不提供金额计算。",
+      "license_note": "仅为公共、免费资料性参考摘录三个客观单价及必要档位、日期，以项目原创文字说明并标明官方来源。依市发改委法律声明合理善意引用，不转载全文、整表、图片、附件或镜像，不按项目许可再授权；商业使用需另核书面许可。",
+      "review_status": "reviewed",
+      "reason": "仅售气单价，不含安装维修等费用。后付费按累计抄见气量、预购气卡表按累计购气量；跨年不结转。采暖组合、多人口、合表、跨年抄表、开户或产权变更须由供应企业另核，不计算完整账单。",
       "calculator_enabled": false,
+      "rate_reference": {
+       "scope": "北京市管道天然气 · 独立居民户 · 5人及以下 · 炊事、生活热水",
+       "period": "每年1月1日至12月31日累计；不按月重置、不跨年结转",
+       "note": "不含壁挂炉或农村煤改气采暖，不含管道液化气、压缩天然气；多人户需申报另核档位，不能从人数自动推定优惠。",
+       "source_url": "https://fgw.beijing.gov.cn/fgwzwgk/2024zcwj/bwqtwj/201912/t20191226_3726976.htm",
+       "source_label": "北京市发展和改革委员会 · 京发改〔2019〕1543号",
+       "source_date": "2019-11-07",
+       "evidence_locator": "附件一般生活用气列；2015制度第三条补证日历年周期",
+       "reuse_basis": "仅为公共、免费资料性参考摘录三个客观单价及必要档位、日期，以项目原创文字说明并标明官方来源。依市发改委法律声明合理善意引用，不转载全文、整表、图片、附件或镜像，不按项目许可再授权；商业使用需另核书面许可。",
+       "bulk_redistribution": false,
+       "items": [
+        {
+         "label": "第一档",
+         "value": 2.61,
+         "unit": "元/立方米",
+         "basis": "每户每年不超过350立方米部分",
+         "approximate": false
+        },
+        {
+         "label": "第二档",
+         "value": 2.83,
+         "unit": "元/立方米",
+         "basis": "每户每年超过350至500立方米部分",
+         "approximate": false
+        },
+        {
+         "label": "第三档",
+         "value": 4.23,
+         "unit": "元/立方米",
+         "basis": "每户每年超过500立方米部分",
+         "approximate": false
+        }
+       ]
+      },
       "usable": false
      },
      {
