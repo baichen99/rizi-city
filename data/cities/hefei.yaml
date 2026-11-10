@@ -159,7 +159,7 @@ changelog:
     new: true
     basis: 考公考编专项巡检；安徽省2026年度考试录用公务员公告（含合肥市考试录用公务员职位表） https://www.hfxf.gov.cn/rsks/gwy/18913707.html
   - date: 2026-11-10
-    field: social_security.source_url/source_type
+    field: social_security（官方来源与核验状态）
     old: 界面新闻转载（media），数字待人工换官网链接
     new: 安徽省五部门《关于发布2026年社会保险缴费基数上下限的通知》官方全文（淮北市人社局官网转发），数字 4354/21772 与原文一致
     basis: 转发页原文「我省2026年社会保险个人缴费基数上限为21772元/月，下限为4354元/月。执行时间为2026年1月1日至12月31日」；原媒体记录的数字无误，仅来源升级为 gov 原文
