@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install playwright==1.62.0
+      - run: pip install playwright==1.57.0
       - run: playwright install --with-deps chromium webkit
       - name: Mobile widths, touch targets, evidence, navigation and modal regression
         env:
