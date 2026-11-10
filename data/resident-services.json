@@ -1,0 +1,93 @@
+[
+  {
+    "kind": "national_navigation",
+    "status": "link_only",
+    "publisher": "国家政务服务平台",
+    "source_date": null,
+    "verified_at": "2026-11-10",
+    "next_review_at": "2026-12-10",
+    "reference_period": "动态服务目录；未提供统一发布日期或政策有效期",
+    "verification_scope": "已打开官方目录核对主题和栏目，未登录、提交或实测下游服务；不代表本城政策、资格或服务可用性已核实",
+    "redistribution_status": "link_only",
+    "id": "national-local-services",
+    "title": "去官方平台找本地办事事项",
+    "needs": [
+      "benefits",
+      "housing",
+      "work",
+      "utilities",
+      "family",
+      "elder",
+      "health"
+    ],
+    "url": "https://gjzwfw.www.gov.cn/fwmh/item/ztc_index.do",
+    "summary": "从国家政务服务平台的地方政府服务入口继续查找。先切换办事地区，再核对事项的承办部门和办事指南。",
+    "audience": "需要查找当地政务服务的居民；各事项条件不同",
+    "coverage": "全国导航，需自行切换至实际办事地区；本页不会替你选地区",
+    "evidence_locator": "地区切换、进入地方政府服务、个人办事栏目"
+  },
+  {
+    "kind": "national_navigation",
+    "status": "link_only",
+    "publisher": "国家政务服务平台",
+    "source_date": null,
+    "verified_at": "2026-11-10",
+    "next_review_at": "2026-12-10",
+    "reference_period": "动态服务目录；未提供统一发布日期或政策有效期",
+    "verification_scope": "已打开官方目录核对主题和栏目，未登录、提交或实测下游服务；不代表本城政策、资格或服务可用性已核实",
+    "redistribution_status": "link_only",
+    "id": "national-birth",
+    "title": "生育与新生儿办事导航",
+    "needs": [
+      "family"
+    ],
+    "url": "https://gjzwfw.www.gov.cn/col/col1248/index.html",
+    "summary": "查看出生登记等官方服务线索。地方育儿补贴、托育和入学条件另查当地规定。",
+    "audience": "有生育或新生儿办事需求的家庭；不是本地补贴资格认定",
+    "coverage": "全国导航，不替代本城生育待遇、托育或招生细则",
+    "evidence_locator": "出生登记及生育相关服务栏目"
+  },
+  {
+    "kind": "national_navigation",
+    "status": "link_only",
+    "publisher": "国家政务服务平台",
+    "source_date": null,
+    "verified_at": "2026-11-10",
+    "next_review_at": "2026-12-10",
+    "reference_period": "动态服务目录；未提供统一发布日期或政策有效期",
+    "verification_scope": "已打开官方目录核对主题和栏目，未登录、提交或实测下游服务；不代表本城政策、资格或服务可用性已核实",
+    "redistribution_status": "link_only",
+    "id": "national-elder",
+    "title": "养老与退休服务导航",
+    "needs": [
+      "elder",
+      "work"
+    ],
+    "url": "https://gjzwfw.www.gov.cn/col/col1558/index.html",
+    "summary": "从退休服务、养老机构、社区养老和助餐点等栏目查找，并可转到地方老年人服务专区。",
+    "audience": "有退休或养老服务需求的居民及家人；具体年龄和待遇条件以办理地为准",
+    "coverage": "全国导航，机构供给、待遇和可办事项需按地区确认",
+    "evidence_locator": "退休服务和福利津贴、养老服务和机构查询、地方老年人服务专区"
+  },
+  {
+    "kind": "national_navigation",
+    "status": "link_only",
+    "publisher": "国家政务服务平台",
+    "source_date": null,
+    "verified_at": "2026-11-10",
+    "next_review_at": "2026-12-10",
+    "reference_period": "页面标题为“2025医保服务专区”；动态目录，不代表2026年度地方待遇",
+    "verification_scope": "已打开官方目录核对主题和栏目，未登录、提交或实测下游服务；不代表本城政策、资格或服务可用性已核实",
+    "redistribution_status": "link_only",
+    "id": "national-health",
+    "title": "医保查询与异地就医导航",
+    "needs": [
+      "health"
+    ],
+    "url": "https://gjzwfw.www.gov.cn/col/col1576/index.html",
+    "summary": "查看医保机构、联网医院和异地就医相关服务入口。先核对参保地、就医地及险种，页面不判断待遇或报销金额。",
+    "audience": "需要查询医保或异地就医服务的参保人",
+    "coverage": "全国导航，不代表本城各险种待遇、全部医院或所有业务均可办理",
+    "evidence_locator": "医保经办机构查询、跨省异地就医备案、定点医疗机构查询栏目"
+  }
+]
