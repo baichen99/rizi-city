@@ -1,10 +1,10 @@
 name: mobile-ui
 on:
   pull_request:
-    paths: ['site/**', 'tests/mobile_browser.py', 'tests/city_select_browser.py', '.github/workflows/mobile-ui.yml']
+    paths: ['site/**', 'tests/mobile_browser.py', 'tests/resident_services_browser.py', 'tests/city_select_browser.py', '.github/workflows/mobile-ui.yml']
   push:
     branches: [main]
-    paths: ['site/**', 'tests/mobile_browser.py', 'tests/city_select_browser.py', '.github/workflows/mobile-ui.yml']
+    paths: ['site/**', 'tests/mobile_browser.py', 'tests/resident_services_browser.py', 'tests/city_select_browser.py', '.github/workflows/mobile-ui.yml']
   workflow_run:
     workflows: [pages]
     types: [completed]
@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install playwright==1.57.0
+      - run: pip install playwright==1.57.0 -r requirements.txt
       - run: playwright install --with-deps chromium webkit
       - name: Mobile widths, touch targets, evidence, navigation and modal regression
         env:
@@ -32,9 +32,12 @@ jobs:
           if [ "$LIVE_CHECK" = "true" ]; then
             python3 tests/mobile_browser.py --base-url https://baichen99.github.io/rizi-city/
             python3 tests/city_select_browser.py --base-url https://baichen99.github.io/rizi-city/
+            python3 tests/resident_services_browser.py --base-url https://baichen99.github.io/rizi-city/
           else
+            python3 scripts/build.py
             python3 tests/mobile_browser.py
             python3 tests/city_select_browser.py
+            python3 tests/resident_services_browser.py
           fi
       - uses: actions/upload-artifact@v4
         if: always()

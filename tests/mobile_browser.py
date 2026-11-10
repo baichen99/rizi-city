@@ -95,7 +95,7 @@ def run(base_url, out):
                     check_page(page, 'resident-policy')
                     page.select_option('#resident-city', 'guangzhou')
                     daily = page.locator('#life-daily')
-                    assert daily.bounding_box()['y'] < page.locator('#life-budget').bounding_box()['y']
+                    assert daily.bounding_box()['y'] < page.locator('#life-policies').bounding_box()['y'] < page.locator('#life-budget').bounding_box()['y']
                     assert page.locator('.life-jumps button').first.get_attribute('data-jump') == 'daily'
                     for module, value in [('water', '2.55'), ('power', '约 0.589'), ('gas', '3.45')]:
                         card = daily.locator(f'[data-module="{module}"]')

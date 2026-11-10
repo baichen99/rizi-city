@@ -1,5 +1,5 @@
 {
- "latest_verified": "2026-11-09",
+ "latest_verified": "2026-11-10",
  "city_count": 20,
  "disclaimer": "仅供参考，申请前以官方页面为准。",
  "index_version": "v0.1",
@@ -7843,9 +7843,9 @@
     "base_max": 25127,
     "year": "2026（2026-01-01 至 2026-12-31）",
     "scope": "江苏全省（养老、医疗、失业、工伤、生育）",
-    "source_url": "http://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml",
+    "source_url": "https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml",
     "source_type": "gov",
-    "verified_at": "2026-11-09",
+    "verified_at": "2026-11-10",
     "needs_human": false,
     "needs_human_reason": null,
     "access_blocked": false
@@ -7868,19 +7868,21 @@
     "pension_base_min": 5025,
     "pension_rate": 20,
     "pension_year": 2026,
+    "pension_note": "2026-01-01 至 2026-12-31 养老基数为 5025—25127 元/月，可自选档次；本地人社口径费率为 20%，其中 8% 计入个人账户。已核对官方缴费表，最低档月缴 1005 元；2026 年 9 月 30 日前已缴养老、医保费原则上不补差，未缴的按新基数执行。",
+    "pension_base_source_url": "https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml",
     "medical_monthly_min": 407,
-    "medical_note": "苏州灵活就业人员基本医疗保险缴费基数 5025 元，月缴费 407 元（含 5 元大额医疗费用社会共济基金）",
+    "medical_note": "2026 年调整后灵活就业职工医保缴费基数为 5025 元，费率 8%，月缴 407 元（含 5 元大额医疗费用社会共济基金）；全市灵活就业费率自 2024-01 起按 8% 执行，不套用单位职工的单位费率。",
     "monthly_total_min": 1412,
-    "calc": "养老 5025 × 20% = 1005；医保 407；合计 1412 元/月",
-    "hukou_restriction": null,
-    "nonlocal_allowed": null,
-    "apply_channel": "「江苏税务社保缴纳」小程序、「苏周到」APP、电子税务局 APP、税银经办银行网点",
-    "source_url": "http://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml",
-    "medical_source_url": "http://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml",
-    "hukou_source_url": null,
-    "verified_at": "2026-11-09",
-    "needs_human": true,
-    "needs_human_reason": "苏州官方页面的养老各档次缴费额是图片，未能读出；缴费比例 20% 取自中国政府网全国通行说明（https://www.gov.cn/yaowen/liebiao/202305/content_6855917.htm）。外地户籍能否以灵活就业身份参保，未找到苏州官方表述。",
+    "calc": "按 2026 年调整后最低档同时参加职工养老和职工医保：养老 5025 × 20% = 1005；医保 407（含大额共济 5 元）；合计 1412 元/月，不是单位职工个人代扣额，也不是所有居民必缴金额。",
+    "hukou_restriction": "符合条件的外地户籍灵活就业人员可参保，不是无条件参保。养老自 2021 年 9 月起取消外省户籍限制，须先在苏州办理灵活就业登记；医保适用于本市行政区域内无雇工个体户、未在单位参保的非全日制或新业态从业人员、自由职业者及其他灵活就业人员。非本市户籍常住人员线下办理需身份证、居住证，在居住地社区申报。",
+    "nonlocal_allowed": true,
+    "apply_channel": "先登记参保，再缴费。养老可通过「江苏智慧人社」APP、小程序或江苏人社网上大厅办理；医保可通过「江苏医保云」APP、江苏医保公共服务平台个人网厅办理，也可到户籍或居住地社区登记。缴费使用「江苏税务社保缴纳」小程序、「苏周到」APP、电子税务局 APP 或税银经办银行网点。",
+    "source_url": "https://www.suzhou.gov.cn/szsrmzf/lhjycjwt/202505/9e5f041a073a440a96a3cf25f7176f5f.shtml",
+    "medical_source_url": "https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml",
+    "hukou_source_url": "https://www.suzhou.gov.cn/szsrmzf/lhjydj/lhjydj.shtml",
+    "verified_at": "2026-11-10",
+    "needs_human": false,
+    "needs_human_reason": null,
     "access_blocked": false
    },
    "civil_service": {
@@ -7957,6 +7959,111 @@
      "old": null,
      "new": "2026-11-09",
      "basis": "考公考编专项巡检；江苏省2027年度考试录用公务员公告 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93730_11852195.html；江苏省2027年度考试录用公务员报考指南 https://jshrss.jiangsu.gov.cn/art/2026/10/30/art_93733_11852182.html；苏州市2027年度考试录用公务员简章 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/c8a27571c77348f5955c8acf5bbfa079.shtml；苏州市2027年度考试录用公务员报考指南 https://www.suzhou.gov.cn/szsrmzf/gwyjsydwklxx/202611/60a550973c154da484a714dc3d7dc6ac.shtml；2026事业单位招聘公告（历史批次） https://jiangsu.chinatax.gov.cn/art/2026/3/18/art_8274_1719146.html"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "social_security.source_url",
+     "old": "http://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml",
+     "new": "https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml",
+     "basis": "苏州市政府 2026-10-26 公告 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml；已直接查看官方缴费表图片 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429/images/bba713b505384fb6af8ad2753c75ed57.png"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "social_security.verified_at",
+     "old": "2026-11-09",
+     "new": "2026-11-10",
+     "basis": "苏州市政府 2026-10-26 公告 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml；已直接查看官方缴费表图片 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429/images/bba713b505384fb6af8ad2753c75ed57.png"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment.pension_note",
+     "old": null,
+     "new": "2026-01-01 至 2026-12-31 养老基数为 5025—25127 元/月，可自选档次；本地人社口径费率为 20%，其中 8% 计入个人账户。已核对官方缴费表，最低档月缴 1005 元；2026 年 9 月 30 日前已缴养老、医保费原则上不补差，未缴的按新基数执行。",
+     "basis": "苏州市政府 2026-10-26 公告 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml；已直接查看官方缴费表图片 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429/images/bba713b505384fb6af8ad2753c75ed57.png；苏州市人社局费率问答（页面更新时间 2026-09-22）https://www.suzhou.gov.cn/szsrmzf/lhjycjwt/202505/9e5f041a073a440a96a3cf25f7176f5f.shtml；苏医保待医〔2023〕37号 https://www.suzhou.gov.cn/szsrmzf/bmwj/202312/520891b6afe947829a4fd939c7f82fa7.shtml"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment.pension_base_source_url",
+     "old": null,
+     "new": "https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml",
+     "basis": "苏州市政府 2026-10-26 公告 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml；已直接查看官方缴费表图片 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429/images/bba713b505384fb6af8ad2753c75ed57.png"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment.medical_note",
+     "old": "苏州灵活就业人员基本医疗保险缴费基数 5025 元，月缴费 407 元（含 5 元大额医疗费用社会共济基金）",
+     "new": "2026 年调整后灵活就业职工医保缴费基数为 5025 元，费率 8%，月缴 407 元（含 5 元大额医疗费用社会共济基金）；全市灵活就业费率自 2024-01 起按 8% 执行，不套用单位职工的单位费率。",
+     "basis": "苏州市政府 2026-10-26 公告 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml；已直接查看官方缴费表图片 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429/images/bba713b505384fb6af8ad2753c75ed57.png；苏州市人社局费率问答（页面更新时间 2026-09-22）https://www.suzhou.gov.cn/szsrmzf/lhjycjwt/202505/9e5f041a073a440a96a3cf25f7176f5f.shtml；苏医保待医〔2023〕37号 https://www.suzhou.gov.cn/szsrmzf/bmwj/202312/520891b6afe947829a4fd939c7f82fa7.shtml"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment.calc",
+     "old": "养老 5025 × 20% = 1005；医保 407；合计 1412 元/月",
+     "new": "按 2026 年调整后最低档同时参加职工养老和职工医保：养老 5025 × 20% = 1005；医保 407（含大额共济 5 元）；合计 1412 元/月，不是单位职工个人代扣额，也不是所有居民必缴金额。",
+     "basis": "苏州市政府 2026-10-26 公告 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml；已直接查看官方缴费表图片 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429/images/bba713b505384fb6af8ad2753c75ed57.png；苏州市人社局费率问答（页面更新时间 2026-09-22）https://www.suzhou.gov.cn/szsrmzf/lhjycjwt/202505/9e5f041a073a440a96a3cf25f7176f5f.shtml；苏医保待医〔2023〕37号 https://www.suzhou.gov.cn/szsrmzf/bmwj/202312/520891b6afe947829a4fd939c7f82fa7.shtml"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment.hukou_restriction",
+     "old": null,
+     "new": "符合条件的外地户籍灵活就业人员可参保，不是无条件参保。养老自 2021 年 9 月起取消外省户籍限制，须先在苏州办理灵活就业登记；医保适用于本市行政区域内无雇工个体户、未在单位参保的非全日制或新业态从业人员、自由职业者及其他灵活就业人员。非本市户籍常住人员线下办理需身份证、居住证，在居住地社区申报。",
+     "basis": "苏州市人社局 2026-04-03 参保问答 https://www.suzhou.gov.cn/szsrmzf/rdwd/202604/f952560756ed46cc8536f830bcdb243e.shtml；苏州市医保局 2026-05-27 医保参保指南 https://ybj.suzhou.gov.cn/szybj/lhjyry/202605/63b99e21e78049228946feae762fdd47.shtml；综合入口 https://www.suzhou.gov.cn/szsrmzf/lhjydj/lhjydj.shtml 仅作参保对象及手续依据，金额和费率使用前述专项公告"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment.nonlocal_allowed",
+     "old": null,
+     "new": true,
+     "basis": "苏州市人社局 2026-04-03 参保问答 https://www.suzhou.gov.cn/szsrmzf/rdwd/202604/f952560756ed46cc8536f830bcdb243e.shtml；苏州市医保局 2026-05-27 医保参保指南 https://ybj.suzhou.gov.cn/szybj/lhjyry/202605/63b99e21e78049228946feae762fdd47.shtml；综合入口 https://www.suzhou.gov.cn/szsrmzf/lhjydj/lhjydj.shtml 仅作参保对象及手续依据，金额和费率使用前述专项公告"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment.apply_channel",
+     "old": "「江苏税务社保缴纳」小程序、「苏周到」APP、电子税务局 APP、税银经办银行网点",
+     "new": "先登记参保，再缴费。养老可通过「江苏智慧人社」APP、小程序或江苏人社网上大厅办理；医保可通过「江苏医保云」APP、江苏医保公共服务平台个人网厅办理，也可到户籍或居住地社区登记。缴费使用「江苏税务社保缴纳」小程序、「苏周到」APP、电子税务局 APP 或税银经办银行网点。",
+     "basis": "苏州市人社局 2026-04-03 参保问答 https://www.suzhou.gov.cn/szsrmzf/rdwd/202604/f952560756ed46cc8536f830bcdb243e.shtml；苏州市医保局 2026-05-27 医保参保指南 https://ybj.suzhou.gov.cn/szybj/lhjyry/202605/63b99e21e78049228946feae762fdd47.shtml；综合入口 https://www.suzhou.gov.cn/szsrmzf/lhjydj/lhjydj.shtml 仅作参保对象及手续依据，金额和费率使用前述专项公告"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment.source_url",
+     "old": "http://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml",
+     "new": "https://www.suzhou.gov.cn/szsrmzf/lhjycjwt/202505/9e5f041a073a440a96a3cf25f7176f5f.shtml",
+     "basis": "苏州市政府 2026-10-26 公告 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml；已直接查看官方缴费表图片 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429/images/bba713b505384fb6af8ad2753c75ed57.png；苏州市人社局费率问答（页面更新时间 2026-09-22）https://www.suzhou.gov.cn/szsrmzf/lhjycjwt/202505/9e5f041a073a440a96a3cf25f7176f5f.shtml；苏医保待医〔2023〕37号 https://www.suzhou.gov.cn/szsrmzf/bmwj/202312/520891b6afe947829a4fd939c7f82fa7.shtml"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment.medical_source_url",
+     "old": "http://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml",
+     "new": "https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml",
+     "basis": "苏州市政府 2026-10-26 公告 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml；已直接查看官方缴费表图片 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429/images/bba713b505384fb6af8ad2753c75ed57.png"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment.hukou_source_url",
+     "old": null,
+     "new": "https://www.suzhou.gov.cn/szsrmzf/lhjydj/lhjydj.shtml",
+     "basis": "苏州市人社局 2026-04-03 参保问答 https://www.suzhou.gov.cn/szsrmzf/rdwd/202604/f952560756ed46cc8536f830bcdb243e.shtml；苏州市医保局 2026-05-27 医保参保指南 https://ybj.suzhou.gov.cn/szybj/lhjyry/202605/63b99e21e78049228946feae762fdd47.shtml；综合入口 https://www.suzhou.gov.cn/szsrmzf/lhjydj/lhjydj.shtml 仅作参保对象及手续依据，金额和费率使用前述专项公告"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment.verified_at",
+     "old": "2026-11-09",
+     "new": "2026-11-10",
+     "basis": "苏州市政府 2026-10-26 公告 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml；已直接查看官方缴费表图片 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429/images/bba713b505384fb6af8ad2753c75ed57.png；苏州市人社局费率问答（页面更新时间 2026-09-22）https://www.suzhou.gov.cn/szsrmzf/lhjycjwt/202505/9e5f041a073a440a96a3cf25f7176f5f.shtml；苏医保待医〔2023〕37号 https://www.suzhou.gov.cn/szsrmzf/bmwj/202312/520891b6afe947829a4fd939c7f82fa7.shtml；苏州市人社局 2026-04-03 参保问答 https://www.suzhou.gov.cn/szsrmzf/rdwd/202604/f952560756ed46cc8536f830bcdb243e.shtml；苏州市医保局 2026-05-27 医保参保指南 https://ybj.suzhou.gov.cn/szybj/lhjyry/202605/63b99e21e78049228946feae762fdd47.shtml；综合入口 https://www.suzhou.gov.cn/szsrmzf/lhjydj/lhjydj.shtml 仅作参保对象及手续依据，金额和费率使用前述专项公告"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment.needs_human",
+     "old": true,
+     "new": false,
+     "basis": "苏州市政府 2026-10-26 公告 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml；已直接查看官方缴费表图片 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429/images/bba713b505384fb6af8ad2753c75ed57.png；苏州市人社局费率问答（页面更新时间 2026-09-22）https://www.suzhou.gov.cn/szsrmzf/lhjycjwt/202505/9e5f041a073a440a96a3cf25f7176f5f.shtml；苏医保待医〔2023〕37号 https://www.suzhou.gov.cn/szsrmzf/bmwj/202312/520891b6afe947829a4fd939c7f82fa7.shtml；苏州市人社局 2026-04-03 参保问答 https://www.suzhou.gov.cn/szsrmzf/rdwd/202604/f952560756ed46cc8536f830bcdb243e.shtml；苏州市医保局 2026-05-27 医保参保指南 https://ybj.suzhou.gov.cn/szybj/lhjyry/202605/63b99e21e78049228946feae762fdd47.shtml；综合入口 https://www.suzhou.gov.cn/szsrmzf/lhjydj/lhjydj.shtml 仅作参保对象及手续依据，金额和费率使用前述专项公告"
+    },
+    {
+     "date": "2026-11-10",
+     "field": "flexible_employment.needs_human_reason",
+     "old": "苏州官方页面的养老各档次缴费额是图片，未能读出；缴费比例 20% 取自中国政府网全国通行说明（https://www.gov.cn/yaowen/liebiao/202305/content_6855917.htm）。外地户籍能否以灵活就业身份参保，未找到苏州官方表述。",
+     "new": null,
+     "basis": "苏州市政府 2026-10-26 公告 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429.shtml；已直接查看官方缴费表图片 https://www.suzhou.gov.cn/szsrmzf/mszx/202610/3e20e821e48946c0bb2065cfb7c36429/images/bba713b505384fb6af8ad2753c75ed57.png；苏州市人社局费率问答（页面更新时间 2026-09-22）https://www.suzhou.gov.cn/szsrmzf/lhjycjwt/202505/9e5f041a073a440a96a3cf25f7176f5f.shtml；苏医保待医〔2023〕37号 https://www.suzhou.gov.cn/szsrmzf/bmwj/202312/520891b6afe947829a4fd939c7f82fa7.shtml；苏州市人社局 2026-04-03 参保问答 https://www.suzhou.gov.cn/szsrmzf/rdwd/202604/f952560756ed46cc8536f830bcdb243e.shtml；苏州市医保局 2026-05-27 医保参保指南 https://ybj.suzhou.gov.cn/szybj/lhjyry/202605/63b99e21e78049228946feae762fdd47.shtml；综合入口 https://www.suzhou.gov.cn/szsrmzf/lhjydj/lhjydj.shtml 仅作参保对象及手续依据，金额和费率使用前述专项公告"
     }
    ],
    "id": "suzhou",
@@ -8033,7 +8140,7 @@
      "excluded": []
     }
    },
-   "latest_verified": "2026-11-09",
+   "latest_verified": "2026-11-10",
    "needs_human_count": 0,
    "index": {
     "rent": {
@@ -8062,15 +8169,15 @@
      "reason": "通勤指标暂停用"
     },
     "social": {
-     "value": null,
-     "ok": false,
-     "reason": "灵活就业最少自缴额未核实"
+     "value": 0.188,
+     "ok": true,
+     "reason": null
     }
    },
    "floor": {
     "rent": 1023,
-    "social": null,
-    "total": null
+    "social": 1412,
+    "total": 2435
    },
    "life": {
     "schema_version": 1,
@@ -9950,6 +10057,99 @@
     "missing_reason": "尚未纳入生活数据试点，缺失不代表0。",
     "modules": []
    }
+  }
+ ],
+ "resident_services": [
+  {
+   "kind": "national_navigation",
+   "status": "link_only",
+   "publisher": "国家政务服务平台",
+   "source_date": null,
+   "verified_at": "2026-11-10",
+   "next_review_at": "2026-12-10",
+   "reference_period": "动态服务目录；未提供统一发布日期或政策有效期",
+   "verification_scope": "已打开官方目录核对主题和栏目，未登录、提交或实测下游服务；不代表本城政策、资格或服务可用性已核实",
+   "redistribution_status": "link_only",
+   "id": "national-local-services",
+   "title": "去官方平台找本地办事事项",
+   "needs": [
+    "benefits",
+    "housing",
+    "work",
+    "utilities",
+    "family",
+    "elder",
+    "health"
+   ],
+   "url": "https://gjzwfw.www.gov.cn/fwmh/item/ztc_index.do",
+   "summary": "从国家政务服务平台的地方政府服务入口继续查找。先切换办事地区，再核对事项的承办部门和办事指南。",
+   "audience": "需要查找当地政务服务的居民；各事项条件不同",
+   "coverage": "全国导航，需自行切换至实际办事地区；本页不会替你选地区",
+   "evidence_locator": "地区切换、进入地方政府服务、个人办事栏目"
+  },
+  {
+   "kind": "national_navigation",
+   "status": "link_only",
+   "publisher": "国家政务服务平台",
+   "source_date": null,
+   "verified_at": "2026-11-10",
+   "next_review_at": "2026-12-10",
+   "reference_period": "动态服务目录；未提供统一发布日期或政策有效期",
+   "verification_scope": "已打开官方目录核对主题和栏目，未登录、提交或实测下游服务；不代表本城政策、资格或服务可用性已核实",
+   "redistribution_status": "link_only",
+   "id": "national-birth",
+   "title": "生育与新生儿办事导航",
+   "needs": [
+    "family"
+   ],
+   "url": "https://gjzwfw.www.gov.cn/col/col1248/index.html",
+   "summary": "查看出生登记等官方服务线索。地方育儿补贴、托育和入学条件另查当地规定。",
+   "audience": "有生育或新生儿办事需求的家庭；不是本地补贴资格认定",
+   "coverage": "全国导航，不替代本城生育待遇、托育或招生细则",
+   "evidence_locator": "出生登记及生育相关服务栏目"
+  },
+  {
+   "kind": "national_navigation",
+   "status": "link_only",
+   "publisher": "国家政务服务平台",
+   "source_date": null,
+   "verified_at": "2026-11-10",
+   "next_review_at": "2026-12-10",
+   "reference_period": "动态服务目录；未提供统一发布日期或政策有效期",
+   "verification_scope": "已打开官方目录核对主题和栏目，未登录、提交或实测下游服务；不代表本城政策、资格或服务可用性已核实",
+   "redistribution_status": "link_only",
+   "id": "national-elder",
+   "title": "养老与退休服务导航",
+   "needs": [
+    "elder",
+    "work"
+   ],
+   "url": "https://gjzwfw.www.gov.cn/col/col1558/index.html",
+   "summary": "从退休服务、养老机构、社区养老和助餐点等栏目查找，并可转到地方老年人服务专区。",
+   "audience": "有退休或养老服务需求的居民及家人；具体年龄和待遇条件以办理地为准",
+   "coverage": "全国导航，机构供给、待遇和可办事项需按地区确认",
+   "evidence_locator": "退休服务和福利津贴、养老服务和机构查询、地方老年人服务专区"
+  },
+  {
+   "kind": "national_navigation",
+   "status": "link_only",
+   "publisher": "国家政务服务平台",
+   "source_date": null,
+   "verified_at": "2026-11-10",
+   "next_review_at": "2026-12-10",
+   "reference_period": "页面标题为“2025医保服务专区”；动态目录，不代表2026年度地方待遇",
+   "verification_scope": "已打开官方目录核对主题和栏目，未登录、提交或实测下游服务；不代表本城政策、资格或服务可用性已核实",
+   "redistribution_status": "link_only",
+   "id": "national-health",
+   "title": "医保查询与异地就医导航",
+   "needs": [
+    "health"
+   ],
+   "url": "https://gjzwfw.www.gov.cn/col/col1576/index.html",
+   "summary": "查看医保机构、联网医院和异地就医相关服务入口。先核对参保地、就医地及险种，页面不判断待遇或报销金额。",
+   "audience": "需要查询医保或异地就医服务的参保人",
+   "coverage": "全国导航，不代表本城各险种待遇、全部医院或所有业务均可办理",
+   "evidence_locator": "医保经办机构查询、跨省异地就医备案、定点医疗机构查询栏目"
   }
  ]
 }
