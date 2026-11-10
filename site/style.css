@@ -409,6 +409,16 @@ input[type="range"] { min-height: 44px; }
   .budget-item { grid-template-columns: minmax(0,1fr) minmax(112px,.8fr); }
 }
 
+/* Dated utility prices are readable facts, separate from personal bill estimates. */
+.utility-rates{margin:16px 0;display:grid;gap:10px}
+.utility-rates>div{padding:12px 14px;border-radius:12px;background:var(--bg)}
+.utility-rates dt{font-weight:600}
+.utility-rates dd{margin:3px 0 0}
+.utility-rates strong{font-size:1.55rem;color:var(--accent);font-variant-numeric:tabular-nums}
+.utility-rates dd>span{font-size:.85rem}
+.utility-rates small{display:block;margin-top:4px;color:var(--ink-2);line-height:1.5}
+.utility-evidence summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font-size:.9rem}
+.utility-scope{font-weight:600}
 /* Resident task navigation stays independent of statistics and budget controls. */
 .resident-services { border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; background: var(--paper); }
 .service-needs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 16px 0; }

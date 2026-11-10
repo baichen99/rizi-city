@@ -80,3 +80,14 @@ test('resident filters never enter share URL or persistent storage',()=>{
   assert.doesNotMatch(source,/localStorage\.(setItem|getItem)\([^\n]*(?:residentNeed|residentSearch)/);
   assert.equal((source.match(/document\.addEventListener\("click"/g)||[]).length,1);
 });
+
+
+test('reference price cards remain visible as sourced navigation without copying rates',()=>{
+  const c={...data.cities.find(c=>c.id==='guangzhou'),life:{modules:JSON.parse(fs.readFileSync('data/life/utilities/guangzhou.json','utf8'))}};
+  for(const id of ['water','power','gas']) {
+    const row=h.residentServiceEntries(c,today).find(e=>e.id===`module-${id}`);
+    assert.equal(row.status,'官方单价参考');
+    assert.equal(row.kind,'local_navigation');
+    assert.equal(row.rate_reference,undefined);
+  }
+});

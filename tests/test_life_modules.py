@@ -11,7 +11,7 @@ from life_modules import DATA_DIR, build_modules, fictional_annual_tier_charge, 
 
 
 class NavigationTests(unittest.TestCase):
-    def test_real_cards_are_link_only(self):
+    def test_real_cards_never_enable_bill_calculators(self):
         self.assertEqual(validate_modules(), [])
         cards = build_modules(['beijing', 'shanghai', 'guangzhou', 'unknown'], on=dt.date(2026, 11, 9))
         self.assertEqual(cards['unknown'], [])
@@ -20,18 +20,18 @@ class NavigationTests(unittest.TestCase):
             self.assertTrue(all(not x['calculator_enabled'] and not x['usable'] for x in cards[city]))
 
     def test_guangzhou_navigation_preserves_scope_and_effective_date(self):
-        cards = {r['id']: r for r in build_modules(['guangzhou'], on=dt.date(2026, 11, 9))['guangzhou']}
+        cards = {r['id']: r for r in build_modules(['guangzhou'], on=dt.date(2026, 11, 10))['guangzhou']}
         self.assertEqual(cards['water']['effective_from'], '2025-06-01')
         self.assertIsNone(cards['water']['effective_to'])
         self.assertIn('五年', cards['water']['reference_period'])
         self.assertIn('次月', cards['water']['summary'])
         self.assertEqual(len(cards['water']['links']), 2)
         self.assertIn('广州东部发展燃气', cards['gas']['coverage'])
-        self.assertEqual(len(cards['gas']['links']), 2)
+        self.assertEqual(len(cards['gas']['links']), 3)
         for card in (cards['water'], cards['gas']):
             self.assertFalse(card['usable'])
             self.assertFalse(card['calculator_enabled'])
-            self.assertEqual(card['status'], 'link_only')
+            self.assertEqual(card['status'], 'reference_values')
 
     def test_review_window_and_future_verification(self):
         rows = build_modules(['beijing'], on=dt.date(2027, 2, 10))['beijing']
@@ -68,6 +68,53 @@ class NavigationTests(unittest.TestCase):
             self.assertTrue(validate_modules(directory))
             with self.assertRaises(ValueError):
                 build_modules(['beijing'], data_dir=directory)
+
+
+    def rate_fixture(self, patch=None):
+        directory = tempfile.TemporaryDirectory()
+        self.addCleanup(directory.cleanup)
+        dest = Path(directory.name) / 'utilities'
+        dest.mkdir()
+        row = copy.deepcopy(json.loads((DATA_DIR/'utilities/guangzhou.json').read_text())[0])
+        if patch:
+            patch(row)
+        (dest/'guangzhou.json').write_text(json.dumps([row]))
+        return Path(directory.name)
+
+    def test_rate_facts_keep_units_thresholds_and_rounding(self):
+        cards = {r['id']: r for r in build_modules(['guangzhou'], on=dt.date(2026,11,10))['guangzhou']}
+        self.assertEqual([i['value'] for i in cards['water']['rate_reference']['items']], [2.55,3.82,7.65])
+        self.assertEqual([i['value'] for i in cards['power']['rate_reference']['items']], [0.589,0.639,0.889])
+        self.assertTrue(all(i['approximate'] for i in cards['power']['rate_reference']['items']))
+        self.assertIn('每年', cards['gas']['rate_reference']['period'])
+        self.assertIn('污水', cards['water']['rate_reference']['note'])
+        self.assertEqual(cards['heating']['status'], 'missing')
+        self.assertNotIn('rate_reference', cards['heating'])
+
+    def test_rate_facts_are_suppressed_outside_review_window(self):
+        for on in (dt.date(2026,11,9), dt.date(2027,2,10)):
+            cards = build_modules(['guangzhou'], on=on)['guangzhou']
+            for card in cards:
+                self.assertNotIn('rate_reference', card)
+        directory = self.rate_fixture(lambda row: row.update(effective_to='2026-11-09'))
+        self.assertNotIn('rate_reference', build_modules(['guangzhou'], data_dir=directory, on=dt.date(2026,11,10))['guangzhou'][0])
+
+    def test_rate_facts_require_source_review_scope_and_safe_values(self):
+        patches = [lambda r:r.update(review_status='pending_independent_review'),
+                   lambda r:r.update(redistribution_status='link_only'),
+                   lambda r:r.update(schema_version=1),
+                   lambda r:r['rate_reference'].update(source_url='https://example.com'),
+                   lambda r:r['rate_reference'].update(source_url='https://example.gov.cn/unlinked'),
+                   lambda r:r['rate_reference'].update(scope=''),
+                   lambda r:r['rate_reference'].update(bulk_redistribution=True),
+                   lambda r:r['rate_reference']['items'][0].update(unit='元/月'),
+                   lambda r:r['rate_reference']['items'][0].update(approximate=None)]
+        for value in (None, True, '2.55', -1, float('nan'), float('inf')):
+            patches.append(lambda r, value=value:r['rate_reference']['items'][0].update(value=value))
+        for patch in patches:
+            directory = self.rate_fixture(patch)
+            self.assertTrue(validate_modules(directory))
+            with self.assertRaises(ValueError): build_modules(['guangzhou'], data_dir=directory)
 
 
 class FictionalTierTests(unittest.TestCase):

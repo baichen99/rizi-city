@@ -1,6 +1,6 @@
-"""Link-only resident navigation and an isolated, fictional-only tier model.
+"""Resident navigation, dated rate references, and a fictional-only tier model.
 
-No live prices are authorized in v1. Never use this model for actual billing.
+Reference prices are facts for reading, never input to an actual bill calculator.
 """
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ import copy
 import datetime as dt
 from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
 import json
+import math
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -65,14 +66,15 @@ def validate_modules(data_dir=DATA_DIR) -> list[str]:
         if key in seen:
             errors.append(f'{label}: duplicate module')
         seen.add(key)
-        if row.get('schema_version') != 1:
+        if row.get('schema_version') not in (1, 2):
             errors.append(f'{label}: unsupported schema')
-        if row.get('status') not in ('link_only', 'missing', 'blocked', 'expired'):
-            errors.append(f'{label}: v1 permits navigation only')
+        if row.get('status') not in ('link_only', 'reference_values', 'missing', 'blocked', 'expired'):
+            errors.append(f'{label}: invalid module status')
         if row.get('calculator_enabled') is not False:
             errors.append(f'{label}: production calculator is disabled in v1')
-        if row.get('redistribution_status') != 'link_only':
-            errors.append(f'{label}: v1 source redistribution must remain link-only')
+        has_rates = row.get('status') == 'reference_values'
+        if row.get('redistribution_status') != ('fact_extract' if has_rates else 'link_only'):
+            errors.append(f'{label}: source use must match navigation or limited fact extract')
         if row.get('review_status') not in ('pending_independent_review', 'reviewed'):
             errors.append(f'{label}: invalid review status')
         for field in ('tariff', 'tiers', 'price', 'value', 'rates'):
@@ -93,6 +95,43 @@ def validate_modules(data_dir=DATA_DIR) -> list[str]:
             for link in links:
                 if not isinstance(link, dict) or not link.get('label') or not _official(link.get('url')):
                     errors.append(f'{label}: labelled HTTPS gov.cn link required')
+        reference = row.get('rate_reference')
+        if has_rates:
+            if row.get('schema_version') != 2 or row.get('review_status') != 'reviewed':
+                errors.append(f'{label}: rate facts require schema 2 and independent review')
+            if not isinstance(reference, dict):
+                errors.append(f'{label}: rate_reference required')
+                continue
+            for field in ('scope', 'period', 'note', 'source_label', 'evidence_locator', 'reuse_basis'):
+                if not isinstance(reference.get(field), str) or not reference[field].strip():
+                    errors.append(f'{label}: rate reference requires {field}')
+            if not _date(reference.get('source_date')):
+                errors.append(f'{label}: rate reference requires source date')
+            linked_urls = {link.get('url') for link in links or [] if isinstance(link, dict)}
+            if not _official(reference.get('source_url')) or reference.get('source_url') not in linked_urls:
+                errors.append(f'{label}: rate source must be a linked official page')
+            if reference.get('bulk_redistribution') is not False:
+                errors.append(f'{label}: bulk source redistribution is not permitted')
+            rates = reference.get('items')
+            if not isinstance(rates, list) or not 1 <= len(rates) <= 6:
+                errors.append(f'{label}: 1..6 limited rate facts required')
+                continue
+            for rate in rates:
+                if not isinstance(rate, dict):
+                    errors.append(f'{label}: invalid rate fact')
+                    continue
+                value = rate.get('value')
+                if type(value) not in (int, float) or not math.isfinite(value) or value < 0:
+                    errors.append(f'{label}: rate value must be finite and nonnegative')
+                if rate.get('unit') not in ('元/立方米', '元/千瓦时'):
+                    errors.append(f'{label}: invalid rate unit')
+                if type(rate.get('approximate')) is not bool:
+                    errors.append(f'{label}: rate precision must be explicit')
+                for field in ('label', 'basis'):
+                    if not isinstance(rate.get(field), str) or not rate[field].strip():
+                        errors.append(f'{label}: rate requires {field}')
+        elif reference is not None:
+            errors.append(f'{label}: navigation-only cards must not carry numeric rate facts')
     return errors
 
 
@@ -101,7 +140,7 @@ def build_modules(city_ids, *, on=None, data_dir=DATA_DIR) -> dict:
     errors = validate_modules(data_dir)
     if errors:
         raise ValueError('\n'.join(errors))
-    on = on or dt.date.today()
+    on = on or dt.datetime.now(dt.timezone.utc).date()
     result = {city: [] for city in city_ids}
     for _, raw in _records(data_dir):
         if raw['city_id'] not in result:
@@ -120,6 +159,8 @@ def build_modules(city_ids, *, on=None, data_dir=DATA_DIR) -> dict:
         elif _date(row['next_review_at']) < on:
             row['status'] = 'pending_review'
             row['reason'] = '已超过复核窗口；入口及规则均需重新打开核验。' + row['reason']
+        if row['status'] != 'reference_values':
+            row.pop('rate_reference', None)
         result[row['city_id']].append(row)
     return result
 
