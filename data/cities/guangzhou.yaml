@@ -77,28 +77,75 @@ living:
   income_per_capita: 86069
   stats_year: 2025
   stats_source_url: https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html
+  statistical_metadata:
+    income_per_capita:
+      source_value: 86069
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 广州市全市行政范围内的城镇地区，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://tjj.gz.gov.cn/datav/admin/home/www_nj/2024/directory/08/08%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html
+      methodology_note: 住户收支与生活状况调查，广州调查队提供；2014年起按常住地而非户籍统计，分层多阶段PPS及随机等距抽样。方法文献为2024年鉴，2025公报原文称城镇居民，金额为全年人均平均数，不是工资或中位数；未取得年度误差区间，不作显著性判断。
+      cross_city_comparability_key: resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html
+      source_date: '2026-05-10'
+      publisher: 广州市统计局、国家统计局广州调查队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第九节人民生活和社会保障：收入段城镇居民86069元；注1为2025快报统计数
+      data_status: preliminary
+    consumption_per_capita:
+      source_value: 51860
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 广州市全市行政范围内的城镇地区，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://tjj.gz.gov.cn/datav/admin/home/www_nj/2024/directory/08/08%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html
+      methodology_note: 同一住户调查与城镇常住人口范围；全年人均消费支出含居住等支出及自有住房虚拟租金，不是个人现金生活预算，不应再机械叠加全部房租。方法文献为2024年鉴；不同城市消费结构仍有差异。
+      cross_city_comparability_key: resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html
+      source_date: '2026-05-10'
+      publisher: 广州市统计局、国家统计局广州调查队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第九节人民生活和社会保障：消费段城镇居民51860元；注1为2025快报统计数
+      data_status: preliminary
   verified_at: 2026-11-09
   needs_human: false
   needs_human_reason: null
   access_blocked: false
 
 flexible_employment:
-  pension_base_min: null
-  pension_rate: null
-  pension_year: null
-  medical_monthly_min: null
-  medical_note: null
-  monthly_total_min: null
-  calc: null
-  hukou_restriction: null
-  nonlocal_allowed: null
-  apply_channel: null
-  source_url: null
-  medical_source_url: null
-  hukou_source_url: null
-  verified_at: null
-  needs_human: true
-  needs_human_reason: 广州 2026 年养老基数下限、灵活就业医保月缴额（2026 年筹资标准通知标注"尚未施行"）均未核实。
+  pension_base_min: 5521
+  pension_rate: 20
+  pension_year: 2026 社保年度（2026-07-01 至 2027-06-30）
+  pension_note: 5521元下限自2026-07-01起执行，上限27603元；2026年1—6月下限5510元。20%为符合条件灵活就业人员的养老费率。
+  pension_base_source_url: https://zhsi.zhuhai.gov.cn/zcfg/content/post_3949111.html
+  medical_monthly_min: 498.72
+  medical_note: 2026-01-01 至 2026-12-31，广州12345官方公开答复直接列明职工医保基数 6234–31170 元/月，2024年全口径月均工资10390元；该答复未标发布日期，核验于2026-11-10，并非税务年度公告。灵活就业费率8%、大额医疗补助不另缴依据穗医保规字〔2022〕1号（有效至2026-12-31，https://www.gz.gov.cn/gfxwj/sbmgfxwj/gzsylbzj/content/post_8689834.html）；2024-03至2025-12的6.5%阶段性降费已到期。按下限计算6234×8%=498.72元/月，仅为缴费参考，不含个人具体补缴。
+  monthly_total_min: 1602.92
+  calc: 仅适用2026-07-01至2026-12-31的共同有效期间：养老5521×20%=1104.20；医保6234×8%=498.72；合计1602.92元/月。2026年上半年养老下限不同，2027医保标准须另核，不跨期沿用本合计。
+  hukou_restriction: 法定劳动年龄内符合条件的非本地户籍灵活就业人员，可凭有效身份证件和广东就业登记证明在就业地参保；港澳台居民、无雇工个体工商户等按相应证件路径办理。养老首次跨省参保等另有账户规定，不等同于退休待遇领取资格。
+  nonlocal_allowed: true
+  apply_channel: 「粤税通」「粤省事」小程序线上办理缴费登记，或办税服务厅同城通办
+  source_url: https://guangdong.chinatax.gov.cn/gdsw/ssfggds/2026-05/06/content_45505ebfc8f54089ae9bd6300fd49138.shtml
+  medical_source_url: https://wx12345.gzonline.gov.cn/km/showMsg?id=BEAFDBCFD
+  hukou_source_url: https://guangdong.chinatax.gov.cn/gdsw/ssfggds/2022-01/29/content_651e1cba3b6c4b4a8f27b463b184e599.shtml
+  verified_at: 2026-11-10
+  needs_human: false
+  needs_human_reason: null
   access_blocked: false
 
 civil_service:
@@ -175,3 +222,60 @@ changelog:
     old: null
     new: 仅完成省级口径核实；2026事业单位集中招聘公告仅载3月笔试，后续具体日期尚未读到。广州、深圳各自独立事业单位批次不由省级内容替代。
     basis: 考公考编专项巡检；省考公告 https://hrss.zs.gov.cn/tzgg/gggs/content/post_2660909.html；省考指南 https://hrss.zs.gov.cn/attachment/0/581/581485/2660909.doc；事业单位公告 https://hrss.gd.gov.cn/zwgk/sydwzp/zpgg/content/post_4848983.html；事业单位指南 https://hrss.gd.gov.cn/attachment/0/605/605124/4848983.docx
+  - date: '2026-11-09'
+    field: living.statistical_metadata.income_per_capita
+    old: null
+    new:
+      source_value: 86069
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 广州市全市行政范围内的城镇地区，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://tjj.gz.gov.cn/datav/admin/home/www_nj/2024/directory/08/08%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html
+      methodology_note: 住户收支与生活状况调查，广州调查队提供；2014年起按常住地而非户籍统计，分层多阶段PPS及随机等距抽样。方法文献为2024年鉴，2025公报原文称城镇居民，金额为全年人均平均数，不是工资或中位数；未取得年度误差区间，不作显著性判断。
+      cross_city_comparability_key: resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html
+      source_date: '2026-05-10'
+      publisher: 广州市统计局、国家统计局广州调查队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第九节人民生活和社会保障：收入段城镇居民86069元；注1为2025快报统计数
+      data_status: preliminary
+    basis: https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html；第九节人民生活和社会保障：收入段城镇居民86069元；注1为2025快报统计数；方法 https://tjj.gz.gov.cn/datav/admin/home/www_nj/2024/directory/08/08%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html
+  - date: '2026-11-09'
+    field: living.statistical_metadata.consumption_per_capita
+    old: null
+    new:
+      source_value: 51860
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 广州市全市行政范围内的城镇地区，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://tjj.gz.gov.cn/datav/admin/home/www_nj/2024/directory/08/08%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html
+      methodology_note: 同一住户调查与城镇常住人口范围；全年人均消费支出含居住等支出及自有住房虚拟租金，不是个人现金生活预算，不应再机械叠加全部房租。方法文献为2024年鉴；不同城市消费结构仍有差异。
+      cross_city_comparability_key: resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html
+      source_date: '2026-05-10'
+      publisher: 广州市统计局、国家统计局广州调查队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第九节人民生活和社会保障：消费段城镇居民51860元；注1为2025快报统计数
+      data_status: preliminary
+    basis: https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/post_10804075.html；第九节人民生活和社会保障：消费段城镇居民51860元；注1为2025快报统计数；方法 https://tjj.gz.gov.cn/datav/admin/home/www_nj/2024/directory/08/08%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html
+  - date: 2026-11-10
+    field: flexible_employment（整段）
+    old: null
+    new: 养老基数下限5521、医保月缴498.72（公式计算）、2026-07至12每月最低合计1602.92
+    basis: 养老20%据粤人社规〔2026〕14号第六、七条（2026-05-01施行），https://guangdong.chinatax.gov.cn/gdsw/ssfggds/2026-05/06/content_45505ebfc8f54089ae9bd6300fd49138.shtml；养老基数据粤人社发〔2026〕24号全文（2026-09-17成文，2026-07-01起5521），https://zhsi.zhuhai.gov.cn/zcfg/content/post_3949111.html；医保6234–31170及2026自然年度由广州12345官方公开答复直接列明，https://wx12345.gzonline.gov.cn/km/showMsg?id=BEAFDBCFD（无发布日期，不冒称税务年度公告）；8%与大额医疗不另缴据穗医保规字〔2022〕1号，https://www.gz.gov.cn/gfxwj/sbmgfxwj/gzsylbzj/content/post_8689834.html；阶段性6.5%到2025-12-31据https://guangdong.chinatax.gov.cn/gdsw/gzswwwsbfyhzc/2024-02/29/content_9e708f1c2b204599b6fcd7081ceac0f6.shtml；医保参保范围据粤医保规〔2022〕2号及粤医保规〔2025〕1号（延续至2030-01-31），https://guangdong.chinatax.gov.cn/gdsw/ssfggds/2025-03/27/content_0c2337b4c93a49909ec972ae4fc90ac9.shtml；渠道据广州市税务局办理指南https://guangdong.chinatax.gov.cn/gdsw/gzswlhjyrysyxxgl/2026-05/14/content_8dac78be3a604391a74b90bdd4104042.shtml。合计仅在养老与医保口径重叠的2026-07至12使用，删除未独立核实的2027新文件附注。

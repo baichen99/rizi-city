@@ -7,9 +7,10 @@
 <meta name="description" content="落户、补贴、房租、社保，一城一份，每个数字都带官方来源和核验日期。仅供参考，申请前以官方页面为准。">
 <meta name="theme-color" content="#f7f1e6">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d9653b'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23fff' font-family='sans-serif'%3E日%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=b17bb4b7476c">
 </head>
 <body>
+<a class="skip-link" href="#main-content">跳到主要内容</a>
 <div class="corner-links">
   <a class="corner-btn" href="https://github.com/baichen99/rizi-city" target="_blank" rel="noopener">GitHub ↗</a>
   <a class="corner-btn accent" href="https://github.com/baichen99/rizi-city/issues/new/choose" target="_blank" rel="noopener">提 Issue</a>
@@ -17,23 +18,27 @@
 <header class="top">
   <div class="wrap">
     <p class="kicker">日子人城市指南 · rizi-city</p>
-    <h1>不卷了，找一座<br>能好好过日子的城市</h1>
-    <p class="lede">落户、补贴、房租、社保，一城一份。每个数字都能点开看官方来源和核验日期；找不到原文的，老实写「待核实」。</p>
+    <h1>住在这里，<br>把日子过明白</h1>
+    <p class="lede">城市概况、政策原文、日常生活，一城一份。无论已经安家，还是正在选城，都从可信的事实开始。</p>
     <p class="meta" id="meta">数据加载中…</p>
   </div>
 </header>
 
 <nav class="tabs" role="tablist" aria-label="入口">
   <div class="wrap tabs-inner">
-    <button role="tab" data-tab="index" aria-selected="true">🏆 日子指数</button>
+    <button role="tab" id="nav-resident" aria-controls="tab-resident" data-tab="resident" aria-label="我住在这里" aria-selected="true"><span aria-hidden="true">⌂ </span><span class="nav-long">我住在这里</span><span class="nav-short">本城</span></button>
+    <button role="tab" id="nav-compare" aria-controls="tab-compare" data-tab="compare" aria-label="我在选城市" aria-selected="false"><span aria-hidden="true">↔ </span><span class="nav-long">我在选城市</span><span class="nav-short">选城市</span></button>
+    <button role="tab" data-tab="index" aria-selected="false">🏆 日子指数</button>
     <button role="tab" data-tab="grad">🎓 应届生</button>
     <button role="tab" data-tab="civil">📝 考公考编</button>
     <button role="tab" data-tab="free">💻 自由职业</button>
   </div>
 </nav>
 
-<main class="wrap">
-  <section id="tab-index" class="panel" role="tabpanel"></section>
+<main class="wrap" id="main-content" tabindex="-1">
+  <section id="tab-resident" class="panel" role="tabpanel" aria-labelledby="nav-resident"></section>
+  <section id="tab-compare" class="panel" role="tabpanel" aria-labelledby="nav-compare" hidden></section>
+  <section id="tab-index" class="panel" role="tabpanel" hidden></section>
   <section id="tab-grad" class="panel" role="tabpanel" hidden></section>
   <section id="tab-civil" class="panel" role="tabpanel" hidden></section>
   <section id="tab-free" class="panel" role="tabpanel" hidden></section>
@@ -56,6 +61,6 @@
   </div>
 </div>
 
-<script src="app.js"></script>
+<script src="app.js?v=cdccb514544e"></script>
 </body>
 </html>

@@ -1,11 +1,30 @@
-name: 认领城市
-description: 认领一座城市，用你的 agent 定期巡检
-title: "认领：<城市>"
+name: 加入城市维护
+description: 按城市和领域加入共同维护；一城可多人，不登记也欢迎贡献
+title: "共同维护：<城市> / <领域>"
 labels: ["claim-city"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        一座城市可多人共同维护，同一领域也可协作。不登记也可以纠错和提交 PR。
+        登记只记录长期分工，不授予编辑、审核或合并权限，也不阻止其他人贡献。
+        单次工作请用「巡检协调」；暂停或退出请更新原登记 Issue，留下交接信息。
   - type: input
     id: city
-    attributes: {label: 认领哪座城市, placeholder: 合肥}
+    attributes: {label: 城市及适用地区, placeholder: 合肥（市级；如限区县请注明）}
+    validations: {required: true}
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 愿意关注的领域（可多选）
+      multiple: true
+      options: ["落户", "补贴", "社保", "灵活就业", "考公考编", "生活成本与住房", "通勤", "政策易错点", "完整巡检", "其他（备注说明）"]
+    validations: {required: true}
+  - type: dropdown
+    id: status
+    attributes:
+      label: 当前状态
+      options: ["加入 / 活跃", "暂停", "退出 / 交接"]
     validations: {required: true}
   - type: dropdown
     id: agent
@@ -18,6 +37,18 @@ body:
     attributes:
       label: 打算多久巡检一次
       options: ["每周", "每两周", "每月", "政策变动时"]
+    validations: {required: true}
+  - type: textarea
+    id: next_check
+    attributes:
+      label: 下次检查或状态确认日期
+      description: 写明确日期；如只在政策变化时检查，请写下次确认维护状态的日期。暂停或退出时写交接安排。
+    validations: {required: true}
+  - type: textarea
+    id: coordination
+    attributes:
+      label: 已有协作、未完成项和交接信息
+      description: 关联同城登记、巡检任务和 PR；说明具体范围、可用官方来源和待接手内容。没有可写“无”。
     validations: {required: true}
   - type: textarea
     id: note

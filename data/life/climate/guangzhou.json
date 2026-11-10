@@ -1,0 +1,34 @@
+[
+  {
+    "schema_version": 1,
+    "city_id": "guangzhou",
+    "id": "climate",
+    "title": "四季气候",
+    "status": "link_only",
+    "summary": "广州官方预案提供气象水文背景。它不是未来天气预报，也不能用于估算家庭制冷电费。",
+    "links": [
+      {
+        "label": "广州气候背景原文",
+        "url": "https://yjglj.gz.gov.cn/zwgk/zcwj/gfxwj/content/post_9762699.html"
+      }
+    ],
+    "coverage": "广州市域背景介绍，不能代表每个街区；无统一站点月度样本",
+    "verified_at": "2026-11-09",
+    "verified_by": "assistant-source-text-review",
+    "next_review_at": "2027-11-09",
+    "source_date": "2024-07-15",
+    "reference_period": "2024年预案；段内年降水背景基准期1991—2020",
+    "effective_from": null,
+    "effective_to": null,
+    "evidence_locator": "穗府办〔2024〕15号：2.2气象水文",
+    "verification_scope": "已打开官方页面，仅核实导航主题；不等于现行规则、服务可用性或费用已核准",
+    "redistribution_status": "link_only",
+    "license_id": null,
+    "license_note": "未取得来源全文、表格或数据集再分发许可；仅公开链接及项目自写导航说明",
+    "review_status": "pending_independent_review",
+    "reason": "同基准期12个月资料、站点与缺测说明、再分发许可和独立复核尚未齐备，不画跨城气候曲线。",
+    "calculator_enabled": false,
+    "normal_period": null,
+    "monthly_values": null
+  }
+]

@@ -80,6 +80,51 @@ living:
   income_per_capita: 96292
   stats_year: 2025
   stats_source_url: https://www.beijing.gov.cn/zhengce/zhengcefagui/202603/t20260325_4565678.html
+  statistical_metadata:
+    income_per_capita:
+      source_value: 96292
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 北京市全市行政范围内的城镇地区，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://tjj.beijing.gov.cn/tjsj_31433/yjdsj_31440/jmsz_32036/2025/202601/t20260121_4452274.html
+      methodology_note: 2026-01-21收入指标说明第2节：按常住地调查，含本地及通常居住半年以上外地户口住户；城乡依统计上划分城乡规定。可支配收入是人均平均数，包含工资之外的其他收入，不是工资或收入中位数。
+      cross_city_comparability_key: resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.beijing.gov.cn/zhengce/zhengcefagui/202603/t20260325_4565678.html
+      source_date: '2026-03-25'
+      publisher: 北京市统计局、国家统计局北京调查总队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第十节人民生活和社会保障收入段：按常住地分，城镇居民人均可支配收入96292元，2025全年；公报注释[1]2025年数据均为初步统计数
+      data_status: preliminary
+    consumption_per_capita:
+      source_value: 54122
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 北京市全市行政范围内的城镇地区，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://tjj.beijing.gov.cn/tjsj_31433/yjdsj_31440/jmsz_32036/2025/202601/t20260121_4452284.html
+      methodology_note: 2026-01-21消费指标说明第2节：同一按常住地确定的住户调查，城乡分类并非户籍分类；消费含现金和实物及居住等类别，使用提醒：不是个人生活预算，不再机械叠加全部房租。
+      cross_city_comparability_key: resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.beijing.gov.cn/zhengce/zhengcefagui/202603/t20260325_4565678.html
+      source_date: '2026-03-25'
+      publisher: 北京市统计局、国家统计局北京调查总队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第十节人民生活和社会保障消费段：按常住地分，城镇居民人均消费支出54122元，2025全年；公报注释[1]2025年数据均为初步统计数
+      data_status: preliminary
   verified_at: 2026-11-09
   needs_human: false
   needs_human_reason: null
@@ -175,3 +220,55 @@ changelog:
     old: false
     new: true
     basis: 考公考编专项巡检；官方公告或报考指南 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260806_4811635.html；事业单位应届口径样本，仅北京市民政局所属单位 https://rsj.beijing.gov.cn/xxgk/gkzp/202608/t20260804_4808187.html
+  - date: '2026-11-09'
+    field: living.statistical_metadata.income_per_capita
+    old: null
+    new:
+      source_value: 96292
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 北京市全市行政范围内的城镇地区，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://tjj.beijing.gov.cn/tjsj_31433/yjdsj_31440/jmsz_32036/2025/202601/t20260121_4452274.html
+      methodology_note: 2026-01-21收入指标说明第2节：按常住地调查，含本地及通常居住半年以上外地户口住户；城乡依统计上划分城乡规定。可支配收入是人均平均数，包含工资之外的其他收入，不是工资或收入中位数。
+      cross_city_comparability_key: resident-statistics|income_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.beijing.gov.cn/zhengce/zhengcefagui/202603/t20260325_4565678.html
+      source_date: '2026-03-25'
+      publisher: 北京市统计局、国家统计局北京调查总队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第十节人民生活和社会保障收入段：按常住地分，城镇居民人均可支配收入96292元，2025全年；公报注释[1]2025年数据均为初步统计数
+      data_status: preliminary
+    basis: https://www.beijing.gov.cn/zhengce/zhengcefagui/202603/t20260325_4565678.html；第十节人民生活和社会保障收入段：按常住地分，城镇居民人均可支配收入96292元，2025全年；公报注释[1]2025年数据均为初步统计数；方法 https://tjj.beijing.gov.cn/tjsj_31433/yjdsj_31440/jmsz_32036/2025/202601/t20260121_4452274.html
+  - date: '2026-11-09'
+    field: living.statistical_metadata.consumption_per_capita
+    old: null
+    new:
+      source_value: 54122
+      period: '2025'
+      unit: 元/年
+      statistic: mean
+      price_basis: nominal
+      population_scope: 城镇常住居民（按常住地统计）
+      population_scope_type: urban_residents
+      geographic_scope: 北京市全市行政范围内的城镇地区，非仅中心城区
+      geographic_scope_type: city_administrative_area
+      methodology_key: household_income_expenditure_survey
+      methodology_source_url: https://tjj.beijing.gov.cn/tjsj_31433/yjdsj_31440/jmsz_32036/2025/202601/t20260121_4452284.html
+      methodology_note: 2026-01-21消费指标说明第2节：同一按常住地确定的住户调查，城乡分类并非户籍分类；消费含现金和实物及居住等类别，使用提醒：不是个人生活预算，不再机械叠加全部房租。
+      cross_city_comparability_key: resident-statistics|consumption_per_capita|urban_residents|city_administrative_area|CNY-person-year|household-survey
+      source_url: https://www.beijing.gov.cn/zhengce/zhengcefagui/202603/t20260325_4565678.html
+      source_date: '2026-03-25'
+      publisher: 北京市统计局、国家统计局北京调查总队
+      verified_at: '2026-11-09'
+      review_due: '2027-02-09'
+      review_status: verified
+      evidence_locator: 第十节人民生活和社会保障消费段：按常住地分，城镇居民人均消费支出54122元，2025全年；公报注释[1]2025年数据均为初步统计数
+      data_status: preliminary
+    basis: https://www.beijing.gov.cn/zhengce/zhengcefagui/202603/t20260325_4565678.html；第十节人民生活和社会保障消费段：按常住地分，城镇居民人均消费支出54122元，2025全年；公报注释[1]2025年数据均为初步统计数；方法 https://tjj.beijing.gov.cn/tjsj_31433/yjdsj_31440/jmsz_32036/2025/202601/t20260121_4452284.html

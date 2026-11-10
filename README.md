@@ -1,11 +1,11 @@
 # 日子人城市指南 · rizi-city
 
-> 不卷了，找一座能好好过日子的城市。
+> 在一座城市，把日子过明白。
 
-落户、人才补贴、租房补贴、房租、社保、生活成本，一城一份。**每个数字都带官方来源和核验日期**，由 AI agent 定期对照政府官网巡检，所有改动由人工合并。找不到原文的，老实写「待核实」。
+查我生活的城市，或比较下一座城市。落户、人才补贴、租房补贴、房租、社保、生活成本，一城一份。**每个数字都带官方来源和核验日期**，由 AI agent 定期对照政府官网巡检，所有改动由人工合并。找不到原文的，老实写「待核实」。
 
 <!-- BADGES:START -->
-[![城市](https://img.shields.io/badge/%E5%9F%8E%E5%B8%82-20_%E5%BA%A7-d9653b)](data/cities/) [![最近核验](https://img.shields.io/badge/%E6%9C%80%E8%BF%91%E6%A0%B8%E9%AA%8C-2026--11--09-3e8e63)](docs/leaderboard.md) [![数据](https://img.shields.io/badge/%E6%95%B0%E6%8D%AE-CC_BY--SA_4.0-6b6157)](LICENSE-CONTENT) [![代码](https://img.shields.io/badge/%E4%BB%A3%E7%A0%81-MIT-6b6157)](LICENSE)
+[![城市](https://img.shields.io/badge/%E5%9F%8E%E5%B8%82-20_%E5%BA%A7-d9653b)](data/cities/) [![最近核验](https://img.shields.io/badge/%E6%9C%80%E8%BF%91%E6%A0%B8%E9%AA%8C-2026--11--10-3e8e63)](docs/leaderboard.md) [![数据](https://img.shields.io/badge/%E6%95%B0%E6%8D%AE-CC_BY--SA_4.0-6b6157)](LICENSE-CONTENT) [![代码](https://img.shields.io/badge/%E4%BB%A3%E7%A0%81-MIT-6b6157)](LICENSE)
 <!-- BADGES:END -->
 
 <p align="center">
@@ -22,12 +22,24 @@
 
 | 入口 | 解决什么 |
 |---|---|
-| 🏆 **[日子指数](https://baichen99.github.io/rizi-city/#index)** | 每座城市"好好过日子"的综合排行，权重你自己调（[算法说明](docs/index-method.md)） |
+| 🏠 **[我住在这里](https://baichen99.github.io/rizi-city/#resident)** | 城市概况、已有政策、官方入口、可得历史走势；只在本机记住城市 |
+| ↔ **[我在选城市](https://baichen99.github.io/rizi-city/#compare)** | 对照两城同口径信息；资料期或人群不同会明确提示 |
+| 🏆 **[日子指数](https://baichen99.github.io/rizi-city/#index)** | 本科落户/补贴、灵活就业等特定视角的排行，权重你自己调（[算法说明](docs/index-method.md)） |
 | 🎓 **[我是应届生](https://baichen99.github.io/rizi-city/#grad)** | 去哪、怎么落户、能领多少、别丢应届身份 |
 | 📝 **[我在考公考编](https://baichen99.github.io/rizi-city/#civil)** | 应届身份自查、各省考试入口、各城市待遇参考 |
 | 💻 **[我是自由职业 / 灵活就业](https://baichen99.github.io/rizi-city/#free)** | 自己交社保每月最少多少、外地户籍能不能交、在哪生活最划算 |
 
 更习惯问 AI？装上 [rizi-city skill](skill/)，直接问 Claude Code 或 Codex「我硕士毕业，去杭州和成都哪个领得多」，回答里每个数字都带来源。
+
+第三方来源原文不因本仓库许可而获得重新授权；新增生活资料的使用范围与署名要求见 [来源说明](docs/life-data-method.md)。
+
+## 居民概况试点
+
+本城入口覆盖已有20城；新增统计以北京、上海、广州为来源试点，**不是每城每项都已有数字**。工资均值和中位数、房价指数和绝对房价、户籍与常住人口寿命分别标注。中位工资无可靠同口径公开来源时明确留空；历史缺年不插值。
+
+广州水、电、气提供标明适用范围与日期的官方单价参考；其他水电气暖、气候和医保项目先提供已核官方资料导航。当前不开放真实账单计算，不自动判断政策资格，不收集定位、住址或健康资料。旧日子指数、30㎡租金＋社保底线和政策数据不变。
+
+实现范围与验收见 [居民版实施记录](docs/resident-guide-implementation.md)，数据规则见 [概况/历史方法](docs/life-data-method.md) 和 [日常生活模块](docs/life-modules-method.md)。设计依据为 [方案 PR #41](https://github.com/baichen99/rizi-city/pull/41)。新增入口在本 PR 人工合并并部署后才进入正式站点。
 
 ## 城市速览
 
@@ -88,7 +100,7 @@ flowchart LR
 - 社保基数优先官网；房租用权威监测数据，注明月份和口径；收入、消费用各市统计公报。
 - 政策写了有效期的都记 `valid_until`，过期就标出来，再去找接替文件。
 - 遇到验证码、登录墙、反爬，不绕过，标 🔒 等有浏览器的人来补。
-- Action 只校验，不合并。**所有改动都由人工合并。**
+- Action 只校验，不合并。**所有合并须仓库维护者批准；加入维护不授予合并权限。**
 
 每座城市的数据在 [`data/cities/`](data/cities/)，字段说明见 [`_template.yaml`](data/cities/_template.yaml)。
 
@@ -106,7 +118,7 @@ flowchart LR
 
 每份巡检都会署上 agent 的名字，进入 [🏅 巡检榜](docs/leaderboard.md)。看看谁家的 agent 最勤快、最准。
 
-**想认领一座城市？** 提交[「认领城市」](https://github.com/baichen99/rizi-city/issues/new?template=claim-city.yml)。合肥、南京的部分官网拦截了自动访问，最需要有浏览器的朋友。发现数据错了？[报告数据错误](https://github.com/baichen99/rizi-city/issues/new?template=data-error.yml)时请附上官方链接。更多见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [MAINTAINING.md](MAINTAINING.md)。
+**想加入城市维护？** 提交[「加入城市维护」](https://github.com/baichen99/rizi-city/issues/new?template=claim-city.yml)，按「城市 + 领域」分工，一城可多人共管，未登记也欢迎贡献。较大的单次巡检可先[登记工作范围](https://github.com/baichen99/rizi-city/issues/new?template=patrol-task.yml)，避免重复；维护者可以暂停或交接。发现数据错了？[报告数据错误](https://github.com/baichen99/rizi-city/issues/new?template=data-error.yml)时请附上官方链接。更多见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [MAINTAINING.md](MAINTAINING.md)。
 
 ## Roadmap
 
@@ -130,6 +142,8 @@ cd site && python3 -m http.server # 本地预览网页
 ## 许可
 
 数据与文字 [CC BY-SA 4.0](LICENSE-CONTENT)，代码 [MIT](LICENSE)。
+
+以上仅覆盖项目有权许可的原创内容，不替第三方官方网页、附件或数据表授予许可。有限事实摘录与链接不意味着原资料获得 CC BY-SA 再许可，具体使用边界见[生活数据来源说明](docs/life-data-method.md)。
 
 ## 免责声明
 

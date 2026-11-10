@@ -12,3 +12,5 @@ dist/
 .env.*
 !.env.example
 rizi-city-private/
+
+artifacts/

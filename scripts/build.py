@@ -12,7 +12,9 @@
 """
 from __future__ import annotations
 
+import hashlib
 import json
+import re
 from urllib.parse import quote
 import sys
 from pathlib import Path
@@ -22,6 +24,9 @@ from common import (  # noqa: E402
     DEGREES, DIMENSION_LABEL, DIMENSIONS, ROOT, STATUS_ICON,
     city_files, dimension_status, expired, is_gov_url, load_yaml, today,
 )
+from life_data import build_life  # noqa: E402
+from life_modules import build_modules  # noqa: E402
+from resident_statistics import validate_metadata  # noqa: E402
 
 OUT_JSON = ROOT / "site" / "data" / "cities.json"
 NATIONAL = ROOT / "data" / "national.yaml"
@@ -209,9 +214,17 @@ def count_needs_human(city: dict) -> int:
 
 
 def build():
+    from resident_services import build_resident_services
     cities = []
-    for p in city_files():
+    files = city_files()
+    city_ids = [p.stem for p in files]
+    life = build_life(city_ids)
+    modules = build_modules(city_ids)
+    for p in files:
         d = load_yaml(p)
+        metadata_errors = validate_metadata(d.get("living", {}))
+        if metadata_errors:
+            raise ValueError(f"{p.name}: invalid resident statistics metadata: " + "; ".join(metadata_errors))
         d["id"] = p.stem
         d["status"] = dimension_status(d)
         d["by_degree"] = summarize(d)
@@ -220,6 +233,8 @@ def build():
         d["needs_human_count"] = count_needs_human(d)
         d["index"] = index_inputs(d)
         d["floor"] = freelance_floor(d)
+        d["life"] = life[p.stem]
+        d["life"]["modules"] = modules.get(p.stem, [])
         cities.append(d)
 
     latest = max((c["latest_verified"] for c in cities if c["latest_verified"]), default=None)
@@ -229,14 +244,33 @@ def build():
         "disclaimer": "仅供参考，申请前以官方页面为准。",
         "index_version": INDEX_VERSION,
         "room_sqm": ROOM_SQM,
+        "life_schema_version": 1,
         "national": load_yaml(NATIONAL) if NATIONAL.exists() else None,
         "cities": cities,
+        "resident_services": build_resident_services(),
     }
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"✓ {OUT_JSON.relative_to(ROOT)}（{len(cities)} 座城市）")
     update_readme(cities, latest)
+    update_asset_versions()
     build_offline(payload)
+
+
+def update_asset_versions():
+    """Content versions prevent a newly deployed page reusing old browser assets."""
+    html_p = SITE / "index.html"
+    html = html_p.read_text(encoding="utf-8")
+    original = html
+    for asset, attribute in (("style.css", "href"), ("app.js", "src")):
+        digest = hashlib.sha256((SITE / asset).read_bytes()).hexdigest()[:12]
+        pattern = rf'{attribute}="{re.escape(asset)}(?:\?v=[a-f0-9]+)?"'
+        html, count = re.subn(pattern, f'{attribute}="{asset}?v={digest}"', html)
+        if count != 1:
+            raise ValueError(f"Expected exactly one {asset} reference in index.html")
+    if html != original:
+        html_p.write_text(html, encoding="utf-8")
+        print("✓ site/index.html（静态资源内容版本）")
 
 
 def build_offline(payload: dict):
@@ -248,9 +282,10 @@ def build_offline(payload: dict):
     css = (SITE / "style.css").read_text(encoding="utf-8")
     js = (SITE / "app.js").read_text(encoding="utf-8")
     data = json.dumps(payload, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-    html = html.replace('<link rel="stylesheet" href="style.css">', f"<style>\n{css}\n</style>")
-    html = html.replace('<script src="app.js"></script>',
-                        f"<script>window.RIZI_DATA={data};window.RIZI_OFFLINE=true;</script>\n<script>\n{js}\n</script>")
+    html = re.sub(r'<link rel="stylesheet" href="style\.css(?:\?v=[a-f0-9]+)?">',
+                  lambda _: f"<style>\n{css}\n</style>", html)
+    html = re.sub(r'<script src="app\.js(?:\?v=[a-f0-9]+)?"></script>',
+                  lambda _: f"<script>window.RIZI_DATA={data};window.RIZI_OFFLINE=true;</script>\n<script>\n{js}\n</script>", html)
     OFFLINE.parent.mkdir(parents=True, exist_ok=True)
     OFFLINE.write_text(html, encoding="utf-8")
     print(f"✓ {OFFLINE.relative_to(ROOT)}（离线单文件，{len(html.encode()) // 1024} KB）")

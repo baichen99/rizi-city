@@ -75,7 +75,7 @@ button, input, select { font: inherit; color: inherit; }
 .tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); font-weight: 600; }
 
 main { padding-top: 18px; padding-bottom: 32px; }
-.panel > * + * { margin-top: 14px; }
+.panel > * + *, .panel-content > * + * { margin-top: 14px; }
 h2 { font-size: 20px; margin: 0; line-height: 1.35; }
 h3 { font-size: 15px; margin: 0 0 6px; }
 .sub { color: var(--ink-2); margin: 4px 0 0; font-size: 14px; }
@@ -200,3 +200,245 @@ blockquote { margin: 8px 0 0; padding: 8px 12px; border-left: 3px solid var(--ac
 .foot { border-top: 1px solid var(--line); padding: 18px 0 40px; font-size: 13px; color: var(--ink-2); }
 .foot p { margin: 0 0 6px; }
 .empty { color: var(--ink-3); font-size: 14px; }
+
+/* Resident-first: calm editorial overview, with sources always one step away. */
+.skip-link { position: absolute; top: -80px; left: 16px; z-index: 50; background: var(--ink); color: var(--bg); padding: 12px; border-radius: 8px; }
+.skip-link:focus { top: 8px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+[hidden] { display: none !important; }
+.resident-intro { padding: 12px 0 4px; }
+.resident-intro h2 { font-size: clamp(24px, 4vw, 34px); letter-spacing: -.03em; }
+.city-picker { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 20px; }
+.city-picker > label { font-weight: 650; }
+.city-picker > select { flex: 1; min-width: 160px; }
+.city-picker > .row, .city-picker > p { width: 100%; margin: 0; }
+select { max-width: 100%; background: var(--paper); border: 1px solid var(--line); border-radius: 9px; padding: 10px; min-height: 44px; }
+button { min-height: 40px; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+.resident-empty { padding: 42px 24px; border: 1px dashed var(--line); text-align: center; border-radius: 16px; color: var(--ink-2); }
+.resident-empty > span { display: block; font-size: 64px; line-height: 1.2; color: var(--accent); }
+.resident-empty h3 { font-size: 20px; color: var(--ink); margin-top: 18px; }
+.life-jumps { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0; }
+[id^="life-"] { scroll-margin-top: 90px; margin-top: 32px; }
+.metric-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin-top: 16px; }
+.metric-card { display: flex; flex-direction: column; padding: 18px; }
+.metric-top { display: flex; flex-wrap: wrap; gap: 7px; align-items: baseline; }
+.metric-top h3 { flex: 1 1 150px; }
+.life-status { color: var(--ink-2); font-size: 11px; background: var(--bg); border: 1px solid var(--line); border-radius: 5px; padding: 2px 5px; font-weight: 400; }
+.metric-number { font-size: 30px; line-height: 1.25; font-weight: 650; margin: 16px 0 6px; letter-spacing: -.025em; font-variant-numeric: tabular-nums; }
+.metric-number small { display: inline-block; font-size: 12px; color: var(--ink-2); font-weight: 400; letter-spacing: normal; }
+.metric-card > p.small { margin: 4px 0 12px; }
+.metric-card > details { margin-top: auto; border-top: 1px solid var(--line); padding-top: 10px; }
+.life-facts { font-size: 13px; display: grid; grid-template-columns: 80px minmax(0,1fr); gap: 8px; }
+.life-facts dt { color: var(--ink-2); }
+.life-facts dd { margin: 0; overflow-wrap: anywhere; }
+.life-stack { display: grid; gap: 12px; margin-top: 14px; }
+.history-chart { display: block; width: 100%; height: auto; margin: 12px 0; overflow: visible; }
+.history-chart polyline { fill: none; stroke: var(--accent); stroke-width: 2.5; }
+.history-chart circle { fill: var(--accent); stroke: var(--paper); stroke-width: 1.5; }
+.history-chart text { fill: var(--ink-2); font-size: 12px; }
+.history-chart .chart-axis { fill: none; stroke: var(--line); stroke-width: 1; }
+.table-scroll { overflow-x: auto; }
+.table-scroll table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.table-scroll th, .table-scroll td { text-align: left; vertical-align: top; padding: 12px 8px; border-bottom: 1px solid var(--line); }
+.table-scroll th { font-weight: 600; }
+.table-scroll caption { text-align: left; padding: 8px; color: var(--ink-2); }
+.compare-pickers { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.compare-pickers label { display: grid; gap: 6px; }
+.life-filter { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 14px; }
+#tab-resident details summary, #tab-compare details summary { cursor: pointer; color: var(--accent); padding: 5px 0; }
+#tab-resident .card a, #tab-compare .card a { overflow-wrap: anywhere; }
+@media (min-width: 1000px) { .wrap { max-width: 900px; } .top { padding-top: 46px; } .top h1 { font-size: 36px; } .lede { max-width: 650px; } }
+@media (max-width: 480px) { .metric-grid { grid-template-columns: 1fr; } .city-picker { padding: 14px; } .city-picker .btn { font-size: 12px; padding: 8px 10px; } .compare-pickers { gap: 10px; } .table-scroll td, .table-scroll th { padding: 9px 5px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+
+
+/* Small screens: keep navigation visible and evidence readable without sideways scrolling. */
+.nav-short, .compare-city-label, .history-narrow, .history-value-unit { display: none; }
+.panel, .card, .row > *, .compare-pickers > *, .seg { min-width: 0; }
+.panel { overflow-wrap: anywhere; }
+button, .btn, .corner-btn, summary { touch-action: manipulation; }
+button, .btn, .corner-btn { min-height: 44px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; text-decoration: none; }
+.icon-btn { width: 44px; height: 44px; flex: 0 0 44px; }
+.seg { max-width: 100%; flex-wrap: wrap; border-radius: 18px; }
+input[type="number"], input[type="month"], select { font-size: 16px; min-height: 44px; }
+input[type="range"] { min-height: 44px; }
+#main-content { scroll-margin-top: 72px; }
+#tab-resident details summary, #tab-compare details summary { min-height: 44px; padding: 10px 0; }
+.compare-value { font-size: 18px; font-variant-numeric: tabular-nums; }
+.sheet-card { max-height: 92dvh; overscroll-behavior: contain; padding-bottom: calc(22px + env(safe-area-inset-bottom)); }
+.sheet-head { position: sticky; top: -14px; z-index: 1; background: var(--paper); padding: 8px 0; gap: 12px; }
+@media (max-width: 600px) {
+  .wrap { padding-left: max(14px, env(safe-area-inset-left)); padding-right: max(14px, env(safe-area-inset-right)); }
+  .corner-links { position: static; justify-content: flex-end; padding: calc(8px + env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) 0; }
+  .corner-btn { font-size: 13px; padding: 8px 12px; }
+  .top { padding-top: 10px; }
+  .top h1 { font-size: 28px; }
+  .tabs { background: var(--bg); }
+  .tabs-inner { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; overflow: visible; }
+  .tabs button { white-space: normal; padding: 8px 3px; font-size: 13px; border-radius: 10px; line-height: 1.3; }
+  .nav-long { display: none; }
+  .nav-short { display: inline; }
+  #main-content, [id^="life-"] { scroll-margin-top: 118px; }
+  .city-picker > select { min-width: 0; }
+  .city-picker .row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .city-picker .btn { font-size: 13px; padding: 8px; }
+  .city-picker [data-copy] { grid-column: 1 / -1; }
+  .life-jumps { gap: 8px; }
+  .life-jumps .chip { flex: 1 0 auto; }
+  .city-top { flex-wrap: wrap; }
+  .city-total { margin-left: auto; }
+  .badge { white-space: normal; }
+  .life-status { font-size: 12px; }
+  .history-wide { display: none; }
+  .history-narrow { display: block; max-width: 400px; margin: 12px auto; }
+  .history-narrow text { font-size: 14px; }
+  .compare-pickers { gap: 12px; }
+  .compare-table { overflow: visible; padding: 12px; }
+  .compare-table table, .compare-table tbody { display: block; }
+  .compare-table caption { display: block; padding: 0 0 12px; }
+  .compare-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .compare-table tr { display: grid; grid-template-columns: minmax(0, 1fr); padding-bottom: 14px; margin-bottom: 14px; border-bottom: 2px solid var(--line); }
+  .compare-table tr:last-child { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
+  .compare-table th, .compare-table td { display: block; min-width: 0; padding: 12px 8px; }
+  .compare-table tbody th { background: var(--bg); border-radius: 8px; font-size: 15px; }
+  .compare-city-label { display: inline-block; font-weight: 600; margin-right: 12px; }
+  .compare-table .life-facts { grid-template-columns: 72px minmax(0, 1fr); }
+  .table-scroll:not(.compare-table) table { min-width: 320px; }
+  .history-table table { min-width: 0 !important; }
+  .history-table table, .history-table tbody, .history-table caption { display: block; }
+  .history-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .history-table tbody tr { display: grid; grid-template-columns: 70px minmax(0, 1fr); border-bottom: 1px solid var(--line); padding: 8px 0; }
+  .history-table th, .history-table td { display: block; border: 0; padding: 4px 5px; min-width: 0; }
+  .history-table tbody th, .history-table td:nth-child(2) { white-space: nowrap; }
+  .history-table td:nth-child(3) { grid-column: 1 / -1; }
+  .history-value-unit { display: inline; color: var(--ink-2); }
+  .sheet-card { padding-left: 14px; padding-right: 14px; }
+}
+@media (max-width: 360px) {
+  .compare-pickers { grid-template-columns: 1fr; }
+  .w-row { grid-template-columns: 66px minmax(0, 1fr) 22px; gap: 6px; }
+  .kv { gap: 4px; }
+  .kv div { padding: 6px; }
+}
+
+/* Plain-language readings stay next to the preserved original values. */
+.metric-reading { font-size: 22px; line-height: 1.45; font-weight: 650; margin: 16px 0 6px; }
+.metric-original { color: var(--ink-2); font-size: 13px; margin: 0 0 12px; }
+.metric-meaning { font-size: 14px; margin: 0 0 10px; }
+.metric-basis, .trend-reading { padding: 10px 12px; border-radius: 10px; background: var(--accent-soft); font-size: 14px; }
+.metric-explainer, .rank-explanation, .index-guide details { font-size: 13px; }
+.metric-explainer p, .rank-explanation li { margin: 8px 0; }
+.compare-reading { font-size: 16px; line-height: 1.5; font-weight: 650; margin: 0 0 8px; }
+.compare-reading + .small { margin: 0 0 8px; }
+.history-chart .chart-reference { fill: none; stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 4 4; }
+.history-chart .chart-reference-label { font-size: 12px; }
+.rank-explanation summary, .index-guide summary { min-height: 44px; padding: 10px 0; cursor: pointer; color: var(--accent); }
+.rank-explanation ul { padding-left: 20px; }
+@media (max-width: 600px) {
+  .metric-reading { font-size: 20px; }
+  .metric-basis, .trend-reading { padding: 10px; }
+  .history-narrow .chart-reference-label { font-size: 14px; }
+}
+
+/* Compare two city values side by side; source detail gets the full card width. */
+.compare-coverage { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; }
+.compare-coverage span { background: var(--paper); border: 1px solid var(--line); padding: 4px 8px; border-radius: 99px; }
+.compare-city-links .btn { flex: 1 1 0; }
+.comparison-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; align-items: start; }
+.comparison-card { min-width: 0; padding: 16px; }
+.comparison-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+.comparison-heading h3 { margin: 0; font-size: 17px; }
+.comparison-status { font-size: 12px; padding: 3px 7px; border-radius: 6px; background: var(--bg); color: var(--ink-2); border: 1px solid var(--line); }
+.comparison-status.ready { background: var(--accent-soft); color: var(--ink); }
+.comparison-values { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+.comparison-city { min-width: 0; background: var(--bg); padding: 12px 10px; border-radius: 10px; border-top: 3px solid var(--accent); }
+.comparison-city.city-side-1 { border-top-color: var(--ink-2); }
+.comparison-city h4 { margin: 0 0 8px; font-size: 14px; }
+.comparison-number { font-size: 24px; line-height: 1.3; font-weight: 650; margin: 0 0 6px; font-variant-numeric: tabular-nums; }
+.comparison-unit, .comparison-period, .comparison-original, .comparison-source, .comparison-scope { margin: 4px 0 0; font-size: 12px; color: var(--ink-2); }
+.comparison-reason, .comparison-tip { font-size: 13px; color: var(--ink-2); margin: 12px 0 0; }
+.comparison-tip { padding: 8px 10px; border-radius: 8px; background: var(--accent-soft); }
+.comparison-details { margin-top: 10px; border-top: 1px solid var(--line); font-size: 13px; }
+.comparison-details > summary { min-height: 44px; padding: 10px 0; }
+.comparison-evidence { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 8px; }
+.comparison-evidence h4 { margin: 0 0 8px; font-size: 14px; }
+@media (max-width: 700px) {
+  .comparison-grid { grid-template-columns: 1fr; gap: 12px; }
+  .comparison-card { padding: 12px; }
+  .comparison-number { font-size: 22px; }
+  .comparison-city { padding: 10px 8px; }
+}
+
+.comparison-number.missing { color: var(--ink-2); }
+
+.metric-scope { font-size: 13px; color: var(--ink-2); }
+
+/* A monthly spending reference stays separate from a private household plan. */
+.cost-reference { border-top: 4px solid var(--accent); }
+.cost-reference .cost-headline { font-size: 25px; line-height: 1.45; margin: 10px 0; }
+.cost-headline strong { font-variant-numeric: tabular-nums; color: var(--accent); }
+.cost-position { display: inline-block; background: var(--accent-soft); border-radius: 8px; padding: 7px 10px; margin: 4px 0 10px; font-weight: 600; }
+.cost-income { font-size: 14px; color: var(--ink-2); }
+.cost-evidence > summary, .budget-planner > summary { min-height: 44px; padding: 10px 0; cursor: pointer; color: var(--accent); }
+.cost-evidence { border-top: 1px solid var(--line); margin-top: 14px; font-size: 13px; }
+.reference-cities { padding: 0; list-style: none; }
+.reference-cities li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.budget-planner > summary { font-size: 18px; font-weight: 650; }
+.budget-form > p { font-size: 14px; color: var(--ink-2); }
+.budget-basics { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 16px 0; }
+.budget-field { display: flex; flex-direction: column; align-items: stretch; gap: 7px; font-size: 14px; }
+.budget-field input, .budget-item input, .budget-item select { width: 100%; min-width: 0; box-sizing: border-box; }
+.budget-field small, .budget-item small { font-size: 12px; line-height: 1.5; color: var(--ink-2); }
+.budget-modes { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+.budget-items { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+.budget-item { padding: 12px; background: var(--bg); border-radius: 10px; display: grid; grid-template-columns: minmax(0,1fr) minmax(110px,.8fr); align-items: end; gap: 8px; }
+.budget-item label { min-width: 0; display: grid; gap: 7px; font-size: 14px; }
+.budget-item small { grid-column: 1 / -1; }
+.budget-item input:disabled { opacity: .5; }
+.budget-output { background: var(--accent-soft); border-radius: 12px; padding: 16px; margin: 18px 0; overflow-wrap: anywhere; }
+.budget-output h4 { font-size: 20px; line-height: 1.5; margin: 0 0 8px; }
+.budget-output p { margin: 8px 0 0; font-size: 14px; }
+.budget-output .small { font-size: 12px; color: var(--ink-2); }
+.budget-output.budget-attention { background: var(--warn-soft); }
+.rank-life { font-size: 14px; line-height: 1.7; margin: 12px 0; }
+@media (max-width: 700px) {
+  .budget-basics, .budget-items { grid-template-columns: 1fr; }
+  .cost-reference .cost-headline { font-size: 22px; }
+  .budget-item { grid-template-columns: minmax(0,1fr) minmax(112px,.8fr); }
+}
+
+/* Dated utility prices are readable facts, separate from personal bill estimates. */
+.utility-rates{margin:16px 0;display:grid;gap:10px}
+.utility-rates>div{padding:12px 14px;border-radius:12px;background:var(--bg)}
+.utility-rates dt{font-weight:600}
+.utility-rates dd{margin:3px 0 0}
+.utility-rates strong{font-size:1.55rem;color:var(--accent);font-variant-numeric:tabular-nums}
+.utility-rates dd>span{font-size:.85rem}
+.utility-rates small{display:block;margin-top:4px;color:var(--ink-2);line-height:1.5}
+.utility-evidence summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font-size:.9rem}
+.utility-scope{font-weight:600}
+/* Resident task navigation stays independent of statistics and budget controls. */
+.resident-services { border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; background: var(--paper); }
+.service-needs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 16px 0; }
+.service-needs button { min-width: 0; min-height: 72px; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); text-align: left; cursor: pointer; }
+.service-needs button strong, .service-needs button span { display: block; }
+.service-needs button span { color: var(--ink-2); font-size: 12px; line-height: 1.4; margin-top: 4px; }
+.service-needs button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--accent); }
+.service-search { display: block; font-weight: 600; }
+.service-search input { display: block; width: 100%; min-width: 0; min-height: 44px; margin-top: 6px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.service-results { display: grid; gap: 10px; margin: 10px 0 18px; }
+.service-card { box-shadow: none; margin: 0; background: var(--bg); overflow-wrap: anywhere; }
+.service-card-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+.service-card h4 { font-size: 16px; margin: 0; }
+.service-card p { margin: 8px 0; }
+.service-caution { color: var(--ink-2); font-size: 13px; border-left: 2px solid var(--warn); padding-left: 10px; }
+.service-links { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.service-links a { min-height: 44px; display: inline-flex; align-items: center; }
+.service-result-count { margin: 12px 0; }
+.service-empty { padding: 16px; border: 1px dashed var(--line); border-radius: 12px; }
+@media (max-width: 600px) {
+  .resident-services { padding: 14px; }
+  .service-needs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

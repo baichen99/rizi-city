@@ -15,6 +15,8 @@
   query.py free [城市 ...]
   query.py freshgrad
   query.py index [--w 1.1.1.1.1] [--city 武汉]
+  query.py overview 广州 [上海 ...]
+  query.py history 广州 [--metric wage_nonprivate_mean]
 """
 from __future__ import annotations
 
@@ -378,6 +380,76 @@ def cmd_index(data, a):
     print(f"算法：{REPO}/blob/main/docs/index-method.md 。日子指数仅反映公开数据，不代表城市好坏。")
 
 
+def life_source(life, record):
+    source = next((s for s in life.get("sources", []) if s.get("id") == record.get("source_id")), {})
+    return src(source.get("url") or source.get("source_url"),
+               record.get("verified_at") or source.get("verified_at"),
+               source.get("title") or source.get("source_title") or "官方原文")
+
+
+def life_value(record):
+    value = record.get("value")
+    if value is None:
+        return "—（" + (record.get("missing_reason") or "尚未覆盖") + "）"
+    return f"{value:,} {record.get('unit', '')}"
+
+
+def life_current_record(life, record):
+    """An old downloaded JSON must not bypass its source review deadline."""
+    current = dict(record)
+    source = next((s for s in life.get("sources", []) if s.get("id") == record.get("source_id")), {})
+    due = source.get("review_due")
+    if due and due < dt.date.today().isoformat():
+        current.update(value=None, review_status="stale", missing_reason="已超过来源复核期限，复核前暂不展示数值。")
+    return current
+
+
+def cmd_overview(data, a):
+    """居民概况不要求学历，不把统计工资等同于个人收入。"""
+    for name in a.names:
+        c = find(data, name)
+        life = c.get("life") or {}
+        print(f"### {c['city']} · 本城概况\n")
+        print("统计资料不是个人工资或寿命预测；房价指数不是元/㎡房价。资料年份与核验日期不同。\n")
+        if not life.get("overview"):
+            print("新版概况尚未覆盖；可用 city 命令查看已收录政策与租金资料。")
+        for record in life.get("overview", []):
+            r = life_current_record(life, record)
+            print(f"- **{r.get('label') or r.get('metric')}**：{life_value(r)}")
+            print(f"  - 资料期：{r.get('period') or '未说明'}；对象：{r.get('population_scope') or '口径未说明'}；地域：{r.get('geographic_scope') or '未说明'}")
+            print(f"  - 状态：{r.get('review_status') or '未核验'}；{life_source(life, r)}")
+        for m in life.get("modules", []):
+            print(f"- **{m.get('title')}**：{m.get('summary') or m.get('reason') or '尚未覆盖'}")
+            statuses = {"link_only": "仅官方资料入口", "missing": "尚未覆盖", "pending_review": "待复核", "expired": "已过期"}
+            status = m.get('status')
+            if status != 'missing' and m.get('next_review_at') and m['next_review_at'] < dt.date.today().isoformat():
+                status = 'pending_review'
+            print(f"  - 状态：{statuses.get(status, status or '待核实')}；{m.get('reason') or '不提供个人账单或待遇结论'}")
+            print(f"  - 适用范围：{m.get('coverage') or '未说明'}；资料核验：{m.get('verified_at') or '未核验'}；下次复核：{m.get('next_review_at') or '未说明'}")
+            for link in m.get("links", []):
+                print(f"  - [{link.get('label') or '官方入口'}]({link.get('url')})")
+        print(f"\n已有落户/补贴以原适用人群为准，未收录不表示没有。城市页：{REPO.replace('https://github.com/baichen99/', 'https://baichen99.github.io/')}/#resident&city={c['id']}\n")
+    print(DISCLAIMER)
+
+
+def cmd_history(data, a):
+    c = find(data, a.name)
+    life = c.get("life") or {}
+    series = [s for s in life.get("series", []) if not a.metric or
+              s.get("metric") == a.metric or any(p.get("metric") == a.metric for p in s.get("points", []))]
+    print(f"### {c['city']} · 历史观测\n")
+    print("缺失不补零、不插值；不同人群、方法或指数基期不拼接。这里只展示已收录资料，不保证为最新发布。\n")
+    if not series:
+        print("未找到这个指标的合格历史序列。")
+    for s in series:
+        print(f"#### {s.get('label') or s.get('id')}（{s.get('unit', '')}）\n")
+        for record in s.get("points", []):
+            r = life_current_record(life, record)
+            print(f"- {r.get('period')}：{life_value(r)}；{r.get('population_scope') or '口径未说明'}；{life_source(life, r)}")
+        print()
+    print(DISCLAIMER)
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(description="查询日子人城市指南（rizi-city）数据")
     p.add_argument("--data", help="cities.json 路径（默认自动查找，找不到就从网页版下载）")
@@ -397,11 +469,17 @@ def main(argv=None):
     s = sub.add_parser("index")
     s.add_argument("--w", default="1.1.1.1.1")
     s.add_argument("--city")
+    s = sub.add_parser("overview")
+    s.add_argument("names", nargs="+")
+    s = sub.add_parser("history")
+    s.add_argument("name")
+    s.add_argument("--metric", help="指标 ID，例如 wage_nonprivate_mean")
     a = p.parse_args(argv)
     data, where = load(a.data)
     print(f"<!-- 数据：{where} -->")
     {"list": cmd_list, "city": cmd_city, "compare": cmd_compare, "rank": cmd_rank,
-     "free": cmd_free, "freshgrad": cmd_freshgrad, "index": cmd_index}[a.cmd](data, a)
+     "free": cmd_free, "freshgrad": cmd_freshgrad, "index": cmd_index,
+     "overview": cmd_overview, "history": cmd_history}[a.cmd](data, a)
 
 
 if __name__ == "__main__":

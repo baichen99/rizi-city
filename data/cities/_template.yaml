@@ -14,7 +14,7 @@
 
 city: 示例市
 province: 示例省
-maintainers: []            # GitHub 用户名，如 [someone]
+maintainers: []            # 活跃共同维护者的 GitHub 用户名，可多人；分工见登记 Issue，不授予权限或独占权
 last_patrol: null          # 最近一次完整巡检日期
 
 hukou:                     # 应届生落户
@@ -113,7 +113,9 @@ living:
 flexible_employment:       # 灵活就业（个体、自由职业）自己交社保
   pension_base_min: null   # 养老保险个人缴费基数下限，元/月
   pension_rate: null       # 个人缴费比例（%），如 20
-  pension_year: null       # 基数适用年度
+  pension_year: null       # 基数适用年度/生效日期，不把部分年度写成全年
+  pension_note: null       # 养老比例/人群等适用范围，就近显示在养老金额旁
+  pension_base_source_url: null # 基数官方来源（与 source_url 不同时补充）
   medical_monthly_min: null  # 职工医保（灵活就业）每月最低自缴，元；原文按年给就留空并写进 medical_note
   medical_note: null       # 医保口径说明，如"按上年平均工资 60% 的 x% 缴纳"
   monthly_total_min: null  # 每月最少自缴合计（养老 + 医保），只用本节官方数据计算

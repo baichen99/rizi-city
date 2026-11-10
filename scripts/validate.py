@@ -24,6 +24,8 @@ from common import (  # noqa: E402
     city_files, expired, is_empty, is_gov_url, load_yaml, today,
 )
 
+from resident_statistics import validate_metadata
+
 TOP_KEYS = ("city", "province", "maintainers", "last_patrol", "hukou", "subsidies",
             "social_security", "living", "flexible_employment", "civil_service", "commute",
             "pitfalls", "changelog")
@@ -175,6 +177,8 @@ def check_living(r, lv):
         r.err("living", "缺失或不是映射")
         return
     w = "living"
+    for error in validate_metadata(lv):
+        r.err("living.statistical_metadata", error)
     for k in ("rent_avg_per_sqm", "consumption_per_capita", "income_per_capita"):
         v = lv.get(k)
         if v is not None and (isinstance(v, bool) or not isinstance(v, (int, float))):
@@ -228,6 +232,12 @@ def check_flexible(r, fe):
         r.err(w, "缺失或不是映射")
         return
     _num(r, w, fe, ("pension_base_min", "pension_rate", "medical_monthly_min", "monthly_total_min"))
+    if fe.get("pension_note") is not None and not isinstance(fe["pension_note"], str):
+        r.err(w, "pension_note 应为文字或 null")
+    base_source = fe.get("pension_base_source_url")
+    if base_source is not None and not (isinstance(base_source, str)
+            and base_source.startswith(("https://", "http://")) and is_gov_url(base_source)):
+        r.err(w, "pension_base_source_url 必须是政府官网的 HTTP(S) 链接")
     _flags(r, w, fe)
     if fe.get("nonlocal_allowed") is not None and not isinstance(fe["nonlocal_allowed"], bool):
         r.err(w, "nonlocal_allowed 应为 true/false/null")
@@ -397,6 +407,15 @@ def main(argv):
             return 1
         reports.append(validate_file(p))
     reports.append(validate_national())
+    # Independent life data has its own schema and release gates. Validate the
+    # complete registry even for a single-city patrol so broken references fail.
+    from life_data import validate_life
+    from life_modules import validate_modules
+    from resident_services import validate_resident_services
+    life_report = Report("life data / modules")
+    for error in validate_life() + validate_modules() + validate_resident_services():
+        life_report.err("life", error)
+    reports.append(life_report)
 
     n_err = n_warn = 0
     for r in reports:
@@ -408,7 +427,7 @@ def main(argv):
             print(f"    error   {e}")
         for w in r.warnings:
             print(f"    warning {w}")
-    print(f"\n{len(reports) - 2} 座城市，{n_err} 个错误，{n_warn} 个警告")
+    print(f"\n{len(files)} 座城市，{n_err} 个错误，{n_warn} 个警告")
     return 1 if n_err or (strict and n_warn) else 0
 
 
