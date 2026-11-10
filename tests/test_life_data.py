@@ -38,7 +38,7 @@ class LifeDataTests(unittest.TestCase):
         self.point['value'] = 0  # Synthetic boundary observation only.
         self.assertEqual(self.errors(), [])
         src = {s['id']: s for s in self.registry['sources']}
-        self.assertEqual(publish_point(self.point, src, date(2026, 11, 9))['value'], 0)
+        self.assertEqual(publish_point(self.point, src, date(2026, 11, 10))['value'], 0)
         self.point['value'] = None
         self.assertTrue(self.errors())
 
@@ -49,13 +49,20 @@ class LifeDataTests(unittest.TestCase):
                 self.assertTrue(self.errors())
 
     def test_dates_and_periods(self):
+        original_period = self.point['period']
+        original_verified_at = self.point['verified_at']
         for value in ['2026-13', '2026-2', '2100-01', 'garbage', None]:
-            self.point['period'] = value
-            self.assertTrue(self.errors())
-        self.point['period'] = '2026-06'
+            with self.subTest(period=value):
+                self.point['period'] = value
+                self.assertTrue(any('invalid period' in e for e in self.errors()))
+        self.point['period'] = original_period
+        self.assertEqual(self.errors(), [])
         for value in ['2026-02-30', '2099-01-01', None]:
-            self.point['verified_at'] = value
-            self.assertTrue(self.errors())
+            with self.subTest(verified_at=value):
+                self.point['verified_at'] = value
+                self.assertTrue(any('invalid verified_at' in e for e in self.errors()))
+        self.point['verified_at'] = original_verified_at
+        self.assertEqual(self.errors(), [])
 
     def test_invalid_sources(self):
         for url in ['https://evil.gov.cn.example.org/a', 'https://gov.cn@evil.com/', 'javascript:alert(1)', 'http://www.stats.gov.cn/a', 'https://www.stats.gov.cn:999/a']:
@@ -129,6 +136,24 @@ class LifeDataTests(unittest.TestCase):
                     if sources.get(p['source_id'], {}).get('redistribution') != 'fact_extract':
                         self.assertIsNone(p['value'])
 
+
+    def test_beijing_housing_2026_january_to_may_facts(self):
+        city = build_life(['beijing'])['beijing']
+        series = next(s for s in city['series'] if s['id'] == 'housing_new_yoy_index')
+        points = {p['period']: p for p in series['points']}
+        self.assertEqual(series['coverage_start'], '2026-01')
+        self.assertEqual(series['coverage_end'], '2026-09')
+        self.assertEqual(series['verified_points'], 9)
+        expected = [97.6, 97.7, 97.9, 97.7, 97.9]
+        for month, value in enumerate(expected, 1):
+            point = points[f'2026-{month:02d}']
+            self.assertEqual(point['value'], value)
+            self.assertEqual(point['source_id'], f'nbs-house-2026{month:02d}')
+            self.assertEqual(point['unit'], '上年同月=100')
+            self.assertEqual(point['comparison'], 'year_on_year')
+            self.assertEqual(point['base_period'], '2025')
+            self.assertEqual(point['geographic_scope_type'], 'city_districts_excluding_counties')
+            self.assertEqual(point['cross_city_comparability_key'], 'nbs-new-yoy-2025-city-districts')
 
 if __name__ == '__main__':
     unittest.main()
