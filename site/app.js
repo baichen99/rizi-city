@@ -30,6 +30,7 @@
   const state = {
     tab: "resident",
     residentCity: "", compareA: "", compareB: "", policyTopic: "all",
+    residentNeed: "benefits", residentSearch: "",
     w: { ...PRESETS[0].w },
     deg: "bachelor",
     age: null,
@@ -58,6 +59,7 @@
     const params = new URLSearchParams(location.hash.replace(/^#/, ""));
     const first = location.hash.slice(1).split("&")[0];
     state.tab = ["resident", "compare", "index", "grad", "civil", "free"].includes(first) ? first : "resident";
+    state.residentNeed = "benefits"; state.residentSearch = "";
     state.residentCity = ""; state.compareA = ""; state.compareB = ""; state.myCity = null;
     state.w = { ...PRESETS[0].w }; state.deg = "bachelor";
     const validCity = id => D.cities.some(c => c.id === id) ? id : "";
@@ -282,6 +284,77 @@
     }
     return `<article class="card"><h3>${esc(series.label)}</h3><p class="small">${esc(series.unit)} · ${esc(series.points?.[0]?.population_scope || "对象见明细")}。${esc(series.notes || "")} 只连接相邻且同口径的已核实观测，不补点、不把缺失当 0。纵轴按观测范围缩放，可能不从 0 起。</p><p class="trend-reading">${esc(historyExplanation(series, segments))}</p>${graph}<details><summary>查看历史数据表与来源（${(series.points || []).length} 条）</summary><div class="table-scroll history-table"><table role="table"><caption>${esc(series.label)}历史观测</caption><thead role="rowgroup"><tr role="row"><th scope="col">期间</th><th scope="col">数值（${esc(series.unit)}）</th><th scope="col">状态 / 来源</th></tr></thead><tbody role="rowgroup">${(series.points || []).map(p => `<tr><th scope="row">${esc(p.period)}</th><td role="cell">${lifeValue(p)} <span class="history-value-unit">${esc(series.unit)}</span></td><td role="cell">${esc(LIFE_STATUS[p.review_status] || "待核实")} ${safeLink(sourceFor(c,p).url || sourceFor(c,p).source_url, sourceFor(c,p).title || "原文") + " · 核验 " + esc(p.verified_at || sourceFor(c,p).verified_at || "未提供")}${p.missing_reason ? esc(p.missing_reason) : ""}</td></tr>`).join("")}</tbody></table></div></details></article>`;
   }
+  // ---------- 本城办事：按需求找线索，不做个人资格判断 ----------
+  const RESIDENT_NEEDS = [
+    {id:"benefits", label:"补贴与救助", hint:"人才补贴、生活支持", gap:"当前本城资料以毕业生 / 人才补贴为主。低保、困难救助、残疾人等居民补贴尚未完整收录；未找到不代表没有。", check:"先核对补贴名称、所在区、适用人群和申请批次。"},
+    {id:"housing", label:"住房与落户", hint:"租房支持、落户", gap:"当前主要收录人才落户和部分租房补贴。公租房、保障性住房、公积金和其他落户渠道尚未完整收录。", check:"先确认是住房保障、租房补贴还是落户，再核对户籍、就业和所在区条件。"},
+    {id:"health", label:"看病与医保", hint:"参保查询、异地就医", gap:"本城医保缴费、待遇和具体医院服务尚未完整核实。全国导航不能替代本地险种规则。", check:"先区分参保地和就医地，再核对职工 / 居民医保及办理场景。"},
+    {id:"work", label:"就业与社保", hint:"灵活就业参保、退休", gap:"本城资料主要覆盖灵活就业参保；失业待遇、就业援助等事项尚未完整收录。", check:"先核对参保身份、户籍或居住条件，以及适用年度；不要混用单位职工与灵活就业标准。"},
+    {id:"utilities", label:"水电气暖", hint:"供区、账单、多人户", gap:"尚未覆盖的费用不代表免费。先看账单确认供水、供电、供气或供暖企业，再查对应规则。", check:"核对供区、居民 / 非居民性质、计量方式和人口申报条件；单价不是完整账单。"},
+    {id:"family", label:"生育与入学", hint:"新生儿办事、育儿、招生", gap:"本城育儿补贴、托育、学区和入学政策尚未收录。生育导航不是招生指南。", check:"核对户籍或居住地、孩子年龄与当年招生批次；材料以当地当次清单为准。"},
+    {id:"elder", label:"养老与退休", hint:"养老服务、退休办事", gap:"本城高龄津贴、养老补贴和服务名额尚未核实，不从全国导航推算地方待遇。", check:"区分养老金、地方津贴和养老服务，分别确认年龄、参保地或户籍及办理地区。"},
+  ];
+  const residentNeed = () => RESIDENT_NEEDS.find(n => n.id === state.residentNeed) || RESIDENT_NEEDS[0];
+  function residentPolicyStatus(p, today = new Date().toISOString().slice(0, 10)) {
+    if (p.valid_until && !calendarDate(p.valid_until)) return {label:"期限待核实", reason:"有效期格式不完整，不能视为现行政策。"};
+    if (p.valid_until && p.valid_until < today) return {label:"已过期 · 仅历史线索", reason:"依据文件已过期，是否延续需要查新的官方文件。"};
+    if (p.effective_from && (!calendarDate(p.effective_from) || p.effective_from > today)) return {label:"尚不能按现行政策使用", reason:"生效时间待确认或尚未到生效日。"};
+    if (p.source_date && (!calendarDate(p.source_date) || p.source_date > today || p.source_date > p.verified_at)) return {label:"日期待核实", reason:"发布日期与核验时间不匹配，不能视为已核验的现行政策。"};
+    if (p.access_blocked || p.needs_human || !calendarDate(p.verified_at) || p.verified_at > today || !statisticsSourceUrl(p.source_url)) return {label:"待核实", reason:p.needs_human_reason || "来源、适用范围或核验日期仍需确认，不据此判断可领取或可办理。"};
+    return {label:p.valid_until ? "已收录 · 申请前复核" : "有效期待确认", reason:p.valid_until ? "资料核验不等于你符合条件；仍须核对最新文件和申请窗口。" : "未记录明确有效截止日，不代表长期有效或现在可以申请。"};
+  }
+  function residentSubsidyNeeds(p) {
+    // A navigation tag is not a cash-subsidy type: include non-cash housing support.
+    return ["benefits", ...(["rent", "housing_purchase"].includes(p.type) || /租房|租金|住房|租赁|安居|住宿|购房|驿站|一张床/.test(p.name || "") ? ["housing"] : [])];
+  }
+  function residentServiceEntries(c, today = new Date().toISOString().slice(0, 10)) {
+    const entries = [];
+    const policy = (p, id, title, needs, audience, summary, window) => {
+      if (!p) return;
+      const status = residentPolicyStatus(p, today);
+      entries.push({id, title, needs, kind:"local_policy", status:status.label, warning:status.reason,
+        summary:summary || "尚无完整的已核实说明，请查看来源与缺口。", audience:audience || "适用对象尚未完整核实，请看原文条件。", coverage:c.city + "相关资料；区级限制及条件按原文",
+        conditions:p.conditions || [], window:window || "申请窗口未核实，请向承办部门确认；不能据此认定仍开放。",
+        period:p.pension_year || "生效起止未完整记录", validUntil:p.valid_until || "未明确记录，需查最新官方文件", verified:p.verified_at || "未核验", published:p.source_date || "未提供",
+        links:[{url:p.source_url,label:"政策 / 标准原文"},{url:p.medical_source_url,label:"医保依据"},{url:p.hukou_source_url,label:"参保对象依据"}].filter((l,i,a)=>statisticsSourceUrl(l.url) && a.findIndex(x=>x.url===l.url)===i)});
+    };
+    policy(c.hukou,"hukou","毕业生 / 人才落户",["housing"],"毕业生或人才引进对象，不覆盖全部落户渠道",c.hukou?.summary,c.hukou?.apply_window);
+    (c.subsidies || []).forEach((p,i)=>policy(p,`subsidy-${i}`,p.name,residentSubsidyNeeds(p),p.target,p.amount,p.deadline_rule));
+    policy(c.flexible_employment,"flexible","灵活就业参保",["work"],c.flexible_employment?.hukou_restriction,c.flexible_employment?.calc,c.flexible_employment?.apply_channel);
+    for (const raw of c.life?.modules || []) {
+      const need = raw.id === "healthcare" ? "health" : ["water","power","gas","heating"].includes(raw.id) ? "utilities" : null;
+      if (!need) continue;
+      const m = currentLifeModule(raw,today);
+      entries.push({id:`module-${m.id}`,title:m.title,needs:[need],kind:"local_navigation",status:({link_only:"仅官方资料入口",missing:"尚未覆盖",pending_review:"待复核",expired:"已过期 · 仅历史线索"})[m.status] || "待复核",
+        summary:m.summary,warning:m.reason, audience:m.coverage,coverage:m.coverage,period:m.reference_period || "资料期间未提供",validUntil:m.effective_to || "未明确记录，不能据此认定持续有效",verified:m.verified_at || "未核验",published:m.source_date || "未提供",reviewDue:m.next_review_at,
+        verification:m.verification_scope,links:(m.links || []).filter(l=>statisticsSourceUrl(l.url))});
+    }
+    for (const n of D.resident_services || []) {
+      const stale = !calendarDate(n.verified_at) || !calendarDate(n.next_review_at) || n.verified_at > today || n.next_review_at < today;
+      entries.push({id:n.id,title:n.title,needs:n.needs,kind:"national_navigation",status:stale ? "全国导航 · 待复核" : "全国官方导航",summary:n.summary,audience:n.audience,coverage:n.coverage,
+        warning:stale ? "入口核验已超期或日期异常，请重新确认；不是已核实的本城政策。" : "只核对了目录内容，未实测办理。请在官方平台自行选择办事地区。",period:n.reference_period,validUntil:"目录没有统一政策有效期",verified:n.verified_at,published:n.source_date || "动态目录未提供",reviewDue:n.next_review_at,
+        verification:n.verification_scope,links:statisticsSourceUrl(n.url) ? [{url:n.url,label:"查看官方导航 ↗"}] : []});
+    }
+    return entries;
+  }
+  function matchingResidentServices(entries, need, query = "") {
+    const words = String(query).trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+    return entries.filter(e => (need === "all" || e.needs.includes(need)) && words.every(word => [e.title,e.summary,e.audience,e.coverage,...(e.conditions || [])].join(" ").toLocaleLowerCase().includes(word)));
+  }
+  function residentServiceCard(e) {
+    return `<article class="card service-card" data-service-kind="${esc(e.kind)}"><div class="service-card-head"><h4>${esc(e.title)}</h4><span class="life-status">${esc(e.status)}</span></div><p>${esc(e.summary)}</p><p class="small"><strong>适用对象 / 范围：</strong>${esc(e.audience || "未完整核实")}</p><p class="service-caution">${esc(e.warning || "现行性与个人条件请向官方确认。")}</p><details><summary>查看条件、时间与官方来源</summary>${e.conditions?.length ? `<ul>${e.conditions.map(v=>`<li>${esc(v)}</li>`).join("")}</ul>` : ""}<dl class="life-facts"><dt>覆盖范围</dt><dd>${esc(e.coverage)}</dd><dt>资料 / 适用期间</dt><dd>${esc(e.period)}</dd><dt>政策有效至</dt><dd>${esc(e.validUntil)}</dd>${e.window ? `<dt>申请窗口 / 渠道</dt><dd>${esc(e.window)}</dd>` : ""}<dt>原文发布日期</dt><dd>${esc(e.published)}</dd><dt>资料核验日期</dt><dd>${esc(e.verified)}（不是政策生效日）</dd>${e.reviewDue ? `<dt>计划复核日期</dt><dd>${esc(e.reviewDue)}（不是申请截止日）</dd>` : ""}</dl>${e.verification ? `<p class="small">${esc(e.verification)}</p>` : ""}<p class="small">材料尚未逐项核实，请按承办部门当次清单准备。政策原文不等于申办页面。</p><div class="service-links">${e.links.map(l=>safeLink(l.url,l.label)).join("") || '<p>暂无符合来源要求的官方链接。</p>'}</div></details></article>`;
+  }
+  function residentServiceResults(c) {
+    const need = residentNeed(), chosen = state.residentNeed === "all" ? "all" : need.id;
+    const query = state.residentSearch || "", entries = residentServiceEntries(c), matches = matchingResidentServices(entries,chosen,query);
+    const local = matches.filter(e=>e.kind !== "national_navigation"), national = matches.filter(e=>e.kind === "national_navigation");
+    return `<p class="small service-result-count" role="status">${query ? "关键词筛选：" : ""}${local.length}条本城资料，${national.length}个全国导航。收录数量不是可申请数量。</p><p class="note">${esc(chosen === "all" ? "目前不是全体居民政策库。没有收录不表示没有政策；全国导航和本城规则分开看。" : need.gap)}</p>${chosen !== "all" ? `<p class="small"><strong>查询前先确认：</strong>${esc(need.check)}</p>` : ""}${matches.length ? `${local.length ? `<h3>本城已收录线索</h3><div class="service-results">${local.map(residentServiceCard).join("")}</div>` : '<p class="small">本城尚无匹配资料，不据此作否定结论。</p>'}${national.length ? `<h3>继续到全国官方平台查询</h3><p class="small">这些是全国目录，不是${esc(c.city)}政策。进入后先核对办事地区。</p><div class="service-results">${national.map(residentServiceCard).join("")}</div>` : ""}` : '<p class="service-empty">没有匹配到已收录内容。可以清空关键词，换个主题，或到国家政务服务平台切换地区继续找。</p>'}${query ? '<button class="btn ghost" data-clear-service-search>清空关键词</button>' : ""}<p class="small">${safeLink("https://gjzwfw.www.gov.cn/", "国家政务服务平台 ↗")} · ${link(REPO + "/issues/new/choose", "建议补充事项 / 反馈失效链接")}</p>`;
+  }
+  function residentServiceHub(c) {
+    const selected = state.residentNeed === "all" ? "all" : residentNeed().id;
+    return `<section class="resident-services" id="resident-services" aria-labelledby="resident-services-title"><p class="kicker">本城办事与生活</p><h2 id="resident-services-title">在${esc(c.city)}，你想查什么？</h2><p class="sub">先选需求，找政策原文和官方入口。无需填写身份或家庭资料，这里不判断你是否符合条件。</p><div class="service-needs" role="group" aria-label="按居民需求浏览">${RESIDENT_NEEDS.map(n=>`<button data-resident-need="${n.id}" aria-pressed="${selected===n.id}"><strong>${n.label}</strong><span>${n.hint}</span></button>`).join("")}<button data-resident-need="all" aria-pressed="${selected === "all"}"><strong>全部线索</strong><span>本城资料与全国导航</span></button></div><label class="service-search" for="resident-service-search">在当前主题里找关键词<input id="resident-service-search" type="search" maxlength="80" autocomplete="off" placeholder="例如：租房、异地、退休" value="${esc(state.residentSearch || "")}"></label><p class="small">仅搜索本页已收录资料。关键词不保存、不上传，也不会放进分享链接。</p><div id="resident-service-results">${residentServiceResults(c)}</div></section>`;
+  }
+
   function policyCards(c) {
     const policies = [
       { ...c.hukou, title: "毕业生 / 人才落户", topic: "hukou", audience: "毕业生或人才引进对象，按原文件条件", summary: c.hukou?.summary, window: c.hukou?.apply_window },
@@ -309,7 +382,7 @@
   function renderResident() {
     const c = D.cities.find(c => c.id === state.residentCity);
     const saved = rememberedCity();
-    $("#tab-resident").innerHTML = `<div class="resident-intro"><p class="kicker">把日子过在这里</p><h2>${c ? esc(c.city) + "，生活概况" : "先看看你生活的城市"}</h2><p class="sub">看懂公开数据，找到政策原文。先看月开支和生活水平，再查政策与原文。</p></div><div class="card city-picker"><label for="resident-city">我住在</label><select id="resident-city">${cityOptions(state.residentCity)}</select><div class="row"><button class="btn ghost" data-remember ${!c ? "disabled" : ""}>在本机记住这座城</button><button class="btn ghost" data-forget ${!saved ? "disabled" : ""}>清除记住的城市</button>${c ? '<button class="btn ghost" data-copy>分享城市页</button>' : ""}</div><p class="small">${saved ? "已记住：" + esc(D.cities.find(x=>x.id===saved)?.city || saved) + "。" : "默认不保存。"}仅在此浏览器保存城市；分享链接不含个人条件。</p></div>${!c ? `<div class="resident-empty"><span aria-hidden="true">⌂</span><h3>一城一份，慢慢看清楚</h3><p>选择城市后查看概况、历史观测、政策和生活入口。未覆盖的数据会明确留空。</p><p><a href="#compare">还在考虑搬家？比较两座城市 →</a></p></div>` : `<nav class="life-jumps" aria-label="本城内容">${[["budget","月开支"],["overview","概况"],["history","历史走势"],["policies","政策"],["daily","日常生活"],["sources","来源与更新"]].map(([id,l])=>`<button class="chip" data-jump="${id}">${l}</button>`).join("")}</nav>${renderBudget(c)}<section id="life-overview"><h2>生活的几个侧面</h2><p class="sub">数字的时间和对象可能不同，请展开查看。没有值不代表为 0。</p><div class="metric-grid">${lifeRecords(c).map(r=>metricCard(c,r)).join("")}</div></section><section id="life-history"><h2>沿着时间看变化</h2><p class="sub">每张图独立呈现同一可比序列。历史数据不冒充现状。</p><div class="life-stack">${(c.life?.series || []).map((s,i)=>historyChart(c,s,i)).join("") || '<p class="note">尚未收录满足同口径要求的历史序列，暂不绘图。</p>'}</div></section><div id="life-policies">${policyCards(c)}</div><section id="life-daily"><h2>日常生活入口</h2><p class="sub">先找到可信的入口。不把官方单价当平均账单，也不估算个人费用。</p><div class="metric-grid">${(c.life?.modules || []).map(moduleCard).join("") || '<p class="note">本城账单、气候、就医、菜篮子与街区导航尚未覆盖；不提供未经核实的价格。</p>'}</div></section><section id="life-sources"><h2>来源与资料更新</h2><p class="sub">重新核验不等于政策发生变化。目前未建立独立的政策生效变更流，请以原文为准。</p><div class="card"><h3>资料核验</h3><p>本城最近核验：${esc(c.latest_verified || "未提供")}。统计年份请查看各指标。</p><details><summary>全部新增数据来源（${(c.life?.sources || []).length}）</summary><ul>${(c.life?.sources || []).map(s=>`<li>${safeLink(s.url || s.source_url, s.title || s.id)} <span class="small">${esc(s.verified_at || "")}</span></li>`).join("")}</ul></details><p>${link(yamlUrl(c),"查看城市数据与维护记录")} · ${link(REPO + "/issues/new?template=data-error.yml", "报告数据问题")}</p></div></section>`}`;
+    $("#tab-resident").innerHTML = `<div class="resident-intro"><p class="kicker">把日子过在这里</p><h2>${c ? esc(c.city) + "，生活概况" : "先看看你生活的城市"}</h2><p class="sub">看懂公开数据，找到政策原文。先看月开支和生活水平，再查政策与原文。</p></div><div class="card city-picker"><label for="resident-city">我住在</label><select id="resident-city">${cityOptions(state.residentCity)}</select><div class="row"><button class="btn ghost" data-remember ${!c ? "disabled" : ""}>在本机记住这座城</button><button class="btn ghost" data-forget ${!saved ? "disabled" : ""}>清除记住的城市</button>${c ? '<button class="btn ghost" data-copy>分享城市页</button>' : ""}</div><p class="small">${saved ? "已记住：" + esc(D.cities.find(x=>x.id===saved)?.city || saved) + "。" : "默认不保存。"}仅在此浏览器保存城市；分享链接不含个人条件。</p></div>${!c ? `<div class="resident-empty"><span aria-hidden="true">⌂</span><h3>一城一份，慢慢看清楚</h3><p>选择城市后查看概况、历史观测、政策和生活入口。未覆盖的数据会明确留空。</p><p><a href="#compare">还在考虑搬家？比较两座城市 →</a></p></div>` : `${residentServiceHub(c)}<nav class="life-jumps" aria-label="本城内容">${[["budget","月开支"],["overview","概况"],["history","历史走势"],["policies","政策"],["daily","日常生活"],["sources","来源与更新"]].map(([id,l])=>`<button class="chip" data-jump="${id}">${l}</button>`).join("")}</nav>${renderBudget(c)}<section id="life-overview"><h2>生活的几个侧面</h2><p class="sub">数字的时间和对象可能不同，请展开查看。没有值不代表为 0。</p><div class="metric-grid">${lifeRecords(c).map(r=>metricCard(c,r)).join("")}</div></section><section id="life-history"><h2>沿着时间看变化</h2><p class="sub">每张图独立呈现同一可比序列。历史数据不冒充现状。</p><div class="life-stack">${(c.life?.series || []).map((s,i)=>historyChart(c,s,i)).join("") || '<p class="note">尚未收录满足同口径要求的历史序列，暂不绘图。</p>'}</div></section><div id="life-policies">${policyCards(c)}</div><section id="life-daily"><h2>日常生活入口</h2><p class="sub">先找到可信的入口。不把官方单价当平均账单，也不估算个人费用。</p><div class="metric-grid">${(c.life?.modules || []).map(moduleCard).join("") || '<p class="note">本城账单、气候、就医、菜篮子与街区导航尚未覆盖；不提供未经核实的价格。</p>'}</div></section><section id="life-sources"><h2>来源与资料更新</h2><p class="sub">重新核验不等于政策发生变化。目前未建立独立的政策生效变更流，请以原文为准。</p><div class="card"><h3>资料核验</h3><p>本城最近核验：${esc(c.latest_verified || "未提供")}。统计年份请查看各指标。</p><details><summary>全部新增数据来源（${(c.life?.sources || []).length}）</summary><ul>${(c.life?.sources || []).map(s=>`<li>${safeLink(s.url || s.source_url, s.title || s.id)} <span class="small">${esc(s.verified_at || "")}</span></li>`).join("")}</ul></details><p>${link(yamlUrl(c),"查看城市数据与维护记录")} · ${link(REPO + "/issues/new?template=data-error.yml", "报告数据问题")}</p></div></section>`}`;
   }
   function comparisonRows(a, b) {
     const left = lifeRecords(a), right = lifeRecords(b);
@@ -1009,6 +1082,18 @@
     if (!t) { if (e.target.id === "sheet") $("#sheet").hidden = true; return; }
     if (t.classList.contains("skip-link")) { e.preventDefault(); $("#main-content").focus(); return; }
     const d = t.dataset;
+    if (d.residentNeed || "clearServiceSearch" in d) {
+      const c = D?.cities.find(c=>c.id===state.residentCity);
+      if (!c) return;
+      if (d.residentNeed) state.residentNeed = d.residentNeed;
+      state.residentSearch = "";
+      const input = $("#resident-service-search");
+      if (input) input.value = "";
+      document.querySelectorAll("[data-resident-need]").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.residentNeed === state.residentNeed)));
+      $("#resident-service-results").innerHTML = residentServiceResults(c);
+      if ("clearServiceSearch" in d) input?.focus();
+      return;
+    }
     if (d.tab) return show(d.tab, true);
     if (d.jump) { const section = $("#life-" + d.jump); section?.scrollIntoView({ block: "start" }); section?.setAttribute("tabindex", "-1"); section?.focus({ preventScroll: true }); return; }
     if ("remember" in d) { try { localStorage.setItem("rizi-resident-city", state.residentCity); toast("已在本机记住城市"); renderResident(); } catch (_) { toast("浏览器未允许保存，请使用城市链接"); } return; }
@@ -1038,6 +1123,11 @@
   });
   document.addEventListener("input", (e) => {
     const t = e.target;
+    if (t.id === "resident-service-search") {
+      state.residentSearch = t.value.slice(0,80);
+      const c = D?.cities.find(c=>c.id===state.residentCity);
+      if (c) $("#resident-service-results").innerHTML = residentServiceResults(c);
+    }
     if (t.dataset.budget || t.dataset.budgetItem) {
       const c = D.cities.find(c=>c.id === state.residentCity);
       if (c) {
@@ -1076,7 +1166,7 @@
       }
       return;
     }
-    if (["resident-city", "compare-a", "compare-b"].includes(e.target.id)) { state[{"resident-city":"residentCity", "compare-a":"compareA", "compare-b":"compareB"}[e.target.id]] = e.target.value; show(state.tab, true); $("#" + e.target.id)?.focus(); }
+    if (["resident-city", "compare-a", "compare-b"].includes(e.target.id)) { if(e.target.id === "resident-city") { state.residentNeed = "benefits"; state.residentSearch = ""; } state[{"resident-city":"residentCity", "compare-a":"compareA", "compare-b":"compareB"}[e.target.id]] = e.target.value; show(state.tab, true); $("#" + e.target.id)?.focus(); }
     if (e.target.id === "policy-topic") { state.policyTopic = e.target.value; renderResident(); $("#policy-topic")?.focus(); }
     if (e.target.id === "my-city") { state.myCity = e.target.value || null; writeHash(); }
     if (e.target.id === "civil-project") { state.civil.project = e.target.checked; rerenderKeepOpen(); }

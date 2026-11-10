@@ -411,8 +411,9 @@ def main(argv):
     # complete registry even for a single-city patrol so broken references fail.
     from life_data import validate_life
     from life_modules import validate_modules
+    from resident_services import validate_resident_services
     life_report = Report("life data / modules")
-    for error in validate_life() + validate_modules():
+    for error in validate_life() + validate_modules() + validate_resident_services():
         life_report.err("life", error)
     reports.append(life_report)
 

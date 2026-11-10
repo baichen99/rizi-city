@@ -18,3 +18,9 @@ GitHub Pages 网页（纯静态单页，没有构建步骤）。
 - 外链需要联网。离线版不是实时资料；资料期、逐项核验日期、不可用原因应保留。
 
 - 月消费参照与个人预算的口径、缺失处理和隐私边界见 [`docs/living-budget-method.md`](../docs/living-budget-method.md)。
+
+## 按居民需求查政策
+
+- 本城页选城后，先按补贴、住房、医保、就业、水电气暖、家庭和养老需求查找。关键词只在当前主题的已收录资料中本地检索，不上传、不保存。
+- 本城政策与全国官方导航分开，保留适用对象、有效期未知/过期状态、核验日和官方来源。没有收录不表示没有政策。
+- 全国目录原始数据为 `data/resident-services.json`；边界、来源核验和维护方法见 [`docs/resident-services.md`](../docs/resident-services.md)。
