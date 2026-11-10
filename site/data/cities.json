@@ -5692,20 +5692,21 @@
     "pension_base_min": 4573,
     "pension_rate": 20,
     "pension_year": 2026,
-    "medical_monthly_min": 411.57,
-    "medical_note": "青岛市医保局口径（2026 年度）：自 2026-01-01 起灵活就业医保缴费比例调整为 9% 单档（含个人账户），按下限基数 4573 元测算 411.57 元/月。费率据市医保局《青岛市灵活就业人员参保政策明白纸》（2026-02-04 发布）全文核读，并与青岛政务网官方问答「灵活就业人员缴费费率为 9%」互证；市医保局官网在本机环境证书异常未能直开，合并前可再复核《青岛市社会医疗保险政策简表（2026）》原文",
-    "monthly_total_min": 1326.17,
-    "calc": "养老 4573 × 20% = 914.60；医保 4573 × 9% = 411.57（基数×费率测算，基数下限据鲁人社字〔2026〕75号）；合计 1326.17 元/月",
+    "pension_base_source_url": "https://qingdao.chinatax.gov.cn/xxgk2019/tztg/202608/t20260825_107402.html",
+    "medical_monthly_min": null,
+    "medical_note": "青岛政务网2026-06-08问答官方搜索正文明确普通灵活就业人员医保费率9%；未将只出现9%视为所有特殊情形均为单档。青岛税务官网2026-08-25发布省四部门通知，2026年缴费基数下限4573元。两项相乘411.57元、加养老914.60元得1326.17元仅为公式参考；青岛当年医保基数具体起算月份及完整办理条件尚未核读，确认月缴与合计留空，不将4573假定为1月起全年标准。医保原站证书异常未绕过，政务问答直接读取遇重定向循环，未冒称已直读明白纸或政策简表。",
+    "monthly_total_min": null,
+    "calc": null,
     "hukou_restriction": null,
     "nonlocal_allowed": null,
     "apply_channel": null,
     "source_url": "https://www.jinan.gov.cn/col/col118356/art/2026/art_9d5e63220137445a87d95453ab6b51b9.html",
-    "medical_source_url": "http://ybj.qingdao.gov.cn/gg_117/202602/t20260204_10502903.shtml",
+    "medical_source_url": "https://www.qingdao.gov.cn/ywdt/zwzl/zxwdpt_00/zxwdpt_31/202606/t20260608_10629499.shtml",
     "hukou_source_url": null,
     "verified_at": "2026-11-10",
     "needs_human": true,
-    "needs_human_reason": "外地户籍能否以灵活就业身份在青岛参保（养老、医保）尚未核实（市医保局 2021 年政策解读曾提「取消灵活就业人员参保户籍限制」，现行口径待核）；医保档位已按市医保局 2026 年明白纸核实为 9% 单档并补齐月缴与合计。",
-    "access_blocked": false
+    "needs_human_reason": "普通灵活就业医保9%已有官方索引，2026省基数4573已读税务官网；青岛医保当年基数执行起算月份、最新完整参保条件与材料待核，医保月缴和合计不作为已确认数值。2026-11-03官方索引支持医保不受户籍地限制，但不代替完整经办条件。",
+    "access_blocked": true
    },
    "civil_service": {
     "fresh_grad_rule": null,
@@ -5812,10 +5813,10 @@
     },
     {
      "date": "2026-11-10",
-     "field": "flexible_employment.medical_monthly_min/monthly_total_min",
-     "old": "null（档位未核实）",
-     "new": "医保月缴最低 411.57（9% 单档测算）、每月合计最低 1326.17",
-     "basis": "青岛市医保局《青岛市灵活就业人员参保政策明白纸》（2026-02-04）原文「自2026年1月1日起，我市灵活就业人员缴费比例调整为9%」，全文经转载核读并与青岛政务网官方问答互证；基数下限 4573 据鲁人社字〔2026〕75号；市医保局官网证书异常未能直开，已在 medical_note 注明"
+     "field": "flexible_employment（医保来源及缺口说明）",
+     "old": "省级7%/9%框架与媒体9%线索，市级口径待核",
+     "new": "记录青岛官方9%问答和2026省基数直接原文；当年执行月份和完整办理材料未核，月缴与合计继续null",
+     "basis": "青岛政务网2026-06-08问答 https://www.qingdao.gov.cn/ywdt/zwzl/zxwdpt_00/zxwdpt_31/202606/t20260608_10629499.shtml 官方搜索正文列9%，直接请求重定向循环；青岛税务官网2026-08-25发布省四部门通知 https://qingdao.chinatax.gov.cn/xxgk2019/tztg/202608/t20260825_107402.html 直接核到2026年4573–22863，落款2026-08-14；医保不受户籍地限制见2026-11-03官方索引 https://www.qingdao.gov.cn/zwgk/xxgk/rlshbz/gkml/gwfg/202611/t20261103_10767701.shtml 。不以媒体转载替代医保局明白纸直读，不绕过证书警告，不在未核起算月份时发布全年月缴或最低合计。"
     }
    ],
    "id": "qingdao",
