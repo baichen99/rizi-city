@@ -202,6 +202,13 @@ def run(base_url, out):
             page.locator('[data-budget-item="housing"]').fill('')
             assert '水费所含的住房金额' in page.locator('#budget-result').inner_text()
             page.locator('[data-budget-item="housing"]').fill('3000')
+            # Native selects must show their selected meaning without clipping at 320px.
+            for select in page.locator('[data-budget-included]').all():
+                assert select.evaluate("""el => {
+                  const style=getComputedStyle(el), canvas=document.createElement('canvas'), ctx=canvas.getContext('2d');
+                  ctx.font=style.font;
+                  return ctx.measureText(el.selectedOptions[0].textContent).width <= el.clientWidth-parseFloat(style.paddingLeft)-parseFloat(style.paddingRight)-20;
+                }""")
             check_page(page, 'budget-details')
             page.locator('.budget-items').screenshot(path=str(out / f'budget-details-{width}.png'))
             page.locator('#budget-result').screenshot(path=str(out / f'budget-details-result-{width}.png'))
