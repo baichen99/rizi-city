@@ -214,6 +214,7 @@ def count_needs_human(city: dict) -> int:
 
 
 def build():
+    from resident_services import build_resident_services
     cities = []
     files = city_files()
     city_ids = [p.stem for p in files]
@@ -246,6 +247,7 @@ def build():
         "life_schema_version": 1,
         "national": load_yaml(NATIONAL) if NATIONAL.exists() else None,
         "cities": cities,
+        "resident_services": build_resident_services(),
     }
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

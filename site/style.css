@@ -75,7 +75,7 @@ button, input, select { font: inherit; color: inherit; }
 .tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); font-weight: 600; }
 
 main { padding-top: 18px; padding-bottom: 32px; }
-.panel > * + * { margin-top: 14px; }
+.panel > * + *, .panel-content > * + * { margin-top: 14px; }
 h2 { font-size: 20px; margin: 0; line-height: 1.35; }
 h3 { font-size: 15px; margin: 0 0 6px; }
 .sub { color: var(--ink-2); margin: 4px 0 0; font-size: 14px; }
@@ -374,3 +374,71 @@ input[type="range"] { min-height: 44px; }
 .comparison-number.missing { color: var(--ink-2); }
 
 .metric-scope { font-size: 13px; color: var(--ink-2); }
+
+/* A monthly spending reference stays separate from a private household plan. */
+.cost-reference { border-top: 4px solid var(--accent); }
+.cost-reference .cost-headline { font-size: 25px; line-height: 1.45; margin: 10px 0; }
+.cost-headline strong { font-variant-numeric: tabular-nums; color: var(--accent); }
+.cost-position { display: inline-block; background: var(--accent-soft); border-radius: 8px; padding: 7px 10px; margin: 4px 0 10px; font-weight: 600; }
+.cost-income { font-size: 14px; color: var(--ink-2); }
+.cost-evidence > summary, .budget-planner > summary { min-height: 44px; padding: 10px 0; cursor: pointer; color: var(--accent); }
+.cost-evidence { border-top: 1px solid var(--line); margin-top: 14px; font-size: 13px; }
+.reference-cities { padding: 0; list-style: none; }
+.reference-cities li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.budget-planner > summary { font-size: 18px; font-weight: 650; }
+.budget-form > p { font-size: 14px; color: var(--ink-2); }
+.budget-basics { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 16px 0; }
+.budget-field { display: flex; flex-direction: column; align-items: stretch; gap: 7px; font-size: 14px; }
+.budget-field input, .budget-item input, .budget-item select { width: 100%; min-width: 0; box-sizing: border-box; }
+.budget-field small, .budget-item small { font-size: 12px; line-height: 1.5; color: var(--ink-2); }
+.budget-modes { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+.budget-items { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+.budget-item { padding: 12px; background: var(--bg); border-radius: 10px; display: grid; grid-template-columns: minmax(0,1fr) minmax(110px,.8fr); align-items: end; gap: 8px; }
+.budget-item label { min-width: 0; display: grid; gap: 7px; font-size: 14px; }
+.budget-item small { grid-column: 1 / -1; }
+.budget-item input:disabled { opacity: .5; }
+.budget-output { background: var(--accent-soft); border-radius: 12px; padding: 16px; margin: 18px 0; overflow-wrap: anywhere; }
+.budget-output h4 { font-size: 20px; line-height: 1.5; margin: 0 0 8px; }
+.budget-output p { margin: 8px 0 0; font-size: 14px; }
+.budget-output .small { font-size: 12px; color: var(--ink-2); }
+.budget-output.budget-attention { background: var(--warn-soft); }
+.rank-life { font-size: 14px; line-height: 1.7; margin: 12px 0; }
+@media (max-width: 700px) {
+  .budget-basics, .budget-items { grid-template-columns: 1fr; }
+  .cost-reference .cost-headline { font-size: 22px; }
+  .budget-item { grid-template-columns: minmax(0,1fr) minmax(112px,.8fr); }
+}
+
+/* Dated utility prices are readable facts, separate from personal bill estimates. */
+.utility-rates{margin:16px 0;display:grid;gap:10px}
+.utility-rates>div{padding:12px 14px;border-radius:12px;background:var(--bg)}
+.utility-rates dt{font-weight:600}
+.utility-rates dd{margin:3px 0 0}
+.utility-rates strong{font-size:1.55rem;color:var(--accent);font-variant-numeric:tabular-nums}
+.utility-rates dd>span{font-size:.85rem}
+.utility-rates small{display:block;margin-top:4px;color:var(--ink-2);line-height:1.5}
+.utility-evidence summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font-size:.9rem}
+.utility-scope{font-weight:600}
+/* Resident task navigation stays independent of statistics and budget controls. */
+.resident-services { border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; background: var(--paper); }
+.service-needs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 16px 0; }
+.service-needs button { min-width: 0; min-height: 72px; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); text-align: left; cursor: pointer; }
+.service-needs button strong, .service-needs button span { display: block; }
+.service-needs button span { color: var(--ink-2); font-size: 12px; line-height: 1.4; margin-top: 4px; }
+.service-needs button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--accent); }
+.service-search { display: block; font-weight: 600; }
+.service-search input { display: block; width: 100%; min-width: 0; min-height: 44px; margin-top: 6px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.service-results { display: grid; gap: 10px; margin: 10px 0 18px; }
+.service-card { box-shadow: none; margin: 0; background: var(--bg); overflow-wrap: anywhere; }
+.service-card-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+.service-card h4 { font-size: 16px; margin: 0; }
+.service-card p { margin: 8px 0; }
+.service-caution { color: var(--ink-2); font-size: 13px; border-left: 2px solid var(--warn); padding-left: 10px; }
+.service-links { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.service-links a { min-height: 44px; display: inline-flex; align-items: center; }
+.service-result-count { margin: 12px 0; }
+.service-empty { padding: 16px; border: 1px dashed var(--line); border-radius: 12px; }
+@media (max-width: 600px) {
+  .resident-services { padding: 14px; }
+  .service-needs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

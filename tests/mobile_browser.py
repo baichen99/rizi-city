@@ -55,6 +55,24 @@ def run(base_url, out):
                 report.append({'width': width, 'page': name, **check_page(page, name)})
                 page.screenshot(path=str(out / f'{name}-{width}.png'))
                 if name == 'resident':
+                    daily = page.locator('#life-daily')
+                    water = daily.locator('[data-module="water"]')
+                    heating = daily.locator('[data-module="heating"]')
+                    assert water.locator('.utility-rates strong').all_text_contents() == ['5', '7', '9']
+                    assert heating.locator('.utility-rates strong').all_text_contents() == ['24', '30']
+                    assert '综合水价已含' in water.inner_text() and '不按月重置' in water.inner_text()
+                    assert '元/建筑平方米·采暖季' in heating.inner_text() and '非每月' in heating.inner_text()
+                    for card in (water, heating):
+                        assert card.locator('.utility-rates').is_visible()
+                        assert not card.locator('.utility-evidence').get_attribute('open')
+                        card.locator('summary').click()
+                        assert card.locator('.utility-evidence').get_attribute('open') is not None
+                        check_page(page, 'beijing-utility-expanded')
+                        card.locator('summary').click()
+                    for module in ('power', 'gas'):
+                        assert not daily.locator(f'[data-module="{module}"] .utility-rates').count()
+                    check_page(page, 'beijing-utility-rates')
+                    daily.screenshot(path=str(out / f'beijing-utility-rates-{width}.png'))
                     page.locator('[data-jump="overview"]').click()
                     assert page.locator('#life-overview').bounding_box()['y'] >= page.locator('.tabs').bounding_box()['height']
                     page.locator('#life-overview details:not(.metric-explainer) summary').first.click()
@@ -93,6 +111,22 @@ def run(base_url, out):
                     page.select_option('#policy-topic', 'social')
                     assert page.locator('#policy-topic').input_value() == 'social'
                     check_page(page, 'resident-policy')
+                    page.select_option('#resident-city', 'guangzhou')
+                    daily = page.locator('#life-daily')
+                    assert daily.bounding_box()['y'] < page.locator('#life-policies').bounding_box()['y'] < page.locator('#life-budget').bounding_box()['y']
+                    assert page.locator('.life-jumps button').first.get_attribute('data-jump') == 'daily'
+                    for module, value in [('water', '2.55'), ('power', '约 0.589'), ('gas', '3.45')]:
+                        card = daily.locator(f'[data-module="{module}"]')
+                        assert value in card.locator('.utility-rates').inner_text()
+                        assert card.locator('.utility-rates').is_visible()
+                        assert not card.locator('.utility-evidence').get_attribute('open')
+                        card.locator('summary').click()
+                        assert card.locator('.utility-evidence').get_attribute('open') is not None
+                        card.locator('summary').click()
+                    assert '每年' in daily.locator('[data-module="gas"]').inner_text()
+                    assert '尚未覆盖' in daily.locator('[data-module="heating"]').inner_text()
+                    check_page(page, 'guangzhou-utility-rates')
+                    daily.screenshot(path=str(out / f'guangzhou-utility-rates-{width}.png'))
                 if name == 'compare':
                     assert page.locator('.comparison-card').count() == 8
                     assert page.locator('.comparison-card[data-comparable="true"]').count() >= 2
@@ -122,7 +156,8 @@ def run(base_url, out):
                     page.locator('#tab-civil details.city summary').first.click()
                     check_page(page, 'civil-expanded')
                 if name == 'index':
-                    page.locator('.index-guide summary').click()
+                    page.locator('.index-guide > details > summary').click()
+                    page.locator('.index-guide details details > summary').click()
                     assert '不是房租便宜75%' in page.locator('.index-guide').inner_text()
                     page.locator('.rank-explanation summary').first.click()
                     check_page(page, 'index-explanation')
@@ -160,6 +195,74 @@ def run(base_url, out):
             check_page(page, 'guangzhou-shanghai-metadata')
             page.goto(base_url + '#resident&city=guangzhou')
             page.locator('#resident-city').wait_for()
+            reference = page.locator('.cost-reference')
+            assert '4,300' in reference.inner_text()
+            assert '城镇常住居民' in reference.inner_text()
+            assert '不是每个人的实际账单' in reference.inner_text()
+            reference.screenshot(path=str(out / f'living-reference-{width}.png'))
+            planner = page.locator('.budget-planner')
+            planner.locator('> summary').click()
+            page.locator('[data-budget="people"]').fill('3')
+            page.locator('[data-budget="income"]').fill('8000')
+            page.locator('[data-budget="goal"]').fill('2000')
+            page.locator('[data-budget="total"]').fill('5000')
+            assert '达到储蓄目标后，还能留约 1,000' in page.locator('#budget-result').inner_text()
+            check_page(page, 'budget-total')
+            page.locator('#budget-result').screenshot(path=str(out / f'budget-total-{width}.png'))
+            # A numeric editing error must not silently turn a savings goal into blank/zero.
+            goal = page.locator('[data-budget="goal"]')
+            goal.fill('')
+            goal.press_sequentially('1e')
+            assert goal.evaluate('el => el.validity.badInput')
+            assert '有几项需要改一下' in page.locator('#budget-result').inner_text()
+            assert '还能留' not in page.locator('#budget-result').inner_text()
+            goal.fill('2000')
+            page.locator('[data-budget-mode="details"]').click()
+            keys = ['housing','food','water','power','gas','heating','transport','social','other']
+            for key in keys:
+                page.locator(f'[data-budget-included="{key}"]').select_option('none')
+            for key, amount in [('housing','3000'),('food','1800'),('power','200'),('heating','1200')]:
+                page.locator(f'[data-budget-included="{key}"]').select_option('separate')
+                page.locator(f'[data-budget-item="{key}"]').fill(amount)
+            page.locator('[data-budget-included="water"]').select_option('housing')
+            assert page.locator('[data-budget-item="water"]').is_disabled()
+            assert '5,100' in page.locator('#budget-result').inner_text()
+            assert '1,700' in page.locator('#budget-result').inner_text()
+            assert '还能留约 900' in page.locator('#budget-result').inner_text()
+            page.locator('[data-budget-item="heating"]').fill('')
+            assert '还没算：供暖费' in page.locator('#budget-result').inner_text()
+            assert '还能留' not in page.locator('#budget-result').inner_text()
+            page.locator('[data-budget-item="heating"]').fill('1200')
+            page.locator('[data-budget-item="housing"]').fill('')
+            assert '水费所含的住房金额' in page.locator('#budget-result').inner_text()
+            page.locator('[data-budget-item="housing"]').fill('3000')
+            # Native selects must show their selected meaning without clipping at 320px.
+            for select in page.locator('[data-budget-included]').all():
+                assert select.evaluate("""el => {
+                  const style=getComputedStyle(el), canvas=document.createElement('canvas'), ctx=canvas.getContext('2d');
+                  ctx.font=style.font;
+                  return ctx.measureText(el.selectedOptions[0].textContent).width <= el.clientWidth-parseFloat(style.paddingLeft)-parseFloat(style.paddingRight)-20;
+                }""")
+            check_page(page, 'budget-details')
+            page.locator('.budget-items').screenshot(path=str(out / f'budget-details-{width}.png'))
+            page.locator('#budget-result').screenshot(path=str(out / f'budget-details-result-{width}.png'))
+            page.locator('[data-budget-mode="total"]').click()
+            assert page.locator('[data-budget="total"]').input_value() == '5000'
+            assert '还能留约 1,000' in page.locator('#budget-result').inner_text()
+            planner.locator('> summary').click()
+            planner.locator('> summary').click()
+            assert page.locator('[data-budget="total"]').input_value() == '5000'
+            assert page.evaluate('location.hash') == '#resident&city=guangzhou'
+            stored = page.evaluate('JSON.stringify(localStorage) + JSON.stringify(sessionStorage)')
+            assert '8000' not in stored and '5000' not in stored and 'budget' not in stored
+            page.reload()
+            planner.locator('> summary').click()
+            assert page.locator('[data-budget="total"]').input_value() == ''
+            assert page.locator('[data-budget="income"]').input_value() == ''
+            page.locator('[data-budget="total"]').fill('999')
+            page.locator('[data-budget-reset]').click()
+            assert page.locator('[data-budget="total"]').input_value() == ''
+            check_page(page, 'budget-refresh-reset')
             page.locator('[data-jump="daily"]').click()
             for title in ('水费', '燃气'):
                 card = page.locator('#life-daily article').filter(has=page.get_by_role('heading', name=title, exact=False))
@@ -173,6 +276,10 @@ def run(base_url, out):
         dark.locator('.comparison-card').first.wait_for()
         check_page(dark, 'dark-compare')
         dark.screenshot(path=str(out / 'compare-390-dark.png'))
+        dark.goto(base_url + '#resident&city=guangzhou')
+        dark.locator('.cost-reference').wait_for()
+        check_page(dark, 'dark-living-reference')
+        dark.locator('.cost-reference').screenshot(path=str(out / 'living-reference-390-dark.png'))
         browser.close()
     (out / 'report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2))
     print(f'PASS: {len(report)} page/viewport combinations, expanded evidence, self-check, navigation, repeated share open/close, dark mode')

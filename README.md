@@ -5,7 +5,7 @@
 查我生活的城市，或比较下一座城市。落户、人才补贴、租房补贴、房租、社保、生活成本，一城一份。**每个数字都带官方来源和核验日期**，由 AI agent 定期对照政府官网巡检，所有改动由人工合并。找不到原文的，老实写「待核实」。
 
 <!-- BADGES:START -->
-[![城市](https://img.shields.io/badge/%E5%9F%8E%E5%B8%82-20_%E5%BA%A7-d9653b)](data/cities/) [![最近核验](https://img.shields.io/badge/%E6%9C%80%E8%BF%91%E6%A0%B8%E9%AA%8C-2026--11--09-3e8e63)](docs/leaderboard.md) [![数据](https://img.shields.io/badge/%E6%95%B0%E6%8D%AE-CC_BY--SA_4.0-6b6157)](LICENSE-CONTENT) [![代码](https://img.shields.io/badge/%E4%BB%A3%E7%A0%81-MIT-6b6157)](LICENSE)
+[![城市](https://img.shields.io/badge/%E5%9F%8E%E5%B8%82-20_%E5%BA%A7-d9653b)](data/cities/) [![最近核验](https://img.shields.io/badge/%E6%9C%80%E8%BF%91%E6%A0%B8%E9%AA%8C-2026--11--10-3e8e63)](docs/leaderboard.md) [![数据](https://img.shields.io/badge/%E6%95%B0%E6%8D%AE-CC_BY--SA_4.0-6b6157)](LICENSE-CONTENT) [![代码](https://img.shields.io/badge/%E4%BB%A3%E7%A0%81-MIT-6b6157)](LICENSE)
 <!-- BADGES:END -->
 
 <p align="center">
@@ -37,7 +37,7 @@
 
 本城入口覆盖已有20城；新增统计以北京、上海、广州为来源试点，**不是每城每项都已有数字**。工资均值和中位数、房价指数和绝对房价、户籍与常住人口寿命分别标注。中位工资无可靠同口径公开来源时明确留空；历史缺年不插值。
 
-水电气暖、气候和医保先提供已核官方资料导航。当前不开放真实账单计算，不自动判断政策资格，不收集定位、住址或健康资料。旧日子指数、30㎡租金＋社保底线和政策数据不变。
+广州水、电、气提供标明适用范围与日期的官方单价参考；其他水电气暖、气候和医保项目先提供已核官方资料导航。当前不开放真实账单计算，不自动判断政策资格，不收集定位、住址或健康资料。旧日子指数、30㎡租金＋社保底线和政策数据不变。
 
 实现范围与验收见 [居民版实施记录](docs/resident-guide-implementation.md)，数据规则见 [概况/历史方法](docs/life-data-method.md) 和 [日常生活模块](docs/life-modules-method.md)。设计依据为 [方案 PR #41](https://github.com/baichen99/rizi-city/pull/41)。新增入口在本 PR 人工合并并部署后才进入正式站点。
 
@@ -121,6 +121,8 @@ flowchart LR
 **想加入城市维护？** 提交[「加入城市维护」](https://github.com/baichen99/rizi-city/issues/new?template=claim-city.yml)，按「城市 + 领域」分工，一城可多人共管，未登记也欢迎贡献。较大的单次巡检可先[登记工作范围](https://github.com/baichen99/rizi-city/issues/new?template=patrol-task.yml)，避免重复；维护者可以暂停或交接。发现数据错了？[报告数据错误](https://github.com/baichen99/rizi-city/issues/new?template=data-error.yml)时请附上官方链接。更多见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [MAINTAINING.md](MAINTAINING.md)。
 
 ## Roadmap
+
+生活数据下一步怎么做，见 [更贴近日常生活的数据建设方案](docs/everyday-life-data-plan.md)（提案，先评审；不代表已经采集或上线）。
 
 - **第一版**（现在）：应届生、考公考编、自由职业三个入口，加日子指数
 - **第二版**（每上线一个入口单独发一轮）：
