@@ -35,6 +35,8 @@ def run(base_url, out, offline=False):
             page.goto(base_url + '#resident&city=guangzhou')
             page.locator('#resident-services-title').filter(has_text='广州').wait_for()
             assert page.locator('.service-needs button').count() == 8
+            page.locator('#resident-services [data-jump="budget"]').click()
+            assert page.locator('#life-budget').bounding_box()['y'] >= page.locator('.tabs').bounding_box()['height']
             report.append({'width': width, **dimensions(page)})
             baseline = len(requests)
             for need in ('benefits', 'housing', 'health', 'work', 'utilities', 'family', 'elder', 'all', 'family'):

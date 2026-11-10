@@ -75,7 +75,7 @@ button, input, select { font: inherit; color: inherit; }
 .tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); font-weight: 600; }
 
 main { padding-top: 18px; padding-bottom: 32px; }
-.panel > * + * { margin-top: 14px; }
+.panel > * + *, .panel-content > * + * { margin-top: 14px; }
 h2 { font-size: 20px; margin: 0; line-height: 1.35; }
 h3 { font-size: 15px; margin: 0 0 6px; }
 .sub { color: var(--ink-2); margin: 4px 0 0; font-size: 14px; }

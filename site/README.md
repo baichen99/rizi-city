@@ -21,6 +21,12 @@ GitHub Pages 网页（纯静态单页，没有构建步骤）。
 
 ## 按居民需求查政策
 
-- 本城页选城后，先按补贴、住房、医保、就业、水电气暖、家庭和养老需求查找。关键词只在当前主题的已收录资料中本地检索，不上传、不保存。
+- 本城页日常生活内容之后，可按补贴、住房、医保、就业、水电气暖、家庭和养老需求查政策。关键词只在当前主题的已收录资料中本地检索，不上传、不保存。
 - 本城政策与全国官方导航分开，保留适用对象、有效期未知/过期状态、核验日和官方来源。没有收录不表示没有政策。
 - 全国目录原始数据为 `data/resident-services.json`；边界、来源核验和维护方法见 [`docs/resident-services.md`](../docs/resident-services.md)。
+
+## 城市下拉交互回归
+
+- 居民页和两城比较页保留原生 `select` 节点，只更新其旁边的内容；不要在 `change` 后移除控件再强制聚焦新控件，以免打断 iOS 原生选择器。
+- `python3 tests/city_select_browser.py` 覆盖 Chromium / WebKit 的移动和桌面视口：一次选值、连续切换、清空、同城比较、返回/前进、记住城市，以及 DOM 连续连接和无额外 focus。先运行 `playwright install chromium webkit`。
+- 此回归使用浏览器 `select_option` 发出 input/change，并非操作 iOS 系统滚轮。发布后仍应在真实 iPhone Safari 上检查：打开城市选择器、选城市并确认一次、重开换城、取消、比较页左右切换。不得将 WebKit 模拟写成 iPhone 实机验证。
