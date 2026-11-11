@@ -47,6 +47,150 @@ subsidies:
     access_blocked: false
     lead: 中国就业网《四川：成渝CP，携手出“圈”聚才》（2026-06-02，转载人民网）报道求职青年最长 30 天免费入住和创业人才“3免3减半”；仅作进一步查找细则的线索，不把政府域名转载报道当作完整政策依据，也不将非现金住宿优惠算作现金补贴
     lead_url: https://chinajob.mohrss.gov.cn/h5/c/2026-06-02/550812.shtml
+  - name: 一次性创业补贴
+    type: entrepreneurship
+    amount: 第一阶段 5000 元（正常运营 6 个月以上）；第二阶段 5000 元（持续运营 18 个月及以上），吸纳就业 2 人及以上 10000 元；新政补贴 20000 元（2025-10-14 后首次登记的离校 5 年内高校毕业生，持续运营 36 个月及以上且吸纳就业 3 人及以上）；合计最高 35000 元
+    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+    period: null
+    periods_max: null
+    payout: 分阶段申领
+    target: 在四川省内首次创办小微企业或从事个体经营、登记注册地址在成都市范围、正常运营 6 个月以上，且为离校 5 年内高校毕业生、就业困难人员、返乡农民工、自主就业退役士兵之一并实际参与实体经济运营的法定代表人或个体经营者
+    conditions:
+      - 第一阶段须在工商登记注册之日起 2 年内申请；新政补贴须在注册之日起 36 个月后的 1 年内申请，逾期不予受理
+      - 此前已享受过一次性创业补贴政策的，不再重复享受；离校 5 年内高校毕业生申领第一、第二阶段后如符合条件可同时享受新政补贴
+      - 申请对象已持续正常运营 18 个月以上，可一次性申请第一、二阶段创业补贴
+    deadline_rule: 第一阶段须在注册之日起 2 年内申请；新政补贴须在注册 36 个月后的 1 年内申请
+    policy_name: 《成都市人力资源和社会保障局关于做好创业补贴经办服务工作的通知》（成人社办发〔2026〕13号）
+    source_url: https://cdhrss.chengdu.gov.cn/cdrsj/c109727/2026-04/20/247135d3797a4e979c656a6eeb879c2b/files/41964d7c86034ff6b7cdcaba4652adb8.pdf
+    source_date: 2026-04-01
+    valid_until: 2027-12-31
+    verified_at: 2026-11-11
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
+  - name: 创业担保贷款及贴息
+    type: entrepreneurship
+    amount: 个人最高 50 万元（期限不超过 3 年）、小微企业最高 600 万元（期限不超过 2 年），财政贴息贷款实际利率 50%；还款积极、带动就业能力强、创业项目好的借款人到期后可继续申请，累计不超过 3 次
+    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+    period: null
+    periods_max: null
+    payout: null
+    target: 符合条件的个人创业者与小微企业
+    conditions:
+      - 合伙创业额度细则未入库（不同来源口径有出入，待核）
+    deadline_rule: null
+    policy_name: 《支持创业带动就业的若干政策措施》（川办规〔2025〕6号，四川省政策，成都市执行）
+    source_url: https://www.longquanyi.gov.cn/lqyqzfmhwz_gb/c150667/2026-04/08/587f23be2e0c41f387f90bdff467bccd/files/171e3defad204d409466587b57c9c7e4.pdf
+    source_date: 2025-04-30
+    valid_until: 2027-12-31
+    verified_at: 2026-11-11
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
+  - name: 青年创业促进计划启动资金贷款
+    type: entrepreneurship
+    amount: 在川创业 3 年内符合条件的 18—40 岁青年，提供 3—10 万元免利息、免担保、免抵押创业启动资金贷款
+    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+    period: null
+    periods_max: null
+    payout: null
+    target: 在川创业 3 年内、18—40 岁的青年
+    conditions: []
+    deadline_rule: null
+    policy_name: 《支持创业带动就业的若干政策措施》（川办规〔2025〕6号，四川省政策，成都市执行）
+    source_url: https://www.longquanyi.gov.cn/lqyqzfmhwz_gb/c150667/2026-04/08/587f23be2e0c41f387f90bdff467bccd/files/171e3defad204d409466587b57c9c7e4.pdf
+    source_date: 2025-04-30
+    valid_until: 2027-12-31
+    verified_at: 2026-11-11
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
+  - name: 海外留学回国人才创办企业资助
+    type: entrepreneurship
+    amount: 通过评审的海外留学回国人才创办企业，按重点类、优秀类、启动类分别给予每户企业 30 万元、20 万元、10 万元资助
+    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+    period: null
+    periods_max: null
+    payout: null
+    target: 海外留学回国人才在川创办企业（通过评审）
+    conditions: []
+    deadline_rule: null
+    policy_name: 《支持创业带动就业的若干政策措施》（川办规〔2025〕6号，四川省政策，成都市执行）
+    source_url: https://www.longquanyi.gov.cn/lqyqzfmhwz_gb/c150667/2026-04/08/587f23be2e0c41f387f90bdff467bccd/files/171e3defad204d409466587b57c9c7e4.pdf
+    source_date: 2025-04-30
+    valid_until: 2027-12-31
+    verified_at: 2026-11-11
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
+  - name: 国家级创新创业大赛落地补贴
+    type: entrepreneurship
+    amount: 获得国家级创新创业大赛金、银、铜奖（或前三等相当奖项）并在川落地发展 6 个月以上（含 6 个月）的创业项目，最高 30 万元创业项目落地补贴
+    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+    period: null
+    periods_max: null
+    payout: null
+    target: 国家级创新创业大赛获奖并在川落地的创业项目
+    conditions: []
+    deadline_rule: null
+    policy_name: 《支持创业带动就业的若干政策措施》（川办规〔2025〕6号，四川省政策，成都市执行）
+    source_url: https://www.longquanyi.gov.cn/lqyqzfmhwz_gb/c150667/2026-04/08/587f23be2e0c41f387f90bdff467bccd/files/171e3defad204d409466587b57c9c7e4.pdf
+    source_date: 2025-04-30
+    valid_until: 2027-12-31
+    verified_at: 2026-11-11
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
+  - name: 创业场地支持
+    type: entrepreneurship
+    amount: 政府投资开发的孵化器等创业载体应安排 30% 左右的场地，免费提供给高校毕业生创业者；各地盘活闲置资产打造创业载体，减免场地租金、物业费用（具体以当地执行为准）；创业孵化基地按入驻项目数量、孵化效果和带动就业成效给予奖补（金额未明示）
+    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+    period: null
+    periods_max: null
+    payout: null
+    target: 高校毕业生创业者及入驻创业载体的创业项目
+    conditions: []
+    deadline_rule: null
+    policy_name: 国务院办公厅《关于进一步支持大学生创新创业的指导意见》；《支持创业带动就业的若干政策措施》（川办规〔2025〕6号）第（十三）条
+    source_url: http://www.moe.gov.cn/jyb_xxgk/moe_1777/moe_1778/202110/t20211013_571909.html
+    source_date: 2021-10-13
+    valid_until: null
+    verified_at: 2026-11-11
+    needs_human: false
+    needs_human_reason: null
+    access_blocked: false
+    lead: null
+    lead_url: null
+  - name: 大学生创业吸纳就业奖励
+    type: entrepreneurship
+    amount: 大学生创办企业吸纳城乡劳动者就业，签 1 年以上劳动合同并缴纳社保：招用 3 人（含）以下，每人 2000 元；招用 3 人以上，每增加 1 人 3000 元；总额最高 10 万元
+    amount_by_degree: {associate: null, bachelor: null, master: null, phd: null}
+    period: null
+    periods_max: null
+    payout: null
+    target: 在成都市范围内毕业 5 年内的大学生（含在校创业大学生）创办企业
+    conditions: []
+    deadline_rule: null
+    policy_name: 成都市就业局创业促进处口径（2024 年，教育部官网引述）
+    source_url: http://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/2024/2024_zt01/mtjj/202405/t20240510_1129812.html
+    source_date: 2024-05-10
+    valid_until: null
+    verified_at: 2026-11-11
+    needs_human: true
+    needs_human_reason: 2024 年教育部官网口径（成都市就业局创业促进处处长原话）；2026 年成人社办发〔2026〕13号未再提及该奖励，现行有效性待核
+    access_blocked: false
+    lead: null
+    lead_url: null
 
 subsidy_scan:
   living_none: true
@@ -184,3 +328,38 @@ changelog:
     old: 只有保租房办法的原则性条文和创业住宿优惠媒体线索
     new: 补充政府网站转载报道的直接链接及覆盖范围，明确完整资格和办理细则仍待核实；待遇、对象、正式来源与核验日期保持空值，条件保持空列表，仍标为待核实
     basis: 中国就业网《四川：成渝CP，携手出“圈”聚才》（2026-06-02）https://chinajob.mohrss.gov.cn/h5/c/2026-06-02/550812.shtml 与《四川成都：出台十条措施全周期支持人才发展》（2025-10-15）https://chinajob.mohrss.gov.cn/h5/c/2025-10-15/455200.shtml；两页均注明来源为人民网，已核正文但仅作报道线索，不替代政府实施细则
+  - date: '2026-11-11'
+    field: subsidies.一次性创业补贴
+    old: null（创业补贴新方向试点前未收录）
+    new: 分段补贴：第一阶段 5000 元，第二阶段 5000 元（吸纳就业 2 人及以上 10000 元），新政补贴 20000 元，合计最高 35000 元；有效期至 2027-12-31
+    basis: 成人社办发〔2026〕13号全文（成都市人社局官网 PDF）https://cdhrss.chengdu.gov.cn/cdrsj/c109727/2026-04/20/247135d3797a4e979c656a6eeb879c2b/files/41964d7c86034ff6b7cdcaba4652adb8.pdf
+  - date: '2026-11-11'
+    field: subsidies.创业担保贷款及贴息
+    old: null（创业补贴新方向试点前未收录）
+    new: 个人最高 50 万元（≤3 年）、小微企业最高 600 万元（≤2 年），财政贴息贷款实际利率 50%
+    basis: 川办规〔2025〕6号全文（龙泉驿区政府站转载的省政府文件 PDF）https://www.longquanyi.gov.cn/lqyqzfmhwz_gb/c150667/2026-04/08/587f23be2e0c41f387f90bdff467bccd/files/171e3defad204d409466587b57c9c7e4.pdf；贴息 50% 另据财政部《普惠金融发展专项资金管理办法》与遂宁市政府站核实
+  - date: '2026-11-11'
+    field: subsidies.青年创业促进计划启动资金贷款
+    old: null（创业补贴新方向试点前未收录）
+    new: 在川创业 3 年内、18—40 岁青年，3—10 万元免利息、免担保、免抵押创业启动资金贷款
+    basis: 川办规〔2025〕6号第（一）条（同上来源）
+  - date: '2026-11-11'
+    field: subsidies.海外留学回国人才创办企业资助
+    old: null（创业补贴新方向试点前未收录）
+    new: 通过评审的海外留学回国人才创办企业，按重点类、优秀类、启动类分别给予 30 万元、20 万元、10 万元资助
+    basis: 川办规〔2025〕6号第（十）条（同上来源）
+  - date: '2026-11-11'
+    field: subsidies.国家级创新创业大赛落地补贴
+    old: null（创业补贴新方向试点前未收录）
+    new: 国家级大赛金、银、铜奖并在川落地 6 个月以上的创业项目，最高 30 万元落地补贴
+    basis: 川办规〔2025〕6号第（十二）条（同上来源）
+  - date: '2026-11-11'
+    field: subsidies.创业场地支持
+    old: null（创业补贴新方向试点前未收录）
+    new: 政府投资创业载体安排 30% 左右场地免费提供给高校毕业生创业者；孵化载体租金减免与奖补只记规则、金额未明示
+    basis: 国务院办公厅《关于进一步支持大学生创新创业的指导意见》http://www.moe.gov.cn/jyb_xxgk/moe_1777/moe_1778/202110/t20211013_571909.html；川办规〔2025〕6号第（十三）条
+  - date: '2026-11-11'
+    field: subsidies.大学生创业吸纳就业奖励
+    old: null（创业补贴新方向试点前未收录）
+    new: needs_human：招用 3 人以下每人 2000 元、3 人以上每增加 1 人 3000 元、总额最高 10 万元（2024 年口径，现行有效性待核）
+    basis: 教育部官网 2024-05-10 引述成都市就业局创业促进处处长原话 http://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/2024/2024_zt01/mtjj/202405/t20240510_1129812.html

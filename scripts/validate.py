@@ -29,7 +29,7 @@ from resident_statistics import validate_metadata
 TOP_KEYS = ("city", "province", "maintainers", "last_patrol", "hukou", "subsidies",
             "social_security", "living", "flexible_employment", "civil_service", "commute",
             "pitfalls", "changelog")
-SUBSIDY_TYPES = {"living", "rent", "housing_purchase", "other"}
+SUBSIDY_TYPES = {"living", "rent", "housing_purchase", "other", "entrepreneurship"}
 PERIODS = {"once", "month", "year"}
 SOURCE_TYPES = {"gov", "gov_account", "media"}
 NAME_RE = re.compile(r"^[a-z]+$")
