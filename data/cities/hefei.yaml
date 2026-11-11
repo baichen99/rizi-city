@@ -228,7 +228,7 @@ changelog:
     new: 医保月缴最低 261.24（6% 测算）、每月合计最低 1132.04
     basis: 《合肥市基本医疗保险办法》（市政府令第213号）第九条第（二）项原文「灵活就业人员以省平均工资的百分之六十作为缴费基数，按照百分之六的比例缴纳」，司法部官网全文页逐字核读 https://www.moj.gov.cn/pub/sfbgw/flfggz/flfggzdfzwgz/202304/t20230426_477778.html；2024 年令第223号修订未改第九条（修订内容为个人账户家庭共济、灵活就业新增生育补助金等）；基数下限 4354 据安徽省五部门 2026 年通知；大病保险为同步待遇、无另行收费，职工医疗救助保险费自 2022 年起停征
   - date: '2026-11-11'
-    field: flexible_employment.hukou_restriction/hukou_source_url/needs_human_reason
+    field: flexible_employment（养老户籍说明、来源与缺口）
     old: 户籍条件和来源为空，养老与医保办理缺口未分开
     new: 补入安徽省养老参保地与证件规则；医保材料及本地入口仍待核，综合布尔值继续留空
     basis: 皖人社发〔2021〕17号第三条及第六条，淮北市人社局官方全文 https://rsj.huaibei.gov.cn/gzdt/gfxwj/56894861.html 与天长市政府原始PDF https://www.tja.gov.cn/group1/M00/0A/9B/rB406mGLPQWAN2LjAAOk_iARS6A339.pdf 均实际核读。文件自2021-09-26下发执行，未列截止日；六安市2026-08-07官方问答第11问 https://sgj.luan.gov.cn/zwzx/ztzl/zwzbwd/5495284.html 旁证户籍开放仍执行，不将六安办理入口当成合肥入口，不将旧年龄上限外推到2026。仅本领域核验，last_patrol及缴费数值不变。
