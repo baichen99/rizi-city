@@ -2161,9 +2161,9 @@
      "lead_url": "https://chinajob.mohrss.gov.cn/h5/c/2026-06-02/550812.shtml"
     },
     {
-     "name": "一次性创业补贴",
+     "name": "一次性创业补贴（分段补贴）",
      "type": "entrepreneurship",
-     "amount": "第一阶段 5000 元（正常运营 6 个月以上）；第二阶段 5000 元（持续运营 18 个月及以上），吸纳就业 2 人及以上 10000 元；新政补贴 20000 元（2025-10-14 后首次登记的离校 5 年内高校毕业生，持续运营 36 个月及以上且吸纳就业 3 人及以上）；合计最高 35000 元",
+     "amount": "第一阶段 5000 元（正常运营 6 个月以上）；第二阶段 5000 元（持续运营 18 个月及以上），符合吸纳就业条件的第二阶段为 10000 元；两阶段合计最高 15000 元",
      "amount_by_degree": {
       "associate": null,
       "bachelor": null,
@@ -2175,15 +2175,48 @@
      "payout": "分阶段申领",
      "target": "在四川省内首次创办小微企业或从事个体经营、登记注册地址在成都市范围、正常运营 6 个月以上，且为离校 5 年内高校毕业生、就业困难人员、返乡农民工、自主就业退役士兵之一并实际参与实体经济运营的法定代表人或个体经营者",
      "conditions": [
-      "第一阶段须在工商登记注册之日起 2 年内申请；新政补贴须在注册之日起 36 个月后的 1 年内申请，逾期不予受理",
-      "此前已享受过一次性创业补贴政策的，不再重复享受；离校 5 年内高校毕业生申领第一、第二阶段后如符合条件可同时享受新政补贴",
+      "第一阶段须在工商登记注册之日起 2 年内申请，逾期不予受理",
+      "第二阶段申领 10000 元须吸纳就业 2 人及以上，签订 1 年以上劳动合同并连续实缴社会保险 3 个月及以上",
+      "此前已享受过一次性创业补贴政策的，不再重复享受；离校 5 年内高校毕业生申领第一、第二阶段后如符合条件可同时享受另列的新政补贴",
       "申请对象已持续正常运营 18 个月以上，可一次性申请第一、二阶段创业补贴"
      ],
-     "deadline_rule": "第一阶段须在注册之日起 2 年内申请；新政补贴须在注册 36 个月后的 1 年内申请",
+     "deadline_rule": "第一阶段须在注册之日起 2 年内申请；分段补贴政策有效期至 2027-12-31",
      "policy_name": "《成都市人力资源和社会保障局关于做好创业补贴经办服务工作的通知》（成人社办发〔2026〕13号）",
      "source_url": "https://cdhrss.chengdu.gov.cn/cdrsj/c109727/2026-04/20/247135d3797a4e979c656a6eeb879c2b/files/41964d7c86034ff6b7cdcaba4652adb8.pdf",
      "source_date": "2026-04-01",
      "valid_until": "2027-12-31",
+     "verified_at": "2026-11-11",
+     "needs_human": false,
+     "needs_human_reason": null,
+     "access_blocked": false,
+     "lead": null,
+     "lead_url": null
+    },
+    {
+     "name": "一次性创业补贴（新政补贴）",
+     "type": "entrepreneurship",
+     "amount": "新政补贴 20000 元；符合条件者可与分段补贴同时享受，两类合计最高 35000 元",
+     "amount_by_degree": {
+      "associate": null,
+      "bachelor": null,
+      "master": null,
+      "phd": null
+     },
+     "period": null,
+     "periods_max": null,
+     "payout": "符合条件后申领",
+     "target": "2025-10-14 后在四川省内首次创办小微企业或从事个体经营、登记注册地址在成都市范围的离校 5 年内高校毕业生，并实际参与实体经济运营的法定代表人或个体经营者",
+     "conditions": [
+      "持续正常运营 36 个月及以上，吸纳就业 3 人及以上，签订 1 年以上劳动合同并连续实缴社会保险 3 个月及以上",
+      "须在工商登记注册之日起 36 个月后的 1 年内申请，逾期不予受理",
+      "申领分段补贴后如符合条件可同时享受新政补贴，不代表每位申请人均可取得最高合计金额",
+      "新政补贴持续执行至相关新文件出台，原文未列固定截止日期；不适用分段补贴的 2027-12-31 截止日"
+     ],
+     "deadline_rule": "须在注册之日起 36 个月后的 1 年内申请；政策持续执行至相关新文件出台",
+     "policy_name": "《成都市人力资源和社会保障局关于做好创业补贴经办服务工作的通知》（成人社办发〔2026〕13号）",
+     "source_url": "https://cdhrss.chengdu.gov.cn/cdrsj/c109727/2026-04/20/247135d3797a4e979c656a6eeb879c2b/files/41964d7c86034ff6b7cdcaba4652adb8.pdf",
+     "source_date": "2026-04-01",
+     "valid_until": null,
      "verified_at": "2026-11-11",
      "needs_human": false,
      "needs_human_reason": null,
@@ -2206,7 +2239,9 @@
      "payout": null,
      "target": "符合条件的个人创业者与小微企业",
      "conditions": [
-      "合伙创业额度细则未入库（不同来源口径有出入，待核）"
+      "合伙创业额度细则未入库（不同来源口径有出入，待核）",
+      "贷款须经资格审核、担保及银行审批；展期、逾期贷款原则上不予贴息",
+      "川财金〔2025〕30号增强额度及贴息政策适用于 2025-04-01 至 2027-12-31 新发放的创业担保贷款"
      ],
      "deadline_rule": null,
      "policy_name": "《支持创业带动就业的若干政策措施》（川办规〔2025〕6号，四川省政策，成都市执行）",
@@ -2277,7 +2312,7 @@
     {
      "name": "国家级创新创业大赛落地补贴",
      "type": "entrepreneurship",
-     "amount": "获得国家级创新创业大赛金、银、铜奖（或前三等相当奖项）并在川落地发展 6 个月以上（含 6 个月）的创业项目，最高 30 万元创业项目落地补贴",
+     "amount": "获得国家级创新创业大赛金、银、铜奖（或前三等相当奖项）并在川落地发展 6 个月以上（含 6 个月）的创业项目，有条件的地方可给予最高 30 万元创业项目落地补贴；成都市具体实施及申领条件待核",
      "amount_by_degree": {
       "associate": null,
       "bachelor": null,
@@ -2288,15 +2323,17 @@
      "periods_max": null,
      "payout": null,
      "target": "国家级创新创业大赛获奖并在川落地的创业项目",
-     "conditions": [],
+     "conditions": [
+      "是否实施及具体补贴标准、申报条件须以当地配套政策为准"
+     ],
      "deadline_rule": null,
-     "policy_name": "《支持创业带动就业的若干政策措施》（川办规〔2025〕6号，四川省政策，成都市执行）",
+     "policy_name": "《支持创业带动就业的若干政策措施》（川办规〔2025〕6号，省级指导政策）",
      "source_url": "https://www.sc.gov.cn/10462/zfwjts/2025/4/30/8cfd69628c9a4483a6144495307192bd.shtml",
      "source_date": "2025-04-30",
      "valid_until": "2027-12-31",
      "verified_at": "2026-11-11",
-     "needs_human": false,
-     "needs_human_reason": null,
+     "needs_human": true,
+     "needs_human_reason": "省级原文规定有条件的地方可给予补贴，尚未核实成都市具体实施政策和申领条件",
      "access_blocked": false,
      "lead": null,
      "lead_url": null
@@ -2522,7 +2559,7 @@
      "date": "2026-11-11",
      "field": "subsidies.一次性创业补贴",
      "old": "null（创业补贴新方向试点前未收录）",
-     "new": "分段补贴：第一阶段 5000 元，第二阶段 5000 元（吸纳就业 2 人及以上 10000 元），新政补贴 20000 元，合计最高 35000 元；有效期至 2027-12-31",
+     "new": "分段补贴：第一阶段 5000 元，第二阶段 5000 元（吸纳就业 2 人及以上 10000 元），新政补贴 20000 元，两类合计最高 35000 元；按有效期分为两条：分段补贴至 2027-12-31，新政补贴持续至相关新文件出台；就业挂钩金额须满足 1 年以上劳动合同及连续实缴社保 3 个月及以上条件",
      "basis": "成人社办发〔2026〕13号全文（成都市人社局官网 PDF）https://cdhrss.chengdu.gov.cn/cdrsj/c109727/2026-04/20/247135d3797a4e979c656a6eeb879c2b/files/41964d7c86034ff6b7cdcaba4652adb8.pdf"
     },
     {
@@ -2530,7 +2567,7 @@
      "field": "subsidies.创业担保贷款及贴息",
      "old": "null（创业补贴新方向试点前未收录）",
      "new": "个人最高 50 万元（≤3 年）、小微企业最高 600 万元（≤2 年），财政贴息贷款实际利率 50%",
-     "basis": "川办规〔2025〕6号原文（四川省政府官网，附件 PDF 全文逐页核读）https://www.sc.gov.cn/10462/zfwjts/2025/4/30/8cfd69628c9a4483a6144495307192bd.shtml；贴息 50% 据财政部《普惠金融发展专项资金管理办法》第八条（国家规定，川办规6号原文仅写\"按照国家有关规定贴息\"）与遂宁市政府站核实"
+     "basis": "川办规〔2025〕6号原文 https://www.sc.gov.cn/10462/zfwjts/2025/4/30/8cfd69628c9a4483a6144495307192bd.shtml；贴息 50%（含增强额度部分）与 2025-04-01 至 2027-12-31 新发放贷款适用期据川财金〔2025〕30号第一条 https://czt.sc.gov.cn/scczt/qtwj/2025/6/13/9ec9205f80bd41349858893283cfc80a/files/关于落实支持创业带动就业的财政金融政策有关事项的通知.pdf；期限、累计次数及审批要求据财金〔2023〕75号第八、十、十一条 https://www.mof.gov.cn/jrttts/202309/t20230914_3907222.htm"
     },
     {
      "date": "2026-11-11",
@@ -2550,7 +2587,7 @@
      "date": "2026-11-11",
      "field": "subsidies.国家级创新创业大赛落地补贴",
      "old": "null（创业补贴新方向试点前未收录）",
-     "new": "国家级大赛金、银、铜奖并在川落地 6 个月以上的创业项目，最高 30 万元落地补贴",
+     "new": "国家级大赛金、银、铜奖并在川落地 6 个月以上的创业项目，有条件的地方可给予最高 30 万元落地补贴；成都具体实施待核，标为 needs_human",
      "basis": "川办规〔2025〕6号第（十二）条（四川省政府官网原文，见上）"
     },
     {
@@ -2596,7 +2633,16 @@
        "reason": "仅有线索，未找到官方原文"
       },
       {
-       "index": 7,
+       "index": 6,
+       "name": "国家级创新创业大赛落地补贴",
+       "type": "entrepreneurship",
+       "per": null,
+       "period": null,
+       "total": null,
+       "reason": "省级原文规定有条件的地方可给予补贴，尚未核实成都市具体实施政策和申领条件"
+      },
+      {
+       "index": 8,
        "name": "大学生创业吸纳就业奖励",
        "type": "entrepreneurship",
        "per": null,
@@ -2624,7 +2670,16 @@
        "reason": "仅有线索，未找到官方原文"
       },
       {
-       "index": 7,
+       "index": 6,
+       "name": "国家级创新创业大赛落地补贴",
+       "type": "entrepreneurship",
+       "per": null,
+       "period": null,
+       "total": null,
+       "reason": "省级原文规定有条件的地方可给予补贴，尚未核实成都市具体实施政策和申领条件"
+      },
+      {
+       "index": 8,
        "name": "大学生创业吸纳就业奖励",
        "type": "entrepreneurship",
        "per": null,
@@ -2652,7 +2707,16 @@
        "reason": "仅有线索，未找到官方原文"
       },
       {
-       "index": 7,
+       "index": 6,
+       "name": "国家级创新创业大赛落地补贴",
+       "type": "entrepreneurship",
+       "per": null,
+       "period": null,
+       "total": null,
+       "reason": "省级原文规定有条件的地方可给予补贴，尚未核实成都市具体实施政策和申领条件"
+      },
+      {
+       "index": 8,
        "name": "大学生创业吸纳就业奖励",
        "type": "entrepreneurship",
        "per": null,
@@ -2680,7 +2744,16 @@
        "reason": "仅有线索，未找到官方原文"
       },
       {
-       "index": 7,
+       "index": 6,
+       "name": "国家级创新创业大赛落地补贴",
+       "type": "entrepreneurship",
+       "per": null,
+       "period": null,
+       "total": null,
+       "reason": "省级原文规定有条件的地方可给予补贴，尚未核实成都市具体实施政策和申领条件"
+      },
+      {
+       "index": 8,
        "name": "大学生创业吸纳就业奖励",
        "type": "entrepreneurship",
        "per": null,
@@ -2692,7 +2765,7 @@
     }
    },
    "latest_verified": "2026-11-11",
-   "needs_human_count": 2,
+   "needs_human_count": 3,
    "index": {
     "rent": {
      "value": 0.1918,
@@ -2901,15 +2974,15 @@
     "medical_note": "重庆 2026 年度灵活就业职工医保按年缴费，一档 3105 元/年（基本医疗 2484 + 大额医疗 621），折合每月 258.75 元；正常参保须在 2026-03-31 前按年一次性缴清",
     "monthly_total_min": 1169.35,
     "calc": "养老 4553 × 20% = 910.60；医保一档 3105 ÷ 12 = 258.75；合计 1169.35 元/月",
-    "hukou_restriction": null,
-    "nonlocal_allowed": null,
-    "apply_channel": "税务部门渠道缴费；医保按年一次性缴纳",
+    "hukou_restriction": "养老不受户籍限制（外省户口凭身份证+居住证办理）；医保市外户籍可参加，首次参保或断缴超 3 个月再参保时男未满 63 周岁、女未满 58 周岁，且未在市外办理养老退休",
+    "nonlocal_allowed": true,
+    "apply_channel": "养老：线上「重庆人社」App，线下社保办事大厅或社银合作网点（本市户口凭身份证，外省户口凭身份证+居住证）；医保按年一次性缴纳，税务部门渠道缴费",
     "source_url": "https://rlsbj.cq.gov.cn/zwgk_182/zcjd/shbz/202610/t20261028_16310707.html",
     "medical_source_url": "https://www.cq.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zdmsxx/yl/yl_ssqk/202601/t20260105_15289547.html",
-    "hukou_source_url": null,
-    "verified_at": "2026-11-09",
+    "hukou_source_url": "https://ylbzj.cq.gov.cn/zwgk_535/zcjd/wzjd/202506/t20250611_14704442.html",
+    "verified_at": "2026-11-11",
     "needs_human": false,
-    "needs_human_reason": "养老缴费比例 20% 取自中国政府网全国通行说明（https://www.gov.cn/yaowen/liebiao/202305/content_6855917.htm）；外地户籍参保条件未找到重庆官方表述",
+    "needs_human_reason": "养老缴费比例 20% 取自中国政府网全国通行说明（https://www.gov.cn/yaowen/liebiao/202305/content_6855917.htm）",
     "access_blocked": false
    },
    "civil_service": {
@@ -2979,6 +3052,13 @@
      "old": null,
      "new": "补充2025全年城镇常住居民口径（32764元），初步数；原值不变，范围为全市而非主城区。",
      "basis": "重庆2025统计公报第九节、注释1及数据来源说明 https://tjj.cq.gov.cn/zwgk_233/fdzdgknr/tjxx/sjjd_55469/202603/t20260326_15568538.html；国家统计局统一住户调查方法 https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html"
+    },
+    {
+     "date": "2026-11-11",
+     "field": "flexible_employment.hukou_restriction/nonlocal_allowed/apply_channel",
+     "old": "null（未核实）",
+     "new": "养老不受户籍限制（外省户口凭身份证+居住证），医保市外户籍可参加（首次参保或断缴超 3 个月再参保时男未满 63 周岁、女未满 58 周岁，且未在市外办理养老退休）",
+     "basis": "重庆市政府网（市人社局 12333 咨询日报道，2024-04-01）原文「可自愿申请参加我市城镇企业职工基本养老保险（没有户籍限制）」，外省户口需身份证+居住证 https://cq.gov.cn/zwgk/zfxxgkml/hygq/202404/t20240401_13098235.html；重庆市医保局《〈重庆市健全基本医疗保险参保长效机制的实施方案〉政策解读》（2025-06-11）原文「明确市外户籍人员以个人身份参加我市职工医保年龄放宽到男未满 63 周岁、女未满 58 周岁」https://ylbzj.cq.gov.cn/zwgk_535/zcjd/wzjd/202506/t20250611_14704442.html（渝府办发〔2025〕35号同步确认）"
     }
    ],
    "id": "chongqing",
