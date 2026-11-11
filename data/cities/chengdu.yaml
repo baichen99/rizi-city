@@ -82,7 +82,7 @@ subsidies:
       - 合伙创业额度细则未入库（不同来源口径有出入，待核）
     deadline_rule: null
     policy_name: 《支持创业带动就业的若干政策措施》（川办规〔2025〕6号，四川省政策，成都市执行）
-    source_url: https://www.longquanyi.gov.cn/lqyqzfmhwz_gb/c150667/2026-04/08/587f23be2e0c41f387f90bdff467bccd/files/171e3defad204d409466587b57c9c7e4.pdf
+    source_url: https://www.sc.gov.cn/10462/zfwjts/2025/4/30/8cfd69628c9a4483a6144495307192bd.shtml
     source_date: 2025-04-30
     valid_until: 2027-12-31
     verified_at: 2026-11-11
@@ -102,7 +102,7 @@ subsidies:
     conditions: []
     deadline_rule: null
     policy_name: 《支持创业带动就业的若干政策措施》（川办规〔2025〕6号，四川省政策，成都市执行）
-    source_url: https://www.longquanyi.gov.cn/lqyqzfmhwz_gb/c150667/2026-04/08/587f23be2e0c41f387f90bdff467bccd/files/171e3defad204d409466587b57c9c7e4.pdf
+    source_url: https://www.sc.gov.cn/10462/zfwjts/2025/4/30/8cfd69628c9a4483a6144495307192bd.shtml
     source_date: 2025-04-30
     valid_until: 2027-12-31
     verified_at: 2026-11-11
@@ -122,7 +122,7 @@ subsidies:
     conditions: []
     deadline_rule: null
     policy_name: 《支持创业带动就业的若干政策措施》（川办规〔2025〕6号，四川省政策，成都市执行）
-    source_url: https://www.longquanyi.gov.cn/lqyqzfmhwz_gb/c150667/2026-04/08/587f23be2e0c41f387f90bdff467bccd/files/171e3defad204d409466587b57c9c7e4.pdf
+    source_url: https://www.sc.gov.cn/10462/zfwjts/2025/4/30/8cfd69628c9a4483a6144495307192bd.shtml
     source_date: 2025-04-30
     valid_until: 2027-12-31
     verified_at: 2026-11-11
@@ -142,7 +142,7 @@ subsidies:
     conditions: []
     deadline_rule: null
     policy_name: 《支持创业带动就业的若干政策措施》（川办规〔2025〕6号，四川省政策，成都市执行）
-    source_url: https://www.longquanyi.gov.cn/lqyqzfmhwz_gb/c150667/2026-04/08/587f23be2e0c41f387f90bdff467bccd/files/171e3defad204d409466587b57c9c7e4.pdf
+    source_url: https://www.sc.gov.cn/10462/zfwjts/2025/4/30/8cfd69628c9a4483a6144495307192bd.shtml
     source_date: 2025-04-30
     valid_until: 2027-12-31
     verified_at: 2026-11-11
@@ -337,22 +337,22 @@ changelog:
     field: subsidies.创业担保贷款及贴息
     old: null（创业补贴新方向试点前未收录）
     new: 个人最高 50 万元（≤3 年）、小微企业最高 600 万元（≤2 年），财政贴息贷款实际利率 50%
-    basis: 川办规〔2025〕6号全文（龙泉驿区政府站转载的省政府文件 PDF）https://www.longquanyi.gov.cn/lqyqzfmhwz_gb/c150667/2026-04/08/587f23be2e0c41f387f90bdff467bccd/files/171e3defad204d409466587b57c9c7e4.pdf；贴息 50% 另据财政部《普惠金融发展专项资金管理办法》与遂宁市政府站核实
+    basis: 川办规〔2025〕6号原文（四川省政府官网，附件 PDF 全文逐页核读）https://www.sc.gov.cn/10462/zfwjts/2025/4/30/8cfd69628c9a4483a6144495307192bd.shtml；贴息 50% 据财政部《普惠金融发展专项资金管理办法》第八条（国家规定，川办规6号原文仅写"按照国家有关规定贴息"）与遂宁市政府站核实
   - date: '2026-11-11'
     field: subsidies.青年创业促进计划启动资金贷款
     old: null（创业补贴新方向试点前未收录）
     new: 在川创业 3 年内、18—40 岁青年，3—10 万元免利息、免担保、免抵押创业启动资金贷款
-    basis: 川办规〔2025〕6号第（一）条（同上来源）
+    basis: 川办规〔2025〕6号第（一）条（四川省政府官网原文，见上）
   - date: '2026-11-11'
     field: subsidies.海外留学回国人才创办企业资助
     old: null（创业补贴新方向试点前未收录）
     new: 通过评审的海外留学回国人才创办企业，按重点类、优秀类、启动类分别给予 30 万元、20 万元、10 万元资助
-    basis: 川办规〔2025〕6号第（十）条（同上来源）
+    basis: 川办规〔2025〕6号第（十）条（四川省政府官网原文，见上）
   - date: '2026-11-11'
     field: subsidies.国家级创新创业大赛落地补贴
     old: null（创业补贴新方向试点前未收录）
     new: 国家级大赛金、银、铜奖并在川落地 6 个月以上的创业项目，最高 30 万元落地补贴
-    basis: 川办规〔2025〕6号第（十二）条（同上来源）
+    basis: 川办规〔2025〕6号第（十二）条（四川省政府官网原文，见上）
   - date: '2026-11-11'
     field: subsidies.创业场地支持
     old: null（创业补贴新方向试点前未收录）
