@@ -4958,20 +4958,20 @@
     "pension_rate": 20,
     "pension_year": "2026（2026-01-01至2026-12-31）",
     "pension_base_source_url": "https://rsj.huaibei.gov.cn/gzdt/gfxwj/58052711.html",
-    "pension_note": "灵活就业养老可在2026年4354–21772元区间自选，20%比例按下限计算870.80元/月；不要将养老金额误作医保已核实。",
-    "medical_monthly_min": null,
-    "medical_note": "官方2026省级通知确认灵活就业职工医保统一按下限4354元为基数。中国就业网2021-11-24政策报道载明2022起基本医保6%、不建个人账户且不再单独征收职工医疗救助保险费；按这项既有规则计算的261.24元仅为待核参考，尚未完整核读2024修订现行条文及2026全部缴费口径，医保月缴与合计暂留空，不将未知附加费当作已有收费。2027-01-01才施行的新省方案不提前套用。",
-    "monthly_total_min": null,
-    "calc": null,
+    "pension_note": "灵活就业养老可在2026年4354–21772元区间自选，20%比例按下限计算870.80元/月。",
+    "medical_monthly_min": 261.24,
+    "medical_note": "合肥市医保口径：灵活就业职工医保按省平均工资 60% 为基数、费率 6%，不建个人账户；按下限 4354 元测算 261.24 元/月。费率据《合肥市基本医疗保险办法》（市政府令第 213 号）第九条第（二）项原文，司法部官网全文页逐字核读（2026-11-11）；2024 年令第 223 号修订未改第九条费率。大病保险为同步待遇、无另行收费；职工医疗救助保险费自 2022 年起停止征收；无大额医疗单独收费",
+    "monthly_total_min": 1132.04,
+    "calc": "养老 4354 × 20% = 870.80；医保 4354 × 6% = 261.24（基数×费率测算，基数下限据安徽省五部门 2026 年通知）；合计 1132.04 元/月",
     "hukou_restriction": null,
     "nonlocal_allowed": null,
     "apply_channel": null,
     "source_url": "https://chinajob.mohrss.gov.cn/c/2021-12-07/334418.shtml",
-    "medical_source_url": "https://chinajob.mohrss.gov.cn/h5/c/2021-11-24/332111.shtml",
+    "medical_source_url": "https://www.moj.gov.cn/pub/sfbgw/flfggz/flfggzdfzwgz/202304/t20230426_477778.html",
     "hukou_source_url": null,
-    "verified_at": "2026-11-10",
+    "verified_at": "2026-11-11",
     "needs_human": true,
-    "needs_human_reason": "养老基数与20%比例已核；2026医保现行修订原文、全部缴费口径及外地户籍最新办理条件未完整核实，医保月缴和每月最低合计保留缺口。",
+    "needs_human_reason": "外地户籍最新办理条件未完整核实；医保月缴已按 2024 修订后现行条文核实（见 medical_note）。",
     "access_blocked": false
    },
    "civil_service": {
@@ -5106,6 +5106,13 @@
      "old": "收入和消费均缺失，原来源521，整段待核",
      "new": "收入由可读取官方汇编核实，needs_human_fields仅标消费；消费保持null，last_patrol不变",
      "basis": "当前收入来源可读取，access_blocked改为false不表示原受限站点恢复；保留原统计局521及本次瑶海区2024公报PDF403的事实，不重试或绕过。消费缺少合格证据，仍需人工补齐。旧有非空数值、房租及其他领域不变。"
+    },
+    {
+     "date": "2026-11-11",
+     "field": "flexible_employment.medical_monthly_min/monthly_total_min",
+     "old": "null（2024 修订条文未核读，月缴留空）",
+     "new": "医保月缴最低 261.24（6% 测算）、每月合计最低 1132.04",
+     "basis": "《合肥市基本医疗保险办法》（市政府令第213号）第九条第（二）项原文「灵活就业人员以省平均工资的百分之六十作为缴费基数，按照百分之六的比例缴纳」，司法部官网全文页逐字核读 https://www.moj.gov.cn/pub/sfbgw/flfggz/flfggzdfzwgz/202304/t20230426_477778.html；2024 年令第223号修订未改第九条（修订内容为个人账户家庭共济、灵活就业新增生育补助金等）；基数下限 4354 据安徽省五部门 2026 年通知；大病保险为同步待遇、无另行收费，职工医疗救助保险费自 2022 年起停征"
     }
    ],
    "id": "hefei",
