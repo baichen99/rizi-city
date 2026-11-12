@@ -109,15 +109,15 @@ flexible_employment:
   medical_note: 合肥市医保口径：灵活就业职工医保按省平均工资 60% 为基数、费率 6%，不建个人账户；按下限 4354 元测算 261.24 元/月。费率据《合肥市基本医疗保险办法》（市政府令第 213 号）第九条第（二）项原文，司法部官网全文页逐字核读（2026-11-11）；2024 年令第 223 号修订未改第九条费率。大病保险为同步待遇、无另行收费；职工医疗救助保险费自 2022 年起停止征收；无大额医疗单独收费
   monthly_total_min: 1132.04
   calc: 养老 4354 × 20% = 870.80；医保 4354 × 6% = 261.24（基数×费率测算，基数下限据安徽省五部门 2026 年通知）；合计 1132.04 元/月
-  hukou_restriction: null
+  hukou_restriction: 养老：按安徽省规定，符合条件的省内户籍灵活就业人员凭有效身份证件，可选户籍地、就业地或居住地；省外户籍凭有效身份证件可选就业地或居住地；港澳台籍凭港澳台居民居住证在就业地或居住地参保。经办不得以户籍性质、地域范围、居住证明或灵活就业证明等限制养老参保。以上不等于无年龄或账户条件，也不代表医保办理条件已全部核实。
   nonlocal_allowed: null
   apply_channel: null
   source_url: https://chinajob.mohrss.gov.cn/c/2021-12-07/334418.shtml
   medical_source_url: https://www.moj.gov.cn/pub/sfbgw/flfggz/flfggzdfzwgz/202304/t20230426_477778.html
-  hukou_source_url: null
+  hukou_source_url: https://rsj.huaibei.gov.cn/gzdt/gfxwj/56894861.html
   verified_at: 2026-11-11
   needs_human: true
-  needs_human_reason: 外地户籍最新办理条件未完整核实；医保月缴已按 2024 修订后现行条文核实（见 medical_note）。
+  needs_human_reason: 已补省内外户籍养老参保地及证件规则；合肥医保现行完整参保材料和本地办理入口仍未核实，nonlocal_allowed与apply_channel继续留空。养老参保年龄及临时账户按现行规则另核，不直接沿用2021年年龄上限；本次不改此前核验的缴费金额。
   access_blocked: false
 
 civil_service:
@@ -227,3 +227,8 @@ changelog:
     old: null（2024 修订条文未核读，月缴留空）
     new: 医保月缴最低 261.24（6% 测算）、每月合计最低 1132.04
     basis: 《合肥市基本医疗保险办法》（市政府令第213号）第九条第（二）项原文「灵活就业人员以省平均工资的百分之六十作为缴费基数，按照百分之六的比例缴纳」，司法部官网全文页逐字核读 https://www.moj.gov.cn/pub/sfbgw/flfggz/flfggzdfzwgz/202304/t20230426_477778.html；2024 年令第223号修订未改第九条（修订内容为个人账户家庭共济、灵活就业新增生育补助金等）；基数下限 4354 据安徽省五部门 2026 年通知；大病保险为同步待遇、无另行收费，职工医疗救助保险费自 2022 年起停征
+  - date: '2026-11-11'
+    field: flexible_employment（养老户籍说明、来源与缺口）
+    old: 户籍条件和来源为空，养老与医保办理缺口未分开
+    new: 补入安徽省养老参保地与证件规则；医保材料及本地入口仍待核，综合布尔值继续留空
+    basis: 皖人社发〔2021〕17号第三条及第六条，淮北市人社局官方全文 https://rsj.huaibei.gov.cn/gzdt/gfxwj/56894861.html 与天长市政府原始PDF https://www.tja.gov.cn/group1/M00/0A/9B/rB406mGLPQWAN2LjAAOk_iARS6A339.pdf 均实际核读。文件自2021-09-26下发执行，未列截止日；六安市2026-08-07官方问答第11问 https://sgj.luan.gov.cn/zwzx/ztzl/zwzbwd/5495284.html 旁证户籍开放仍执行，不将六安办理入口当成合肥入口，不将旧年龄上限外推到2026。仅本领域核验，last_patrol及缴费数值不变。
