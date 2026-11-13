@@ -8705,15 +8705,15 @@
     "medical_note": "沈阳市医保局口径（2025-12-01 起）：灵活就业医保以上年全口径平均工资 8076 元为基数、费率 6%，月缴费标准 484.56 元（官方原文直接给出）；另须同时参加职工大额医疗费用补助保险，每人每年 132 元（每年首次缴医保费时一并缴纳）",
     "monthly_total_min": 1391.16,
     "calc": "养老 906.6（辽人社〔2026〕19号附表 60% 档：基数 4533 × 20%）；医保 484.56（基数 8076 × 6%）；合计 1391.16 元/月（另有大额补助 132 元/年）",
-    "hukou_restriction": null,
-    "nonlocal_allowed": null,
-    "apply_channel": null,
+    "hukou_restriction": "养老、医保均已放开就业地户籍限制；外省户籍凭居住证可在沈阳参保（养老在就业地/居住证所在地，医保在户籍地或就业地/居住证所在地）；医保自 2022 年修订后不再要求先参加养老保险",
+    "nonlocal_allowed": true,
+    "apply_channel": "医保：持身份证、居住证原件到就近医保中心办理，也可通过「沈阳智慧医保」掌上渠道、政务服务网个人网厅、辽事通线上办理（养老参保登记渠道未单独核实）",
     "source_url": "https://rst.ln.gov.cn/rst/zfxx/fdzdgknr/lzyj/rstgfxwj/lrs/2026083110175583355/index.shtml",
     "medical_source_url": "https://ybj.shenyang.gov.cn/zwgk/fdzdgknr/tzgg/202511/t20251125_4943248.html",
-    "hukou_source_url": null,
-    "verified_at": "2026-11-09",
-    "needs_human": true,
-    "needs_human_reason": "外地户籍能否以灵活就业身份在沈阳参保（养老、医保）尚未核实；养老附表金额（906.6）与医保月缴额（484.56）均已在官方原文核实。",
+    "hukou_source_url": "https://rst.ln.gov.cn/rst/zfxx/fdzdgknr/lzyj/rstgfxwj/lrsf/10F2F6FC5410413AA12C762B2766D78F/index.shtml",
+    "verified_at": "2026-11-13",
+    "needs_human": false,
+    "needs_human_reason": null,
     "access_blocked": false
    },
    "civil_service": {
@@ -8813,11 +8813,18 @@
      "basis": "考公考编专项巡检；官方公告或报考指南 https://www.fuxin.gov.cn/content/2026/1038905.html；2026辽宁事业单位统招（历史） https://rsj.fuxin.gov.cn/content/2026/1039920.html"
     },
     {
-     "date": "2026-11-10",
-     "field": "living.statistical_metadata",
-     "old": null,
-     "new": "收入58297元、消费44505元补充2025全年全市城镇常住居民比较口径，原值不变，均标记初步数",
-     "basis": "公报第十一节明确全年全市，城镇收支同句且与农村分列；注释[1]为初步统计数，实际发布2026-05-19。公报 https://www.shenyang.gov.cn/zwgk/fdzdgknr/tjxx/tjgb/202605/t20260519_5027959.html；常住地及统一住户收支调查方法 https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmrj/202501/t20250121_1958392.html（未取得沈阳2025专项方法附件）。"
+     "date": "2026-11-13",
+     "field": "flexible_employment.hukou_restriction/nonlocal_allowed/apply_channel/hukou_source_url",
+     "old": "null（未核实）",
+     "new": "养老、医保均已放开就业地户籍限制，外省户籍凭居住证可在沈阳参保；医保自 2022 年修订后不再要求先参加养老保险",
+     "basis": "辽人社发〔2021〕19号第九条原文「放开灵活就业人员在就业地参加基本养老保险、基本医疗保险的户籍限制；外省户籍的灵活就业人员可自愿在我省就业地（居住证所在地）参加企业职工基本养老保险；灵活就业人员可选择在户籍地或我省就业地（居住证所在地）参加城镇职工基本医疗保险」https://rst.ln.gov.cn/rst/zfxx/fdzdgknr/lzyj/rstgfxwj/lrsf/10F2F6FC5410413AA12C762B2766D78F/index.shtml；沈医保发〔2022〕2号第二条「具有本市户籍或取得本市居住证的非本市户籍人员……可以灵活就业身份参加我市职工基本医疗保险」https://ybj.shenyang.gov.cn/zwgk/fdzdgknr/bmwj/202202/t20220217_2712744.html；市医保局《灵活就业人员基本医疗保险参保就医指南》（2026-10-22 更新）非本市户籍提供身份证、居住证原件 https://ybj.shenyang.gov.cn/bsfw/xzzx/202203/t20220311_2877309.html。辽人社〔2022〕22号全文未在省厅官网找到，未以转载文本替代。"
+    },
+    {
+     "date": "2026-11-13",
+     "field": "flexible_employment.needs_human/needs_human_reason",
+     "old": "true（外地户籍能否以灵活就业身份在沈阳参保尚未核实）",
+     "new": false,
+     "basis": "同上，养老、医保户籍规则均已按官网原文核实。"
     }
    ],
    "id": "shenyang",
@@ -8936,15 +8943,15 @@
      "reason": "通勤指标暂停用"
     },
     "social": {
-     "value": null,
-     "ok": false,
-     "reason": "灵活就业最少自缴额未核实"
+     "value": 0.2864,
+     "ok": true,
+     "reason": null
     }
    },
    "floor": {
     "rent": 673,
-    "social": null,
-    "total": null
+    "social": 1391.16,
+    "total": 2064
    },
    "life": {
     "schema_version": 1,
